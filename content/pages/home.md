@@ -47,8 +47,8 @@ cta:
       url: "#contact"
       icon: "fa-search"
       style: "primary"
-    - text: "Call Now: (732) 231-3095"
-      url: "tel:+17322313095"
+    - text: "Call Now: (973) 637-7079"
+      url: "tel:+19736377079"
       icon: "fa-phone"
       style: "white"
   guarantee:
