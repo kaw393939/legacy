@@ -1,8 +1,18 @@
 <section class="hero dark-context flex items-start justify-center" {% if page.hero and page.hero.image %}style="--bg-image: url('{{ page.hero.image }}');"{% endif %}>
     <div class="container">
         <div class="hero-content">
+            {% if page.hero.eyebrow %}
+            <p class="hero-eyebrow">{{ page.hero.eyebrow }}</p>
+            {% endif %}
             <h1 class="hero-title">{{ page.hero.title }}</h1>
             <p class="hero-subtitle">{{ page.hero.subtitle }}</p>
+            {% if page.hero.proof_points %}
+            <ul class="hero-proof-points" aria-label="Legacy Defenders proof points">
+                {% for item in page.hero.proof_points %}
+                <li><i class="fas fa-check" aria-hidden="true"></i>{{ item }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
             <div class="hero-buttons flex justify-center items-center flex-wrap">
                 {% if page.hero.cta_primary %}
                 <a href="{{ page.hero.cta_primary.url }}" class="btn btn-primary" data-cta="primary" data-section="hero" data-destination="{{ page.hero.cta_primary.url }}">

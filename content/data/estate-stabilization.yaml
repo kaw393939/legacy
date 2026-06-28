@@ -1,0 +1,40 @@
+estate_stabilization:
+  section_title: "Stabilize The House, Bills & Paper Trail"
+  section_subtitle: "An inherited home can keep creating expenses before the estate has cash. We help the executor understand the carrying costs, protect the property, document the work, and explore funding paths when there is equity but no liquidity."
+  note: "Legacy Defenders is not a law firm, tax preparer, lender, realtor, appraiser, or licensed trade contractor. We organize records, coordinate practical work, and help families prepare questions and scopes for the right professionals."
+  cards:
+    - id: property-maintenance
+      title: "Property Maintenance"
+      icon: "fa-house-lock"
+      description: "Vacant homes need attention while probate and family decisions unfold."
+      bullets:
+        - "Lawn, leaves, snow, access, and code-pressure checks"
+        - "Utility, leak, weather, pest, and safety observations"
+        - "Photo reports so the executor can see what is happening"
+
+    - id: carrying-costs
+      title: "Utilities, Mortgage & Carrying Costs"
+      icon: "fa-file-invoice-dollar"
+      description: "The house may need bills paid before the estate is ready to sell, rent, refinance, or distribute assets."
+      bullets:
+        - "Mortgage, tax, insurance, utility, and maintenance pressure review"
+        - "Urgent bill timeline and cash-flow questions identified"
+        - "Executor-ready notes for attorney, CPA, lender, or family review"
+
+    - id: pa-records
+      title: "PA Tax & Estate Records"
+      icon: "fa-folder-open"
+      description: "We help organize the house-side records that professionals may need for PA inheritance tax, estate accounting, sale prep, and reimbursement review."
+      bullets:
+        - "Receipts, invoices, scopes, photos, and vendor records"
+        - "Inventory, storage, donation, sale, and disposal logs"
+        - "Clear package for attorney, CPA, tax preparer, or executor review"
+
+    - id: equity-solutions
+      title: "Equity-Based Funding Paths"
+      icon: "fa-hand-holding-dollar"
+      description: "If there is value but no cash, we help prepare a practical scope and documentation package so financing and asset-sale options can be reviewed."
+      bullets:
+        - "Project budget and draw/milestone planning"
+        - "Sale-proceeds, estate funds, payment plan, third-party financing, vehicle sale, or personal-property sale questions"
+        - "Attorney and lender review before liens, loans, or repayment agreements"

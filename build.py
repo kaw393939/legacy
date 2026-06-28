@@ -224,7 +224,7 @@ class SiteBuilder:
             print("   ✓ Copied images/ directory")
         
         # Copy SEO and deployment files
-        seo_files = ['robots.txt', 'sitemap.xml', 'CNAME']
+        seo_files = ['robots.txt', 'sitemap.xml', 'CNAME', '.nojekyll']
         for seo_file in seo_files:
             src = self.static_dir / seo_file
             if src.exists():

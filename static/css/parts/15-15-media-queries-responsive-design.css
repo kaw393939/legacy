@@ -16,17 +16,17 @@
         }
     .nav {
         position: fixed;
-        top: 0;
+        top: 60px;
         left: -100%;
         width: 100%;
-        min-height: 100vh;
-        height: 100dvh;
+        min-height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
         background: var(--white);
         flex-direction: column;
-        padding: calc(var(--scroll-offset) + var(--space-lg) + env(safe-area-inset-top)) var(--space-xl) calc(var(--space-2xl) + env(safe-area-inset-bottom));
+        padding: var(--space-xl) var(--space-xl) calc(var(--space-2xl) + env(safe-area-inset-bottom));
         transition: left var(--transition-base);
         box-shadow: var(--shadow-lg);
-        z-index: var(--z-dropdown);
+        z-index: var(--z-fixed);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch
         }
@@ -48,6 +48,10 @@
         text-shadow: none;
         text-align: left;
         white-space: normal
+        }
+
+    .nav-mobile-only {
+        display: flex !important
         }
 
     .nav-link::after {

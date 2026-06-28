@@ -1,17 +1,14 @@
-# Legs on the Ground - Property Concierge Services
-# Sitemap for legsontheground.com
+# Legacy Defenders
+# Sitemap for legacydefenders.com
 
 User-agent: *
 Allow: /
 
-# Block admin/private areas if any
 Disallow: /admin/
 Disallow: /private/
 Disallow: /*.json$
 Disallow: /*.log$
 
-# Sitemap location
-Sitemap: https://www.legsontheground.com/sitemap.xml
+Sitemap: https://www.legacydefenders.com/sitemap.xml
 
-# Crawl-delay (optional, adjust if needed)
 Crawl-delay: 1

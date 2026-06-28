@@ -1,40 +1,46 @@
 {% from "macros/ui.html" import section_header, cta_content %}
-{% from "macros/cards.html" import service_preview_card %}
 
-<section class="services-preview" id="services">
+<section class="services-preview legacy-process" id="services">
     <div class="container">
-        {{ section_header('Buy With Confidence From the Mainland', 'Home scouting and due diligence—done locally, delivered remotely.') }}
+        {{ section_header('A Simple Process For A Complicated Moment', 'The full work can be complex. The path should feel simple: stabilize, sort, prepare, then decide.') }}
 
-        <!-- Home Scouting Preview -->
-        <div class="journey-preview">
-            <div class="services-grid grid grid-auto-fit-lg">
-                {{ service_preview_card(
-                    'home-scouting',
-                    '1',
-                    'Home Scouting',
-                    '🏠',
-                    'Home Scouting + Market Analysis',
-                    'Get an edited video tour plus market analysis (comps when available, flood zone, crime stats) so you can shortlist confidently.',
-                    [
-                        'Detailed video walkthrough tours',
-                        'Market analysis + risk screening',
-                        'Offer-ready due diligence summary'
-                    ],
-                    '$350',
-                    '/services.html#home-scouting',
-                    'btn btn-primary service-cta',
-                    popular=True
-                ) }}
-            </div>
+        <div class="process-flow" aria-label="Legacy Defenders process">
+            <article class="process-step">
+                <span class="process-number">1</span>
+                <div class="process-icon"><i class="fas fa-shield-heart" aria-hidden="true"></i></div>
+                <h3>Stabilize & Plan</h3>
+                <p>Secure the home, identify urgent property or bill pressure, confirm authority questions, and create the first written care plan.</p>
+            </article>
+
+            <article class="process-step">
+                <span class="process-number">2</span>
+                <div class="process-icon"><i class="fas fa-qrcode" aria-hidden="true"></i></div>
+                <h3>Sort & Route</h3>
+                <p>Photograph, tag, and route belongings to keep, sell, donate, discard, store, deliver, research, or return to the home.</p>
+            </article>
+
+            <article class="process-step">
+                <span class="process-number">3</span>
+                <div class="process-icon"><i class="fas fa-paint-roller" aria-hidden="true"></i></div>
+                <h3>Prepare & Decide</h3>
+                <p>Clean, repair, document, and compare the realistic options: sell, keep, rent, move in, finance, or pause with the house protected.</p>
+            </article>
         </div>
 
-        <!-- Call-to-Action for Full Services -->
+        <div class="process-outcome">
+            <div>
+                <span class="outcome-label">The goal</span>
+                <strong>Protect the estate from panic decisions.</strong>
+            </div>
+            <p>We help families unlock value trapped behind belongings, deferred repairs, probate pressure, and lack of cash.</p>
+        </div>
+
         <div class="services-cta">
             {{ cta_content(
-                'Ready to Start Scouting?',
-                'See what’s included, how it works, and how we deliver everything remotely.',
+                'Need A Plan For A Specific House?',
+                'Start with the situation, the home, the belongings, and the urgent deadlines. We will help map the first move.',
                 '/services.html',
-                'View Service Details',
+                'View The Full Process',
                 'btn btn-primary btn-lg',
                 data_cta='view_service_details',
                 data_section='services-preview'

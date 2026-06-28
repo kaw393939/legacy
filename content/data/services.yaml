@@ -1,178 +1,175 @@
-home_scouting_services:
-- id: home-scouting-bundle-first
-  title: Home Scouting (First Home) + Market Analysis
-  price: $350
-  icon: 🏠
-  popular: true
-  psychological_appeal: Buy With Confidence
-  description: Video tour + buyer-focused analysis so you can decide remotely
-  journey_phase: home_scouting
-  what_you_get: A clear, offer-ready snapshot of the home, street, and real market
-    value
-  features:
-  - Edited video tour (up to 10 minutes) + driving up to the house
-  - Street + neighborhood feel (noise, access, vibe)
-  - 'Market analysis: comps when available + pricing reality check'
-  - Flood zone check + flood-risk screening
-  - Crime stats for the area (public-source lookup)
-  - Summary of red flags + next-step recommendations
-- id: video-tour-first
-  title: Professional Property Walkthrough Video
-  price: $250
-  icon: 🎥
-  popular: false
-  psychological_appeal: See It Before You Fly
-  description: A clean, edited walkthrough so you can shortlist confidently
-  journey_phase: home_scouting
-  what_you_get: An edited video tour you can rewatch and share
-  features:
-  - Edited video tour (up to 10 minutes)
-  - Driving approach to the property
-  - Full interior walkthrough with key condition callouts
-  - Exterior views + immediate surroundings
-  - Delivered via private Google Drive link (easy to view, download, and share)
-- id: video-tour-additional
-  title: Video Tour (Edited) — Additional Homes
-  price: $150
-  icon: 📍
-  popular: false
-  psychological_appeal: Compare Options Fast
-  description: Additional tours for the same search area.
-  journey_phase: home_scouting
-  what_you_get: Extra tours to compare homes without extra flights
-  features:
-  - Edited video tour only (no market analysis)
-  - Same search + same metro area (see coverage notes below)
-  - Delivered via private Google Drive link (easy to view, download, and share)
-- id: market-analysis
-  title: Market Analysis (Standalone)
-  price: $100
-  icon: 📊
-  popular: false
-  psychological_appeal: Know The Real Value
-  description: Comps when available + flood zone + crime stats for the area
-  journey_phase: home_scouting
-  what_you_get: A quick, buyer-focused reality check before you commit
-  features:
-  - Comparable sales (when available)
-  - Flood zone check
-  - Crime stats for the area
-  - High-level notes on pricing + risks
+﻿home_scouting_services:
+  - id: care-plan
+    title: "Estate Care Plan"
+    price: "Custom scope"
+    icon: "fa-heart"
+    popular: true
+    psychological_appeal: "Know What To Do First"
+    description: "A guided first step for overwhelmed executors and heirs."
+    journey_phase: home_scouting
+    what_you_get: "A written action plan for urgent property needs, belongings, repairs, storage, financing questions, and next decisions."
+    features:
+      - "Care coordinator intake call or visit"
+      - "Urgency review: mortgage, taxes, utilities, insurance, lawn, access, smoke, safety"
+      - "Initial photos and situation notes"
+      - "AI-assisted home preview options when useful"
+      - "Priority plan for the first 7, 30, and 90 days"
+      - "Trusted vendor needs mapped so the executor is not starting from zero"
+      - "Possible asset-offset paths identified, such as saleable belongings or vehicles, when authority is clear"
+      - "Single decision-maker discount screening when one authorized person can approve the work"
+      - "Clear next-step recommendations"
+      - "Preferred attorney, CPA, realtor, lender, or licensed trade needs identified"
+      - "Possible discounted professional packages discussed when available through preferred partners"
+
+  - id: property-stabilization
+    title: "Property Maintenance & Stabilization"
+    price: "Project based"
+    icon: "fa-shield-heart"
+    popular: false
+    psychological_appeal: "Stop Small Problems From Growing"
+    description: "Immediate coordination for vacant or at-risk inherited homes that still need maintenance while decisions are pending."
+    journey_phase: home_scouting
+    what_you_get: "A safer, more stable property and clearer record of what is happening while estate decisions are being made."
+    features:
+      - "Lock, access, and key coordination"
+      - "Lawn/code issue coordination"
+      - "Utility status and carrying-cost notes"
+      - "Utility and basic condition checks"
+      - "Mortgage, tax, insurance, and bill-pressure questions identified"
+      - "Photo reports for executor records"
+      - "Urgent repair triage"
+      - "Vacant-home maintenance planning"
+
+  - id: financing-readiness
+    title: "Financing & Carrying-Cost Readiness"
+    price: "Included in care plan"
+    icon: "fa-file-invoice-dollar"
+    popular: false
+    psychological_appeal: "Use Equity Without Panic"
+    description: "A practical review of whether estate equity or future sale proceeds may support urgent bills, maintenance, cleanout, repairs, or market-ready preparation."
+    journey_phase: home_scouting
+    what_you_get: "A documented scope that can be reviewed by the executor, attorney, lender, or CPA."
+    features:
+      - "Rough project budget"
+      - "Mortgage, utility, tax, insurance, and maintenance pressure timeline"
+      - "Equity and lien questions identified"
+      - "Saleable-asset questions identified, including vehicles, belongings, and other assets that may be easier to convert to cash"
+      - "Sale, refinance, estate funds, or third-party financing options discussed"
+      - "Draw/milestone planning for larger projects"
+      - "Attorney and lender review recommended before any financing decision"
+
 settling_up_services:
-- id: utilities-setup
-  title: Utilities Setup
-  price: $300 each
-  icon: 🔌
-  popular: true
-  psychological_appeal: Get Set Up Faster
-  description: Help setting up utilities and essential services
-  journey_phase: settling_up
-  what_you_get: A smoother first week with fewer phone calls, forms, and delays
-  features:
-  - Electricity (LUMA)
-  - Water service
-  - Internet/TV/Phone providers
-  - Gas (if needed)
-  - Trash collection and municipal services
-  - Includes utilities deposit of up to $150. Customer will be informed if there’s
-    higher deposits.
-- id: off-market-sourcing
-  title: Off-Market Property Sourcing
-  price: Fee to be determined based on finding method (Bird Dog vs. Wholesaling)
-  icon: 🔍
-  popular: false
-  psychological_appeal: Avoid Costly Mistakes
-  description: Typically ranges from 2–5% of the purchase price. Bird dog fee is usually
-    2%.
-  journey_phase: settling_up
-  what_you_get: Access to properties you won't find on MLS or listing sites
-  features:
-  - 'Bird Dog Fee: Refers to sourcing an off-market property opportunity and introducing
-    the opportunity to the buyer.'
-  - 'Wholesaling Fee: Refers to sourcing and negotiating a deal on your behalf and
-    assigning the contract accordingly.'
-  disclaimer: I am not a licensed Realtor. My consultation fee applies to locating
-    and identifying off-market opportunities (bird dog services) or sourcing and negotiating
-    deals on your behalf (wholesaling). I do not represent buyers or sellers in a
-    licensed real estate brokerage capacity. All services, fees, and expectations
-    will be clearly outlined in a written agreement prior to engagement.
-- id: housing-assistance
-  title: Support Finding Housing & Coordinating the Moving Process
-  price: Finder's/consultation fee
-  icon: 🗝️
-  popular: false
-  psychological_appeal: Navigate the Local Process
-  description: Support finding housing and coordinating the moving process
-  journey_phase: settling_up
-  what_you_get: Consulting assistance navigating listings, leases, and the local process.
-  features:
-  - Consulting assistance navigating listings, leases, and the local process.
-  - Assistance finding a home or apartment (may or may not include working with a
-    Realtor)
-  - Short-term rental guidance while you house-hunt
-  - Title and property search assistance (especially if purchasing)
-  - Finder’s/consultation fee applies upon signing a lease or closing on a home
-  disclaimer: I am not a licensed Realtor. My consultation fee applies to locating
-    and identifying off-market opportunities (bird dog services) or sourcing and negotiating
-    deals on your behalf (wholesaling). I do not represent buyers or sellers in a
-    licensed real estate brokerage capacity. All services, fees, and expectations
-    will be clearly outlined in a written agreement prior to engagement.
-- id: government-documentation
-  title: Government / Documentation Help
-  price: Call for pricing
-  icon: 🪪
-  popular: false
-  psychological_appeal: Skip Bureaucracy
-  description: Support navigating common PR documentation steps
-  journey_phase: settling_up
-  what_you_get: Clear guidance + help preparing for visits and requirements
-  features:
-  - Puerto Rico driver’s license transfer
-  - Vehicle registration
-  - Guidance on what to bring + how to prepare
+  - id: qr-inventory
+    title: "QR Inventory & Family Decisions"
+    price: "By project size"
+    icon: "fa-qrcode"
+    popular: true
+    psychological_appeal: "Decide Once, Track Everything"
+    description: "A care-led process for belongings that carry memories, market value, family meaning, and storage decisions."
+    journey_phase: settling_up
+    what_you_get: "Photos, QR tags, item status, and a route for each important item."
+    features:
+      - "Keep, sell, donate, discard, store, deliver, return, or research/appraise"
+      - "Color-coded QR tags tied to photos, item notes, and location"
+      - "Photo record of handled items"
+      - "Heir distribution notes"
+      - "Executor-visible inventory and status records"
+      - "AI-assisted identification and sold-comps research when available"
+      - "Estimated resale value and likely sale timing when useful"
+      - "Sentimental items protected from rushed decisions"
+      - "Executor-ready item records"
+
+  - id: storage-routing
+    title: "Storage, Sale & Donation Routing"
+    price: "Monthly storage + handling"
+    icon: "fa-boxes-stacked"
+    popular: false
+    psychological_appeal: "Clear The House Without Losing Control"
+    description: "Move items to the right place so the home can be cleaned, repaired, sold, or used."
+    journey_phase: settling_up
+    what_you_get: "A tracked flow for client storage, sale storage, donation, disposal, and heir pickup or delivery."
+    features:
+      - "Client-controlled storage for kept items"
+      - "Executor key/access options for client storage"
+      - "Central sale storage for approved sale items"
+      - "Return-to-house routing when items should come back after repairs"
+      - "Donation and disposal coordination"
+      - "Pickup and delivery options for heirs"
+      - "Distribution support according to will, executor, and family instructions when authority is clear"
+      - "Asset-sale routing designed to help offset approved estate costs where appropriate"
+      - "30/60/90-day review rules for unsold items"
+      - "Monthly storage accountability"
+
+  - id: item-processing
+    title: "Item Processing & Sale Support"
+    price: "Handling/listing fees"
+    icon: "fa-camera"
+    popular: false
+    psychological_appeal: "Recover Value Without A Bargain-Hunter Estate Sale"
+    description: "Cleaning, photos, research, listing support, and sale records for approved items."
+    journey_phase: settling_up
+    what_you_get: "A documented process for saleable items outside the family home."
+    features:
+      - "Central sale storage intake"
+      - "Cleaning and photo preparation"
+      - "Marketplace/listing support"
+      - "Sold-comps, sale timing, and pricing guidance"
+      - "Packing or delivery coordination"
+      - "Sale records for the executor"
+      - "Donation/return recommendations for slow-moving items"
+
 support_services:
-- id: referrals-info-compilation
-  title: Referrals & Information Compilation
-  price: $50/hour (1 hour min)
-  icon: 📇
-  popular: false
-  psychological_appeal: Get Trusted Introductions
-  description: Bilingual lists, referrals, calling to set appointments, and more
-  journey_phase: support
-  what_you_get: A reliable local to research, call, and coordinate on your behalf
-  features:
-  - Bilingual doctor lists + referrals
-  - CPA referrals
-  - Calling to set up appointments
-  - Calling to clarify a matter (phone or in person)
-  - Minimum 1 hour
-- id: chat-time-30
-  title: Chat Time (Calls/Text) — 30 Minutes
-  price: $30
-  icon: 💬
-  popular: false
-  psychological_appeal: Quick Local Insight
-  description: Talk through a situation with a local guide
-  journey_phase: support
-  what_you_get: Up to 30 minutes of live guidance via call/text
-  features:
-  - Personal or cultural situations
-  - Business questions
-  - We can also ask around and research on your behalf
-  - Must provide payment through PayPal or Zelle upon texting to schedule or before
-    calling
-- id: chat-time-60
-  title: Chat Time (Calls/Text) — 60 Minutes
-  price: $60
-  icon: 🗣️
-  popular: false
-  psychological_appeal: Deeper Problem-Solving
-  description: More time for complex questions or planning
-  journey_phase: support
-  what_you_get: Up to 60 minutes of live guidance via call/text
-  features:
-  - Personal or cultural situations
-  - Business questions
-  - We can also ask around and research on your behalf
-  - Must provide payment through PayPal or Zelle upon texting to schedule or before
-    calling
+  - id: market-ready-prep
+    title: "Market-Ready Home Prep"
+    price: "Typical projects: $20K-$28K"
+    icon: "fa-paint-roller"
+    popular: true
+    psychological_appeal: "Turn Chaos Into A Sellable Home"
+    description: "Cleanout, cleaning, paint, minor fixes, and practical prep after belongings are cleared."
+    journey_phase: support
+    what_you_get: "A clearer, cleaner, more marketable or livable home."
+    features:
+      - "Deep cleaning and reset"
+      - "Painting and minor drywall/trim fixes"
+      - "Basic handyman work where licensing is not required"
+      - "Flooring refresh coordination"
+      - "Licensed plumber/electrician coordination when needed"
+      - "Before/after documentation"
+    disclaimer: "Pricing examples are not guarantees. Every home, estate, and scope is different."
+
+  - id: serious-recovery
+    title: "Serious Recovery / Restomod"
+    price: "Custom: $35K-$100K+"
+    icon: "fa-hammer"
+    popular: false
+    psychological_appeal: "Modernize Without Overbuilding"
+    description: "For smoke damage, deferred maintenance, dated kitchens/baths, old systems, or heavier repair needs."
+    journey_phase: support
+    what_you_get: "A value-conscious modernization plan based on what helps the home sell or work for the family."
+    features:
+      - "Smoke reset and heavy cleaning coordination"
+      - "Kitchen and bath refresh planning"
+      - "Electrical/plumbing partner coordination"
+      - "Practical upgrades buyers expect"
+      - "Budget discipline to avoid over-renovating"
+      - "Project photos, receipts, and scope records"
+
+  - id: pre-need
+    title: "Prearranged Legacy Readiness Plan"
+    price: "Planning fee + future discount"
+    icon: "fa-folder-tree"
+    popular: false
+    psychological_appeal: "Make Help Automatic For Your Heirs"
+    description: "For living parents and families who want the home, belongings, documents, funding options, and wishes understood before a death or crisis."
+    journey_phase: support
+    what_you_get: "A documented activation plan and care team that already understands the house when the family needs support."
+    features:
+      - "Home and belongings walkthrough"
+      - "Important document/location checklist"
+      - "Sentimental item instructions"
+      - "Activation contacts and family communication notes"
+      - "Estimated service phases and likely funding paths"
+      - "Preferred contacts and vendors"
+      - "Family meeting support"
+      - "Priority activation and possible discounts for pre-arranged families"
+

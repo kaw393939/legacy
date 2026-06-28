@@ -1,55 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.legsontheground.com/</loc>
-    <lastmod>2025-10-08</lastmod>
+    <loc>https://www.legacydefenders.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Services Section (deep link) -->
   <url>
-    <loc>https://www.legsontheground.com/#services</loc>
-    <lastmod>2025-10-08</lastmod>
+    <loc>https://www.legacydefenders.com/services.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Why Choose Us Section (deep link) -->
   <url>
-    <loc>https://www.legsontheground.com/#why-choose</loc>
-    <lastmod>2025-10-08</lastmod>
+    <loc>https://www.legacydefenders.com/diy-vs-us.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.legacydefenders.com/free-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.legacydefenders.com/keith-story.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Testimonials Section (deep link) -->
   <url>
-    <loc>https://www.legsontheground.com/#testimonials</loc>
-    <lastmod>2025-10-08</lastmod>
+    <loc>https://www.legacydefenders.com/prearranged.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- FAQ Section (deep link) -->
   <url>
-    <loc>https://www.legsontheground.com/#faq</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- Contact Section (deep link) -->
-  <url>
-    <loc>https://www.legsontheground.com/#contact</loc>
-    <lastmod>2025-10-08</lastmod>
+    <loc>https://www.legacydefenders.com/pricing.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
+  <url>
+    <loc>https://www.legacydefenders.com/pa-probate.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.legacydefenders.com/#contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>

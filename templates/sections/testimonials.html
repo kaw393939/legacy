@@ -2,17 +2,10 @@
 
 <section class="testimonials" id="testimonials">
     <div class="container">
-        {{ section_header('What Our Clients Say', "Real experiences from property owners we've helped") }}
+        {{ section_header('Why This Is Personal', "Founder experiences behind the care-led process") }}
         <div class="testimonials-grid grid grid-auto-fit-lg gap-xl">
             {% for testimonial in testimonials %}
             <div class="testimonial-card flex flex-col">
-                {% if testimonial.rating %}
-                <div class="testimonial-rating flex">
-                    {% for i in range(testimonial.rating) %}
-                    <i class="fas fa-star"></i>
-                    {% endfor %}
-                </div>
-                {% endif %}
                 <blockquote class="testimonial-quote">
                     "{{ testimonial.quote }}"
                 </blockquote>

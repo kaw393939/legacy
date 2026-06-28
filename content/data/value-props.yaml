@@ -1,24 +1,28 @@
-# Value Propositions
-# Edit this file to update key benefits shown on homepage
-
 value_props:
-  - id: zero-surprises
-    title: "Zero Surprises, Zero Regrets"
-    icon: "fa-shield-check"
+  - id: care-led
+    title: "A Caregiver, Not A Closer"
+    icon: "fa-heart"
     order: 1
     description: |
-      Professional property vetting, neighborhood crime analysis, and flood zone research. Make informed decisions with insider knowledge you can't get anywhere else.
-  
-  - id: land-running
-    title: "Move Fast, Buy Smart"
-    icon: "fa-rocket"
+      We lead with education, patience, and dignity. A care coordinator helps the family slow down, understand the choices, and make one clear plan.
+
+  - id: documented
+    title: "Records The Estate Can Use"
+    icon: "fa-qrcode"
     order: 2
     description: |
-      Fast, buyer-focused scouting. We capture what listings don’t show, pressure-test the neighborhood fit, and give you an offer-ready summary so you can act quickly.
-  
-  - id: island-insider
-    title: "Local Eyes on Every Listing"
+      Color-coded QR tags, photos, item records, storage logs, receipts, utility notes, repair scopes, invoices, and project updates create a record the executor, attorney, CPA, realtor, lender, and family can understand.
+
+  - id: vendor-network
+    title: "Trusted Help, Faster"
     icon: "fa-handshake"
     order: 3
     description: |
-      Born-and-raised local knowledge plus buyer-first professionalism. We help you separate great deals from costly mistakes—before you commit.
+      Families should not have to find movers, cleaners, storage, contractors, attorneys, CPAs, donation options, and emergency help from scratch. Our relationships help the estate move faster with people we can document and coordinate.
+
+  - id: preserve-value
+    title: "Aligned With The Estate"
+    icon: "fa-chart-line"
+    order: 4
+    description: |
+      We benefit when the estate gets organized, protected, and prepared. Our work is designed to avoid panic discounts, recover usable value from assets, and preserve more family value.

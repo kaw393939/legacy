@@ -1,35 +1,30 @@
-# Why Choose Us Section
-# Edit this file to update the reasons customers trust you
-
 why_choose:
-  section_title: "Skip The Stress. Skip The Mistakes. Get Results."
-  
+  section_title: "Built From The Problem Families Actually Face"
+
   reasons:
-    - id: before-you-move
-      title: "Before You Move: Find Your Perfect Property (Without the Flight)"
-      icon: "fa-search-location"
-      image: "images/about/about-bilingual.jpg"
-      image_alt: "Professional property scouting with comprehensive market analysis and video documentation"
+    - id: lived-experience
+      title: "We Have Lived The Nightmare"
+      icon: "fa-house-heart"
+      image: "images/proof/smoke-remediation-before-after.jpg"
+      image_alt: "Representative before and after of a smoke-stained inherited home being restored"
       order: 1
       description: |
-        Skip $2,000+ in scouting trips. Get insider access to off-market properties, professional 4K video tours, 
-        crime/flood screening, and clear, buyer-focused reporting. Bilingual service (English & Spanish) so nothing gets lost in translation.
-    
-    - id: neighborhood-intel
-      title: "Neighborhood Intel You Can’t Get Online"
-      icon: "fa-map-marked-alt"
-      image: "images/about/about-local-knowledge.jpg"
-      image_alt: "Local neighborhood scouting and buyer-focused property evaluation in Puerto Rico"
+        Keith called lawyers, tax people, contractors, and cleaning services and kept feeling like the estate was being treated as an opportunity for someone else. He almost sold his inherited home for a fraction of its potential value because the house, belongings, repairs, paperwork, and grief were overwhelming. Mike had already experienced the pain of losing a family home. Legacy Defenders exists so other families do not have to face that moment alone.
+
+    - id: care-coordinator
+      title: "We Teach Before We Ask You To Decide"
+      icon: "fa-hands-holding-heart"
+      image: "images/proof/estate-cleanout-before-after.jpg"
+      image_alt: "Representative before and after of belongings being sorted and cleared from an inherited home"
       order: 2
       description: |
-        Listings don’t tell you about noise, traffic, street-by-street vibe, or what it feels like at night.
-        We scout the area like a local buyer—so you don’t buy blind.
-    
-    - id: offer-ready
-      title: "Offer-Ready Due Diligence"
-      icon: "fa-clipboard-check"
-      image: "images/about/about-experience.jpg"
-      image_alt: "Offer-ready home scouting package with video tours and due diligence summary"
+        Rachel's role is to help the family feel heard, organized, and supported. She understands how grief can make ordinary decisions feel impossible. We explain the options, show the tradeoffs, and help people make informed decisions without shame or pressure.
+
+    - id: value-conscious
+      title: "Practical Repairs That Protect The Outcome"
+      icon: "fa-screwdriver-wrench"
+      image: "images/proof/landscaping-before-after.jpg"
+      image_alt: "Representative before and after of an inherited home exterior stabilized for curb appeal"
       order: 3
       description: |
-        Comparable pricing, flood-risk screening, condition red flags, and the right questions to ask—packaged into a clear summary so you can move quickly and confidently.
+        Mike's construction experience helps separate what matters from what wastes money. The goal is a clean, functional, modern, market-ready or move-in-ready home with documented work and smart priorities.

@@ -1,54 +1,50 @@
 # Site Configuration
-# Edit this file to update global site settings
 
 site:
-  title: "Legs on the Ground"
-  tagline: "Your Eyes, Ears, and Legs in Puerto Rico"
-  description: "Puerto Rico home scouting for mainland buyers: video tours, neighborhood intel, and offer-ready due diligence so you can buy with confidence remotely."
-  url: "https://www.legsontheground.com"
-  author: "Legs on the Ground"
+  title: "Legacy Defenders"
+  tagline: "Inherited Home Rescue & Estate Transition Support"
+  description: "Care-led help for families handling inherited homes, belongings, repairs, storage, estate documentation, and financing decisions after the loss of a parent."
+  url: "https://www.legacydefenders.com"
+  author: "Legacy Defenders"
   language: "en"
-  
+
   # Contact Information
-  email: "legsontheground@gmail.com"
+  email: "care@legacydefenders.com"
   phone: "9736377079"
   phone_display: "(973) 637-7079"
   whatsapp: "19736377079"
-  
+
   # Location
   location:
-    city: "San Juan"
-    region: "Puerto Rico"
+    city: "Pittsburgh"
+    region: "Pennsylvania"
     coordinates:
-      latitude: 18.4655
-      longitude: -66.1057
-  
-  # Social Media (set real URLs or leave empty to hide)
+      latitude: 40.4406
+      longitude: -79.9959
+
   social:
     facebook: ""
     instagram: ""
     linkedin: ""
     twitter: ""
-  
-  # SEO Keywords
-  keywords:
-    - "Puerto Rico home scouting"
-    - "Puerto Rico real estate scouting"
-    - "Puerto Rico video home tours"
-    - "San Juan neighborhood intel"
-    - "Puerto Rico due diligence"
-    - "remote home buying Puerto Rico"
-    - "Puerto Rico property walkthrough"
-    - "flood zone research Puerto Rico"
-    - "crime stats neighborhood Puerto Rico"
 
-# Build Configuration
+  keywords:
+    - "inherited home help Pennsylvania"
+    - "estate cleanout Pittsburgh"
+    - "probate home support"
+    - "inherited house cleanout"
+    - "estate property coordination"
+    - "inherited home repairs"
+    - "estate inventory QR tracking"
+    - "executor property help"
+    - "Allegheny County probate home"
+    - "legacy preservation"
+
 build:
   output_dir: "docs"
   static_dir: "static"
   template_dir: "templates"
-  
-# Feature Flags
+
 features:
   show_blog: false
   show_testimonials: true

@@ -1,0 +1,32 @@
+{% from "macros/ui.html" import section_header %}
+
+{% if estate_stabilization %}
+<section class="estate-stabilization" id="stabilization">
+    <div class="container">
+        {{ section_header(estate_stabilization.section_title, estate_stabilization.section_subtitle) }}
+
+        {% if estate_stabilization.cards %}
+        <div class="stabilization-grid">
+            {% for card in estate_stabilization.cards %}
+            <article class="stabilization-card">
+                <div class="stabilization-icon"><i class="fas {{ card.icon }}" aria-hidden="true"></i></div>
+                <h3>{{ card.title }}</h3>
+                <p>{{ card.description }}</p>
+                {% if card.bullets %}
+                <ul>
+                    {% for bullet in card.bullets %}
+                    <li>{{ bullet }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if estate_stabilization.note %}
+        <p class="stabilization-note">{{ estate_stabilization.note }}</p>
+        {% endif %}
+    </div>
+</section>
+{% endif %}

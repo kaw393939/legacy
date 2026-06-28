@@ -5,8 +5,6 @@
     background: linear-gradient(135deg, var(--warm-white) 0%, var(--white) 100%);
     position: relative;
     overflow: hidden;
-    /* Prefer tall embeds so the submit button is visible without scrolling */
-    --zapier-embed-height: clamp(860px, 92vh, 1120px);
 }
 
 .contact-form-section::before {
@@ -76,20 +74,77 @@
     position: relative;
 }
 
-.zapier-embed-shell {
-    border-radius: calc(var(--radius-xl) - 2px);
-    overflow: hidden;
-    background: var(--white);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--gray-200);
-    max-width: 100%;
+.form-wrapper h3 {
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    line-height: 1.2;
+    color: var(--navy-800);
+    margin: 0 0 0.75rem;
 }
 
-.zapier-embed-shell zapier-interfaces-page-embed {
-    display: block;
-    width: 100%;
-    height: var(--zapier-embed-height) !important;
-    border: none !important;
+.care-intake-lede {
+    color: var(--gray-600);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 0 0 1.5rem;
+}
+
+.care-intake-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.care-intake-form .form-group {
+    margin-bottom: 0;
+}
+
+.care-intake-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.form-check-group {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 52px;
+    padding: 0.72rem 0.85rem;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--gray-50);
+}
+
+.form-check-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+    accent-color: var(--teal-600);
+}
+
+.form-check-group label {
+    margin: 0;
+    color: var(--navy-700);
+    line-height: 1.35;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.form-actions .btn {
+    min-height: 48px;
+}
+
+.care-intake-form .form-note {
+    text-align: left;
+    margin-top: 0.25rem;
+    color: var(--gray-600);
+    line-height: 1.6;
 }
 
 /* Mid-width devices often need stacking earlier than 768px */
@@ -221,7 +276,6 @@
 @media (max-width: 768px) {
     .contact-form-section {
         padding: 60px 0;
-        --zapier-embed-height: clamp(920px, 120vh, 1200px);
     }
     
     .contact-layout {
@@ -264,19 +318,16 @@
 @media (max-width: 480px) {
     .contact-form-section {
         padding: 52px 0;
-        --zapier-embed-height: clamp(980px, 135vh, 1320px);
     }
 
     .form-container {
         padding: 20px;
     }
-}
 
-/* Legacy styles cleanup */
-.zapier-form-main,
-.zapier-form-container-full,
-.contact-options {
-    display: none;
+    .form-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* ====================== END OF STYLESHEET ====================== */

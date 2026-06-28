@@ -1,25 +1,29 @@
 ---
-title: "Puerto Rico Home Scouting & Real Estate Support | Legs on the Ground"
-description: "Puerto Rico home scouting for buyers: detailed video tours, neighborhood intel, and offer-ready due diligence so you can buy with confidence from the mainland."
+title: "Inherited Home Help & Estate Transition Support | Legacy Defenders"
+description: "Legacy Defenders helps families protect inherited homes, sort belongings, coordinate repairs, document decisions, and move through probate property decisions with care."
 layout: "home"
 page_id: "home"
 
-# Hero Section
 hero:
-  title: "Your Eyes, Ears, and Legs in Puerto Rico"
-  subtitle: "Buying a home or investing from the mainland? We provide on-the-ground video tours, neighborhood insights, and buyer-focused analysis so you can make confident decisions remotely."
-  image: "images/hero/hero-main.jpg"
-  image_alt: "Puerto Rico home scouting with detailed video walkthrough tours and neighborhood insights"
+  eyebrow: "Inherited home support for families and executors"
+  title: "Inherited a home and don't know where to start?"
+  subtitle: "Start with one safe next step. We help families stabilize the home, sort belongings, understand costs, and avoid low offers or panic decisions while grieving."
+  image: "images/hero/legacy-defenders-care-hero.png"
+  image_alt: "A care coordinator helping an heir organize belongings in an inherited family home"
+  proof_points:
+    - "Care coordinator led"
+    - "Property and bill triage"
+    - "No pressure to sell cheap"
+    - "Attorney and CPA coordination"
   cta_primary:
-    text: "Find My Dream Home"
+    text: "Start With A Triage Call"
     url: "#contact"
-    icon: "fa-home"
+    icon: "fa-heart"
   cta_secondary:
-    text: "See How It Works"
+    text: "See Our Process"
     url: "#services"
-    icon: "fa-play-circle"
+    icon: "fa-list-check"
 
-# Sections to Show
 sections:
   show_value_props: true
   show_services: true
@@ -27,45 +31,42 @@ sections:
   show_testimonials: true
   show_cta: true
 
-# Services Section
 services:
-  title: "Home Scouting Services"
+  title: "The Legacy Recovery Process"
   custom_cta:
     show: true
-    title: "Ready to scout a property before you fly in?"
-    description: "Get a clear picture of the home, the street, and the neighborhood—plus comps and risk screening—so you can shortlist confidently."
-    button_text: "Get My Free Consultation"
+    title: "Need help with an inherited home?"
+    description: "We create a practical care plan for the house, belongings, repairs, storage, and next financial decision."
+    button_text: "Start With a Care Plan"
     button_url: "#contact"
 
-# CTA Section
 cta:
-  title: "Don’t Buy Blind"
-  description: "From video walkthroughs to neighborhood intel and buyer-focused analysis, we help you decide with clarity before you commit."
-  background_image: "images/hero/hero-main.jpg"
+  title: "Time matters. Panic is expensive."
+  description: "We help you move quickly without being rushed into the wrong decision. The goal is to protect the home, preserve what matters, and recover as much estate value as possible."
+  background_image: "images/proof/smoke-remediation-before-after.jpg"
   buttons:
-    - text: "Get My Free Property Analysis"
+    - text: "Request a Care Plan"
       url: "#contact"
-      icon: "fa-search"
+      icon: "fa-clipboard-list"
       style: "primary"
-    - text: "Call Now: (973) 637-7079"
+    - text: "Call: (973) 637-7079"
       url: "tel:+19736377079"
       icon: "fa-phone"
       style: "white"
   guarantee:
-    icon: "fa-shield-alt"
-    text: "Local, trustworthy boots on the ground • Transparent reporting • Bilingual (English & Spanish)"
+    icon: "fa-shield-heart"
+    text: "Care-led process. Documented decisions. Transparent scopes and pricing."
 
-# SEO
 seo:
   canonical: "/"
   og_type: "website"
-  og_image: "https://legsontheground.com/images/social/og-image.jpg"
+  og_image: "https://www.legacydefenders.com/images/social/og-image.jpg"
   twitter_card: "summary_large_image"
-  twitter_image: "https://legsontheground.com/images/social/twitter-card.jpg"
+  twitter_image: "https://www.legacydefenders.com/images/social/twitter-card.jpg"
 ---
 
-# Your Eyes, Ears, and Legs in Puerto Rico
+## You deserve time to grieve. We make sure the urgent things still get handled.
 
-Skip the stress, skip the mistakes, skip the expensive trial-and-error. We’re your local eyes-on-the-ground for Puerto Rico home scouting—so you can evaluate homes remotely and buy with confidence.
+When the last parent dies, families can inherit more than a house. They inherit bills, belongings, repairs, legal deadlines, family decisions, and pressure from people who want them to sell too fast.
 
-**Ready to find your dream home without the headaches?**
+Legacy Defenders was built from lived experience. Keith almost lost most of the value in his inherited home. Mike knew the pain of losing a family home. Rachel understands deep family loss. Together, the team built a care-led process to help families avoid panic decisions and protect their legacy.

@@ -1,0 +1,40 @@
+proof_examples:
+  section_title: "Representative Before & After Examples"
+  section_subtitle: "Many inherited homes have not been fully maintained for years. These visuals show the kinds of estate problems we are built to solve and will be replaced with real project photos as homes are documented."
+  note: "Example images are representative, not completed Legacy Defenders case photos yet."
+  examples:
+    - id: smoke-remediation
+      title: "Heavy Smoke Reset"
+      image: "images/proof/smoke-remediation-before-after.jpg"
+      image_alt: "Representative before and after of a smoke-stained inherited home interior becoming clean and market ready"
+      before_label: "Before"
+      after_label: "After"
+      description: "Decades of smoking can make heirs feel like the house is unsellable. We coordinate odor assessment, cleaning, sealing, paint, flooring decisions, and practical upgrades so the estate can choose from better options."
+      bullets:
+        - "Odor and surface assessment"
+        - "Cleaning, sealing, paint, and flooring plan"
+        - "Documented scope before money is spent"
+
+    - id: landscaping
+      title: "Lawn & Curb Appeal Stabilization"
+      image: "images/proof/landscaping-before-after.jpg"
+      image_alt: "Representative before and after of an overgrown inherited home exterior becoming tidy and ready for showings"
+      before_label: "Before"
+      after_label: "After"
+      description: "Overgrown grass, shrubs, leaves, and unsafe walkways create fines, neighbor pressure, and bad first impressions. Fast exterior stabilization protects the property and the estate's leverage."
+      bullets:
+        - "Grass, weeds, leaves, and access"
+        - "Trimmed shrubs and cleared entry"
+        - "Safer showings and fewer urgent calls"
+
+    - id: cleanout
+      title: "Belongings Cleared Without Losing Control"
+      image: "images/proof/estate-cleanout-before-after.jpg"
+      image_alt: "Representative before and after of an inherited home room being cleared and organized with boxes and tagged belongings"
+      before_label: "Before"
+      after_label: "After"
+      description: "The belongings are often the emotional and practical bottleneck. We help the executor balance memories, market value, sale timing, storage costs, donation options, and family distribution."
+      bullets:
+        - "Photo inventory, QR smart tags, and AI-assisted research"
+        - "Keep, sell, donate, store, or discard routes"
+        - "Clear rooms so repairs can begin"

@@ -1,0 +1,59 @@
+technology_process:
+  section_title: "Care-Led Decisions, Supported by AI"
+  section_subtitle: "Technology should make the inheritance process less overwhelming, not less human. We use AI, photos, color-coded QR tags, storage records, and market data to help families see options clearly before they spend money or let things go."
+  image: "images/technology/ai-care-planning.jpg"
+  image_alt: "A care coordinator using a tablet with an heir to review AI-assisted home planning and tagged belongings"
+  kicker: "Human judgment first"
+  intro: "A boomer family home may have decades of smoke, dated systems, old finishes, stored belongings, and small maintenance issues that became big because nobody was able to keep up. We help the family understand what can change, what it may cost, and what decisions need to happen first."
+  proof_line: "Keith's remodeled inherited home can become the first walk-through example of the end result: smoke reset, practical modernization, saved memories, and a house that no longer feels trapped in the hardest part of the grief."
+  chips:
+    - "AI home previews"
+    - "Color-coded QR tags"
+    - "Executor item visibility"
+    - "Sold-comps research"
+    - "Care coordinator review"
+  cards:
+    - id: ai-visualization
+      title: "See the Finished House Before You Commit"
+      icon: "fa-wand-magic-sparkles"
+      description: "We can use photos and AI-assisted planning to show practical market-ready or move-in-ready directions before the estate approves major work."
+      bullets:
+        - "Room-by-room before/after concepts"
+        - "Smoke reset, paint, flooring, lighting, kitchen, and bath ideas"
+        - "Value-conscious choices instead of over-renovation"
+
+    - id: market-data
+      title: "Price Belongings With Better Information"
+      icon: "fa-chart-line"
+      description: "AI helps identify items and organize research. We then use real marketplace sold-comps and sale-time signals where available so the executor can decide what is worth selling."
+      bullets:
+        - "Estimated range, not emotional guessing"
+        - "Likely time-to-sell and storage tradeoffs"
+        - "Donation, bundle, return, or sale recommendations"
+
+    - id: memories
+      title: "Respect the Memories Attached to Things"
+      icon: "fa-heart"
+      description: "We know it is not just stuff. The care coordinator helps families make one clear decision for each category so belongings do not block grief, repairs, or the estate timeline."
+      bullets:
+        - "Keep, sell, donate, discard, store, deliver, or research"
+        - "Family/heir notes and photo records"
+        - "Color-coded QR smart tags so items go where they are supposed to go"
+
+    - id: executor-portal
+      title: "Track Items Through Storage, Sale & Distribution"
+      icon: "fa-warehouse"
+      description: "Each handled item can have a photo, tag color, decision, location, and status so the executor can see whether it is in the home, client storage, sale storage, donation, delivery, or disposal."
+      bullets:
+        - "Client storage for kept items"
+        - "Central sale storage for approved sale items"
+        - "Executor-visible item status and paper trail"
+
+    - id: deferred-maintenance
+      title: "Handle Deferred Maintenance Without Panic"
+      icon: "fa-house-chimney-crack"
+      description: "Many inherited homes have not been fully maintained for years. We stabilize the property first, then separate urgent repairs from improvements that actually help the next decision."
+      bullets:
+        - "Smoke remediation and deep cleaning"
+        - "Landscaping, code, utility, and safety pressure"
+        - "Trusted trade coordination for licensed work"

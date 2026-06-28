@@ -1,38 +1,30 @@
-# Testimonials
-# Edit this file to add/update customer testimonials
-
 testimonials:
-  - id: michael-r
-    name: "Michael R."
-    location: "Florida → San Juan"
-    service_used: "Home Scouting & Due Diligence"
+  - id: keith-story
+    name: "Keith"
+    location: "Inherited family home"
+    service_used: "Original Legacy Defenders case"
     rating: 5
     avatar_icon: "fa-user"
     order: 1
     quote: |
-      "Saved me $4,000 in travel costs with their property scouting service. Got professional 
-      video tours of 5 properties with crime stats and flood risk analysis. Found my dream home 
-      without ever leaving Florida. Worth every penny."
-    
-  - id: jennifer-l
-    name: "Jennifer L."
-    location: "Texas → Dorado"
-    service_used: "Home Scouting & Due Diligence"
+      "I inherited a house with real value, but I was overwhelmed, out of state, and did not know who to trust. I called lawyers, tax people, contractors, and cleanout services and kept feeling like the estate was being treated as someone else's opportunity. Mike helped me avoid a low offer and turn the house into something I could be proud of."
+
+  - id: mike-story
+    name: "Mike"
+    location: "Construction and family-home experience"
+    service_used: "Property recovery and modernization"
     rating: 5
     avatar_icon: "fa-user"
     order: 2
     quote: |
-      "I couldn't fly down to tour homes, but I also didn't want to buy blind. They walked each property 
-      on video, called out red flags, and gave me neighborhood notes I never would've found online. 
-      I felt confident making an offer from Texas."
-    
-  - id: david-k
-    name: "David K."
-    location: "Property Investor"
-    service_used: "Investor Due Diligence"
+      "I know what it feels like to lose a family home. The right repairs, the right timing, and the right care can change the outcome for a family. This work is about protecting value without forgetting what the home meant."
+
+  - id: rachel-story
+    name: "Rachel"
+    location: "Care coordination"
+    service_used: "Family support and inventory"
     rating: 5
     avatar_icon: "fa-user"
     order: 3
     quote: |
-      "Their due diligence saved me from a bad deal. The video tour showed condition issues the listing 
-      photos hid, and the pricing reality check helped me negotiate. Best money I spent before closing."
+      "I have lived through deep family loss. When someone is grieving, the last thing they need is judgment. They need a calm person beside them, a process they can trust, and help making decisions that feel impossible in the moment."

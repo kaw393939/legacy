@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Thank You</title>
+    <meta name="title" content="Thank You">
+    <meta name="description" content="Your Legacy Defenders care request has been sent.">
+    <meta name="keywords" content="inherited home help Pennsylvania, estate cleanout Pittsburgh, probate home support, inherited house cleanout, estate property coordination, inherited home repairs, estate inventory QR tracking, executor property help, Allegheny County probate home, legacy preservation">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US-PA">
+    <meta name="geo.placename" content="Pittsburgh">
+    <meta name="geo.position" content="40.4406;-79.9959">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.legacydefenders.com/thank-you.html">
+    <meta property="og:title" content="Thank You">
+    <meta property="og:description" content="Your Legacy Defenders care request has been sent.">
+    <meta property="og:image" content="https://www.legacydefenders.com/images/social/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.legacydefenders.com/thank-you.html">
+    <meta property="twitter:title" content="Thank You">
+    <meta property="twitter:description" content="Your Legacy Defenders care request has been sent.">
+    <meta property="twitter:image" content="https://www.legacydefenders.com/images/social/twitter-card.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.legacydefenders.com/thank-you.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logos/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logos/apple-touch-icon.png">
+    
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="preload" href="styles.css?v=2026-06-28T19:51:12.690057" as="style">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2026-06-28T19:51:12.690057">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KE98KY192J', {
+        // Enhanced tracking for single-page application
+        page_title: 'Thank You',
+        custom_map: {
+          'custom_parameter_1': 'cta_type',
+          'custom_parameter_2': 'section_name'
+        },
+        // Enhanced ecommerce for service tracking
+        enhanced_conversions: true,
+        // Track scroll depth
+        send_page_view: true,
+        // Custom conversions configuration
+        conversion_linker: true
+      });
+
+      // Define conversion goals and values for journey-based tracking
+      const CONVERSION_VALUES = {
+        'primary_cta': 25,         // Book Property Visit, Contact Now
+        'service_inquiry': 20,     // Service-specific CTAs
+        'package_cta': 40,         // Package selection CTAs
+        'phone_call': 30,          // Direct phone calls
+        'whatsapp': 28,            // WhatsApp contacts
+        'form_submit': 35,         // Contact form submissions
+        'email_click': 15,         // Email clicks
+        'secondary_cta': 10,       // View Services, etc.
+        'service_interest': 5,     // Service card interactions
+        'package_interest': 8,     // Package card interactions
+        'journey_progression': 12,  // Moving between journey phases
+        'journey_phase_view': 3    // Viewing journey phase sections
+      };
+
+      // Enhanced CTA tracking function
+      function trackCTAClick(ctaType, section, ctaText, destination) {
+        const conversionValue = CONVERSION_VALUES[ctaType] || 5;
+        
+        gtag('event', 'cta_click', {
+          event_category: 'CTA',
+          event_label: ctaText,
+          cta_type: ctaType,
+          section_name: section,
+          destination: destination,
+          value: conversionValue
+        });
+
+        // Track as conversion for high-value CTAs
+        if (['primary_cta', 'service_inquiry', 'phone_call', 'whatsapp', 'form_submit'].includes(ctaType)) {
+          gtag('event', 'conversion', {
+            event_category: 'Conversions',
+            event_label: ctaType,
+            value: conversionValue,
+            currency: 'USD'
+          });
+        }
+      }
+
+      // Track section views for single-page navigation
+      function trackSectionView(sectionName) {
+        gtag('event', 'page_view', {
+          page_title: sectionName + ' - Legacy Defenders',
+          page_location: window.location.href + '#' + sectionName,
+          event_category: 'Navigation',
+          event_label: sectionName,
+          section_name: sectionName
+        });
+      }
+
+      // Track scroll depth milestones
+      function trackScrollDepth(percentage) {
+        gtag('event', 'scroll', {
+          event_category: 'Engagement',
+          event_label: percentage + '%',
+          value: percentage
+        });
+      }
+
+      // Track service interest
+      function trackServiceInterest(serviceName, action) {
+        gtag('event', 'select_content', {
+          content_type: 'service',
+          content_id: serviceName.toLowerCase().replace(/\s+/g, '_'),
+          event_category: 'Services',
+          event_label: serviceName,
+          action: action,
+          value: 8
+        });
+      }
+
+      // Track form interactions
+      function trackFormInteraction(formType, action, field) {
+        gtag('event', 'form_' + action, {
+          event_category: 'Forms',
+          event_label: formType,
+          action: action,
+          field: field,
+          value: action === 'submit' ? CONVERSION_VALUES['form_submit'] : 2
+        });
+      }
+
+      // Track phone/WhatsApp clicks
+      function trackContactMethod(method, source) {
+        const conversionType = method.toLowerCase() === 'whatsapp' ? 'whatsapp' : 'phone_call';
+        const conversionValue = CONVERSION_VALUES[conversionType];
+        
+        gtag('event', 'contact_method', {
+          event_category: 'Contact',
+          event_label: method,
+          source: source,
+          value: conversionValue
+        });
+
+        // Track as high-value conversion
+        gtag('event', 'conversion', {
+          event_category: 'Conversions',
+          event_label: conversionType,
+          value: conversionValue,
+          currency: 'USD'
+        });
+      }
+
+      // Track outbound links
+      function trackOutboundLink(url, linkText) {
+        gtag('event', 'click', {
+          event_category: 'Outbound Links',
+          event_label: url,
+          transport_type: 'beacon',
+          value: 3
+        });
+      }
+
+      // Track time spent on page milestones
+      let timeOnPageMarkers = [30, 60, 120, 300]; // 30s, 1m, 2m, 5m
+      let startTime = Date.now();
+      
+      timeOnPageMarkers.forEach(seconds => {
+        setTimeout(() => {
+          gtag('event', 'time_on_page', {
+            event_category: 'Engagement',
+            event_label: seconds + 's',
+            value: seconds
+          });
+        }, seconds * 1000);
+      });
+    </script>
+    
+    <!-- Structured Data - Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Legacy Defenders",
+      "description": "Care-led help for families handling inherited homes, belongings, repairs, storage, estate documentation, and financing decisions after the loss of a parent.",
+      "url": "https://www.legacydefenders.com",
+      "email": "care@legacydefenders.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pittsburgh",
+        "addressRegion": "Pennsylvania",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.4406",
+        "longitude": "-79.9959"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.4406",
+          "longitude": "-79.9959"
+        },
+        "geoRadius": "50000"
+      },
+      "priceRange": "$8,500-$100,000+",
+      "openingHours": "Mo-Fr 09:00-17:00"
+    }
+    </script>
+</head>
+<body class="page-thank-you">
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+<!-- Main Header -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="header-content flex justify-between items-center">
+            <a href="/" class="logo inline-block">
+                <span class="logo-text flex items-center">
+                    <span class="logo-name">Legacy Defenders</span>
+                </span>
+            </a>
+            <nav class="nav flex items-center" id="main-nav" aria-label="Main navigation" role="navigation">
+                <a href="/" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/">
+                   Home
+                </a>
+                <a href="/#services" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/#services">
+                   Process
+                </a>
+                <a href="/diy-vs-us.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/diy-vs-us.html">
+                   DIY vs Us
+                </a>
+                <a href="/free-guide.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/free-guide.html">
+                   Free Guide
+                </a>
+                <a href="/prearranged.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/prearranged.html">
+                   Plan Ahead
+                </a>
+                <a href="/keith-story.html" 
+                   class="nav-link nav-mobile-only"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/keith-story.html">
+                   Keith&#39;s Story
+                </a>
+                <a href="/pricing.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/pricing.html">
+                   Pricing
+                </a>
+                <a href="/pa-probate.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/pa-probate.html">
+                   PA Probate
+                </a>
+                <a href="/#faq" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/#faq">
+                   FAQ
+                </a>
+                <a href="/#contact" 
+                   class="nav-link btn btn-primary"
+                   data-cta="primary" 
+                   data-section="header" 
+                   data-destination="/#contact">
+                   Contact
+                </a>
+                <a href="tel:+19736377079" 
+                   class="nav-link btn btn-primary nav-mobile-only"
+                   data-cta="primary" 
+                   data-section="header" 
+                   data-destination="tel:+19736377079">
+                   Call Now
+                </a>
+            </nav>
+                <button class="mobile-menu-toggle" 
+                    type="button"
+                    aria-label="Open menu" 
+                    aria-expanded="false" 
+                    aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>    
+    <!-- Main Content -->
+    <main id="main-content">
+<section class="page-hero public-page-hero">
+    <div class="container">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Care request received</p>
+            <h1 class="hero-title">Thank You</h1>
+            <p class="hero-description">Your Legacy Defenders care request has been sent.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-spacing">
+    <div class="container">
+        <div class="content-page public-content">
+            <h2 id="we-received-your-request">We Received Your Request</h2>
+<p>Thank you for reaching out. If the issue is urgent, call us directly at <strong>(973) 637-7079</strong>.</p>
+<p>Before the first conversation, it can help to gather:</p>
+<ul>
+<li>the property address or county</li>
+<li>who has executor or administrator authority</li>
+<li>urgent bills, mortgage, utilities, taxes, insurance, or lawn/code concerns</li>
+<li>photos of the outside and main rooms if available</li>
+<li>the biggest decision you are trying to make right now</li>
+</ul>
+<p><a class="btn btn-primary" href="/">Return Home</a></p>
+        </div>
+    </div>
+</section>
+    </main>
+    
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <h3 class="footer-title">Legacy Defenders</h3>
+                <p class="footer-text">Inherited Home Rescue &amp; Estate Transition Support</p>
+                <div class="footer-contact">
+                    <p><strong>Phone:</strong> <a href="tel:+19736377079">(973) 637-7079</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:care@legacydefenders.com">care@legacydefenders.com</a></p>
+                    <p><strong>Location:</strong> Pittsburgh, Pennsylvania</p>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4 class="footer-heading">Start Here</h4>
+                <ul class="footer-links">
+                    <li><a href="/#services">Our Process</a></li>
+                    <li><a href="/services.html">All Services</a></li>
+                    <li><a href="/free-guide.html">Free Cost Worksheet</a></li>
+                    <li><a href="/pricing.html">Pricing Examples</a></li>
+                    <li><a href="/prearranged.html">Plan Ahead</a></li>
+                    <li><a href="/pa-probate.html">PA Probate Help</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-heading">Trust</h4>
+                <ul class="footer-links">
+                    <li><a href="/#why-choose">Why Legacy Defenders</a></li>
+                    <li><a href="/keith-story.html">Keith&#39;s Story</a></li>
+                    <li><a href="/diy-vs-us.html">DIY vs Us</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom flex flex-col items-center">
+            <p>&copy; 2026 Legacy Defenders. All rights reserved.</p>
+            <p class="footer-back-top">
+                <a href="#header" class="back-to-top">Back to Top</a>
+            </p>
+        </div>
+    </div>
+</footer>    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/19736377079?text=Hi!%20I%20need%20help%20with%20an%20inherited%20home" 
+       class="whatsapp-float flex items-center justify-center" 
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="main.js?v=2026-06-28T19:51:12.690057"></script>
+</body>
+</html>

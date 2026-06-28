@@ -1,5 +1,5 @@
-/* ===================================
-   Legs on the Ground - Interactive Features
+﻿/* ===================================
+   Legacy Defenders - Interactive Features
    =================================== */
 
 // Wait for DOM to be fully loaded
@@ -257,6 +257,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function initResponsiveTables() {
+        document.querySelectorAll('.content-page table').forEach(table => {
+            if (table.classList.contains('responsive-table-ready')) return;
+
+            const headerCells = Array.from(table.querySelectorAll('thead th'));
+            const headers = headerCells.map(header => header.textContent.trim()).filter(Boolean);
+
+            if (!headers.length) return;
+
+            table.classList.add('responsive-table-ready');
+
+            table.querySelectorAll('tbody tr').forEach(row => {
+                Array.from(row.children).forEach((cell, index) => {
+                    const fallback = index === 0 ? 'Item' : `Detail ${index + 1}`;
+                    cell.setAttribute('data-label', headers[index] || fallback);
+
+                    if (!cell.textContent.trim()) {
+                        cell.classList.add('table-cell-empty');
+                    }
+                });
+            });
+        });
+    }
+
+    function initContactFloatState() {
+        const contactSection = document.getElementById('contact');
+        const whatsappFloat = document.querySelector('.whatsapp-float');
+
+        if (!contactSection || !whatsappFloat || !('IntersectionObserver' in window)) return;
+
+        const contactObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                document.body.classList.toggle('contact-in-view', entry.isIntersecting);
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '-80px 0px -12% 0px'
+        });
+
+        contactObserver.observe(contactSection);
+    }
+
     // Initialize all tracking
     initCTATracking();
     initSectionTracking();
@@ -264,6 +306,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initFormTracking();
     initServiceTracking();
     initNavigationTracking();
+    initResponsiveTables();
+    initContactFloatState();
 
     // ===================================
     // Mobile Menu Toggle
@@ -390,10 +434,74 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // Smooth Scroll for Anchor Links
     // ===================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    function getHashTarget(hash) {
+        if (!hash || hash === '#') return null;
+        const id = decodeURIComponent(hash.slice(1));
+        return document.getElementById(id);
+    }
+
+    function scrollToHashTarget(hash, updateLocation = true, behavior = 'smooth') {
+        const target = getHashTarget(hash);
+        if (!target) return false;
+
+        const headerHeight = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+        const scrollTop = Math.max(0, targetPosition);
+        const scrollRoot = document.scrollingElement || document.documentElement || document.body;
+
+        try {
+            window.scrollTo({
+                top: scrollTop,
+                behavior: behavior
+            });
+        } catch (error) {
+            window.scrollTo(0, scrollTop);
+        }
+
+        if (scrollRoot && typeof scrollRoot.scrollTo === 'function') {
+            try {
+                scrollRoot.scrollTo({
+                    top: scrollTop,
+                    behavior: behavior
+                });
+            } catch (error) {
+                scrollRoot.scrollTo(0, scrollTop);
+            }
+        }
+
+        window.setTimeout(() => {
+            const currentTop = scrollRoot ? scrollRoot.scrollTop : window.pageYOffset;
+            const targetStillFar = Math.abs(target.getBoundingClientRect().top - headerHeight - 20) > 120;
+
+            if (Math.abs(currentTop - scrollTop) > 120 && targetStillFar) {
+                try {
+                    if (scrollRoot) scrollRoot.scrollTop = scrollTop;
+                } catch (error) {
+                    // Some embedded browser shells expose a read-only scrollTop.
+                }
+
+                try {
+                    target.scrollIntoView({
+                        block: 'start',
+                        behavior: behavior
+                    });
+                } catch (error) {
+                    target.scrollIntoView(true);
+                }
+            }
+        }, 250);
+
+        if (updateLocation && window.history && window.history.pushState) {
+            window.history.pushState(null, '', hash);
+        }
+
+        return true;
+    }
+
+    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            
+
             // Scroll to top if href is just "#"
             if (href === '#') {
                 e.preventDefault();
@@ -403,20 +511,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 return;
             }
-            
-            const target = document.querySelector(href);
-            if (target) {
+
+            const url = new URL(href, window.location.href);
+            const currentPath = window.location.pathname.replace(/\/$/, '/');
+            const targetPath = url.pathname.replace(/\/$/, '/');
+
+            if (url.origin === window.location.origin && targetPath === currentPath && url.hash) {
                 e.preventDefault();
-                const headerHeight = header.offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                scrollToHashTarget(url.hash);
             }
         });
     });
+
+    function retryInitialHashScroll() {
+        if (!window.location.hash) return;
+
+        let attempts = 0;
+        const maxAttempts = 24;
+
+        const retry = () => {
+            if (!window.location.hash) return;
+
+            attempts += 1;
+            scrollToHashTarget(window.location.hash, false, 'auto');
+
+            if (attempts < maxAttempts) {
+                window.setTimeout(retry, 250);
+            }
+        };
+
+        retry();
+    }
+
+    retryInitialHashScroll();
+    window.addEventListener('load', retryInitialHashScroll);
     
     // ===================================
     // Scroll to Top Button
@@ -646,7 +774,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
+                    const linkHref = link.getAttribute('href');
+                    if (linkHref === `#${sectionId}` || linkHref === `/#${sectionId}`) {
                         link.classList.add('active');
                     }
                 });
@@ -874,7 +1003,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // This can be expanded for a pricing calculator
     
-    console.log('Legs on the Ground website loaded successfully!');
+    console.log('Legacy Defenders website loaded successfully!');
 });
 
 // ===================================
@@ -1033,3 +1162,4 @@ function trackPsychologicalOptimization() {
 document.addEventListener('DOMContentLoaded', function() {
     trackPsychologicalOptimization();
 });
+

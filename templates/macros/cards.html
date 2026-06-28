@@ -17,7 +17,11 @@
     <span class="service-badge badge-savings">{{ service.savings_highlight }}</span>
     {% endif %}
     <div class="service-icon flex items-center justify-center">
+        {% if service.icon and service.icon.startswith('fa-') %}
+        <i class="fas {{ service.icon }}" aria-hidden="true"></i>
+        {% else %}
         <span class="service-emoji">{{ service.icon }}</span>
+        {% endif %}
     </div>
     <h4 class="service-title">{{ service.title }}</h4>
     <p class="psychological-appeal">{{ service.psychological_appeal }}</p>
@@ -42,7 +46,7 @@
     {{ cta_link(
         '/#contact',
         ('btn btn-primary service-cta' if service.popular else 'btn btn-outline service-cta'),
-        ('Get Started Now' if service.popular else 'Learn More'),
+        ('Request This Plan' if service.popular else 'Learn More'),
         data_cta='service',
         data_section='services',
         data_service=service.title,
@@ -62,7 +66,11 @@
     <span class="service-badge badge-savings">{{ package.savings }}</span>
     {% endif %}
     <div class="service-icon flex items-center justify-center">
+        {% if package.icon and package.icon.startswith('fa-') %}
+        <i class="fas {{ package.icon }}" aria-hidden="true"></i>
+        {% else %}
         <span class="service-emoji">{{ package.icon }}</span>
+        {% endif %}
     </div>
     <h4 class="service-title">{{ package.title }}</h4>
     <p class="psychological-appeal">{{ package.psychological_appeal }}</p>
@@ -101,7 +109,11 @@
         <span class="phase-label">{{ label }}</span>
     </div>
     <div class="service-icon flex items-center justify-center">
+        {% if emoji and emoji.startswith('fa-') %}
+        <i class="fas {{ emoji }}" aria-hidden="true"></i>
+        {% else %}
         <span class="service-emoji">{{ emoji }}</span>
+        {% endif %}
     </div>
     <h3 class="service-title">{{ title }}</h3>
     <p class="service-description">{{ description }}</p>

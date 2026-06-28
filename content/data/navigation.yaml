@@ -1,57 +1,79 @@
-# Navigation Configuration
-# Single-page design with anchor links to sections
-
-# Main Navigation (header) - Works from any page
 main_nav:
   - title: "Home"
     url: "/"
     id: "home"
-    
-  - title: "Services"
+
+  - title: "Process"
     url: "/#services"
     id: "services"
-    
-  - title: "Why Choose Us"
-    url: "/#why-choose"
-    id: "why-choose"
-    
-  - title: "Testimonials"
-    url: "/#testimonials"
-    id: "testimonials"
-  
+
+  - title: "DIY vs Us"
+    url: "/diy-vs-us.html"
+    id: "diy-vs-us"
+
+  - title: "Free Guide"
+    url: "/free-guide.html"
+    id: "free-guide"
+
+  - title: "Plan Ahead"
+    url: "/prearranged.html"
+    id: "prearranged"
+
+  - title: "Keith's Story"
+    url: "/keith-story.html"
+    id: "keith-story"
+    mobile_only: true
+
+  - title: "Pricing"
+    url: "/pricing.html"
+    id: "pricing"
+
+  - title: "PA Probate"
+    url: "/pa-probate.html"
+    id: "pa-probate"
+
   - title: "FAQ"
     url: "/#faq"
     id: "faq"
-    
+
   - title: "Contact"
     url: "/#contact"
     id: "contact"
-    highlight: true  # Makes this button styled differently
+    highlight: true
 
-# Footer Navigation - Quick links to sections
+  - title: "Call Now"
+    url: "tel:+19736377079"
+    id: "call-now"
+    highlight: true
+    mobile_only: true
+
 footer_nav:
   services:
-    title: "Services"
+    title: "Start Here"
     links:
-      - title: "Services Overview"
+      - title: "Our Process"
         url: "/#services"
       - title: "All Services"
         url: "/services.html"
-      - title: "Home Scouting"
-        url: "/services.html#home-scouting"
-      - title: "Settling UP in PR"
-        url: "/services.html#settling-up"
-      - title: "Referrals & Chat Time"
-        url: "/services.html#support"
-  
+      - title: "Free Cost Worksheet"
+        url: "/free-guide.html"
+      - title: "Pricing Examples"
+        url: "/pricing.html"
+      - title: "Plan Ahead"
+        url: "/prearranged.html"
+      - title: "PA Probate Help"
+        url: "/pa-probate.html"
+
   company:
-    title: "Quick Links"
+    title: "Trust"
     links:
-      - title: "Why Choose Us"
+      - title: "Why Legacy Defenders"
         url: "/#why-choose"
-      - title: "Testimonials"
-        url: "/#testimonials"
+      - title: "Keith's Story"
+        url: "/keith-story.html"
+      - title: "DIY vs Us"
+        url: "/diy-vs-us.html"
       - title: "FAQ"
         url: "/#faq"
-      - title: "Contact Us"
+      - title: "Contact"
         url: "/#contact"

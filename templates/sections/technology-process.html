@@ -1,0 +1,68 @@
+{% from "macros/ui.html" import section_header %}
+
+{% if technology_process %}
+<section class="technology-process" id="technology">
+    <div class="container">
+        {{ section_header(technology_process.section_title, technology_process.section_subtitle) }}
+
+        <div class="tech-layout">
+            <div class="tech-visual">
+                {% set tech_base_path = technology_process.image | replace('.jpg', '') %}
+                <picture>
+                    <source type="image/webp"
+                            srcset="{{ tech_base_path }}_400w.webp 400w,
+                                    {{ tech_base_path }}_600w.webp 600w,
+                                    {{ tech_base_path }}_900w.webp 900w,
+                                    {{ tech_base_path }}.webp 1400w"
+                            sizes="(max-width: 968px) 100vw, 52vw">
+                    <source type="image/jpeg"
+                            srcset="{{ tech_base_path }}_400w.jpg 400w,
+                                    {{ tech_base_path }}_600w.jpg 600w,
+                                    {{ tech_base_path }}_900w.jpg 900w,
+                                    {{ technology_process.image }} 1400w"
+                            sizes="(max-width: 968px) 100vw, 52vw">
+                    <img src="{{ technology_process.image }}"
+                         alt="{{ technology_process.image_alt }}"
+                         loading="lazy"
+                         width="1400"
+                         height="788">
+                </picture>
+                <div class="tech-caption">
+                    <span>{{ technology_process.kicker }}</span>
+                    <p>{{ technology_process.proof_line }}</p>
+                </div>
+            </div>
+
+            <div class="tech-copy">
+                <p class="tech-intro">{{ technology_process.intro }}</p>
+                {% if technology_process.chips %}
+                <ul class="tech-chips" aria-label="Legacy Defenders technology support">
+                    {% for chip in technology_process.chips %}
+                    <li>{{ chip }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if technology_process.cards %}
+        <div class="tech-card-grid">
+            {% for item in technology_process.cards %}
+            <article class="tech-card">
+                <div class="tech-card-icon"><i class="fas {{ item.icon }}" aria-hidden="true"></i></div>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                {% if item.bullets %}
+                <ul>
+                    {% for bullet in item.bullets %}
+                    <li>{{ bullet }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endif %}

@@ -1,0 +1,55 @@
+{% from "macros/ui.html" import section_header %}
+
+{% if proof_examples and proof_examples.examples %}
+<section class="proof-examples" id="examples">
+    <div class="container">
+        {{ section_header(proof_examples.section_title, proof_examples.section_subtitle) }}
+
+        <div class="proof-grid">
+            {% for example in proof_examples.examples %}
+            {% set base_path = example.image | replace('.jpg', '') %}
+            <article class="proof-card">
+                <div class="proof-image-wrap">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="{{ base_path }}_400w.webp 400w,
+                                        {{ base_path }}_600w.webp 600w,
+                                        {{ base_path }}.webp 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px">
+                        <source type="image/jpeg"
+                                srcset="{{ base_path }}_400w.jpg 400w,
+                                        {{ base_path }}_600w.jpg 600w,
+                                        {{ example.image }} 1200w"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px">
+                        <img src="{{ example.image }}"
+                             alt="{{ example.image_alt }}"
+                             loading="lazy"
+                             width="1200"
+                             height="675">
+                    </picture>
+                    <div class="proof-labels" aria-hidden="true">
+                        <span>{{ example.before_label }}</span>
+                        <span>{{ example.after_label }}</span>
+                    </div>
+                </div>
+                <div class="proof-content">
+                    <h3>{{ example.title }}</h3>
+                    <p>{{ example.description }}</p>
+                    {% if example.bullets %}
+                    <ul>
+                        {% for bullet in example.bullets %}
+                        <li>{{ bullet }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        {% if proof_examples.note %}
+        <p class="proof-note">{{ proof_examples.note }}</p>
+        {% endif %}
+    </div>
+</section>
+{% endif %}

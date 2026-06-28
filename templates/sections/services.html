@@ -1,51 +1,51 @@
 {% from "macros/ui.html" import section_header %}
-{% from "macros/sections.html" import journey_phase, packages_section %}
+{% from "macros/sections.html" import journey_phase %}
 
 <section class="services" id="services">
     <div class="container">
-        {{ section_header('Services', 'Choose the support you need — from home scouting to settling in.') }}
+        {{ section_header('Services', 'A phased process for the house, the belongings, and the next decision.') }}
 
         {{ journey_phase(
-            'home-scouting',
-            'home-scouting',
-            'fa-home',
-            '🏠 Home Scouting',
-            'Video tours + market intel so you can decide remotely.',
+            'stabilize',
+            'stabilize',
+            'fa-shield-heart',
+            'Stabilize The Situation',
+            'Identify urgent property, money, safety, and timing issues before they become bigger problems.',
             services.home_scouting_services,
             'home_scouting'
         ) }}
 
         {{ journey_phase(
-            'settling-up',
-            'settling-up',
-            'fa-rocket',
-            '🧳 Settling UP in PR',
-            'Utilities, documentation, and practical support to get set up faster.',
+            'inventory',
+            'inventory',
+            'fa-qrcode',
+            'Inventory, Route & Protect Belongings',
+            'Use care, photos, QR tags, storage, sale support, donation, and heir distribution to clear the bottleneck.',
             services.settling_up_services,
             'settling_up'
         ) }}
 
         {{ journey_phase(
-            'support',
-            'support',
-            'fa-hands-helping',
-            '📞 Referrals & Chat Time',
-            'Local help when you need calls, referrals, and quick guidance.',
+            'prepare',
+            'prepare',
+            'fa-house-chimney',
+            'Prepare The Home For What Comes Next',
+            'Clean, repair, modernize, document, and support the next choice: sell, keep, rent, or move in.',
             services.support_services,
             'support'
         ) }}
 
-        <div class="services-notes" aria-label="Service coverage notes">
-            <h3 class="section-subtitle">Coverage & Notes</h3>
+        <div class="services-notes" aria-label="Service notes">
+            <h3 class="section-subtitle">Important Notes</h3>
 
-            <div class="services-callout services-callout-warning" role="note" aria-label="West Coast availability note">
-                <strong>West Coast:</strong> Must call to confirm availability and accurate pricing.
+            <div class="services-callout services-callout-warning" role="note">
+                <strong>Every estate is different:</strong> pricing, financing, taxes, deductions, liens, legal filings, sale decisions, and licensed work should be reviewed by the appropriate professional.
             </div>
 
             <ul class="service-features">
-                <li class="flex items-start">Additional home video tours ($150) apply only to the same search in the same metropolitan area: Canóvanas, Luquillo, Río Grande — anything up to 25 miles from the airport in Carolina.</li>
-                <li class="flex items-start">Same service provided on the West Coast (Rincón, Aguadilla, Aguada, Isabela, Arecibo, Mayagüez, Cabo Rojo).</li>
-                <li class="flex items-start">Utilities setup ($300 each) includes a utilities deposit of up to $150. Customer will be informed if there’s higher deposits.</li>
+                <li class="flex items-start">Legacy Defenders coordinates services and documentation; it does not replace legal, tax, lending, appraisal, brokerage, or licensed trade advice.</li>
+                <li class="flex items-start">Some services may be performed by affiliated companies or preferred partners with disclosed scopes and pricing.</li>
+                <li class="flex items-start">Our goal is to help the estate preserve value, avoid panic decisions, and make informed choices during a difficult transition.</li>
             </ul>
         </div>
     </div>

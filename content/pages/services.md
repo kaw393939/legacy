@@ -1,59 +1,73 @@
 ---
 layout: services
-title: "Puerto Rico Home Scouting Services"
-description: "Home scouting for Puerto Rico buyers: video tours, neighborhood intel, and offer-ready due diligence so you can buy with confidence from the mainland."
+title: "Legacy Defenders Services"
+description: "A coordinated process for inherited homes: care planning, property stabilization, QR inventory, cleanout, storage, item handling, repairs, documentation, and financing coordination."
+page_id: "services"
 seo:
-  title: "Puerto Rico Home Scouting Services | Legs on the Ground"
-  description: "Home scouting for Puerto Rico buyers: video tours, neighborhood intel, and offer-ready due diligence."
-  keywords: ["Puerto Rico home scouting", "Puerto Rico property scouting", "Puerto Rico house scouting", "Puerto Rico buyer agent", "Puerto Rico real estate due diligence"]
+  canonical: "/services.html"
+  title: "Inherited Home Services | Legacy Defenders"
+  description: "Care-led inherited home support for executors and families handling belongings, repairs, storage, documentation, and sale or move-in preparation."
+  keywords: ["inherited home services", "estate cleanout", "probate home help", "executor support", "estate property coordination"]
   og_type: "website"
-  og_image: "/images/services/services-hero.jpg"
+  og_image: "/images/social/og-image.jpg"
+cta:
+  title: "A clear house makes better decisions possible."
+  description: "We help families turn urgent inherited-home problems into a documented plan for belongings, repairs, storage, sale, move-in, or continued probate decisions."
+  background_image: "images/proof/estate-cleanout-before-after.jpg"
+  buttons:
+    - text: "Request a Care Plan"
+      url: "/#contact"
+      icon: "fa-clipboard-list"
+      style: "primary"
+    - text: "See Pricing Examples"
+      url: "/pricing.html"
+      icon: "fa-file-invoice-dollar"
+      style: "white"
+  guarantee:
+    icon: "fa-shield-heart"
+    text: "Representative examples shown until real Legacy Defenders project photos are added."
 ---
 
-# Puerto Rico Home Scouting Services
+# Legacy Defenders Services
 
-Remote home scouting and buyer-focused due diligence—so you can shortlist, evaluate, and make confident offers without flying back and forth.
+An inherited home can have real value, but that value is often locked behind grief, belongings, repairs, mortgage payments, taxes, utilities, storage decisions, family questions, probate timing, and years of deferred maintenance.
 
-## What We Do
+Legacy Defenders coordinates the practical work so the executor and family can make informed decisions without being forced into a panic sale.
 
-### Real Estate Video Tours & Property Evaluations
+## Our Core Process
 
-Get a complete view of any property before you fly in.
+### 1. Stabilize the property
 
-- Full video walkthrough tour of the home
-- Street and neighborhood tour
-- Nearby landmarks and amenities overview (hospitals, schools, cafés, shopping, parks, beaches)
-- Market comparison report (comps) and pricing reality check
-- Flood-risk screening and crime-risk lookups (using available public sources)
+We identify urgent issues: access, locks, lawn care, utilities, insurance concerns, leaks, code risks, mortgage/tax pressure, smoke or odor concerns, and safety problems.
 
-### Market Analysis for Buyers & Investors
+### 2. Create the care plan
 
-Understand true value, risks, and upside.
+A care coordinator meets with the family or executor, documents the situation, and turns the chaos into a phased plan with priorities, costs, and next decisions. When helpful, we use AI-assisted visuals to show practical market-ready or move-in-ready directions before the estate approves work.
 
-- Comparable sales (comps)
-- Long-term rental income estimates (when relevant)
-- Area demographic and lifestyle overview
-- Flood zone verification
+### 3. Inventory and tag belongings
 
-### In-Person Property Showings (San Juan Metro Area)
+Using QR smart tags and photos, we help classify belongings as keep, sell, donate, discard, deliver to heir, store, return to home, or research/appraise. AI can help identify items and organize research, while market pricing data and sold-comps help the executor understand likely value and sale timing.
 
-If you’re on-island (or planning a short trip), we can do guided showings in the metro area.
+### 4. Move, store, sell, donate, or distribute
 
-- Guided tours of selected properties
-- Limited to 2–3 persons
-- Up to 4 hours of private property visits
-- Transportation included within the San Juan metro area
+Items are routed to the right place. Keepsakes can go to client-controlled storage. Sale items can move to processing/storage. Donation and disposal are documented.
 
-## Coverage Areas
+### 5. Clean, repair, and prepare the home
 
-- **San Juan Metro Area**: Hato Rey, Santurce, Condado, Isla Verde, Río Piedras, Cupey, Carolina, Guaynabo
-- **East Coast**: Canóvanas, Río Grande, Luquillo, Loíza
-- **West Coast**: Aguadilla, Isabela, Aguada, Rincón, Mayagüez
+Once the house is clear, Mike's construction judgment and trusted vendors can help with practical improvements: smoke remediation, deep cleaning, paint, minor fixes, flooring, lighting, dated kitchen/bath refreshes, and licensed trade coordination where needed.
 
-## Why Choose Our Services?
+### 6. Support the next decision
 
-- **Proven Process**: Clear, buyer-focused scouting workflow
-- **Local Expertise**: Deep knowledge of neighborhoods, pricing, and red flags
-- **Buyer-Focused**: Everything we do supports a confident purchase decision
-- **Transparent Pricing**: No hidden fees, clear value proposition
-- **Satisfaction Guarantee**: Your confidence is our commitment
+The family may sell, keep, rent, move in, or continue through probate. We provide documentation, receipts, photos, item records, and project reporting for the executor, attorney, CPA, realtor, or lender to review.
+
+Keith's inherited home can be used as an early walk-through example of the end result: a smoke-damaged, emotionally difficult family home transformed into a cleaner, modernized house while preserving the memories worth keeping.
+
+## Prearranged Legacy Readiness
+
+Families do not have to wait until everything is urgent. Living parents and adult children can create a prearranged plan that documents the home, belongings, family wishes, likely service needs, preferred vendors, important contacts, activation instructions, and possible funding paths.
+
+The goal is simple: when the event happens, heirs know who to call, what matters most, what should not be thrown away, how the house should be stabilized, and how the intended result can be achieved with less pain and confusion.
+
+## Important Boundaries
+
+Legacy Defenders is not a law firm, tax advisor, lender, appraiser, realtor, or licensed trade contractor. We coordinate with qualified professionals when those services are needed. Financing, deductions, liens, legal filings, donation receipts, and sale decisions should be reviewed by the appropriate attorney, CPA, lender, or licensed professional.

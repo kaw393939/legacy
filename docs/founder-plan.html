@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Founder Launch Plan: Legacy Defenders</title>
+    <meta name="title" content="Founder Launch Plan: Legacy Defenders">
+    <meta name="description" content="A lean, realistic launch plan for getting Legacy Defenders started in Allegheny County with the least friction: first offer, founder roles, cash compensation, deferred legal work, and first-project budgets.">
+    <meta name="keywords" content="inherited home help Pennsylvania, estate cleanout Pittsburgh, probate home support, inherited house cleanout, estate property coordination, inherited home repairs, estate inventory QR tracking, executor property help, Allegheny County probate home, legacy preservation">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="US-PA">
+    <meta name="geo.placename" content="Pittsburgh">
+    <meta name="geo.position" content="40.4406;-79.9959">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.legacydefenders.com/founder-plan.html">
+    <meta property="og:title" content="Founder Launch Plan: Legacy Defenders">
+    <meta property="og:description" content="A lean, realistic launch plan for getting Legacy Defenders started in Allegheny County with the least friction: first offer, founder roles, cash compensation, deferred legal work, and first-project budgets.">
+    <meta property="og:image" content="https://www.legacydefenders.com/images/social/og-image.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.legacydefenders.com/founder-plan.html">
+    <meta property="twitter:title" content="Founder Launch Plan: Legacy Defenders">
+    <meta property="twitter:description" content="A lean, realistic launch plan for getting Legacy Defenders started in Allegheny County with the least friction: first offer, founder roles, cash compensation, deferred legal work, and first-project budgets.">
+    <meta property="twitter:image" content="https://www.legacydefenders.com/images/social/twitter-card.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.legacydefenders.com/founder-plan.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logos/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logos/apple-touch-icon.png">
+    
+    <!-- Robots -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    
+    <!-- Resource Hints for Performance -->
+    <link rel="preload" href="styles.css?v=2026-06-28T19:51:12.099942" as="style">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css?v=2026-06-28T19:51:12.099942">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-KE98KY192J', {
+        // Enhanced tracking for single-page application
+        page_title: 'Founder Launch Plan: Legacy Defenders',
+        custom_map: {
+          'custom_parameter_1': 'cta_type',
+          'custom_parameter_2': 'section_name'
+        },
+        // Enhanced ecommerce for service tracking
+        enhanced_conversions: true,
+        // Track scroll depth
+        send_page_view: true,
+        // Custom conversions configuration
+        conversion_linker: true
+      });
+
+      // Define conversion goals and values for journey-based tracking
+      const CONVERSION_VALUES = {
+        'primary_cta': 25,         // Book Property Visit, Contact Now
+        'service_inquiry': 20,     // Service-specific CTAs
+        'package_cta': 40,         // Package selection CTAs
+        'phone_call': 30,          // Direct phone calls
+        'whatsapp': 28,            // WhatsApp contacts
+        'form_submit': 35,         // Contact form submissions
+        'email_click': 15,         // Email clicks
+        'secondary_cta': 10,       // View Services, etc.
+        'service_interest': 5,     // Service card interactions
+        'package_interest': 8,     // Package card interactions
+        'journey_progression': 12,  // Moving between journey phases
+        'journey_phase_view': 3    // Viewing journey phase sections
+      };
+
+      // Enhanced CTA tracking function
+      function trackCTAClick(ctaType, section, ctaText, destination) {
+        const conversionValue = CONVERSION_VALUES[ctaType] || 5;
+        
+        gtag('event', 'cta_click', {
+          event_category: 'CTA',
+          event_label: ctaText,
+          cta_type: ctaType,
+          section_name: section,
+          destination: destination,
+          value: conversionValue
+        });
+
+        // Track as conversion for high-value CTAs
+        if (['primary_cta', 'service_inquiry', 'phone_call', 'whatsapp', 'form_submit'].includes(ctaType)) {
+          gtag('event', 'conversion', {
+            event_category: 'Conversions',
+            event_label: ctaType,
+            value: conversionValue,
+            currency: 'USD'
+          });
+        }
+      }
+
+      // Track section views for single-page navigation
+      function trackSectionView(sectionName) {
+        gtag('event', 'page_view', {
+          page_title: sectionName + ' - Legacy Defenders',
+          page_location: window.location.href + '#' + sectionName,
+          event_category: 'Navigation',
+          event_label: sectionName,
+          section_name: sectionName
+        });
+      }
+
+      // Track scroll depth milestones
+      function trackScrollDepth(percentage) {
+        gtag('event', 'scroll', {
+          event_category: 'Engagement',
+          event_label: percentage + '%',
+          value: percentage
+        });
+      }
+
+      // Track service interest
+      function trackServiceInterest(serviceName, action) {
+        gtag('event', 'select_content', {
+          content_type: 'service',
+          content_id: serviceName.toLowerCase().replace(/\s+/g, '_'),
+          event_category: 'Services',
+          event_label: serviceName,
+          action: action,
+          value: 8
+        });
+      }
+
+      // Track form interactions
+      function trackFormInteraction(formType, action, field) {
+        gtag('event', 'form_' + action, {
+          event_category: 'Forms',
+          event_label: formType,
+          action: action,
+          field: field,
+          value: action === 'submit' ? CONVERSION_VALUES['form_submit'] : 2
+        });
+      }
+
+      // Track phone/WhatsApp clicks
+      function trackContactMethod(method, source) {
+        const conversionType = method.toLowerCase() === 'whatsapp' ? 'whatsapp' : 'phone_call';
+        const conversionValue = CONVERSION_VALUES[conversionType];
+        
+        gtag('event', 'contact_method', {
+          event_category: 'Contact',
+          event_label: method,
+          source: source,
+          value: conversionValue
+        });
+
+        // Track as high-value conversion
+        gtag('event', 'conversion', {
+          event_category: 'Conversions',
+          event_label: conversionType,
+          value: conversionValue,
+          currency: 'USD'
+        });
+      }
+
+      // Track outbound links
+      function trackOutboundLink(url, linkText) {
+        gtag('event', 'click', {
+          event_category: 'Outbound Links',
+          event_label: url,
+          transport_type: 'beacon',
+          value: 3
+        });
+      }
+
+      // Track time spent on page milestones
+      let timeOnPageMarkers = [30, 60, 120, 300]; // 30s, 1m, 2m, 5m
+      let startTime = Date.now();
+      
+      timeOnPageMarkers.forEach(seconds => {
+        setTimeout(() => {
+          gtag('event', 'time_on_page', {
+            event_category: 'Engagement',
+            event_label: seconds + 's',
+            value: seconds
+          });
+        }, seconds * 1000);
+      });
+    </script>
+    
+    <!-- Structured Data - Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Legacy Defenders",
+      "description": "Care-led help for families handling inherited homes, belongings, repairs, storage, estate documentation, and financing decisions after the loss of a parent.",
+      "url": "https://www.legacydefenders.com",
+      "email": "care@legacydefenders.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Pittsburgh",
+        "addressRegion": "Pennsylvania",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "40.4406",
+        "longitude": "-79.9959"
+      },
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.4406",
+          "longitude": "-79.9959"
+        },
+        "geoRadius": "50000"
+      },
+      "priceRange": "$8,500-$100,000+",
+      "openingHours": "Mo-Fr 09:00-17:00"
+    }
+    </script>
+</head>
+<body class="page-founder-plan">
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+<!-- Main Header -->
+<header class="header" id="header">
+    <div class="container">
+        <div class="header-content flex justify-between items-center">
+            <a href="/" class="logo inline-block">
+                <span class="logo-text flex items-center">
+                    <span class="logo-name">Legacy Defenders</span>
+                </span>
+            </a>
+            <nav class="nav flex items-center" id="main-nav" aria-label="Main navigation" role="navigation">
+                <a href="/" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/">
+                   Home
+                </a>
+                <a href="/#services" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/#services">
+                   Process
+                </a>
+                <a href="/diy-vs-us.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/diy-vs-us.html">
+                   DIY vs Us
+                </a>
+                <a href="/free-guide.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/free-guide.html">
+                   Free Guide
+                </a>
+                <a href="/prearranged.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/prearranged.html">
+                   Plan Ahead
+                </a>
+                <a href="/keith-story.html" 
+                   class="nav-link nav-mobile-only"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/keith-story.html">
+                   Keith&#39;s Story
+                </a>
+                <a href="/pricing.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/pricing.html">
+                   Pricing
+                </a>
+                <a href="/pa-probate.html" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/pa-probate.html">
+                   PA Probate
+                </a>
+                <a href="/#faq" 
+                   class="nav-link"
+                   data-cta="navigation" 
+                   data-section="header" 
+                   data-destination="/#faq">
+                   FAQ
+                </a>
+                <a href="/#contact" 
+                   class="nav-link btn btn-primary"
+                   data-cta="primary" 
+                   data-section="header" 
+                   data-destination="/#contact">
+                   Contact
+                </a>
+                <a href="tel:+19736377079" 
+                   class="nav-link btn btn-primary nav-mobile-only"
+                   data-cta="primary" 
+                   data-section="header" 
+                   data-destination="tel:+19736377079">
+                   Call Now
+                </a>
+            </nav>
+                <button class="mobile-menu-toggle" 
+                    type="button"
+                    aria-label="Open menu" 
+                    aria-expanded="false" 
+                    aria-controls="main-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>    
+    <!-- Main Content -->
+    <main id="main-content">
+<section class="page-hero">
+    <div class="container">
+        <div class="hero-content">
+            <p class="hero-eyebrow">Working founder plan</p>
+            <h1 class="hero-title">Founder Launch Plan: Legacy Defenders</h1>
+            <p class="hero-description">A lean, realistic launch plan for getting Legacy Defenders started in Allegheny County with the least friction: first offer, founder roles, cash compensation, deferred legal work, and first-project budgets.</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">$125</span>
+                    <span class="stat-label">PA LLC filing fee</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Finished customer before heavy legal spend</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">0-30</span>
+                    <span class="stat-label">Days to first paid sprint</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-spacing">
+    <div class="container">
+        <div class="content-page">
+            <h2 id="purpose">Purpose</h2>
+<p>Legacy Defenders should launch as a practical service, not as a complicated company on day one.</p>
+<p>The first version of the business has one job: help an executor or heir get control of an inherited home, the belongings inside it, the urgent property issues, and the next financial decision. The company does not need a warehouse, a full crew, custom software, employee payroll, a financing product, or a complex multi-company structure to prove that.</p>
+<p>The cheapest responsible path is:</p>
+<ol>
+<li>File the minimum business setup needed to invoice and separate money.</li>
+<li>Use the existing website, free guide, pricing examples, and care coordinator visit to create the first lead.</li>
+<li>Sell one tightly scoped paid project that can be finished in 7-14 days.</li>
+<li>Pay present-day work from that project.</li>
+<li>Document every hour, cost, decision, photo, mistake, and margin.</li>
+<li>Use the first finished customer and profit to fund the legal work that should not be guessed at.</li>
+</ol>
+<p>This page is public for transparency, but it is a planning document. It is not legal, tax, insurance, employment, lending, or probate advice. Before Legacy Defenders uses customer contracts, founder equity, referral arrangements, financing, storage custody, or affiliated-company arrangements at scale, those details need attorney, CPA, and insurance review.</p>
+<div class="ld-mission-panel" aria-label="Lean launch mission">
+  <p class="ld-kicker">Lean launch mission</p>
+  <h2 id="lean-launch-mission">Finish one paid customer before building the expensive version</h2>
+  <p>The first milestone is not a franchise model. It is one completed customer, a useful case study, clean project records, paid founder work, and enough real numbers to decide what legal and operating structure is worth paying for next.</p>
+  <div class="ld-mission-metrics">
+    <span><strong>7 days</strong> to make the offer sellable</span>
+    <span><strong>$8.5K-$12.5K</strong> realistic first sprint range</span>
+    <span><strong>10%-15%</strong> reserve held until closeout</span>
+  </div>
+</div>
+
+<h2 id="plan-map">Plan Map</h2>
+<ul>
+<li><a href="#launch-rule">Launch rule</a></li>
+<li><a href="#allegheny-county-starting-market">Allegheny County starting market</a></li>
+<li><a href="#minimum-setup-before-customer-1">Minimum setup before customer 1</a></li>
+<li><a href="#what-waits-until-after-customer-1">What waits until after customer 1</a></li>
+<li><a href="#founder-roles">Founder roles</a></li>
+<li><a href="#first-offer">First offer</a></li>
+<li><a href="#launch-phases">Launch phases</a></li>
+<li><a href="#decision-gates">Decision gates</a></li>
+<li><a href="#cash-compensation-now">Cash compensation now</a></li>
+<li><a href="#equity-later">Equity later</a></li>
+<li><a href="#first-project-examples">First project examples</a></li>
+<li><a href="#operating-rules">Operating rules</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h2 id="launch-rule">Launch Rule</h2>
+<p>Start with the simplest structure that can safely take payment and finish work. Do not spend scarce cash proving theories.</p>
+<h3 id="do-now">Do Now</h3>
+<div class="ld-do-dont-grid" aria-label="What to do now and later">
+  <section>
+    <h3>Spend now only where it reduces real risk</h3>
+    <ul>
+      <li>PA entity filing, EIN, separate bank account, basic bookkeeping, and payment processing.</li>
+      <li>General liability and any required vendor insurance certificates before going inside homes.</li>
+      <li>A simple written customer scope with price, payment schedule, exclusions, photo permission, item handling rules, and change-order language.</li>
+      <li>Written contractor/vendor scopes when anyone outside the founders is paid.</li>
+      <li>One-page founder work memo that says who is doing what, how cash work is paid, and that no equity is final until a written agreement is signed.</li>
+    </ul>
+  </section>
+  <section>
+    <h3>Defer until proof and cash exist</h3>
+    <ul>
+      <li>Custom equity documents and multi-entity restructuring.</li>
+      <li>Warehouse leases, trucks, employees, uniforms, and heavy equipment.</li>
+      <li>Estate lending, payment-plan products, or Legacy fronting project cash.</li>
+      <li>Referral-fee programs with attorneys, CPAs, realtors, lenders, funeral homes, or vendors.</li>
+      <li>Franchise, licensing, trademark expansion, and regional operating manuals.</li>
+    </ul>
+  </section>
+</div>
+
+<p>The company should be honest about what it is at launch: a coordinated founder-led service that uses checklists, documentation, QR/photo records, trusted vendors, and practical project management to reduce estate-property overwhelm.</p>
+<h2 id="allegheny-county-starting-market">Allegheny County Starting Market</h2>
+<p>Allegheny County is large enough to support a county-first launch. The numbers below are official or government-source figures where available; the opportunity estimate is a planning assumption.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Current Data</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Population</td>
+<td style="text-align: right;">About 1.23 million residents, 2025 Census estimate</td>
+<td>Large local base without needing regional expansion first</td>
+</tr>
+<tr>
+<td>People age 65+</td>
+<td style="text-align: right;">21.2% of residents, 2024 estimate</td>
+<td>Strong signal for future estate-transition demand</td>
+</tr>
+<tr>
+<td>Housing units</td>
+<td style="text-align: right;">About 614,000 units, 2025 Census estimate</td>
+<td>Deep housing base for inherited-home and vacant-home work</td>
+</tr>
+<tr>
+<td>Households</td>
+<td style="text-align: right;">About 546,000, 2020-2024 Census estimate</td>
+<td>Large direct-mail, SEO, and referral universe</td>
+</tr>
+<tr>
+<td>Owner-occupied housing rate</td>
+<td style="text-align: right;">65.2%, 2020-2024 Census estimate</td>
+<td>Many estate transitions will involve owned homes</td>
+</tr>
+<tr>
+<td>Median owner-occupied home value</td>
+<td style="text-align: right;">$227,600, 2020-2024 Census estimate</td>
+<td>Enough value for many modest preservation projects</td>
+</tr>
+<tr>
+<td>All-cause deaths</td>
+<td style="text-align: right;">71,995 from 2020-2024</td>
+<td>Roughly 14,400 deaths per year before filtering</td>
+</tr>
+</tbody>
+</table>
+<p>Not every death creates a project. Some people rent, some homes transfer smoothly, some heirs already have help, and some properties do not have enough value to justify paid coordination.</p>
+<p>A conservative launch assumption is that 1%-2% of annual deaths could become high-fit inherited-home opportunities in Allegheny County. Using roughly 14,400 deaths per year, that implies about 145-290 possible high-fit projects per year before competition, timing, awareness, and referral access. Legacy Defenders only needs the first 6-12 good projects to prove the model.</p>
+<p>High-fit early customers usually have:</p>
+<ul>
+<li>one clear executor or authorized decision maker</li>
+<li>a safe property in or near Allegheny County</li>
+<li>belongings that need sorting, routing, donation, sale, storage, or disposal</li>
+<li>light repair, cleaning, or market-prep needs</li>
+<li>enough estate value, family budget, or asset-sale potential to pay for the work</li>
+<li>urgency, distance, grief, or complexity that makes DIY slow and costly</li>
+</ul>
+<h2 id="minimum-setup-before-customer-1">Minimum Setup Before Customer 1</h2>
+<p>This is the lowest-friction version that still respects the risk of entering homes, touching belongings, using vendors, and taking estate money.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Owner</th>
+<th style="text-align: right;">Expected Cost</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PA LLC or operating entity decision</td>
+<td>Keith</td>
+<td style="text-align: right;">$125 PA LLC filing fee if forming a domestic LLC</td>
+<td>Creates a cleaner business container before invoicing</td>
+</tr>
+<tr>
+<td>EIN</td>
+<td>Keith</td>
+<td style="text-align: right;">Free through the IRS</td>
+<td>Needed for banking, tax records, and business setup</td>
+</tr>
+<tr>
+<td>PA annual report calendar</td>
+<td>Keith</td>
+<td style="text-align: right;">$7 annual report fee for most for-profit LLCs</td>
+<td>Avoids missing basic compliance later</td>
+</tr>
+<tr>
+<td>Bank account and bookkeeping sheet</td>
+<td>Keith</td>
+<td style="text-align: right;">Low/no cost, depending bank/software</td>
+<td>Keeps customer money separate from personal money</td>
+</tr>
+<tr>
+<td>Payment method</td>
+<td>Keith</td>
+<td style="text-align: right;">Processing fees only</td>
+<td>Allows deposits before vendor spend</td>
+</tr>
+<tr>
+<td>Insurance quote/binder</td>
+<td>Keith + Mike</td>
+<td style="text-align: right;">Must be quoted</td>
+<td>No in-home work without knowing coverage limits</td>
+</tr>
+<tr>
+<td>Customer scope template</td>
+<td>Keith</td>
+<td style="text-align: right;">Low cost now; attorney review after first project if cash is tight</td>
+<td>Defines price, exclusions, payment, photos, change orders, item handling, and cancellation</td>
+</tr>
+<tr>
+<td>Care visit checklist</td>
+<td>Rachel</td>
+<td style="text-align: right;">Founder time</td>
+<td>Makes the free visit useful and repeatable</td>
+</tr>
+<tr>
+<td>Property walkthrough checklist</td>
+<td>Mike</td>
+<td style="text-align: right;">Founder time</td>
+<td>Keeps early projects away from unsafe or unprofitable work</td>
+</tr>
+<tr>
+<td>QR/photo/item log</td>
+<td>Keith + Rachel</td>
+<td style="text-align: right;">Low cost using existing tools</td>
+<td>Provides proof of what was found, moved, stored, sold, donated, or discarded</td>
+</tr>
+<tr>
+<td>Vendor list</td>
+<td>Mike</td>
+<td style="text-align: right;">Founder time</td>
+<td>Allows rent-as-needed labor instead of hiring too early</td>
+</tr>
+</tbody>
+</table>
+<p>The official filing costs are small compared with the risk of unclear promises. The expensive part is not forming an LLC. The expensive part is fixing a bad customer agreement, bad referral arrangement, unclear founder promise, uninsured work, or a project where the team fronts cash it cannot afford to lose.</p>
+<h2 id="what-waits-until-after-customer-1">What Waits Until After Customer 1</h2>
+<p>After one finished customer, Legacy Defenders should have a better legal conversation because it will have facts instead of guesses.</p>
+<p>Use the first project profit to fund review of:</p>
+<ul>
+<li>founder operating agreement and vesting terms</li>
+<li>IP ownership for website, checklists, QR workflow, pricing sheets, photos, templates, and training materials</li>
+<li>contractor/subcontractor agreement and worker classification</li>
+<li>customer agreement and change-order language</li>
+<li>insurance coverage, storage responsibility, item custody, and limitation-of-liability language</li>
+<li>affiliated-company disclosures if Rachel, Mike, Keith, or related companies are paid by the project</li>
+<li>attorney/CPA/realtor/lender/vendor referral rules</li>
+<li>estate asset-sale rules, consignment-like work, and recordkeeping</li>
+<li>financing or lender packet only after demand and project controls are proven</li>
+</ul>
+<p>The right sequence is:</p>
+<ol>
+<li>Get one customer done.</li>
+<li>Run the numbers.</li>
+<li>Decide what the business actually is.</li>
+<li>Pay for documents that match reality.</li>
+</ol>
+<h2 id="founder-roles">Founder Roles</h2>
+<p>The launch needs three kinds of leadership: demand, trust, and execution.</p>
+<table>
+<thead>
+<tr>
+<th>Founder</th>
+<th>Primary Role</th>
+<th>Must Own Before Customer 1</th>
+<th>Should Not Own Alone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keith</td>
+<td>Demand, website, pricing, intake, CRM, project budget, client reporting, professional network</td>
+<td>Lead flow, intake script, proposal, payment plan, dashboard, closeout packet, source documentation</td>
+<td>Emotional family decisions, repair judgment, legal/tax advice</td>
+</tr>
+<tr>
+<td>Rachel</td>
+<td>Care coordination, family trust, belongings decisions, inventory process, item routing</td>
+<td>Free care visit script, decision categories, QR/photo inventory workflow, family communication cadence, cleaning/reset standards</td>
+<td>Financing structure, repair scope, platform ownership</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td>Property assessment, repair risk, practical execution, vendors, quality control</td>
+<td>Walkthrough checklist, safety red flags, repair categories, vendor/labor list, materials assumptions</td>
+<td>Probate advice, item ownership decisions, financing advice</td>
+</tr>
+</tbody>
+</table>
+<h3 id="founder-task-dashboard">Founder Task Dashboard</h3>
+<div class="ld-founder-dashboard" aria-label="Founder task dashboard">
+  <article>
+    <p class="ld-kicker">Keith</p>
+    <h3>Demand and control</h3>
+    <dl>
+      <dt>This week</dt>
+      <dd>Move founder page to footer, publish the free guide, finalize intake questions, set CRM stages, and create the first sprint proposal template.</dd>
+      <dt>Before first visit</dt>
+      <dd>Have pricing range, photo folder structure, budget tracker, payment links, and a no-legal/no-tax-advice disclaimer ready.</dd>
+      <dt>Before first closeout</dt>
+      <dd>Deliver before/after photos, item log, cost summary, lessons learned, and a private margin review.</dd>
+    </dl>
+  </article>
+  <article>
+    <p class="ld-kicker">Rachel</p>
+    <h3>Trust and decisions</h3>
+    <dl>
+      <dt>This week</dt>
+      <dd>Write the free care coordinator visit flow and the plain-language decision categories: keep, deliver, store, sell, donate, discard, review later.</dd>
+      <dt>Before first visit</dt>
+      <dd>Prepare room-by-room notes, family-question prompts, consent language for photos, and item-routing labels.</dd>
+      <dt>Before first closeout</dt>
+      <dd>Confirm every important item has a status and that the executor understands what remains undecided.</dd>
+    </dl>
+  </article>
+  <article>
+    <p class="ld-kicker">Mike</p>
+    <h3>Property and vendors</h3>
+    <dl>
+      <dt>This week</dt>
+      <dd>Create the safety walkthrough, repair risk categories, and a short list of available cleaners, movers, disposal help, and licensed trades.</dd>
+      <dt>Before first visit</dt>
+      <dd>Price a small reset using real labor assumptions, not hopes. Flag anything that requires a licensed trade or separate quote.</dd>
+      <dt>Before first closeout</dt>
+      <dd>Document the repair punch list, what was deferred, and what should be reviewed by a realtor or licensed professional.</dd>
+    </dl>
+  </article>
+</div>
+
+<h2 id="first-offer">First Offer</h2>
+<p>The first offer should be a free care coordinator visit followed by a paid, tightly scoped executor relief sprint.</p>
+<p>The free visit is not a vague sales call. It is a useful working session where the family gets a first plan they can keep. Legacy Defenders uses the visit to decide whether the project is a fit and to scope a paid sprint.</p>
+<h3 id="free-care-coordinator-visit">Free Care Coordinator Visit</h3>
+<p>The visit should cover:</p>
+<ul>
+<li>who has authority to make decisions</li>
+<li>whether there is active family conflict</li>
+<li>house access, utilities, safety, pets, mold, water, pests, smoke, or structural concerns</li>
+<li>urgent deadlines: insurance, taxes, listing, sale, move-out, storage, or vacancy</li>
+<li>belongings categories and obvious high-value or sensitive items</li>
+<li>what the family can do themselves</li>
+<li>what Legacy Defenders could do faster</li>
+<li>the likely first paid scope and budget range</li>
+</ul>
+<h3 id="paid-executor-relief-sprint">Paid Executor Relief Sprint</h3>
+<p>The paid sprint should sound like this:</p>
+<p><strong>"We will document the house, help the executor make belongings decisions, tag and route priority items, coordinate the first cleanout/reset, identify urgent repair risks, and deliver a written plan with photos, item notes, budget, and next steps."</strong></p>
+<p>This is easier to sell than a full renovation because it solves the immediate problem. It is easier to deliver because it does not require Legacy to promise a complete transformation before the team has proven its process.</p>
+<p>Early projects should avoid:</p>
+<ul>
+<li>no clear decision maker</li>
+<li>active family disputes that require legal resolution</li>
+<li>unsafe properties</li>
+<li>major renovations</li>
+<li>unfunded jobs where Legacy must front money</li>
+<li>financing-heavy deals</li>
+<li>hidden referral economics</li>
+<li>valuable personal property disputes</li>
+</ul>
+<h2 id="launch-phases">Launch Phases</h2>
+<div class="ld-timeline" aria-label="Founder launch phases">
+  <div class="ld-timeline-step">
+    <strong>Phase 0: 48 hours</strong>
+    <p>Make the public path coherent: footer link, free guide, first offer, contact flow, and a simple "what happens next" script.</p>
+  </div>
+  <div class="ld-timeline-step">
+    <strong>Phase 1: 7 days</strong>
+    <p>Finish the minimum launch kit: intake, checklist, price range, first proposal, budget tracker, payment method, insurance quote, and vendor list.</p>
+  </div>
+  <div class="ld-timeline-step">
+    <strong>Phase 2: 0-30 days</strong>
+    <p>Get 10 real conversations, 3 free care visits, and 1 paid sprint proposal. Do founder-led work, not expensive infrastructure.</p>
+  </div>
+  <div class="ld-timeline-step">
+    <strong>Phase 3: 30-60 days</strong>
+    <p>Complete the first paid sprint, collect proof, pay cash work, hold reserve, and review every estimate against actuals.</p>
+  </div>
+  <div class="ld-timeline-step">
+    <strong>Phase 4: After customer 1</strong>
+    <p>Use project proof and cash to pay for the legal, insurance, and accounting structure that matches the real model.</p>
+  </div>
+  <div class="ld-timeline-step">
+    <strong>Phase 5: Customers 2-3</strong>
+    <p>Repeat the sprint or step up to a market-ready reset only after scope control, customer communication, and margin are proven.</p>
+  </div>
+</div>
+
+<h3 id="phase-0-first-48-hours">Phase 0: First 48 Hours</h3>
+<table>
+<thead>
+<tr>
+<th>Owner</th>
+<th>Deliverable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keith</td>
+<td>Footer-only founder link, first-offer page language, intake form, CRM stages, proposal template, project budget sheet</td>
+</tr>
+<tr>
+<td>Rachel</td>
+<td>Free visit checklist, decision categories, family questions, item routing language</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td>Safety checklist, repair categories, vendor/labor list, "do not touch" red flags</td>
+</tr>
+<tr>
+<td>All</td>
+<td>Agree that no one promises financing, legal/tax outcomes, sale proceeds, hidden discounts, or equity verbally</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-1-first-7-days">Phase 1: First 7 Days</h3>
+<table>
+<thead>
+<tr>
+<th>Owner</th>
+<th>Deliverable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keith</td>
+<td>Confirm entity/EIN/bank/payment path, get insurance quote, prepare basic agreement or scope language, create direct outreach list</td>
+</tr>
+<tr>
+<td>Rachel</td>
+<td>Practice the visit, test QR/photo inventory, prepare room-by-room worksheet</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td>Price a real two-day reset with labor, truck, disposal, supplies, and cleaning assumptions</td>
+</tr>
+<tr>
+<td>All</td>
+<td>Pick the first 10 referral or warm-contact conversations and ask for advice/conversations, not commissions</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-2-days-0-30">Phase 2: Days 0-30</h3>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Practical Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conversations</td>
+<td>10 attorney, realtor, CPA, senior-resource, family, or neighborhood conversations</td>
+</tr>
+<tr>
+<td>Free visits</td>
+<td>3 qualified care coordinator visits</td>
+</tr>
+<tr>
+<td>Proposals</td>
+<td>1-2 written paid sprint proposals</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>1 signed sprint, deposit collected before vendor spend</td>
+</tr>
+<tr>
+<td>Learning</td>
+<td>Track objections, pricing pushback, scope creep, family friction, and timing pressure</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phase-3-first-customer-closeout">Phase 3: First Customer Closeout</h3>
+<p>The closeout is where the business becomes real. Deliver:</p>
+<ul>
+<li>before, during, and after photos</li>
+<li>item routing log</li>
+<li>receipts and vendor invoices</li>
+<li>repair punch list</li>
+<li>remaining decision list</li>
+<li>customer budget summary</li>
+<li>private margin review</li>
+<li>public-safe case study only with approval</li>
+</ul>
+<h2 id="decision-gates">Decision Gates</h2>
+<div class="ld-gate-grid" aria-label="Launch decision gates">
+  <article>
+    <span>Gate 1</span>
+    <h3>Before free visits</h3>
+    <p>Have a visit checklist, authority questions, safety red flags, and a clear explanation that Legacy does not provide legal or tax advice.</p>
+  </article>
+  <article>
+    <span>Gate 2</span>
+    <h3>Before taking payment</h3>
+    <p>Have the business/payment path, written scope, deposit terms, insurance plan, photo/item rules, exclusions, and change-order process.</p>
+  </article>
+  <article>
+    <span>Gate 3</span>
+    <h3>Before hiring labor</h3>
+    <p>Collect enough customer money to cover vendors. Use scoped vendors or contractors before employees unless project volume repeats.</p>
+  </article>
+  <article>
+    <span>Gate 4</span>
+    <h3>Before larger projects</h3>
+    <p>Finish one sprint with real margin data before accepting $25K+ market-ready work. Finish two clean jobs before $50K+ recovery work.</p>
+  </article>
+  <article>
+    <span>Gate 5</span>
+    <h3>Before referral programs</h3>
+    <p>Use introductions and education first. Any referral fee, co-marketing, preferred-provider discount, or affiliated relationship needs review.</p>
+  </article>
+  <article>
+    <span>Gate 6</span>
+    <h3>Before financing</h3>
+    <p>Do not lend Legacy money or promise funding. Financing, asset sales, sale-proceeds repayment, and lender packets wait for attorney/lender review.</p>
+  </article>
+</div>
+
+<h2 id="cash-compensation-now">Cash Compensation Now</h2>
+<p>Cash compensation and long-term equity are separate. Equity should not be used to avoid paying people for work the project needs today.</p>
+<p>Early cash rules:</p>
+<ul>
+<li>Customer deposits fund project work before anyone spends heavily.</li>
+<li>Vendor costs, disposal, supplies, and required outside labor get protected first.</li>
+<li>Founder labor is priced into the project budget.</li>
+<li>A 10%-15% reserve stays untouched until invoices, refunds, punch-list items, and closeout are complete.</li>
+<li>Bonuses are paid from known gross profit, not from revenue.</li>
+<li>Asset-sale proceeds belong to the estate after approved fees and costs.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Work Type</th>
+<th style="text-align: right;">Suggested Immediate Pay</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Free care visit</td>
+<td style="text-align: right;">Unpaid marketing cost unless the project converts</td>
+<td>If it converts, include a visit stipend in the paid project budget</td>
+</tr>
+<tr>
+<td>Qualified intake and proposal</td>
+<td style="text-align: right;">$100-$250 per signed project</td>
+<td>Paid only when documented and converted</td>
+</tr>
+<tr>
+<td>Rachel care coordination / inventory leadership</td>
+<td style="text-align: right;">$300-$800 per day or $50-$85/hr internal pay target</td>
+<td>Customer billing may be higher to cover overhead and margin</td>
+</tr>
+<tr>
+<td>Mike assessment / repair punch list</td>
+<td style="text-align: right;">$300-$750 for a small scope</td>
+<td>Larger repair work needs its own written estimate</td>
+</tr>
+<tr>
+<td>Keith / Legacy platform coordination</td>
+<td style="text-align: right;">$1,500-$3,500 on first sprint</td>
+<td>Covers lead, scope, records, budget, client updates, closeout</td>
+</tr>
+<tr>
+<td>Vendor or crew work</td>
+<td style="text-align: right;">Written quote or day rate</td>
+<td>Paid by scope, not vague future profit</td>
+</tr>
+<tr>
+<td>Closeout bonus</td>
+<td style="text-align: right;">5%-10% of gross profit</td>
+<td>Only after reserve and actual costs are known</td>
+</tr>
+</tbody>
+</table>
+<h2 id="equity-later">Equity Later</h2>
+<p>The first legal mistake to avoid is promising ownership casually. The second mistake is spending heavily on complicated documents before the team knows what it is building.</p>
+<p>Lean approach:</p>
+<ol>
+<li>Before customer 1, use a simple written founder work memo: current roles, current cash pay, no verbal equity grant, no authority to bind the company alone, and no hidden side deals.</li>
+<li>After customer 1, use profit to pay for a real founder agreement.</li>
+<li>Make equity vest over contribution and milestones.</li>
+<li>Keep founder-owned service companies separate from the Legacy Defenders platform unless counsel says otherwise.</li>
+</ol>
+<p>Equity should consider:</p>
+<ul>
+<li>platform creation: brand, website, CRM, pricing, reporting, QR workflow, financing packet, future licensing model</li>
+<li>care model creation: family trust, intake, decision sessions, belongings workflow, coordinator training</li>
+<li>property model creation: repairs, vendors, quality control, crew standards, market-prep playbook</li>
+<li>ongoing operating responsibility: who keeps doing the work, carrying risk, improving process, and protecting the brand</li>
+</ul>
+<p>Possible vesting milestones for discussion:</p>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signed founder agreement</td>
+<td>Stops verbal promises from becoming a future fight</td>
+</tr>
+<tr>
+<td>1 completed customer</td>
+<td>Creates real data and funds legal review</td>
+</tr>
+<tr>
+<td>3 completed projects</td>
+<td>Shows repeatability beyond one lucky case</td>
+</tr>
+<tr>
+<td>12 completed projects</td>
+<td>Shows pricing, vendors, and customer communication can repeat</td>
+</tr>
+<tr>
+<td>50-60 projects/year</td>
+<td>Justifies expansion, managers, licensing, or franchise discussion</td>
+</tr>
+</tbody>
+</table>
+<p>If a founder stops contributing, leaves, or cannot perform the operating role, unvested equity should return to the company under written terms. Buyback, noncompete/non-solicit limits, IP ownership, deadlock rules, and authority to sign contracts should be decided with counsel.</p>
+<h2 id="first-project-examples">First Project Examples</h2>
+<p>The first projects should be small enough to finish, useful enough to sell, and documented enough to teach the team what the business really costs.</p>
+<h3 id="project-1-executor-relief-sprint">Project 1: Executor Relief Sprint</h3>
+<p><strong>Best first customer:</strong> one executor, local or within a few hours, safe house, full belongings, no active family dispute, light cleaning, basic item routing, and no major renovation.</p>
+<div class="ld-proposal-card" aria-label="Executor relief sprint proposal snapshot">
+  <div>
+    <p class="ld-kicker">First customer target</p>
+    <h4>Executor Relief Sprint</h4>
+    <p>A 7-10 day paid sprint that turns a confusing inherited house into photos, item decisions, a cleaner first reset, and a practical next-step plan.</p>
+  </div>
+  <dl>
+    <div>
+      <dt>Customer price</dt>
+      <dd>$9,600 example</dd>
+    </div>
+    <div>
+      <dt>Deposit</dt>
+      <dd>50% before scheduling labor</dd>
+    </div>
+    <div>
+      <dt>Timeline</dt>
+      <dd>7-10 days</dd>
+    </div>
+    <div>
+      <dt>Goal</dt>
+      <dd>Finish cleanly, prove the workflow, earn a testimonial</dd>
+    </div>
+  </dl>
+</div>
+
+<h4 id="steps">Steps</h4>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Owner</th>
+<th>What Happens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Intake</td>
+<td>Keith or Rachel</td>
+<td>Confirm authority, address, urgency, safety, family conflict, and budget range.</td>
+</tr>
+<tr>
+<td>2. Free visit</td>
+<td>Rachel + Mike</td>
+<td>Rachel maps family decisions. Mike checks safety, repairs, utilities, access, and vendor needs.</td>
+</tr>
+<tr>
+<td>3. Sprint scope</td>
+<td>Keith</td>
+<td>Convert visit into price, timeline, included work, exclusions, payment schedule, and decision deadlines.</td>
+</tr>
+<tr>
+<td>4. Item decision session</td>
+<td>Rachel</td>
+<td>Sort priority belongings into keep, deliver, store, sell, donate, discard, or review later.</td>
+</tr>
+<tr>
+<td>5. Reset day</td>
+<td>Rachel leads, vendors support</td>
+<td>Move/dispose/donate approved items, perform light reset, photograph progress, update item log.</td>
+</tr>
+<tr>
+<td>6. Repair punch list</td>
+<td>Mike</td>
+<td>Note urgent safety issues, cosmetic fixes, licensed-trade needs, and realtor questions.</td>
+</tr>
+<tr>
+<td>7. Closeout</td>
+<td>Keith</td>
+<td>Deliver photos, item log, receipts, cost summary, repair list, and next-step options.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sample-budget">Sample Budget</h4>
+<table>
+<thead>
+<tr>
+<th>Budget Line</th>
+<th style="text-align: right;">Amount</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legacy coordination, scope, client updates, closeout</td>
+<td style="text-align: right;">$2,000</td>
+<td>Keith/platform work</td>
+</tr>
+<tr>
+<td>Rachel care coordination and inventory leadership</td>
+<td style="text-align: right;">$1,500</td>
+<td>Visit, decision session, reset leadership, records</td>
+</tr>
+<tr>
+<td>Mike walkthrough and repair punch list</td>
+<td style="text-align: right;">$600</td>
+<td>Safety and practical repair review</td>
+</tr>
+<tr>
+<td>Two-person moving/processing help with truck allocation</td>
+<td style="text-align: right;">$1,800</td>
+<td>Example vendor/labor bucket</td>
+</tr>
+<tr>
+<td>Cleaning/reset labor</td>
+<td style="text-align: right;">$900</td>
+<td>Light reset, not remediation</td>
+</tr>
+<tr>
+<td>Disposal, donation runs, boxes, bags, labels, supplies</td>
+<td style="text-align: right;">$700</td>
+<td>Must be adjusted by house condition</td>
+</tr>
+<tr>
+<td>QR/photo/admin setup, lockbox, reporting</td>
+<td style="text-align: right;">$450</td>
+<td>Low-cost proof system</td>
+</tr>
+<tr>
+<td>Overhead, insurance allocation, payment fees, contingency/reserve</td>
+<td style="text-align: right;">$1,650</td>
+<td>Protects small project margin</td>
+</tr>
+<tr>
+<td><strong>Customer price</strong></td>
+<td style="text-align: right;"><strong>$9,600</strong></td>
+<td>First sprint example</td>
+</tr>
+</tbody>
+</table>
+<h4 id="immediate-pay">Immediate Pay</h4>
+<table>
+<thead>
+<tr>
+<th>Recipient</th>
+<th style="text-align: right;">Example Pay</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rachel</td>
+<td style="text-align: right;">$1,500</td>
+<td>Family trust, belongings decisions, inventory, item routing</td>
+</tr>
+<tr>
+<td>Mike</td>
+<td style="text-align: right;">$600</td>
+<td>Property assessment and repair punch list</td>
+</tr>
+<tr>
+<td>Legacy Defenders / Keith</td>
+<td style="text-align: right;">$2,000</td>
+<td>Lead, scope, project control, reporting, closeout</td>
+</tr>
+<tr>
+<td>Vendors, cleaning, disposal, supplies</td>
+<td style="text-align: right;">$3,400</td>
+<td>Direct job costs</td>
+</tr>
+<tr>
+<td>Reserve / overhead / margin protection</td>
+<td style="text-align: right;">$2,100</td>
+<td>Held until closeout, then reviewed</td>
+</tr>
+</tbody>
+</table>
+<p>This project proves whether a real family will pay close to $10,000 for calm, documented executor help. It also shows which tasks were underpriced before the team accepts bigger work.</p>
+<h3 id="project-2-market-ready-reset">Project 2: Market-Ready Reset</h3>
+<p><strong>Second or third customer target:</strong> one clear decision maker, enough home value to justify work, realtor input, moderate contents, cosmetic refresh, and no structural surprise.</p>
+<div class="ld-proposal-card" aria-label="Market-ready reset proposal snapshot">
+  <div>
+    <p class="ld-kicker">After one clean sprint</p>
+    <h4>Market-Ready Reset</h4>
+    <p>A 3-4 week project that clears the house, handles belongings, coordinates cleaning and light repairs, and prepares the property for realtor review.</p>
+  </div>
+  <dl>
+    <div>
+      <dt>Customer price</dt>
+      <dd>$24,800 example</dd>
+    </div>
+    <div>
+      <dt>Deposit</dt>
+      <dd>40% start, staged draws</dd>
+    </div>
+    <div>
+      <dt>Timeline</dt>
+      <dd>3-4 weeks</dd>
+    </div>
+    <div>
+      <dt>Goal</dt>
+      <dd>Show preserved value without a major renovation</dd>
+    </div>
+  </dl>
+</div>
+
+<h4 id="steps_1">Steps</h4>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Owner</th>
+<th>Work</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Week 1</td>
+<td>Keith + Rachel</td>
+<td>Intake, free visit, written scope, deposit, family decision session</td>
+</tr>
+<tr>
+<td>Week 1</td>
+<td>Mike</td>
+<td>Repair scope, vendor schedule, materials assumptions, licensed-trade flags</td>
+</tr>
+<tr>
+<td>Week 2</td>
+<td>Rachel</td>
+<td>Contents routing, donation/disposal approvals, storage decisions, photo records</td>
+</tr>
+<tr>
+<td>Week 2-3</td>
+<td>Mike</td>
+<td>Paint/minor repair supervision, cleaning reset, vendor quality control</td>
+</tr>
+<tr>
+<td>Week 4</td>
+<td>Keith</td>
+<td>Budget closeout, before/after packet, realtor-ready punch list, case study request</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sample-budget_1">Sample Budget</h4>
+<table>
+<thead>
+<tr>
+<th>Budget Line</th>
+<th style="text-align: right;">Amount</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legacy coordination, reporting, client communication</td>
+<td style="text-align: right;">$3,500</td>
+<td>Project control and records</td>
+</tr>
+<tr>
+<td>Rachel care/inventory/storage/cleanout coordination</td>
+<td style="text-align: right;">$2,750</td>
+<td>Family-facing work and belongings workflow</td>
+</tr>
+<tr>
+<td>Mike property scope and quality control</td>
+<td style="text-align: right;">$1,750</td>
+<td>Sequencing, repair judgment, vendor oversight</td>
+</tr>
+<tr>
+<td>Moving, disposal, donation, storage setup</td>
+<td style="text-align: right;">$3,750</td>
+<td>Vendor/labor bucket</td>
+</tr>
+<tr>
+<td>Cleaning and reset</td>
+<td style="text-align: right;">$1,800</td>
+<td>Deep clean/light reset</td>
+</tr>
+<tr>
+<td>Paint and minor repair labor</td>
+<td style="text-align: right;">$5,750</td>
+<td>Scope must be tightly defined</td>
+</tr>
+<tr>
+<td>Materials and supplies</td>
+<td style="text-align: right;">$1,600</td>
+<td>Paint, patch, hardware, safety supplies</td>
+</tr>
+<tr>
+<td>Licensed trade allowance</td>
+<td style="text-align: right;">$1,000</td>
+<td>Small allowance only; larger work is change order</td>
+</tr>
+<tr>
+<td>Overhead, insurance allocation, payment fees, contingency/reserve</td>
+<td style="text-align: right;">$2,900</td>
+<td>Protects the project</td>
+</tr>
+<tr>
+<td><strong>Customer price</strong></td>
+<td style="text-align: right;"><strong>$24,800</strong></td>
+<td>Market-ready example</td>
+</tr>
+</tbody>
+</table>
+<p>This project should not be sold until the team has completed at least one sprint and knows its actual labor, disposal, and communication load.</p>
+<h3 id="project-3-heavy-recovery-later">Project 3: Heavy Recovery Later</h3>
+<p>A $35,000-$60,000 recovery project may become real later. It is not the cheapest path to launch.</p>
+<p>Do not accept heavy recovery until:</p>
+<ul>
+<li>one executor sprint is finished</li>
+<li>one market-ready reset is finished or tightly scoped</li>
+<li>customer authority is clear</li>
+<li>deposit/draw schedule protects cash</li>
+<li>insurance and licensed-trade rules are clear</li>
+<li>change-order rules are written</li>
+<li>no one is asking Legacy to front major cash</li>
+</ul>
+<h2 id="operating-rules">Operating Rules</h2>
+<ul>
+<li>Every project has one authorized decision maker.</li>
+<li>Every customer gets a written scope before paid work starts.</li>
+<li>Every paid worker or vendor has a written scope.</li>
+<li>Every project starts with enough cash collected to avoid floating vendor costs.</li>
+<li>Every item path is documented: keep, deliver, store, sell, donate, discard, return, or review later.</li>
+<li>Every photo and item record is handled respectfully and only shared as approved.</li>
+<li>Legal and tax advice comes from attorneys and CPAs, not Legacy Defenders.</li>
+<li>Licensed work goes to licensed trades.</li>
+<li>Storage responsibility, insurance limits, and item custody are written plainly.</li>
+<li>Referral relationships, discounts, and affiliated-company relationships are disclosed and reviewed before use.</li>
+<li>Founder pay is a project cost, not imaginary future profit.</li>
+<li>Equity is written, vested, and separate from current work pay.</li>
+<li>Every project ends with a postmortem: estimated cost, actual cost, hours, delays, customer issues, margin, and what to price differently next time.</li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.pa.gov/agencies/dos/programs/business/fees-and-payments">Pennsylvania Department of State business fees</a>: domestic LLC Certificate of Organization fee, fictitious name fee, and annual report fee schedule.</li>
+<li><a href="https://www.pa.gov/agencies/dos/programs/business/types-of-filings-and-registrations/annual-reports">Pennsylvania Department of State annual reports</a>: annual report requirements, LLC deadline, and $7 filing fee for most for-profit LLCs.</li>
+<li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/get-an-employer-identification-number">IRS EIN information</a>: EINs are available directly from the IRS for free.</li>
+<li><a href="https://www.census.gov/quickfacts/fact/table/alleghenycountypennsylvania/PST045224">U.S. Census Bureau QuickFacts: Allegheny County</a>: population, housing, owner-occupied rate, home value, and household figures.</li>
+<li><a href="https://www.pa.gov/content/dam/copapwp-pagov/en/health/documents/topics/healthstatistics/vitalstatistics/countyhealthprofiles/documents/current/allegheny.html">Pennsylvania Department of Health Allegheny County profile</a>: county health and death statistics.</li>
+<li><a href="https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Fees">Allegheny County Wills/Orphans Court fees</a>: local court fee reference for estate-related filings.</li>
+</ul>
+<p>The mission is the moat:</p>
+<p><strong>Families should not lose their legacy because they were overwhelmed at the wrong moment.</strong></p>
+        </div>
+    </div>
+</section>
+    </main>
+    
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <h3 class="footer-title">Legacy Defenders</h3>
+                <p class="footer-text">Inherited Home Rescue &amp; Estate Transition Support</p>
+                <div class="footer-contact">
+                    <p><strong>Phone:</strong> <a href="tel:+19736377079">(973) 637-7079</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:care@legacydefenders.com">care@legacydefenders.com</a></p>
+                    <p><strong>Location:</strong> Pittsburgh, Pennsylvania</p>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4 class="footer-heading">Start Here</h4>
+                <ul class="footer-links">
+                    <li><a href="/#services">Our Process</a></li>
+                    <li><a href="/services.html">All Services</a></li>
+                    <li><a href="/free-guide.html">Free Cost Worksheet</a></li>
+                    <li><a href="/pricing.html">Pricing Examples</a></li>
+                    <li><a href="/prearranged.html">Plan Ahead</a></li>
+                    <li><a href="/pa-probate.html">PA Probate Help</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-heading">Trust</h4>
+                <ul class="footer-links">
+                    <li><a href="/#why-choose">Why Legacy Defenders</a></li>
+                    <li><a href="/keith-story.html">Keith&#39;s Story</a></li>
+                    <li><a href="/diy-vs-us.html">DIY vs Us</a></li>
+                    <li><a href="/#faq">FAQ</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom flex flex-col items-center">
+            <p>&copy; 2026 Legacy Defenders. All rights reserved.</p>
+            <p class="footer-back-top">
+                <a href="#header" class="back-to-top">Back to Top</a>
+            </p>
+        </div>
+    </div>
+</footer>    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/19736377079?text=Hi!%20I%20need%20help%20with%20an%20inherited%20home" 
+       class="whatsapp-float flex items-center justify-center" 
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="main.js?v=2026-06-28T19:51:12.099942"></script>
+</body>
+</html>
