@@ -9,18 +9,18 @@ seo:
   description: "Care-led inherited home support for executors and families handling belongings, repairs, storage, documentation, and sale or move-in preparation."
   keywords: ["inherited home services", "estate cleanout", "probate home help", "executor support", "estate property coordination"]
   og_type: "website"
-  og_image: "/images/social/og-image.jpg"
+  og_image: "https://kaw393939.github.io/legacy/images/social/og-image.jpg"
 cta:
   title: "A clear house makes better decisions possible."
   description: "We help families turn urgent inherited-home problems into a documented plan for belongings, repairs, storage, sale, move-in, or continued probate decisions."
   background_image: "images/proof/estate-cleanout-before-after.jpg"
   buttons:
     - text: "Request a Care Plan"
-      url: "/#contact"
+      url: "index.html#contact"
       icon: "fa-clipboard-list"
       style: "primary"
     - text: "See Pricing Examples"
-      url: "/pricing.html"
+      url: "pricing.html"
       icon: "fa-file-invoice-dollar"
       style: "white"
   guarantee:

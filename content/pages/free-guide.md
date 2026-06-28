@@ -29,8 +29,8 @@ This guide helps you see the whole problem before it becomes expensive.
   <h2>Call before you accept a low offer, pay for cleanout, start repairs, or throw belongings away.</h2>
   <p>The first conversation does not obligate you to a large project. It can help you avoid the most common early mistakes: missing documents, losing sentimental items, overpaying vendors, underpricing the house, or spending money in the wrong order.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="/#contact">Request A Triage Call</a>
-    <a class="btn btn-outline" href="/diy-vs-us.html">Compare DIY vs Using Us</a>
+    <a class="btn btn-primary" href="index.html#contact">Request A Triage Call</a>
+    <a class="btn btn-outline" href="diy-vs-us.html">Compare DIY vs Using Us</a>
   </div>
 </div>
 
@@ -38,7 +38,7 @@ This guide helps you see the whole problem before it becomes expensive.
   <p class="ld-kicker">Free to keep</p>
   <h2>Use this worksheet yourself, or review it with a care coordinator.</h2>
   <p>Legacy Defenders starts with a free triage call. When the location, timing, and situation fit, we may offer a limited first visit to identify obvious risks and explain possible next steps. A full written Estate Care Plan is a paid scope.</p>
-  <a class="btn btn-primary" href="/#contact">Request a triage call</a>
+  <a class="btn btn-primary" href="index.html#contact">Request a triage call</a>
 </div>
 
 ## What To Do In The First Week
@@ -262,7 +262,7 @@ After the first conversation or limited visit, you should understand:
   <p class="ld-kicker">Free triage call</p>
   <h2>Get the house, belongings, costs, and timeline onto one page.</h2>
   <p>If you want to do it yourself, this gives you a clearer path. If you want help, this becomes the starting point for a paid Estate Care Plan, scope, pricing, and financing review.</p>
-  <a class="btn btn-white" href="/#contact">Schedule the triage call</a>
+  <a class="btn btn-white" href="index.html#contact">Schedule the triage call</a>
 </div>
 
 ## Official References

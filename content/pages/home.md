@@ -60,9 +60,9 @@ cta:
 seo:
   canonical: "/"
   og_type: "website"
-  og_image: "https://www.legacydefenders.com/images/social/og-image.jpg"
+  og_image: "https://kaw393939.github.io/legacy/images/social/og-image.jpg"
   twitter_card: "summary_large_image"
-  twitter_image: "https://www.legacydefenders.com/images/social/twitter-card.jpg"
+  twitter_image: "https://kaw393939.github.io/legacy/images/social/twitter-card.jpg"
 ---
 
 ## You deserve time to grieve. We make sure the urgent things still get handled.

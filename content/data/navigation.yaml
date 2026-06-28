@@ -1,43 +1,43 @@
 main_nav:
   - title: "Home"
-    url: "/"
+    url: "index.html"
     id: "home"
 
   - title: "Process"
-    url: "/#services"
+    url: "index.html#services"
     id: "services"
 
   - title: "DIY vs Us"
-    url: "/diy-vs-us.html"
+    url: "diy-vs-us.html"
     id: "diy-vs-us"
 
   - title: "Free Guide"
-    url: "/free-guide.html"
+    url: "free-guide.html"
     id: "free-guide"
 
   - title: "Plan Ahead"
-    url: "/prearranged.html"
+    url: "prearranged.html"
     id: "prearranged"
 
   - title: "Keith's Story"
-    url: "/keith-story.html"
+    url: "keith-story.html"
     id: "keith-story"
     mobile_only: true
 
   - title: "Pricing"
-    url: "/pricing.html"
+    url: "pricing.html"
     id: "pricing"
 
   - title: "PA Probate"
-    url: "/pa-probate.html"
+    url: "pa-probate.html"
     id: "pa-probate"
 
   - title: "FAQ"
-    url: "/#faq"
+    url: "index.html#faq"
     id: "faq"
 
   - title: "Contact"
-    url: "/#contact"
+    url: "index.html#contact"
     id: "contact"
     highlight: true
 
@@ -52,28 +52,30 @@ footer_nav:
     title: "Start Here"
     links:
       - title: "Our Process"
-        url: "/#services"
+        url: "index.html#services"
       - title: "All Services"
-        url: "/services.html"
+        url: "services.html"
       - title: "Free Cost Worksheet"
-        url: "/free-guide.html"
+        url: "free-guide.html"
       - title: "Pricing Examples"
-        url: "/pricing.html"
+        url: "pricing.html"
       - title: "Plan Ahead"
-        url: "/prearranged.html"
+        url: "prearranged.html"
       - title: "PA Probate Help"
-        url: "/pa-probate.html"
+        url: "pa-probate.html"
 
   company:
     title: "Trust"
     links:
       - title: "Why Legacy Defenders"
-        url: "/#why-choose"
+        url: "index.html#why-choose"
       - title: "Keith's Story"
-        url: "/keith-story.html"
+        url: "keith-story.html"
       - title: "DIY vs Us"
-        url: "/diy-vs-us.html"
+        url: "diy-vs-us.html"
       - title: "FAQ"
-        url: "/#faq"
+        url: "index.html#faq"
+      - title: "Founder Launch Plan"
+        url: "founder-plan.html"
       - title: "Contact"
-        url: "/#contact"
+        url: "index.html#contact"

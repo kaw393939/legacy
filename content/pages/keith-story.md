@@ -79,5 +79,5 @@ Our process is built from the painful lesson Keith learned: calling random peopl
 
 You do not need to decide today whether to renovate, sell, rent, keep, donate, or finance the project. The first step is getting the situation onto one page.
 
-<a class="btn btn-primary" href="/#contact">Talk With A Care Coordinator</a>
-<a class="btn btn-outline" href="/pricing.html">See Pricing Examples</a>
+<a class="btn btn-primary" href="index.html#contact">Talk With A Care Coordinator</a>
+<a class="btn btn-outline" href="pricing.html">See Pricing Examples</a>

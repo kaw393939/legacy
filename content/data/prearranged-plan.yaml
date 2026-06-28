@@ -7,7 +7,7 @@ prearranged_plan:
   boundary_text: "This does not replace a will, trust, power of attorney, estate attorney, tax advisor, lender, realtor, or licensed trade professional. It gives your family a practical operating plan and a care team that already understands the house."
   cta:
     text: "Plan This Before It Becomes Urgent"
-    url: "/prearranged.html"
+    url: "prearranged.html"
     icon: "fa-calendar-check"
   steps:
     - title: "Walk The Home"

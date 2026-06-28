@@ -44,7 +44,7 @@
     </div>
     {% endif %}
     {{ cta_link(
-        '/#contact',
+        'index.html#contact',
         ('btn btn-primary service-cta' if service.popular else 'btn btn-outline service-cta'),
         ('Request This Plan' if service.popular else 'Learn More'),
         data_cta='service',
@@ -88,7 +88,7 @@
         {% endfor %}
     </ul>
     {{ cta_link(
-        '/#contact',
+        'index.html#contact',
         ('btn btn-primary service-cta' if package.popular else 'btn btn-outline service-cta'),
         ('Choose This Package' if package.popular else 'Learn More'),
         data_cta='package',

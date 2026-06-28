@@ -1,5 +1,5 @@
 # Legacy Defenders
-# Sitemap for legacydefenders.com
+# Sitemap for GitHub Pages project URL
 
 User-agent: *
 Allow: /
@@ -9,6 +9,6 @@ Disallow: /private/
 Disallow: /*.json$
 Disallow: /*.log$
 
-Sitemap: https://www.legacydefenders.com/sitemap.xml
+Sitemap: https://kaw393939.github.io/legacy/sitemap.xml
 
 Crawl-delay: 1

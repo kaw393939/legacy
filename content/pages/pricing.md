@@ -33,8 +33,8 @@ Pricing below is for planning only. Every home, estate, family, property conditi
   <h2>Before you approve a cleanout, repair quote, or cash offer, get the situation onto one page.</h2>
   <p>A free triage call can help identify what is urgent, what can wait, whether a paid Estate Care Plan makes sense, and which professionals should review the next decision.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="/#contact">Start With A Triage Call</a>
-    <a class="btn btn-outline" href="/keith-story.html">Read Keith's Case</a>
+    <a class="btn btn-primary" href="index.html#contact">Start With A Triage Call</a>
+    <a class="btn btn-outline" href="keith-story.html">Read Keith's Case</a>
   </div>
 </div>
 

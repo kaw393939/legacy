@@ -7,9 +7,8 @@ This repository is set up to deploy the generated static site to GitHub Pages.
 - GitHub repo: `git@github.com:kaw393939/legacy.git`
 - Branch: `main`
 - Build output: `docs/`
-- Custom domain: `www.legacydefenders.com`
-- CNAME source: `static/CNAME`
-- Generated CNAME: `docs/CNAME`
+- Live Pages URL: `https://kaw393939.github.io/legacy/`
+- Custom domain: not enabled yet
 
 ## Recommended GitHub Pages Setting
 
@@ -35,9 +34,11 @@ python build.py --validate
 
 The generated site is written to `docs/`.
 
-## Custom Domain DNS
+## Optional Custom Domain DNS
 
-For `www.legacydefenders.com`, create a CNAME record:
+The current deployment works at `https://kaw393939.github.io/legacy/`.
+
+Only add a custom domain after the domain is owned and DNS can be changed. For a future `www.legacydefenders.com`, create a CNAME record:
 
 ```text
 Type: CNAME
@@ -54,7 +55,7 @@ If the apex domain `legacydefenders.com` should also resolve to GitHub Pages, ad
 185.199.111.153
 ```
 
-GitHub may take time to provision HTTPS after the first successful deployment.
+Then add the custom domain in GitHub Pages settings and restore a `static/CNAME` file with that domain. GitHub may take time to provision HTTPS after the DNS change.
 
 ## Deployment Commands
 

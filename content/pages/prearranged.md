@@ -71,5 +71,5 @@ Families who complete a readiness plan may qualify for priority activation and a
 
 The goal is not to make the family think about death all the time. The goal is to give heirs a prepared, caring process when they are least able to invent one.
 
-<a class="btn btn-primary" href="/#contact">Talk About A Prearranged Plan</a>
-<a class="btn btn-outline" href="/free-guide.html">Use The Free Worksheet First</a>
+<a class="btn btn-primary" href="index.html#contact">Talk About A Prearranged Plan</a>
+<a class="btn btn-outline" href="free-guide.html">Use The Free Worksheet First</a>

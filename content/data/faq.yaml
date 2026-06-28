@@ -73,4 +73,4 @@ component_settings:
     show: true
     text: "Still have questions?"
     button_text: "Talk With a Care Coordinator"
-    button_link: "/#contact"
+    button_link: "index.html#contact"

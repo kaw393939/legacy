@@ -33,8 +33,8 @@ That is possible to do alone. It is also where many families lose money, time, a
   <h2>Doing it yourself can work. It can also consume your life if you do not have a Mike.</h2>
   <p>Keith called lawyers, tax people, contractors, and cleaning services, then tried to carry the problem himself because too many options felt expensive or exploitative. The house was saved because Mike stepped in. Legacy Defenders turns that lucky break into a repeatable process.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="/#contact">Ask What To Do First</a>
-    <a class="btn btn-outline" href="/keith-story.html">Read Keith's Story</a>
+    <a class="btn btn-primary" href="index.html#contact">Ask What To Do First</a>
+    <a class="btn btn-outline" href="keith-story.html">Read Keith's Story</a>
   </div>
 </div>
 
