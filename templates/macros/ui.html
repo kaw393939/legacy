@@ -40,3 +40,20 @@
     extra_attrs=extra_attrs
 ) }}
 {%- endmacro %}
+
+{% macro action_buttons(actions, wrapper_class="hero-actions", data_section=None) -%}
+{% if actions %}
+<div class="{{ wrapper_class }}">
+    {% for action in actions %}
+    {{ cta_link(
+        action.url,
+        ('btn ' ~ (action.style | default('btn-primary'))),
+        ((('<i class="fas ' ~ action.icon ~ '" aria-hidden="true"></i> ') if action.icon else '') ~ action.text) | safe,
+        data_cta=action.cta | default(None),
+        data_section=data_section,
+        extra_attrs=('data-destination="' ~ action.url ~ '"' if data_section else '')
+    ) }}
+    {% endfor %}
+</div>
+{% endif %}
+{%- endmacro %}

@@ -90,7 +90,7 @@
     font-size: 1.5rem;
     flex-shrink: 0;
     }
-/* FAQ Section - Fortune 100 Professional Design */
+/* FAQ Section */
 .faq-section {
     padding: clamp(2.5rem, 6vh, 3.5rem) 0;
     background: var(--gray-50);

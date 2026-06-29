@@ -1,3 +1,5 @@
+{% from "macros/ui.html" import cta_link %}
+
 <section class="cta" id="cta" {% if page.cta and page.cta.background_image %}style="--bg-image: url('{{ page.cta.background_image }}');"{% endif %}>
     <div class="container">
         <div class="cta-content">
@@ -6,9 +8,14 @@
             <div class="cta-buttons">
                 {% if page.cta and page.cta.buttons %}
                 {% for button in page.cta.buttons %}
-                <a href="{{ button.url }}" class="btn btn-{{ button.style }}" data-cta="{% if button.style == 'primary' %}primary{% else %}secondary{% endif %}" data-section="cta" data-destination="{{ button.url }}">
-                    {% if button.icon %}<i class="fas {{ button.icon }}"></i> {% endif %}{{ button.text }}
-                </a>
+                {{ cta_link(
+                    button.url,
+                    ('btn btn-' ~ button.style),
+                    ((('<i class="fas ' ~ button.icon ~ '" aria-hidden="true"></i> ') if button.icon else '') ~ button.text) | safe,
+                    data_cta=('primary' if button.style == 'primary' else 'secondary'),
+                    data_section='cta',
+                    extra_attrs=('data-destination="' ~ button.url ~ '"')
+                ) }}
                 {% endfor %}
                 {% endif %}
             </div>

@@ -305,7 +305,7 @@
     line-height: var(--line-height-loose);
     margin-bottom: 0
     }
-/* Testimonials - Fortune 100 Design */
+/* Testimonials */
 .testimonials {
     padding: clamp(3rem, 8vh, 4.5rem) 0;
     background: var(--white);
@@ -472,13 +472,13 @@
     color: var(--gray-600);
     line-height: var(--line-height-relaxed)
     }
-/* Services Grid Section - Fortune 100 TIGHT Spacing */
+/* Services Grid Section */
 .services-grid {
     gap: var(--space-lg);
     margin-top: var(--space-lg);
     }
 
-/* Psychological Grid Layout - Rule of 3 Implementation */
+/* Service Card Grid */
 .psychological-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

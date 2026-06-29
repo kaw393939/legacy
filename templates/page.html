@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros/ui.html" import action_buttons %}
 
 {% block content %}
 <section class="page-hero public-page-hero">
@@ -10,16 +11,7 @@
                 {% endif %}
                 <h1 class="hero-title">{{ page.title }}</h1>
                 <p class="hero-description">{{ page.description }}</p>
-                {% if page.hero_actions %}
-                <div class="hero-actions">
-                    {% for action in page.hero_actions %}
-                    <a class="btn {{ action.style | default('btn-primary') }}" href="{{ action.url }}">
-                        {% if action.icon %}<i class="fas {{ action.icon }}" aria-hidden="true"></i>{% endif %}
-                        {{ action.text }}
-                    </a>
-                    {% endfor %}
-                </div>
-                {% endif %}
+                {{ action_buttons(page.hero_actions) }}
                 {% if page.stats %}
                 <div class="hero-stats">
                     {% for stat in page.stats %}
