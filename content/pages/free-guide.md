@@ -26,10 +26,10 @@ This guide helps you see the whole problem before it becomes expensive.
 
 <div class="page-action-panel">
   <p class="ld-kicker">Before anything irreversible</p>
-  <h2>Call before you accept a low offer, pay for cleanout, start repairs, or throw belongings away.</h2>
-  <p>The first conversation does not obligate you to a large project. It can help you avoid the most common early mistakes: missing documents, losing sentimental items, overpaying providers, underpricing the house, or spending money in the wrong order.</p>
+  <h2>Call Before You Spend, Sell, Or Throw Things Away</h2>
+  <p>The first conversation does not obligate you to a large project. It can help before you accept a low offer, pay for cleanout, start repairs, or throw belongings away. The goal is to avoid the most common early mistakes: missing documents, losing sentimental items, overpaying providers, underpricing the house, or spending money in the wrong order.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="index.html#contact">Book A Free 1-Hour Call</a>
+    <a class="btn btn-primary" href="index.html?interest=Free%20Guide%20Worksheet#contact">Book A Free 1-Hour Call</a>
     <a class="btn btn-outline" href="diy-vs-us.html">Compare DIY vs Using Us</a>
   </div>
 </div>
@@ -38,7 +38,7 @@ This guide helps you see the whole problem before it becomes expensive.
   <p class="ld-kicker">Free to keep</p>
   <h2>Use this worksheet yourself, or review it with a care coordinator.</h2>
   <p>Legacy Defenders starts with a free one-hour estate call. When the location, timing, and situation fit, the next step is a $250 Estate Math Home Visit that turns the worksheet, the house, the belongings, and the provider needs into a practical snapshot. The $250 is credited toward approved Legacy Defenders services.</p>
-  <a class="btn btn-primary" href="index.html#contact">Book a free call</a>
+  <a class="btn btn-primary" href="index.html?interest=Free%20Guide%20Worksheet#contact">Book a free call</a>
 </div>
 
 ## What To Do In The First Week
@@ -264,7 +264,7 @@ After the free call or $250 visit, you should understand:
   <p class="ld-kicker">Free 1-hour estate call</p>
   <h2>Get the house, belongings, costs, and timeline onto one page.</h2>
   <p>If you want to do it yourself, this gives you a clearer path. If you want help, this becomes the starting point for a $250 credited Estate Math Home Visit, approved services, scope, pricing, and funding review.</p>
-  <a class="btn btn-white" href="index.html#contact">Schedule the free call</a>
+  <a class="btn btn-white" href="index.html?interest=Free%20Guide%20Worksheet#contact">Schedule the free call</a>
 </div>
 
 ## Official References

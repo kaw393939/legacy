@@ -16,7 +16,7 @@ cta:
   background_image: "images/proof/estate-cleanout-before-after.jpg"
   buttons:
     - text: "Book A Free 1-Hour Call"
-      url: "index.html#contact"
+      url: "index.html?interest=Legacy%20Defenders%20Services#contact"
       icon: "fa-clipboard-list"
       style: "primary"
     - text: "See Pricing Examples"

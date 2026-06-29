@@ -2415,7 +2415,7 @@
 @media (max-width: 768px) {
     .hero {
         min-height: auto;
-        padding: 5rem var(--space-base) 3rem;
+        padding: 4rem var(--space-base) 2rem;
         background-position: 62% center;
     }
 
@@ -2434,14 +2434,10 @@
 
     .hero-buttons {
         order: 4;
-        margin-bottom: var(--space-md);
+        margin-bottom: 0;
     }
 
     .hero-proof-points {
-        order: 5;
-    }
-
-    .hero-proof-points li:nth-child(n+3) {
         display: none;
     }
 

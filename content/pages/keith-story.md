@@ -79,5 +79,5 @@ Our process is built from the painful lesson Keith learned: calling random peopl
 
 You do not need to decide today whether to renovate, sell, rent, keep, donate, ship items, store belongings, or finance the project. The first step is getting the situation onto one page.
 
-<a class="btn btn-primary" href="index.html#contact">Book A Free 1-Hour Call</a>
+<a class="btn btn-primary" href="index.html?interest=Keith%27s%20Inherited%20Home%20Story#contact">Book A Free 1-Hour Call</a>
 <a class="btn btn-outline" href="pricing.html">See Pricing Examples</a>

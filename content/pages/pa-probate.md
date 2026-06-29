@@ -28,10 +28,10 @@ We are not a law firm, tax preparer, lender, realtor, appraiser, or licensed tra
 
 <div class="page-action-panel">
   <p class="ld-kicker">What to do today</p>
-  <h2>Before probate paperwork turns into property damage or a low offer, stabilize the house side.</h2>
-  <p>Start by identifying authority, urgent bills, vacant-home risks, belongings that may contain records or valuables, the local services needed, and whether the estate has equity but not enough cash. We can help organize that picture before you spend larger money.</p>
+  <h2>Stabilize The House Side First</h2>
+  <p>Before probate paperwork turns into property damage or a low offer, start by identifying authority, urgent bills, vacant-home risks, belongings that may contain records or valuables, the local services needed, and whether the estate has equity but not enough cash. We can help organize that picture before you spend larger money.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="index.html#contact">Book A Free 1-Hour Call</a>
+    <a class="btn btn-primary" href="index.html?interest=PA%20Probate%20Property%20Help#contact">Book A Free 1-Hour Call</a>
     <a class="btn btn-outline" href="free-guide.html">Use The Free Worksheet</a>
   </div>
 </div>

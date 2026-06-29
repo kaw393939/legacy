@@ -32,10 +32,10 @@ Pricing below is for planning only. Every home, estate, family, property conditi
 
 <div class="page-action-panel">
   <p class="ld-kicker">First safe step</p>
-  <h2>Before you approve a cleanout, repair quote, storage plan, or cash offer, get the estate math onto one page.</h2>
-  <p>A free one-hour call can help identify what is urgent, what can wait, whether a $250 Estate Math Home Visit makes sense, and which professionals should review the next decision.</p>
+  <h2>Put The Estate Math On One Page First</h2>
+  <p>Before you approve a cleanout, repair quote, storage plan, or cash offer, a free one-hour call can help identify what is urgent, what can wait, whether a $250 Estate Math Home Visit makes sense, and which professionals should review the next decision.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="index.html#contact">Book A Free 1-Hour Call</a>
+    <a class="btn btn-primary" href="index.html?interest=Pricing%20Examples#contact">Book A Free 1-Hour Call</a>
     <a class="btn btn-outline" href="keith-story.html">Read Keith's Case</a>
   </div>
 </div>
