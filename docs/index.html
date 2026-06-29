@@ -44,44 +44,32 @@
     <meta name="googlebot" content="index, follow">
     
     <!-- Resource Hints for Performance -->
-    <link rel="preload" href="styles.css?v=2026-06-28T19:58:45.018217" as="style">
-    <link rel="preload" href="images/hero/legacy-defenders-care-hero.png" as="image">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="styles.css?v=2026-06-28T20:17:36.313705" as="style">
+    <link rel="preload" href="images/hero/legacy-defenders-care-hero.webp" as="image">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=2026-06-28T19:58:45.018217">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
+    <link rel="stylesheet" href="styles.css?v=2026-06-28T20:17:36.313705">
+
+    <style>.fas,.far,.fab{display:inline-block;width:1em;text-align:center}</style>
+    <script>
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          var fa = document.createElement('link');
+          fa.rel = 'stylesheet';
+          fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+          document.head.appendChild(fa);
+        }, 1200);
+      });
+    </script>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-KE98KY192J', {
-        // Enhanced tracking for single-page application
-        page_title: 'Inherited Home Help &amp; Estate Transition Support | Legacy Defenders',
-        custom_map: {
-          'custom_parameter_1': 'cta_type',
-          'custom_parameter_2': 'section_name'
-        },
-        // Enhanced ecommerce for service tracking
-        enhanced_conversions: true,
-        // Track scroll depth
-        send_page_view: true,
-        // Custom conversions configuration
-        conversion_linker: true
-      });
 
       // Define conversion goals and values for journey-based tracking
-      const CONVERSION_VALUES = {
+      var CONVERSION_VALUES = {
         'primary_cta': 25,         // Book Property Visit, Contact Now
         'service_inquiry': 20,     // Service-specific CTAs
         'package_cta': 40,         // Package selection CTAs
@@ -350,7 +338,7 @@ aria-current="page"                   data-cta="navigation"
     <!-- Main Content -->
     <main id="main-content">
 <!-- Hero Section (includes trust bar above the fold) -->
-<section class="hero dark-context flex items-start justify-center" style="--bg-image: url('images/hero/legacy-defenders-care-hero.png');">
+<section class="hero dark-context flex items-start justify-center" style="--bg-image: url('images/hero/legacy-defenders-care-hero.webp');">
     <div class="container">
         <div class="hero-content">
             <p class="hero-eyebrow">Inherited home support for families and executors</p>
@@ -1445,6 +1433,6 @@ aria-current="page"                   data-cta="navigation"
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="main.js?v=2026-06-28T19:58:45.018217"></script>
+    <script src="main.js?v=2026-06-28T20:17:36.313705" defer></script>
 </body>
 </html>

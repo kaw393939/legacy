@@ -245,13 +245,13 @@
     }
 
 .category-filter:hover {
-    border-color: var(--coral-500);
-    color: var(--coral-500);
+    border-color: var(--coral-800);
+    color: var(--coral-800);
     }
 
 .category-filter.active {
-    background: var(--coral-500);
-    border-color: var(--coral-500);
+    background: var(--navy-800);
+    border-color: var(--navy-800);
     color: var(--white);
     }
 

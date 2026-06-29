@@ -8,7 +8,7 @@ hero:
   eyebrow: "Inherited home support for families and executors"
   title: "Inherited a home and don't know where to start?"
   subtitle: "Start with one safe next step. We help families stabilize the home, sort belongings, understand costs, and avoid low offers or panic decisions while grieving."
-  image: "images/hero/legacy-defenders-care-hero.png"
+  image: "images/hero/legacy-defenders-care-hero.webp"
   image_alt: "A care coordinator helping an heir organize belongings in an inherited family home"
   proof_points:
     - "Care coordinator led"

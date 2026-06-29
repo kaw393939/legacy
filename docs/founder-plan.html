@@ -40,47 +40,35 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/logos/apple-touch-icon.png">
     
     <!-- Robots -->
-    <meta name="robots" content="noindex, nofollow">
-    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
     
     <!-- Resource Hints for Performance -->
-    <link rel="preload" href="styles.css?v=2026-06-28T19:58:45.001270" as="style">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="styles.css?v=2026-06-28T20:17:36.253312" as="style">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=2026-06-28T19:58:45.001270">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
+    <link rel="stylesheet" href="styles.css?v=2026-06-28T20:17:36.253312">
+
+    <style>.fas,.far,.fab{display:inline-block;width:1em;text-align:center}</style>
+    <script>
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          var fa = document.createElement('link');
+          fa.rel = 'stylesheet';
+          fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+          document.head.appendChild(fa);
+        }, 1200);
+      });
+    </script>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-KE98KY192J', {
-        // Enhanced tracking for single-page application
-        page_title: 'Founder Launch Plan: Legacy Defenders',
-        custom_map: {
-          'custom_parameter_1': 'cta_type',
-          'custom_parameter_2': 'section_name'
-        },
-        // Enhanced ecommerce for service tracking
-        enhanced_conversions: true,
-        // Track scroll depth
-        send_page_view: true,
-        // Custom conversions configuration
-        conversion_linker: true
-      });
 
       // Define conversion goals and values for journey-based tracking
-      const CONVERSION_VALUES = {
+      var CONVERSION_VALUES = {
         'primary_cta': 25,         // Book Property Visit, Contact Now
         'service_inquiry': 20,     // Service-specific CTAs
         'package_cta': 40,         // Package selection CTAs
@@ -388,17 +376,16 @@
 <li>Use the first finished customer and profit to fund the legal work that should not be guessed at.</li>
 </ol>
 <p>This page is public for transparency, but it is a planning document. It is not legal, tax, insurance, employment, lending, or probate advice. Before Legacy Defenders uses customer contracts, founder equity, referral arrangements, financing, storage custody, or affiliated-company arrangements at scale, those details need attorney, CPA, and insurance review.</p>
-<div class="ld-mission-panel" aria-label="Lean launch mission">
-  <p class="ld-kicker">Lean launch mission</p>
-  <h2 id="lean-launch-mission">Finish one paid customer before building the expensive version</h2>
-  <p>The first milestone is not a franchise model. It is one completed customer, a useful case study, clean project records, paid founder work, and enough real numbers to decide what legal and operating structure is worth paying for next.</p>
-  <div class="ld-mission-metrics">
-    <span><strong>7 days</strong> to make the offer sellable</span>
-    <span><strong>$8.5K-$12.5K</strong> realistic first sprint range</span>
-    <span><strong>10%-15%</strong> reserve held until closeout</span>
-  </div>
+<div aria-label="Lean launch mission" class="ld-mission-panel">
+<p class="ld-kicker">Lean launch mission</p>
+<h2 id="lean-launch-mission">Finish one paid customer before building the expensive version</h2>
+<p>The first milestone is not a franchise model. It is one completed customer, a useful case study, clean project records, paid founder work, and enough real numbers to decide what legal and operating structure is worth paying for next.</p>
+<div class="ld-mission-metrics">
+<span><strong>7 days</strong> to make the offer sellable</span>
+<span><strong>$8.5K-$12.5K</strong> realistic first sprint range</span>
+<span><strong>10%-15%</strong> reserve held until closeout</span>
 </div>
-
+</div>
 <h2 id="plan-map">Plan Map</h2>
 <ul>
 <li><a href="#launch-rule">Launch rule</a></li>
@@ -418,33 +405,32 @@
 <h2 id="launch-rule">Launch Rule</h2>
 <p>Start with the simplest structure that can safely take payment and finish work. Do not spend scarce cash proving theories.</p>
 <h3 id="do-now">Do Now</h3>
-<div class="ld-do-dont-grid" aria-label="What to do now and later">
-  <section>
-    <h3>Spend now only where it reduces real risk</h3>
-    <ul>
-      <li>PA entity filing, EIN, separate bank account, basic bookkeeping, and payment processing.</li>
-      <li>General liability and any required vendor insurance certificates before going inside homes.</li>
-      <li>A simple written customer scope with price, payment schedule, exclusions, photo permission, item handling rules, and change-order language.</li>
-      <li>Written contractor/vendor scopes when anyone outside the founders is paid.</li>
-      <li>One-page founder work memo that says who is doing what, how cash work is paid, and that no equity is final until a written agreement is signed.</li>
-    </ul>
-  </section>
-  <section>
-    <h3>Defer until proof and cash exist</h3>
-    <ul>
-      <li>Custom equity documents and multi-entity restructuring.</li>
-      <li>Warehouse leases, trucks, employees, uniforms, and heavy equipment.</li>
-      <li>Estate lending, payment-plan products, or Legacy fronting project cash.</li>
-      <li>Referral-fee programs with attorneys, CPAs, realtors, lenders, funeral homes, or vendors.</li>
-      <li>Franchise, licensing, trademark expansion, and regional operating manuals.</li>
-    </ul>
-  </section>
+<div aria-label="What to do now and later" class="ld-do-dont-grid">
+<section>
+<h3>Spend now only where it reduces real risk</h3>
+<ul>
+<li>PA entity filing, EIN, separate bank account, basic bookkeeping, and payment processing.</li>
+<li>General liability and any required vendor insurance certificates before going inside homes.</li>
+<li>A simple written customer scope with price, payment schedule, exclusions, photo permission, item handling rules, and change-order language.</li>
+<li>Written contractor/vendor scopes when anyone outside the founders is paid.</li>
+<li>One-page founder work memo that says who is doing what, how cash work is paid, and that no equity is final until a written agreement is signed.</li>
+</ul>
+</section>
+<section>
+<h3>Defer until proof and cash exist</h3>
+<ul>
+<li>Custom equity documents and multi-entity restructuring.</li>
+<li>Warehouse leases, trucks, employees, uniforms, and heavy equipment.</li>
+<li>Estate lending, payment-plan products, or Legacy fronting project cash.</li>
+<li>Referral-fee programs with attorneys, CPAs, realtors, lenders, funeral homes, or vendors.</li>
+<li>Franchise, licensing, trademark expansion, and regional operating manuals.</li>
+</ul>
+</section>
 </div>
-
 <p>The company should be honest about what it is at launch: a coordinated founder-led service that uses checklists, documentation, QR/photo records, trusted vendors, and practical project management to reduce estate-property overwhelm.</p>
 <h2 id="allegheny-county-starting-market">Allegheny County Starting Market</h2>
 <p>Allegheny County is large enough to support a county-first launch. The numbers below are official or government-source figures where available; the opportunity estimate is a planning assumption.</p>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Metric</th>
@@ -454,39 +440,39 @@
 </thead>
 <tbody>
 <tr>
-<td>Population</td>
-<td style="text-align: right;">About 1.23 million residents, 2025 Census estimate</td>
-<td>Large local base without needing regional expansion first</td>
+<td data-label="Metric">Population</td>
+<td data-label="Current Data" style="text-align: right;">About 1.23 million residents, 2025 Census estimate</td>
+<td data-label="Why It Matters">Large local base without needing regional expansion first</td>
 </tr>
 <tr>
-<td>People age 65+</td>
-<td style="text-align: right;">21.2% of residents, 2024 estimate</td>
-<td>Strong signal for future estate-transition demand</td>
+<td data-label="Metric">People age 65+</td>
+<td data-label="Current Data" style="text-align: right;">21.2% of residents, 2024 estimate</td>
+<td data-label="Why It Matters">Strong signal for future estate-transition demand</td>
 </tr>
 <tr>
-<td>Housing units</td>
-<td style="text-align: right;">About 614,000 units, 2025 Census estimate</td>
-<td>Deep housing base for inherited-home and vacant-home work</td>
+<td data-label="Metric">Housing units</td>
+<td data-label="Current Data" style="text-align: right;">About 614,000 units, 2025 Census estimate</td>
+<td data-label="Why It Matters">Deep housing base for inherited-home and vacant-home work</td>
 </tr>
 <tr>
-<td>Households</td>
-<td style="text-align: right;">About 546,000, 2020-2024 Census estimate</td>
-<td>Large direct-mail, SEO, and referral universe</td>
+<td data-label="Metric">Households</td>
+<td data-label="Current Data" style="text-align: right;">About 546,000, 2020-2024 Census estimate</td>
+<td data-label="Why It Matters">Large direct-mail, SEO, and referral universe</td>
 </tr>
 <tr>
-<td>Owner-occupied housing rate</td>
-<td style="text-align: right;">65.2%, 2020-2024 Census estimate</td>
-<td>Many estate transitions will involve owned homes</td>
+<td data-label="Metric">Owner-occupied housing rate</td>
+<td data-label="Current Data" style="text-align: right;">65.2%, 2020-2024 Census estimate</td>
+<td data-label="Why It Matters">Many estate transitions will involve owned homes</td>
 </tr>
 <tr>
-<td>Median owner-occupied home value</td>
-<td style="text-align: right;">$227,600, 2020-2024 Census estimate</td>
-<td>Enough value for many modest preservation projects</td>
+<td data-label="Metric">Median owner-occupied home value</td>
+<td data-label="Current Data" style="text-align: right;">$227,600, 2020-2024 Census estimate</td>
+<td data-label="Why It Matters">Enough value for many modest preservation projects</td>
 </tr>
 <tr>
-<td>All-cause deaths</td>
-<td style="text-align: right;">71,995 from 2020-2024</td>
-<td>Roughly 14,400 deaths per year before filtering</td>
+<td data-label="Metric">All-cause deaths</td>
+<td data-label="Current Data" style="text-align: right;">71,995 from 2020-2024</td>
+<td data-label="Why It Matters">Roughly 14,400 deaths per year before filtering</td>
 </tr>
 </tbody>
 </table>
@@ -503,7 +489,7 @@
 </ul>
 <h2 id="minimum-setup-before-customer-1">Minimum Setup Before Customer 1</h2>
 <p>This is the lowest-friction version that still respects the risk of entering homes, touching belongings, using vendors, and taking estate money.</p>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Item</th>
@@ -514,70 +500,70 @@
 </thead>
 <tbody>
 <tr>
-<td>PA LLC or operating entity decision</td>
-<td>Keith</td>
-<td style="text-align: right;">$125 PA LLC filing fee if forming a domestic LLC</td>
-<td>Creates a cleaner business container before invoicing</td>
+<td data-label="Item">PA LLC or operating entity decision</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Expected Cost" style="text-align: right;">$125 PA LLC filing fee if forming a domestic LLC</td>
+<td data-label="Why It Matters">Creates a cleaner business container before invoicing</td>
 </tr>
 <tr>
-<td>EIN</td>
-<td>Keith</td>
-<td style="text-align: right;">Free through the IRS</td>
-<td>Needed for banking, tax records, and business setup</td>
+<td data-label="Item">EIN</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Expected Cost" style="text-align: right;">Free through the IRS</td>
+<td data-label="Why It Matters">Needed for banking, tax records, and business setup</td>
 </tr>
 <tr>
-<td>PA annual report calendar</td>
-<td>Keith</td>
-<td style="text-align: right;">$7 annual report fee for most for-profit LLCs</td>
-<td>Avoids missing basic compliance later</td>
+<td data-label="Item">PA annual report calendar</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Expected Cost" style="text-align: right;">$7 annual report fee for most for-profit LLCs</td>
+<td data-label="Why It Matters">Avoids missing basic compliance later</td>
 </tr>
 <tr>
-<td>Bank account and bookkeeping sheet</td>
-<td>Keith</td>
-<td style="text-align: right;">Low/no cost, depending bank/software</td>
-<td>Keeps customer money separate from personal money</td>
+<td data-label="Item">Bank account and bookkeeping sheet</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Expected Cost" style="text-align: right;">Low/no cost, depending bank/software</td>
+<td data-label="Why It Matters">Keeps customer money separate from personal money</td>
 </tr>
 <tr>
-<td>Payment method</td>
-<td>Keith</td>
-<td style="text-align: right;">Processing fees only</td>
-<td>Allows deposits before vendor spend</td>
+<td data-label="Item">Payment method</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Expected Cost" style="text-align: right;">Processing fees only</td>
+<td data-label="Why It Matters">Allows deposits before vendor spend</td>
 </tr>
 <tr>
-<td>Insurance quote/binder</td>
-<td>Keith + Mike</td>
-<td style="text-align: right;">Must be quoted</td>
-<td>No in-home work without knowing coverage limits</td>
+<td data-label="Item">Insurance quote/binder</td>
+<td data-label="Owner">Keith + Mike</td>
+<td data-label="Expected Cost" style="text-align: right;">Must be quoted</td>
+<td data-label="Why It Matters">No in-home work without knowing coverage limits</td>
 </tr>
 <tr>
-<td>Customer scope template</td>
-<td>Keith</td>
-<td style="text-align: right;">Low cost now; attorney review after first project if cash is tight</td>
-<td>Defines price, exclusions, payment, photos, change orders, item handling, and cancellation</td>
+<td data-label="Item">Customer scope template</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Expected Cost" style="text-align: right;">Low cost now; attorney review after first project if cash is tight</td>
+<td data-label="Why It Matters">Defines price, exclusions, payment, photos, change orders, item handling, and cancellation</td>
 </tr>
 <tr>
-<td>Care visit checklist</td>
-<td>Rachel</td>
-<td style="text-align: right;">Founder time</td>
-<td>Makes the free visit useful and repeatable</td>
+<td data-label="Item">Care visit checklist</td>
+<td data-label="Owner">Rachel</td>
+<td data-label="Expected Cost" style="text-align: right;">Founder time</td>
+<td data-label="Why It Matters">Makes the free visit useful and repeatable</td>
 </tr>
 <tr>
-<td>Property walkthrough checklist</td>
-<td>Mike</td>
-<td style="text-align: right;">Founder time</td>
-<td>Keeps early projects away from unsafe or unprofitable work</td>
+<td data-label="Item">Property walkthrough checklist</td>
+<td data-label="Owner">Mike</td>
+<td data-label="Expected Cost" style="text-align: right;">Founder time</td>
+<td data-label="Why It Matters">Keeps early projects away from unsafe or unprofitable work</td>
 </tr>
 <tr>
-<td>QR/photo/item log</td>
-<td>Keith + Rachel</td>
-<td style="text-align: right;">Low cost using existing tools</td>
-<td>Provides proof of what was found, moved, stored, sold, donated, or discarded</td>
+<td data-label="Item">QR/photo/item log</td>
+<td data-label="Owner">Keith + Rachel</td>
+<td data-label="Expected Cost" style="text-align: right;">Low cost using existing tools</td>
+<td data-label="Why It Matters">Provides proof of what was found, moved, stored, sold, donated, or discarded</td>
 </tr>
 <tr>
-<td>Vendor list</td>
-<td>Mike</td>
-<td style="text-align: right;">Founder time</td>
-<td>Allows rent-as-needed labor instead of hiring too early</td>
+<td data-label="Item">Vendor list</td>
+<td data-label="Owner">Mike</td>
+<td data-label="Expected Cost" style="text-align: right;">Founder time</td>
+<td data-label="Why It Matters">Allows rent-as-needed labor instead of hiring too early</td>
 </tr>
 </tbody>
 </table>
@@ -605,7 +591,7 @@
 </ol>
 <h2 id="founder-roles">Founder Roles</h2>
 <p>The launch needs three kinds of leadership: demand, trust, and execution.</p>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Founder</th>
@@ -616,65 +602,64 @@
 </thead>
 <tbody>
 <tr>
-<td>Keith</td>
-<td>Demand, website, pricing, intake, CRM, project budget, client reporting, professional network</td>
-<td>Lead flow, intake script, proposal, payment plan, dashboard, closeout packet, source documentation</td>
-<td>Emotional family decisions, repair judgment, legal/tax advice</td>
+<td data-label="Founder">Keith</td>
+<td data-label="Primary Role">Demand, website, pricing, intake, CRM, project budget, client reporting, professional network</td>
+<td data-label="Must Own Before Customer 1">Lead flow, intake script, proposal, payment plan, dashboard, closeout packet, source documentation</td>
+<td data-label="Should Not Own Alone">Emotional family decisions, repair judgment, legal/tax advice</td>
 </tr>
 <tr>
-<td>Rachel</td>
-<td>Care coordination, family trust, belongings decisions, inventory process, item routing</td>
-<td>Free care visit script, decision categories, QR/photo inventory workflow, family communication cadence, cleaning/reset standards</td>
-<td>Financing structure, repair scope, platform ownership</td>
+<td data-label="Founder">Rachel</td>
+<td data-label="Primary Role">Care coordination, family trust, belongings decisions, inventory process, item routing</td>
+<td data-label="Must Own Before Customer 1">Free care visit script, decision categories, QR/photo inventory workflow, family communication cadence, cleaning/reset standards</td>
+<td data-label="Should Not Own Alone">Financing structure, repair scope, platform ownership</td>
 </tr>
 <tr>
-<td>Mike</td>
-<td>Property assessment, repair risk, practical execution, vendors, quality control</td>
-<td>Walkthrough checklist, safety red flags, repair categories, vendor/labor list, materials assumptions</td>
-<td>Probate advice, item ownership decisions, financing advice</td>
+<td data-label="Founder">Mike</td>
+<td data-label="Primary Role">Property assessment, repair risk, practical execution, vendors, quality control</td>
+<td data-label="Must Own Before Customer 1">Walkthrough checklist, safety red flags, repair categories, vendor/labor list, materials assumptions</td>
+<td data-label="Should Not Own Alone">Probate advice, item ownership decisions, financing advice</td>
 </tr>
 </tbody>
 </table>
 <h3 id="founder-task-dashboard">Founder Task Dashboard</h3>
-<div class="ld-founder-dashboard" aria-label="Founder task dashboard">
-  <article>
-    <p class="ld-kicker">Keith</p>
-    <h3>Demand and control</h3>
-    <dl>
-      <dt>This week</dt>
-      <dd>Move founder page to footer, publish the free guide, finalize intake questions, set CRM stages, and create the first sprint proposal template.</dd>
-      <dt>Before first visit</dt>
-      <dd>Have pricing range, photo folder structure, budget tracker, payment links, and a no-legal/no-tax-advice disclaimer ready.</dd>
-      <dt>Before first closeout</dt>
-      <dd>Deliver before/after photos, item log, cost summary, lessons learned, and a private margin review.</dd>
-    </dl>
-  </article>
-  <article>
-    <p class="ld-kicker">Rachel</p>
-    <h3>Trust and decisions</h3>
-    <dl>
-      <dt>This week</dt>
-      <dd>Write the free care coordinator visit flow and the plain-language decision categories: keep, deliver, store, sell, donate, discard, review later.</dd>
-      <dt>Before first visit</dt>
-      <dd>Prepare room-by-room notes, family-question prompts, consent language for photos, and item-routing labels.</dd>
-      <dt>Before first closeout</dt>
-      <dd>Confirm every important item has a status and that the executor understands what remains undecided.</dd>
-    </dl>
-  </article>
-  <article>
-    <p class="ld-kicker">Mike</p>
-    <h3>Property and vendors</h3>
-    <dl>
-      <dt>This week</dt>
-      <dd>Create the safety walkthrough, repair risk categories, and a short list of available cleaners, movers, disposal help, and licensed trades.</dd>
-      <dt>Before first visit</dt>
-      <dd>Price a small reset using real labor assumptions, not hopes. Flag anything that requires a licensed trade or separate quote.</dd>
-      <dt>Before first closeout</dt>
-      <dd>Document the repair punch list, what was deferred, and what should be reviewed by a realtor or licensed professional.</dd>
-    </dl>
-  </article>
+<div aria-label="Founder task dashboard" class="ld-founder-dashboard">
+<article>
+<p class="ld-kicker">Keith</p>
+<h3>Demand and control</h3>
+<dl>
+<dt>This week</dt>
+<dd>Move founder page to footer, publish the free guide, finalize intake questions, set CRM stages, and create the first sprint proposal template.</dd>
+<dt>Before first visit</dt>
+<dd>Have pricing range, photo folder structure, budget tracker, payment links, and a no-legal/no-tax-advice disclaimer ready.</dd>
+<dt>Before first closeout</dt>
+<dd>Deliver before/after photos, item log, cost summary, lessons learned, and a private margin review.</dd>
+</dl>
+</article>
+<article>
+<p class="ld-kicker">Rachel</p>
+<h3>Trust and decisions</h3>
+<dl>
+<dt>This week</dt>
+<dd>Write the free care coordinator visit flow and the plain-language decision categories: keep, deliver, store, sell, donate, discard, review later.</dd>
+<dt>Before first visit</dt>
+<dd>Prepare room-by-room notes, family-question prompts, consent language for photos, and item-routing labels.</dd>
+<dt>Before first closeout</dt>
+<dd>Confirm every important item has a status and that the executor understands what remains undecided.</dd>
+</dl>
+</article>
+<article>
+<p class="ld-kicker">Mike</p>
+<h3>Property and vendors</h3>
+<dl>
+<dt>This week</dt>
+<dd>Create the safety walkthrough, repair risk categories, and a short list of available cleaners, movers, disposal help, and licensed trades.</dd>
+<dt>Before first visit</dt>
+<dd>Price a small reset using real labor assumptions, not hopes. Flag anything that requires a licensed trade or separate quote.</dd>
+<dt>Before first closeout</dt>
+<dd>Document the repair punch list, what was deferred, and what should be reviewed by a realtor or licensed professional.</dd>
+</dl>
+</article>
 </div>
-
 <h2 id="first-offer">First Offer</h2>
 <p>The first offer should be a free care coordinator visit followed by a paid, tightly scoped executor relief sprint.</p>
 <p>The free visit is not a vague sales call. It is a useful working session where the family gets a first plan they can keep. Legacy Defenders uses the visit to decide whether the project is a fit and to scope a paid sprint.</p>
@@ -706,35 +691,34 @@
 <li>valuable personal property disputes</li>
 </ul>
 <h2 id="launch-phases">Launch Phases</h2>
-<div class="ld-timeline" aria-label="Founder launch phases">
-  <div class="ld-timeline-step">
-    <strong>Phase 0: 48 hours</strong>
-    <p>Make the public path coherent: footer link, free guide, first offer, contact flow, and a simple "what happens next" script.</p>
-  </div>
-  <div class="ld-timeline-step">
-    <strong>Phase 1: 7 days</strong>
-    <p>Finish the minimum launch kit: intake, checklist, price range, first proposal, budget tracker, payment method, insurance quote, and vendor list.</p>
-  </div>
-  <div class="ld-timeline-step">
-    <strong>Phase 2: 0-30 days</strong>
-    <p>Get 10 real conversations, 3 free care visits, and 1 paid sprint proposal. Do founder-led work, not expensive infrastructure.</p>
-  </div>
-  <div class="ld-timeline-step">
-    <strong>Phase 3: 30-60 days</strong>
-    <p>Complete the first paid sprint, collect proof, pay cash work, hold reserve, and review every estimate against actuals.</p>
-  </div>
-  <div class="ld-timeline-step">
-    <strong>Phase 4: After customer 1</strong>
-    <p>Use project proof and cash to pay for the legal, insurance, and accounting structure that matches the real model.</p>
-  </div>
-  <div class="ld-timeline-step">
-    <strong>Phase 5: Customers 2-3</strong>
-    <p>Repeat the sprint or step up to a market-ready reset only after scope control, customer communication, and margin are proven.</p>
-  </div>
+<div aria-label="Founder launch phases" class="ld-timeline">
+<div class="ld-timeline-step">
+<strong>Phase 0: 48 hours</strong>
+<p>Make the public path coherent: footer link, free guide, first offer, contact flow, and a simple "what happens next" script.</p>
 </div>
-
+<div class="ld-timeline-step">
+<strong>Phase 1: 7 days</strong>
+<p>Finish the minimum launch kit: intake, checklist, price range, first proposal, budget tracker, payment method, insurance quote, and vendor list.</p>
+</div>
+<div class="ld-timeline-step">
+<strong>Phase 2: 0-30 days</strong>
+<p>Get 10 real conversations, 3 free care visits, and 1 paid sprint proposal. Do founder-led work, not expensive infrastructure.</p>
+</div>
+<div class="ld-timeline-step">
+<strong>Phase 3: 30-60 days</strong>
+<p>Complete the first paid sprint, collect proof, pay cash work, hold reserve, and review every estimate against actuals.</p>
+</div>
+<div class="ld-timeline-step">
+<strong>Phase 4: After customer 1</strong>
+<p>Use project proof and cash to pay for the legal, insurance, and accounting structure that matches the real model.</p>
+</div>
+<div class="ld-timeline-step">
+<strong>Phase 5: Customers 2-3</strong>
+<p>Repeat the sprint or step up to a market-ready reset only after scope control, customer communication, and margin are proven.</p>
+</div>
+</div>
 <h3 id="phase-0-first-48-hours">Phase 0: First 48 Hours</h3>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Owner</th>
@@ -743,25 +727,25 @@
 </thead>
 <tbody>
 <tr>
-<td>Keith</td>
-<td>Footer-only founder link, first-offer page language, intake form, CRM stages, proposal template, project budget sheet</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Deliverable">Footer-only founder link, first-offer page language, intake form, CRM stages, proposal template, project budget sheet</td>
 </tr>
 <tr>
-<td>Rachel</td>
-<td>Free visit checklist, decision categories, family questions, item routing language</td>
+<td data-label="Owner">Rachel</td>
+<td data-label="Deliverable">Free visit checklist, decision categories, family questions, item routing language</td>
 </tr>
 <tr>
-<td>Mike</td>
-<td>Safety checklist, repair categories, vendor/labor list, "do not touch" red flags</td>
+<td data-label="Owner">Mike</td>
+<td data-label="Deliverable">Safety checklist, repair categories, vendor/labor list, "do not touch" red flags</td>
 </tr>
 <tr>
-<td>All</td>
-<td>Agree that no one promises financing, legal/tax outcomes, sale proceeds, hidden discounts, or equity verbally</td>
+<td data-label="Owner">All</td>
+<td data-label="Deliverable">Agree that no one promises financing, legal/tax outcomes, sale proceeds, hidden discounts, or equity verbally</td>
 </tr>
 </tbody>
 </table>
 <h3 id="phase-1-first-7-days">Phase 1: First 7 Days</h3>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Owner</th>
@@ -770,25 +754,25 @@
 </thead>
 <tbody>
 <tr>
-<td>Keith</td>
-<td>Confirm entity/EIN/bank/payment path, get insurance quote, prepare basic agreement or scope language, create direct outreach list</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Deliverable">Confirm entity/EIN/bank/payment path, get insurance quote, prepare basic agreement or scope language, create direct outreach list</td>
 </tr>
 <tr>
-<td>Rachel</td>
-<td>Practice the visit, test QR/photo inventory, prepare room-by-room worksheet</td>
+<td data-label="Owner">Rachel</td>
+<td data-label="Deliverable">Practice the visit, test QR/photo inventory, prepare room-by-room worksheet</td>
 </tr>
 <tr>
-<td>Mike</td>
-<td>Price a real two-day reset with labor, truck, disposal, supplies, and cleaning assumptions</td>
+<td data-label="Owner">Mike</td>
+<td data-label="Deliverable">Price a real two-day reset with labor, truck, disposal, supplies, and cleaning assumptions</td>
 </tr>
 <tr>
-<td>All</td>
-<td>Pick the first 10 referral or warm-contact conversations and ask for advice/conversations, not commissions</td>
+<td data-label="Owner">All</td>
+<td data-label="Deliverable">Pick the first 10 referral or warm-contact conversations and ask for advice/conversations, not commissions</td>
 </tr>
 </tbody>
 </table>
 <h3 id="phase-2-days-0-30">Phase 2: Days 0-30</h3>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Target</th>
@@ -797,24 +781,24 @@
 </thead>
 <tbody>
 <tr>
-<td>Conversations</td>
-<td>10 attorney, realtor, CPA, senior-resource, family, or neighborhood conversations</td>
+<td data-label="Target">Conversations</td>
+<td data-label="Practical Goal">10 attorney, realtor, CPA, senior-resource, family, or neighborhood conversations</td>
 </tr>
 <tr>
-<td>Free visits</td>
-<td>3 qualified care coordinator visits</td>
+<td data-label="Target">Free visits</td>
+<td data-label="Practical Goal">3 qualified care coordinator visits</td>
 </tr>
 <tr>
-<td>Proposals</td>
-<td>1-2 written paid sprint proposals</td>
+<td data-label="Target">Proposals</td>
+<td data-label="Practical Goal">1-2 written paid sprint proposals</td>
 </tr>
 <tr>
-<td>Customer</td>
-<td>1 signed sprint, deposit collected before vendor spend</td>
+<td data-label="Target">Customer</td>
+<td data-label="Practical Goal">1 signed sprint, deposit collected before vendor spend</td>
 </tr>
 <tr>
-<td>Learning</td>
-<td>Track objections, pricing pushback, scope creep, family friction, and timing pressure</td>
+<td data-label="Target">Learning</td>
+<td data-label="Practical Goal">Track objections, pricing pushback, scope creep, family friction, and timing pressure</td>
 </tr>
 </tbody>
 </table>
@@ -831,39 +815,38 @@
 <li>public-safe case study only with approval</li>
 </ul>
 <h2 id="decision-gates">Decision Gates</h2>
-<div class="ld-gate-grid" aria-label="Launch decision gates">
-  <article>
-    <span>Gate 1</span>
-    <h3>Before free visits</h3>
-    <p>Have a visit checklist, authority questions, safety red flags, and a clear explanation that Legacy does not provide legal or tax advice.</p>
-  </article>
-  <article>
-    <span>Gate 2</span>
-    <h3>Before taking payment</h3>
-    <p>Have the business/payment path, written scope, deposit terms, insurance plan, photo/item rules, exclusions, and change-order process.</p>
-  </article>
-  <article>
-    <span>Gate 3</span>
-    <h3>Before hiring labor</h3>
-    <p>Collect enough customer money to cover vendors. Use scoped vendors or contractors before employees unless project volume repeats.</p>
-  </article>
-  <article>
-    <span>Gate 4</span>
-    <h3>Before larger projects</h3>
-    <p>Finish one sprint with real margin data before accepting $25K+ market-ready work. Finish two clean jobs before $50K+ recovery work.</p>
-  </article>
-  <article>
-    <span>Gate 5</span>
-    <h3>Before referral programs</h3>
-    <p>Use introductions and education first. Any referral fee, co-marketing, preferred-provider discount, or affiliated relationship needs review.</p>
-  </article>
-  <article>
-    <span>Gate 6</span>
-    <h3>Before financing</h3>
-    <p>Do not lend Legacy money or promise funding. Financing, asset sales, sale-proceeds repayment, and lender packets wait for attorney/lender review.</p>
-  </article>
+<div aria-label="Launch decision gates" class="ld-gate-grid">
+<article>
+<span>Gate 1</span>
+<h3>Before free visits</h3>
+<p>Have a visit checklist, authority questions, safety red flags, and a clear explanation that Legacy does not provide legal or tax advice.</p>
+</article>
+<article>
+<span>Gate 2</span>
+<h3>Before taking payment</h3>
+<p>Have the business/payment path, written scope, deposit terms, insurance plan, photo/item rules, exclusions, and change-order process.</p>
+</article>
+<article>
+<span>Gate 3</span>
+<h3>Before hiring labor</h3>
+<p>Collect enough customer money to cover vendors. Use scoped vendors or contractors before employees unless project volume repeats.</p>
+</article>
+<article>
+<span>Gate 4</span>
+<h3>Before larger projects</h3>
+<p>Finish one sprint with real margin data before accepting $25K+ market-ready work. Finish two clean jobs before $50K+ recovery work.</p>
+</article>
+<article>
+<span>Gate 5</span>
+<h3>Before referral programs</h3>
+<p>Use introductions and education first. Any referral fee, co-marketing, preferred-provider discount, or affiliated relationship needs review.</p>
+</article>
+<article>
+<span>Gate 6</span>
+<h3>Before financing</h3>
+<p>Do not lend Legacy money or promise funding. Financing, asset sales, sale-proceeds repayment, and lender packets wait for attorney/lender review.</p>
+</article>
 </div>
-
 <h2 id="cash-compensation-now">Cash Compensation Now</h2>
 <p>Cash compensation and long-term equity are separate. Equity should not be used to avoid paying people for work the project needs today.</p>
 <p>Early cash rules:</p>
@@ -875,7 +858,7 @@
 <li>Bonuses are paid from known gross profit, not from revenue.</li>
 <li>Asset-sale proceeds belong to the estate after approved fees and costs.</li>
 </ul>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Work Type</th>
@@ -885,39 +868,39 @@
 </thead>
 <tbody>
 <tr>
-<td>Free care visit</td>
-<td style="text-align: right;">Unpaid marketing cost unless the project converts</td>
-<td>If it converts, include a visit stipend in the paid project budget</td>
+<td data-label="Work Type">Free care visit</td>
+<td data-label="Suggested Immediate Pay" style="text-align: right;">Unpaid marketing cost unless the project converts</td>
+<td data-label="Notes">If it converts, include a visit stipend in the paid project budget</td>
 </tr>
 <tr>
-<td>Qualified intake and proposal</td>
-<td style="text-align: right;">$100-$250 per signed project</td>
-<td>Paid only when documented and converted</td>
+<td data-label="Work Type">Qualified intake and proposal</td>
+<td data-label="Suggested Immediate Pay" style="text-align: right;">$100-$250 per signed project</td>
+<td data-label="Notes">Paid only when documented and converted</td>
 </tr>
 <tr>
-<td>Rachel care coordination / inventory leadership</td>
-<td style="text-align: right;">$300-$800 per day or $50-$85/hr internal pay target</td>
-<td>Customer billing may be higher to cover overhead and margin</td>
+<td data-label="Work Type">Rachel care coordination / inventory leadership</td>
+<td data-label="Suggested Immediate Pay" style="text-align: right;">$300-$800 per day or $50-$85/hr internal pay target</td>
+<td data-label="Notes">Customer billing may be higher to cover overhead and margin</td>
 </tr>
 <tr>
-<td>Mike assessment / repair punch list</td>
-<td style="text-align: right;">$300-$750 for a small scope</td>
-<td>Larger repair work needs its own written estimate</td>
+<td data-label="Work Type">Mike assessment / repair punch list</td>
+<td data-label="Suggested Immediate Pay" style="text-align: right;">$300-$750 for a small scope</td>
+<td data-label="Notes">Larger repair work needs its own written estimate</td>
 </tr>
 <tr>
-<td>Keith / Legacy platform coordination</td>
-<td style="text-align: right;">$1,500-$3,500 on first sprint</td>
-<td>Covers lead, scope, records, budget, client updates, closeout</td>
+<td data-label="Work Type">Keith / Legacy platform coordination</td>
+<td data-label="Suggested Immediate Pay" style="text-align: right;">$1,500-$3,500 on first sprint</td>
+<td data-label="Notes">Covers lead, scope, records, budget, client updates, closeout</td>
 </tr>
 <tr>
-<td>Vendor or crew work</td>
-<td style="text-align: right;">Written quote or day rate</td>
-<td>Paid by scope, not vague future profit</td>
+<td data-label="Work Type">Vendor or crew work</td>
+<td data-label="Suggested Immediate Pay" style="text-align: right;">Written quote or day rate</td>
+<td data-label="Notes">Paid by scope, not vague future profit</td>
 </tr>
 <tr>
-<td>Closeout bonus</td>
-<td style="text-align: right;">5%-10% of gross profit</td>
-<td>Only after reserve and actual costs are known</td>
+<td data-label="Work Type">Closeout bonus</td>
+<td data-label="Suggested Immediate Pay" style="text-align: right;">5%-10% of gross profit</td>
+<td data-label="Notes">Only after reserve and actual costs are known</td>
 </tr>
 </tbody>
 </table>
@@ -938,7 +921,7 @@
 <li>ongoing operating responsibility: who keeps doing the work, carrying risk, improving process, and protecting the brand</li>
 </ul>
 <p>Possible vesting milestones for discussion:</p>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Milestone</th>
@@ -947,24 +930,24 @@
 </thead>
 <tbody>
 <tr>
-<td>Signed founder agreement</td>
-<td>Stops verbal promises from becoming a future fight</td>
+<td data-label="Milestone">Signed founder agreement</td>
+<td data-label="Why It Matters">Stops verbal promises from becoming a future fight</td>
 </tr>
 <tr>
-<td>1 completed customer</td>
-<td>Creates real data and funds legal review</td>
+<td data-label="Milestone">1 completed customer</td>
+<td data-label="Why It Matters">Creates real data and funds legal review</td>
 </tr>
 <tr>
-<td>3 completed projects</td>
-<td>Shows repeatability beyond one lucky case</td>
+<td data-label="Milestone">3 completed projects</td>
+<td data-label="Why It Matters">Shows repeatability beyond one lucky case</td>
 </tr>
 <tr>
-<td>12 completed projects</td>
-<td>Shows pricing, vendors, and customer communication can repeat</td>
+<td data-label="Milestone">12 completed projects</td>
+<td data-label="Why It Matters">Shows pricing, vendors, and customer communication can repeat</td>
 </tr>
 <tr>
-<td>50-60 projects/year</td>
-<td>Justifies expansion, managers, licensing, or franchise discussion</td>
+<td data-label="Milestone">50-60 projects/year</td>
+<td data-label="Why It Matters">Justifies expansion, managers, licensing, or franchise discussion</td>
 </tr>
 </tbody>
 </table>
@@ -973,34 +956,33 @@
 <p>The first projects should be small enough to finish, useful enough to sell, and documented enough to teach the team what the business really costs.</p>
 <h3 id="project-1-executor-relief-sprint">Project 1: Executor Relief Sprint</h3>
 <p><strong>Best first customer:</strong> one executor, local or within a few hours, safe house, full belongings, no active family dispute, light cleaning, basic item routing, and no major renovation.</p>
-<div class="ld-proposal-card" aria-label="Executor relief sprint proposal snapshot">
-  <div>
-    <p class="ld-kicker">First customer target</p>
-    <h4>Executor Relief Sprint</h4>
-    <p>A 7-10 day paid sprint that turns a confusing inherited house into photos, item decisions, a cleaner first reset, and a practical next-step plan.</p>
-  </div>
-  <dl>
-    <div>
-      <dt>Customer price</dt>
-      <dd>$9,600 example</dd>
-    </div>
-    <div>
-      <dt>Deposit</dt>
-      <dd>50% before scheduling labor</dd>
-    </div>
-    <div>
-      <dt>Timeline</dt>
-      <dd>7-10 days</dd>
-    </div>
-    <div>
-      <dt>Goal</dt>
-      <dd>Finish cleanly, prove the workflow, earn a testimonial</dd>
-    </div>
-  </dl>
+<div aria-label="Executor relief sprint proposal snapshot" class="ld-proposal-card">
+<div>
+<p class="ld-kicker">First customer target</p>
+<h4>Executor Relief Sprint</h4>
+<p>A 7-10 day paid sprint that turns a confusing inherited house into photos, item decisions, a cleaner first reset, and a practical next-step plan.</p>
 </div>
-
+<dl>
+<div>
+<dt>Customer price</dt>
+<dd>$9,600 example</dd>
+</div>
+<div>
+<dt>Deposit</dt>
+<dd>50% before scheduling labor</dd>
+</div>
+<div>
+<dt>Timeline</dt>
+<dd>7-10 days</dd>
+</div>
+<div>
+<dt>Goal</dt>
+<dd>Finish cleanly, prove the workflow, earn a testimonial</dd>
+</div>
+</dl>
+</div>
 <h4 id="steps">Steps</h4>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Step</th>
@@ -1010,44 +992,44 @@
 </thead>
 <tbody>
 <tr>
-<td>1. Intake</td>
-<td>Keith or Rachel</td>
-<td>Confirm authority, address, urgency, safety, family conflict, and budget range.</td>
+<td data-label="Step">1. Intake</td>
+<td data-label="Owner">Keith or Rachel</td>
+<td data-label="What Happens">Confirm authority, address, urgency, safety, family conflict, and budget range.</td>
 </tr>
 <tr>
-<td>2. Free visit</td>
-<td>Rachel + Mike</td>
-<td>Rachel maps family decisions. Mike checks safety, repairs, utilities, access, and vendor needs.</td>
+<td data-label="Step">2. Free visit</td>
+<td data-label="Owner">Rachel + Mike</td>
+<td data-label="What Happens">Rachel maps family decisions. Mike checks safety, repairs, utilities, access, and vendor needs.</td>
 </tr>
 <tr>
-<td>3. Sprint scope</td>
-<td>Keith</td>
-<td>Convert visit into price, timeline, included work, exclusions, payment schedule, and decision deadlines.</td>
+<td data-label="Step">3. Sprint scope</td>
+<td data-label="Owner">Keith</td>
+<td data-label="What Happens">Convert visit into price, timeline, included work, exclusions, payment schedule, and decision deadlines.</td>
 </tr>
 <tr>
-<td>4. Item decision session</td>
-<td>Rachel</td>
-<td>Sort priority belongings into keep, deliver, store, sell, donate, discard, or review later.</td>
+<td data-label="Step">4. Item decision session</td>
+<td data-label="Owner">Rachel</td>
+<td data-label="What Happens">Sort priority belongings into keep, deliver, store, sell, donate, discard, or review later.</td>
 </tr>
 <tr>
-<td>5. Reset day</td>
-<td>Rachel leads, vendors support</td>
-<td>Move/dispose/donate approved items, perform light reset, photograph progress, update item log.</td>
+<td data-label="Step">5. Reset day</td>
+<td data-label="Owner">Rachel leads, vendors support</td>
+<td data-label="What Happens">Move/dispose/donate approved items, perform light reset, photograph progress, update item log.</td>
 </tr>
 <tr>
-<td>6. Repair punch list</td>
-<td>Mike</td>
-<td>Note urgent safety issues, cosmetic fixes, licensed-trade needs, and realtor questions.</td>
+<td data-label="Step">6. Repair punch list</td>
+<td data-label="Owner">Mike</td>
+<td data-label="What Happens">Note urgent safety issues, cosmetic fixes, licensed-trade needs, and realtor questions.</td>
 </tr>
 <tr>
-<td>7. Closeout</td>
-<td>Keith</td>
-<td>Deliver photos, item log, receipts, cost summary, repair list, and next-step options.</td>
+<td data-label="Step">7. Closeout</td>
+<td data-label="Owner">Keith</td>
+<td data-label="What Happens">Deliver photos, item log, receipts, cost summary, repair list, and next-step options.</td>
 </tr>
 </tbody>
 </table>
 <h4 id="sample-budget">Sample Budget</h4>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Budget Line</th>
@@ -1057,54 +1039,54 @@
 </thead>
 <tbody>
 <tr>
-<td>Legacy coordination, scope, client updates, closeout</td>
-<td style="text-align: right;">$2,000</td>
-<td>Keith/platform work</td>
+<td data-label="Budget Line">Legacy coordination, scope, client updates, closeout</td>
+<td data-label="Amount" style="text-align: right;">$2,000</td>
+<td data-label="Notes">Keith/platform work</td>
 </tr>
 <tr>
-<td>Rachel care coordination and inventory leadership</td>
-<td style="text-align: right;">$1,500</td>
-<td>Visit, decision session, reset leadership, records</td>
+<td data-label="Budget Line">Rachel care coordination and inventory leadership</td>
+<td data-label="Amount" style="text-align: right;">$1,500</td>
+<td data-label="Notes">Visit, decision session, reset leadership, records</td>
 </tr>
 <tr>
-<td>Mike walkthrough and repair punch list</td>
-<td style="text-align: right;">$600</td>
-<td>Safety and practical repair review</td>
+<td data-label="Budget Line">Mike walkthrough and repair punch list</td>
+<td data-label="Amount" style="text-align: right;">$600</td>
+<td data-label="Notes">Safety and practical repair review</td>
 </tr>
 <tr>
-<td>Two-person moving/processing help with truck allocation</td>
-<td style="text-align: right;">$1,800</td>
-<td>Example vendor/labor bucket</td>
+<td data-label="Budget Line">Two-person moving/processing help with truck allocation</td>
+<td data-label="Amount" style="text-align: right;">$1,800</td>
+<td data-label="Notes">Example vendor/labor bucket</td>
 </tr>
 <tr>
-<td>Cleaning/reset labor</td>
-<td style="text-align: right;">$900</td>
-<td>Light reset, not remediation</td>
+<td data-label="Budget Line">Cleaning/reset labor</td>
+<td data-label="Amount" style="text-align: right;">$900</td>
+<td data-label="Notes">Light reset, not remediation</td>
 </tr>
 <tr>
-<td>Disposal, donation runs, boxes, bags, labels, supplies</td>
-<td style="text-align: right;">$700</td>
-<td>Must be adjusted by house condition</td>
+<td data-label="Budget Line">Disposal, donation runs, boxes, bags, labels, supplies</td>
+<td data-label="Amount" style="text-align: right;">$700</td>
+<td data-label="Notes">Must be adjusted by house condition</td>
 </tr>
 <tr>
-<td>QR/photo/admin setup, lockbox, reporting</td>
-<td style="text-align: right;">$450</td>
-<td>Low-cost proof system</td>
+<td data-label="Budget Line">QR/photo/admin setup, lockbox, reporting</td>
+<td data-label="Amount" style="text-align: right;">$450</td>
+<td data-label="Notes">Low-cost proof system</td>
 </tr>
 <tr>
-<td>Overhead, insurance allocation, payment fees, contingency/reserve</td>
-<td style="text-align: right;">$1,650</td>
-<td>Protects small project margin</td>
+<td data-label="Budget Line">Overhead, insurance allocation, payment fees, contingency/reserve</td>
+<td data-label="Amount" style="text-align: right;">$1,650</td>
+<td data-label="Notes">Protects small project margin</td>
 </tr>
 <tr>
-<td><strong>Customer price</strong></td>
-<td style="text-align: right;"><strong>$9,600</strong></td>
-<td>First sprint example</td>
+<td data-label="Budget Line"><strong>Customer price</strong></td>
+<td data-label="Amount" style="text-align: right;"><strong>$9,600</strong></td>
+<td data-label="Notes">First sprint example</td>
 </tr>
 </tbody>
 </table>
 <h4 id="immediate-pay">Immediate Pay</h4>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Recipient</th>
@@ -1114,63 +1096,62 @@
 </thead>
 <tbody>
 <tr>
-<td>Rachel</td>
-<td style="text-align: right;">$1,500</td>
-<td>Family trust, belongings decisions, inventory, item routing</td>
+<td data-label="Recipient">Rachel</td>
+<td data-label="Example Pay" style="text-align: right;">$1,500</td>
+<td data-label="Why">Family trust, belongings decisions, inventory, item routing</td>
 </tr>
 <tr>
-<td>Mike</td>
-<td style="text-align: right;">$600</td>
-<td>Property assessment and repair punch list</td>
+<td data-label="Recipient">Mike</td>
+<td data-label="Example Pay" style="text-align: right;">$600</td>
+<td data-label="Why">Property assessment and repair punch list</td>
 </tr>
 <tr>
-<td>Legacy Defenders / Keith</td>
-<td style="text-align: right;">$2,000</td>
-<td>Lead, scope, project control, reporting, closeout</td>
+<td data-label="Recipient">Legacy Defenders / Keith</td>
+<td data-label="Example Pay" style="text-align: right;">$2,000</td>
+<td data-label="Why">Lead, scope, project control, reporting, closeout</td>
 </tr>
 <tr>
-<td>Vendors, cleaning, disposal, supplies</td>
-<td style="text-align: right;">$3,400</td>
-<td>Direct job costs</td>
+<td data-label="Recipient">Vendors, cleaning, disposal, supplies</td>
+<td data-label="Example Pay" style="text-align: right;">$3,400</td>
+<td data-label="Why">Direct job costs</td>
 </tr>
 <tr>
-<td>Reserve / overhead / margin protection</td>
-<td style="text-align: right;">$2,100</td>
-<td>Held until closeout, then reviewed</td>
+<td data-label="Recipient">Reserve / overhead / margin protection</td>
+<td data-label="Example Pay" style="text-align: right;">$2,100</td>
+<td data-label="Why">Held until closeout, then reviewed</td>
 </tr>
 </tbody>
 </table>
 <p>This project proves whether a real family will pay close to $10,000 for calm, documented executor help. It also shows which tasks were underpriced before the team accepts bigger work.</p>
 <h3 id="project-2-market-ready-reset">Project 2: Market-Ready Reset</h3>
 <p><strong>Second or third customer target:</strong> one clear decision maker, enough home value to justify work, realtor input, moderate contents, cosmetic refresh, and no structural surprise.</p>
-<div class="ld-proposal-card" aria-label="Market-ready reset proposal snapshot">
-  <div>
-    <p class="ld-kicker">After one clean sprint</p>
-    <h4>Market-Ready Reset</h4>
-    <p>A 3-4 week project that clears the house, handles belongings, coordinates cleaning and light repairs, and prepares the property for realtor review.</p>
-  </div>
-  <dl>
-    <div>
-      <dt>Customer price</dt>
-      <dd>$24,800 example</dd>
-    </div>
-    <div>
-      <dt>Deposit</dt>
-      <dd>40% start, staged draws</dd>
-    </div>
-    <div>
-      <dt>Timeline</dt>
-      <dd>3-4 weeks</dd>
-    </div>
-    <div>
-      <dt>Goal</dt>
-      <dd>Show preserved value without a major renovation</dd>
-    </div>
-  </dl>
+<div aria-label="Market-ready reset proposal snapshot" class="ld-proposal-card">
+<div>
+<p class="ld-kicker">After one clean sprint</p>
+<h4>Market-Ready Reset</h4>
+<p>A 3-4 week project that clears the house, handles belongings, coordinates cleaning and light repairs, and prepares the property for realtor review.</p>
 </div>
-
+<dl>
+<div>
+<dt>Customer price</dt>
+<dd>$24,800 example</dd>
+</div>
+<div>
+<dt>Deposit</dt>
+<dd>40% start, staged draws</dd>
+</div>
+<div>
+<dt>Timeline</dt>
+<dd>3-4 weeks</dd>
+</div>
+<div>
+<dt>Goal</dt>
+<dd>Show preserved value without a major renovation</dd>
+</div>
+</dl>
+</div>
 <h4 id="steps_1">Steps</h4>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Week</th>
@@ -1180,34 +1161,34 @@
 </thead>
 <tbody>
 <tr>
-<td>Week 1</td>
-<td>Keith + Rachel</td>
-<td>Intake, free visit, written scope, deposit, family decision session</td>
+<td data-label="Week">Week 1</td>
+<td data-label="Owner">Keith + Rachel</td>
+<td data-label="Work">Intake, free visit, written scope, deposit, family decision session</td>
 </tr>
 <tr>
-<td>Week 1</td>
-<td>Mike</td>
-<td>Repair scope, vendor schedule, materials assumptions, licensed-trade flags</td>
+<td data-label="Week">Week 1</td>
+<td data-label="Owner">Mike</td>
+<td data-label="Work">Repair scope, vendor schedule, materials assumptions, licensed-trade flags</td>
 </tr>
 <tr>
-<td>Week 2</td>
-<td>Rachel</td>
-<td>Contents routing, donation/disposal approvals, storage decisions, photo records</td>
+<td data-label="Week">Week 2</td>
+<td data-label="Owner">Rachel</td>
+<td data-label="Work">Contents routing, donation/disposal approvals, storage decisions, photo records</td>
 </tr>
 <tr>
-<td>Week 2-3</td>
-<td>Mike</td>
-<td>Paint/minor repair supervision, cleaning reset, vendor quality control</td>
+<td data-label="Week">Week 2-3</td>
+<td data-label="Owner">Mike</td>
+<td data-label="Work">Paint/minor repair supervision, cleaning reset, vendor quality control</td>
 </tr>
 <tr>
-<td>Week 4</td>
-<td>Keith</td>
-<td>Budget closeout, before/after packet, realtor-ready punch list, case study request</td>
+<td data-label="Week">Week 4</td>
+<td data-label="Owner">Keith</td>
+<td data-label="Work">Budget closeout, before/after packet, realtor-ready punch list, case study request</td>
 </tr>
 </tbody>
 </table>
 <h4 id="sample-budget_1">Sample Budget</h4>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Budget Line</th>
@@ -1217,54 +1198,54 @@
 </thead>
 <tbody>
 <tr>
-<td>Legacy coordination, reporting, client communication</td>
-<td style="text-align: right;">$3,500</td>
-<td>Project control and records</td>
+<td data-label="Budget Line">Legacy coordination, reporting, client communication</td>
+<td data-label="Amount" style="text-align: right;">$3,500</td>
+<td data-label="Notes">Project control and records</td>
 </tr>
 <tr>
-<td>Rachel care/inventory/storage/cleanout coordination</td>
-<td style="text-align: right;">$2,750</td>
-<td>Family-facing work and belongings workflow</td>
+<td data-label="Budget Line">Rachel care/inventory/storage/cleanout coordination</td>
+<td data-label="Amount" style="text-align: right;">$2,750</td>
+<td data-label="Notes">Family-facing work and belongings workflow</td>
 </tr>
 <tr>
-<td>Mike property scope and quality control</td>
-<td style="text-align: right;">$1,750</td>
-<td>Sequencing, repair judgment, vendor oversight</td>
+<td data-label="Budget Line">Mike property scope and quality control</td>
+<td data-label="Amount" style="text-align: right;">$1,750</td>
+<td data-label="Notes">Sequencing, repair judgment, vendor oversight</td>
 </tr>
 <tr>
-<td>Moving, disposal, donation, storage setup</td>
-<td style="text-align: right;">$3,750</td>
-<td>Vendor/labor bucket</td>
+<td data-label="Budget Line">Moving, disposal, donation, storage setup</td>
+<td data-label="Amount" style="text-align: right;">$3,750</td>
+<td data-label="Notes">Vendor/labor bucket</td>
 </tr>
 <tr>
-<td>Cleaning and reset</td>
-<td style="text-align: right;">$1,800</td>
-<td>Deep clean/light reset</td>
+<td data-label="Budget Line">Cleaning and reset</td>
+<td data-label="Amount" style="text-align: right;">$1,800</td>
+<td data-label="Notes">Deep clean/light reset</td>
 </tr>
 <tr>
-<td>Paint and minor repair labor</td>
-<td style="text-align: right;">$5,750</td>
-<td>Scope must be tightly defined</td>
+<td data-label="Budget Line">Paint and minor repair labor</td>
+<td data-label="Amount" style="text-align: right;">$5,750</td>
+<td data-label="Notes">Scope must be tightly defined</td>
 </tr>
 <tr>
-<td>Materials and supplies</td>
-<td style="text-align: right;">$1,600</td>
-<td>Paint, patch, hardware, safety supplies</td>
+<td data-label="Budget Line">Materials and supplies</td>
+<td data-label="Amount" style="text-align: right;">$1,600</td>
+<td data-label="Notes">Paint, patch, hardware, safety supplies</td>
 </tr>
 <tr>
-<td>Licensed trade allowance</td>
-<td style="text-align: right;">$1,000</td>
-<td>Small allowance only; larger work is change order</td>
+<td data-label="Budget Line">Licensed trade allowance</td>
+<td data-label="Amount" style="text-align: right;">$1,000</td>
+<td data-label="Notes">Small allowance only; larger work is change order</td>
 </tr>
 <tr>
-<td>Overhead, insurance allocation, payment fees, contingency/reserve</td>
-<td style="text-align: right;">$2,900</td>
-<td>Protects the project</td>
+<td data-label="Budget Line">Overhead, insurance allocation, payment fees, contingency/reserve</td>
+<td data-label="Amount" style="text-align: right;">$2,900</td>
+<td data-label="Notes">Protects the project</td>
 </tr>
 <tr>
-<td><strong>Customer price</strong></td>
-<td style="text-align: right;"><strong>$24,800</strong></td>
-<td>Market-ready example</td>
+<td data-label="Budget Line"><strong>Customer price</strong></td>
+<td data-label="Amount" style="text-align: right;"><strong>$24,800</strong></td>
+<td data-label="Notes">Market-ready example</td>
 </tr>
 </tbody>
 </table>
@@ -1378,6 +1359,6 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="main.js?v=2026-06-28T19:58:45.001270"></script>
+    <script src="main.js?v=2026-06-28T20:17:36.253312" defer></script>
 </body>
 </html>

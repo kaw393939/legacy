@@ -44,43 +44,31 @@
     <meta name="googlebot" content="index, follow">
     
     <!-- Resource Hints for Performance -->
-    <link rel="preload" href="styles.css?v=2026-06-28T19:58:45.051593" as="style">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="styles.css?v=2026-06-28T20:17:36.373874" as="style">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=2026-06-28T19:58:45.051593">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
+    <link rel="stylesheet" href="styles.css?v=2026-06-28T20:17:36.373874">
+
+    <style>.fas,.far,.fab{display:inline-block;width:1em;text-align:center}</style>
+    <script>
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          var fa = document.createElement('link');
+          fa.rel = 'stylesheet';
+          fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+          document.head.appendChild(fa);
+        }, 1200);
+      });
+    </script>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-KE98KY192J', {
-        // Enhanced tracking for single-page application
-        page_title: 'Keith&#39;s Inherited Home Story',
-        custom_map: {
-          'custom_parameter_1': 'cta_type',
-          'custom_parameter_2': 'section_name'
-        },
-        // Enhanced ecommerce for service tracking
-        enhanced_conversions: true,
-        // Track scroll depth
-        send_page_view: true,
-        // Custom conversions configuration
-        conversion_linker: true
-      });
 
       // Define conversion goals and values for journey-based tracking
-      const CONVERSION_VALUES = {
+      var CONVERSION_VALUES = {
         'primary_cta': 25,         // Book Property Visit, Contact Now
         'service_inquiry': 20,     // Service-specific CTAs
         'package_cta': 40,         // Package selection CTAs
@@ -383,7 +371,7 @@ aria-current="page"                   data-cta="navigation"
 <p>Instead, too many answers felt expensive, incomplete, confusing, or designed around someone else's fee first. Some professionals wanted large retainers or percentages. Some vendors could solve only one piece. Some buyers wanted the whole situation to feel hopeless so a low offer would seem like relief.</p>
 <p>Keith received early offers around <strong>$80,000</strong>. A cleanout alone could have cost around <strong>$12,000</strong>, and that would not have solved smoke remediation, repairs, paperwork, utility issues, belongings decisions, or the emotional problem of what to keep.</p>
 <p>That is the trap many families face: the house has value, but the executor cannot access that value because the home is full, dated, damaged, or hard to manage from far away.</p>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Path</th>
@@ -392,20 +380,20 @@ aria-current="page"                   data-cta="navigation"
 </thead>
 <tbody>
 <tr>
-<td>Early as-is offer</td>
-<td style="text-align: right;">$80,000</td>
+<td data-label="Path">Early as-is offer</td>
+<td data-label="Simple Illustration" style="text-align: right;">$80,000</td>
 </tr>
 <tr>
-<td>Market-ready potential</td>
-<td style="text-align: right;">$200,000+</td>
+<td data-label="Path">Market-ready potential</td>
+<td data-label="Simple Illustration" style="text-align: right;">$200,000+</td>
 </tr>
 <tr>
-<td>Example cleanout quote before repairs</td>
-<td style="text-align: right;">$12,000</td>
+<td data-label="Path">Example cleanout quote before repairs</td>
+<td data-label="Simple Illustration" style="text-align: right;">$12,000</td>
 </tr>
 <tr>
-<td>Potential value at risk before other estate costs</td>
-<td style="text-align: right;">$100,000+</td>
+<td data-label="Path">Potential value at risk before other estate costs</td>
+<td data-label="Simple Illustration" style="text-align: right;">$100,000+</td>
 </tr>
 </tbody>
 </table>
@@ -431,9 +419,8 @@ aria-current="page"                   data-cta="navigation"
 <p>Legacy Defenders exists because Keith was lucky to have Mike. The next family should not have to rely on luck.</p>
 <p>Our process is built from the painful lesson Keith learned: calling random people during probate can leave the executor with disconnected advice, high quotes, low offers, and no one responsible for the whole situation. We coordinate the pieces so the family can make fewer decisions with better information.</p>
 <div class="pricing-note">
-  <strong>Important note:</strong> This case study is based on Keith's experience and is provided for education. Every estate, home, market, legal situation, financing path, repair scope, and outcome is different.
+<strong>Important note:</strong> This case study is based on Keith's experience and is provided for education. Every estate, home, market, legal situation, financing path, repair scope, and outcome is different.
 </div>
-
 <h2 id="start-with-the-first-safe-step">Start With The First Safe Step</h2>
 <p>You do not need to decide today whether to renovate, sell, rent, keep, donate, or finance the project. The first step is getting the situation onto one page.</p>
 <p><a class="btn btn-primary" href="index.html#contact">Talk With A Care Coordinator</a>
@@ -508,6 +495,6 @@ aria-current="page"                   data-cta="navigation"
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="main.js?v=2026-06-28T19:58:45.051593"></script>
+    <script src="main.js?v=2026-06-28T20:17:36.373874" defer></script>
 </body>
 </html>

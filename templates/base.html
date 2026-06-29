@@ -50,23 +50,32 @@
     {% if page.hero and page.hero.image %}
     <link rel="preload" href="{{ page.hero.image }}" as="image">
     {% endif %}
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css?v={{ build_time }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <style>.fas,.far,.fab{display:inline-block;width:1em;text-align:center}</style>
+    <script>
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          var fa = document.createElement('link');
+          fa.rel = 'stylesheet';
+          fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+          document.head.appendChild(fa);
+        }, 1200);
+      });
+    </script>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    {% if features.enable_analytics %}
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
+    {% endif %}
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      {% if features.enable_analytics %}
       gtag('js', new Date());
 
       gtag('config', 'G-KE98KY192J', {
@@ -83,9 +92,10 @@
         // Custom conversions configuration
         conversion_linker: true
       });
+      {% endif %}
 
       // Define conversion goals and values for journey-based tracking
-      const CONVERSION_VALUES = {
+      var CONVERSION_VALUES = {
         'primary_cta': 25,         // Book Property Visit, Contact Now
         'service_inquiry': 20,     // Service-specific CTAs
         'package_cta': 40,         // Package selection CTAs
@@ -278,6 +288,6 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="main.js?v={{ build_time }}"></script>
+    <script src="main.js?v={{ build_time }}" defer></script>
 </body>
 </html>

@@ -44,43 +44,31 @@
     <meta name="googlebot" content="index, follow">
     
     <!-- Resource Hints for Performance -->
-    <link rel="preload" href="styles.css?v=2026-06-28T19:58:45.062209" as="style">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="styles.css?v=2026-06-28T20:17:36.437971" as="style">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=2026-06-28T19:58:45.062209">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
+    <link rel="stylesheet" href="styles.css?v=2026-06-28T20:17:36.437971">
+
+    <style>.fas,.far,.fab{display:inline-block;width:1em;text-align:center}</style>
+    <script>
+      window.addEventListener('load', function () {
+        window.setTimeout(function () {
+          var fa = document.createElement('link');
+          fa.rel = 'stylesheet';
+          fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+          document.head.appendChild(fa);
+        }, 1200);
+      });
+    </script>
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-KE98KY192J', {
-        // Enhanced tracking for single-page application
-        page_title: 'Prearranged Legacy Readiness',
-        custom_map: {
-          'custom_parameter_1': 'cta_type',
-          'custom_parameter_2': 'section_name'
-        },
-        // Enhanced ecommerce for service tracking
-        enhanced_conversions: true,
-        // Track scroll depth
-        send_page_view: true,
-        // Custom conversions configuration
-        conversion_linker: true
-      });
 
       // Define conversion goals and values for journey-based tracking
-      const CONVERSION_VALUES = {
+      var CONVERSION_VALUES = {
         'primary_cta': 25,         // Book Property Visit, Contact Now
         'service_inquiry': 20,     // Service-specific CTAs
         'package_cta': 40,         // Package selection CTAs
@@ -380,30 +368,29 @@ aria-current="page"                   data-cta="navigation"
 <p>This is not estate planning and it does not replace an attorney, CPA, financial advisor, insurance professional, or healthcare planning. It is the practical home-and-belongings plan that heirs often wish existed.</p>
 <h2 id="what-we-document">What We Document</h2>
 <div class="ld-practical-grid">
-  <article>
-    <span><i class="fas fa-home" aria-hidden="true"></i></span>
-    <h2>The Home</h2>
-    <p>Access, utilities, maintenance notes, insurance concerns, vendors, recurring bills, likely repairs, and immediate stabilization steps.</p>
-  </article>
-  <article>
-    <span><i class="fas fa-boxes-stacked" aria-hidden="true"></i></span>
-    <h2>Belongings</h2>
-    <p>Sentimental items, likely donations, possible sale items, family distribution wishes, storage needs, and items that should not be discarded.</p>
-  </article>
-  <article>
-    <span><i class="fas fa-address-book" aria-hidden="true"></i></span>
-    <h2>Contacts</h2>
-    <p>Family decision makers, attorney, CPA, realtor, lender, insurance agent, contractors, neighbors, helpers, and preferred vendors.</p>
-  </article>
-  <article>
-    <span><i class="fas fa-clipboard-list" aria-hidden="true"></i></span>
-    <h2>Activation Plan</h2>
-    <p>Who calls Legacy Defenders, what happens first, what the family should gather, and which services may be needed.</p>
-  </article>
+<article>
+<span><i aria-hidden="true" class="fas fa-home"></i></span>
+<h2>The Home</h2>
+<p>Access, utilities, maintenance notes, insurance concerns, vendors, recurring bills, likely repairs, and immediate stabilization steps.</p>
+</article>
+<article>
+<span><i aria-hidden="true" class="fas fa-boxes-stacked"></i></span>
+<h2>Belongings</h2>
+<p>Sentimental items, likely donations, possible sale items, family distribution wishes, storage needs, and items that should not be discarded.</p>
+</article>
+<article>
+<span><i aria-hidden="true" class="fas fa-address-book"></i></span>
+<h2>Contacts</h2>
+<p>Family decision makers, attorney, CPA, realtor, lender, insurance agent, contractors, neighbors, helpers, and preferred vendors.</p>
+</article>
+<article>
+<span><i aria-hidden="true" class="fas fa-clipboard-list"></i></span>
+<h2>Activation Plan</h2>
+<p>Who calls Legacy Defenders, what happens first, what the family should gather, and which services may be needed.</p>
+</article>
 </div>
-
 <h2 id="example-planning-levels">Example Planning Levels</h2>
-<table>
+<table class="responsive-table-ready">
 <thead>
 <tr>
 <th>Plan</th>
@@ -413,19 +400,19 @@ aria-current="page"                   data-cta="navigation"
 </thead>
 <tbody>
 <tr>
-<td>Readiness Conversation</td>
-<td style="text-align: right;">$500-$1,500</td>
-<td>A family that wants the first home/belongings checklist and activation notes</td>
+<td data-label="Plan">Readiness Conversation</td>
+<td data-label="Example Range" style="text-align: right;">$500-$1,500</td>
+<td data-label="Best For">A family that wants the first home/belongings checklist and activation notes</td>
 </tr>
 <tr>
-<td>Home &amp; Belongings Walkthrough</td>
-<td style="text-align: right;">$1,500-$3,500</td>
-<td>A parent or family who wants the house, contacts, and sentimental priorities documented</td>
+<td data-label="Plan">Home &amp; Belongings Walkthrough</td>
+<td data-label="Example Range" style="text-align: right;">$1,500-$3,500</td>
+<td data-label="Best For">A parent or family who wants the house, contacts, and sentimental priorities documented</td>
 </tr>
 <tr>
-<td>Full Legacy Readiness Plan</td>
-<td style="text-align: right;">$3,500-$5,000+</td>
-<td>Larger homes, multiple heirs, complex belongings, funding questions, or priority activation planning</td>
+<td data-label="Plan">Full Legacy Readiness Plan</td>
+<td data-label="Example Range" style="text-align: right;">$3,500-$5,000+</td>
+<td data-label="Best For">Larger homes, multiple heirs, complex belongings, funding questions, or priority activation planning</td>
 </tr>
 </tbody>
 </table>
@@ -514,6 +501,6 @@ aria-current="page"                   data-cta="navigation"
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="main.js?v=2026-06-28T19:58:45.062209"></script>
+    <script src="main.js?v=2026-06-28T20:17:36.437971" defer></script>
 </body>
 </html>

@@ -365,7 +365,7 @@
     margin-bottom: var(--space-sm);
     border-radius: var(--radius-full);
     background: var(--teal-50);
-    color: var(--teal-700);
+    color: var(--teal-800);
     font-weight: var(--font-weight-extrabold);
 }
 
@@ -503,7 +503,7 @@
     margin-bottom: var(--space-md);
     border-radius: var(--radius-full);
     background: var(--white);
-    color: var(--teal-700);
+    color: var(--teal-800);
     font-weight: var(--font-weight-extrabold);
     font-size: 0.82rem;
 }
@@ -521,6 +521,10 @@
 
 .offer-step.featured h3,
 .offer-step.featured p {
+    color: var(--white);
+}
+
+.offer-step.featured strong {
     color: var(--white);
 }
 
@@ -1195,10 +1199,20 @@
 }
 
 .content-page a {
-    color: var(--teal-700);
+    color: var(--teal-900);
     font-weight: var(--font-weight-semibold);
     text-decoration-thickness: 2px;
     text-underline-offset: 0.18em;
+}
+
+.content-page a:hover,
+.content-page a:focus {
+    color: var(--navy-800);
+}
+
+.content-page a.btn,
+.content-page a.btn:visited {
+    text-decoration: none;
 }
 
 .content-page a.btn-primary,
@@ -1207,6 +1221,42 @@
 .content-page a.btn-primary:active,
 .content-page a.btn-primary:visited {
     color: var(--white);
+}
+
+.content-page a.btn-outline,
+.content-page a.btn-outline:visited {
+    color: var(--navy-700);
+}
+
+.content-page a.btn-outline:hover,
+.content-page a.btn-outline:focus {
+    color: var(--white);
+}
+
+.content-page .page-action-panel a.btn-outline,
+.content-page .page-action-panel a.btn-outline:visited,
+.anti-flipper-panel a.btn-outline,
+.anti-flipper-panel a.btn-outline:visited {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.72);
+}
+
+.content-page .page-action-panel a.btn-outline:hover,
+.content-page .page-action-panel a.btn-outline:focus,
+.anti-flipper-panel a.btn-outline:hover,
+.anti-flipper-panel a.btn-outline:focus {
+    background: var(--white);
+    color: var(--navy-800);
+    border-color: var(--white);
+}
+
+.content-page a.btn-white,
+.content-page a.btn-white:hover,
+.content-page a.btn-white:focus,
+.content-page a.btn-white:active,
+.content-page a.btn-white:visited {
+    color: var(--navy-800);
 }
 
 .content-page h1,
@@ -1224,7 +1274,7 @@
 
 .ld-kicker {
     margin: 0 0 var(--space-xs);
-    color: var(--teal-700);
+    color: var(--teal-800);
     font-size: 0.78rem;
     font-weight: var(--font-weight-extrabold);
     text-transform: uppercase;
@@ -1512,7 +1562,7 @@
     padding: 0.25rem 0.55rem;
     border-radius: var(--radius-full);
     background: var(--navy-50);
-    color: var(--teal-700);
+    color: var(--teal-900);
     font-size: 0.78rem;
     font-weight: var(--font-weight-extrabold);
     text-transform: uppercase;
@@ -1627,7 +1677,7 @@
     .content-page table.responsive-table-ready td::before,
     .content-page table.responsive-table-ready th::before {
         content: attr(data-label);
-        color: var(--teal-700);
+        color: var(--teal-900);
         font-size: 0.72rem;
         font-weight: var(--font-weight-extrabold);
         line-height: 1.25;
@@ -1793,7 +1843,7 @@
 
 .pricing-kicker {
     display: inline-block;
-    color: var(--teal-700);
+    color: var(--teal-900);
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
     font-size: 0.78rem;

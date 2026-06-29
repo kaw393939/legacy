@@ -8,7 +8,9 @@ import sys
 import shutil
 import yaml
 import markdown
+import re
 from pathlib import Path
+from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from datetime import datetime
 import argparse
@@ -17,23 +19,56 @@ import argparse
 def _minify_css_conservative(css: str) -> str:
     """Conservative CSS minification.
 
-    Avoids aggressive transformations (no comment stripping, no token rewriting)
-    to keep risk low. Primarily removes trailing whitespace and excessive
-    blank lines.
+    Keeps declarations intact while removing comments, excess whitespace, and
+    spacing around CSS punctuation. This is intentionally less aggressive than
+    a full optimizer but meaningful enough for production builds.
     """
 
-    lines = [ln.rstrip() for ln in css.replace('\r\n', '\n').replace('\r', '\n').split('\n')]
-    out: list[str] = []
-    blank_run = 0
-    for ln in lines:
-        if not ln.strip():
-            blank_run += 1
-            if blank_run <= 1:
-                out.append('')
+    css = css.replace('\r\n', '\n').replace('\r', '\n')
+    css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+    css = re.sub(r'\s+', ' ', css)
+    css = re.sub(r'\s*([{}:;,>+~])\s*', r'\1', css)
+    css = css.replace(';}', '}')
+    return css.strip() + '\n'
+
+
+def _enhance_responsive_tables(html: str) -> str:
+    """Add mobile table labels at build time to avoid client-side layout shifts."""
+
+    soup = BeautifulSoup(html, 'html.parser')
+
+    for table in soup.find_all('table'):
+        header_cells = table.select('thead th')
+        headers = [
+            cell.get_text(' ', strip=True)
+            for cell in header_cells
+            if cell.get_text(' ', strip=True)
+        ]
+
+        if not headers:
             continue
-        blank_run = 0
-        out.append(ln)
-    return '\n'.join(out).strip() + '\n'
+
+        classes = table.get('class', [])
+        if 'responsive-table-ready' not in classes:
+            table['class'] = [*classes, 'responsive-table-ready']
+
+        tbody = table.find('tbody')
+        rows = tbody.find_all('tr', recursive=False) if tbody else table.find_all('tr')
+
+        for row in rows:
+            for index, cell in enumerate(row.find_all(['td', 'th'], recursive=False)):
+                if cell.name == 'th' and cell.find_parent('thead'):
+                    continue
+
+                fallback = 'Item' if index == 0 else f'Detail {index + 1}'
+                cell['data-label'] = headers[index] if index < len(headers) else fallback
+
+                if not cell.get_text(' ', strip=True):
+                    cell_classes = cell.get('class', [])
+                    if 'table-cell-empty' not in cell_classes:
+                        cell['class'] = [*cell_classes, 'table-cell-empty']
+
+    return ''.join(str(child) for child in soup.contents)
 
 class SiteBuilder:
     """Main site builder class"""
@@ -124,6 +159,7 @@ class SiteBuilder:
         
         # Convert markdown to HTML
         html_content = self.md.convert(markdown_content)
+        html_content = _enhance_responsive_tables(html_content)
         
         return frontmatter, html_content
     

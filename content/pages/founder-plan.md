@@ -13,7 +13,6 @@ stats:
     label: "Days to first paid sprint"
 seo:
   canonical: "/founder-plan.html"
-  robots: "noindex, nofollow"
   og_type: "website"
 ---
 
