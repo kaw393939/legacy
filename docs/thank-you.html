@@ -44,156 +44,31 @@
     <meta name="googlebot" content="index, follow">
     
     <!-- Resource Hints for Performance -->
-    <link rel="preload" href="styles.css?v=2026-06-28T21:59:27.457926" as="style">
+    <link rel="preload" href="styles.css?v=2026-06-28T22:11:38.288915" as="style">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=2026-06-28T21:59:27.457926">
+    <link rel="stylesheet" href="styles.css?v=2026-06-28T22:11:38.288915">
 
     <style>.fas,.far,.fab{display:inline-block;width:1em;text-align:center}</style>
-    <script>
-      window.addEventListener('load', function () {
-        window.setTimeout(function () {
-          var fa = document.createElement('link');
-          fa.rel = 'stylesheet';
-          fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
-          document.head.appendChild(fa);
-        }, 1200);
-      });
-    </script>
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-
-      // Define conversion goals and values for journey-based tracking
-      var CONVERSION_VALUES = {
-        'primary_cta': 25,         // Book Property Visit, Contact Now
-        'service_inquiry': 20,     // Service-specific CTAs
-        'package_cta': 40,         // Package selection CTAs
-        'phone_call': 30,          // Direct phone calls
-        'whatsapp': 28,            // WhatsApp contacts
-        'form_submit': 35,         // Contact form submissions
-        'email_click': 15,         // Email clicks
-        'secondary_cta': 10,       // View Services, etc.
-        'service_interest': 5,     // Service card interactions
-        'package_interest': 8,     // Package card interactions
-        'journey_progression': 12,  // Moving between journey phases
-        'journey_phase_view': 3    // Viewing journey phase sections
+      window.ldAnalyticsEnabled = false;
+      window.CONVERSION_VALUES = {
+        primary_cta: 25,
+        service_inquiry: 20,
+        package_cta: 40,
+        phone_call: 30,
+        whatsapp: 28,
+        form_submit: 35,
+        email_click: 15,
+        secondary_cta: 10,
+        service_interest: 5,
+        package_interest: 8,
+        journey_progression: 12,
+        journey_phase_view: 3
       };
-
-      // Enhanced CTA tracking function
-      function trackCTAClick(ctaType, section, ctaText, destination) {
-        const conversionValue = CONVERSION_VALUES[ctaType] || 5;
-        
-        gtag('event', 'cta_click', {
-          event_category: 'CTA',
-          event_label: ctaText,
-          cta_type: ctaType,
-          section_name: section,
-          destination: destination,
-          value: conversionValue
-        });
-
-        // Track as conversion for high-value CTAs
-        if (['primary_cta', 'service_inquiry', 'phone_call', 'whatsapp', 'form_submit'].includes(ctaType)) {
-          gtag('event', 'conversion', {
-            event_category: 'Conversions',
-            event_label: ctaType,
-            value: conversionValue,
-            currency: 'USD'
-          });
-        }
-      }
-
-      // Track section views for single-page navigation
-      function trackSectionView(sectionName) {
-        gtag('event', 'page_view', {
-          page_title: sectionName + ' - Legacy Defenders',
-          page_location: window.location.href + '#' + sectionName,
-          event_category: 'Navigation',
-          event_label: sectionName,
-          section_name: sectionName
-        });
-      }
-
-      // Track scroll depth milestones
-      function trackScrollDepth(percentage) {
-        gtag('event', 'scroll', {
-          event_category: 'Engagement',
-          event_label: percentage + '%',
-          value: percentage
-        });
-      }
-
-      // Track service interest
-      function trackServiceInterest(serviceName, action) {
-        gtag('event', 'select_content', {
-          content_type: 'service',
-          content_id: serviceName.toLowerCase().replace(/\s+/g, '_'),
-          event_category: 'Services',
-          event_label: serviceName,
-          action: action,
-          value: 8
-        });
-      }
-
-      // Track form interactions
-      function trackFormInteraction(formType, action, field) {
-        gtag('event', 'form_' + action, {
-          event_category: 'Forms',
-          event_label: formType,
-          action: action,
-          field: field,
-          value: action === 'submit' ? CONVERSION_VALUES['form_submit'] : 2
-        });
-      }
-
-      // Track phone/WhatsApp clicks
-      function trackContactMethod(method, source) {
-        const conversionType = method.toLowerCase() === 'whatsapp' ? 'whatsapp' : 'phone_call';
-        const conversionValue = CONVERSION_VALUES[conversionType];
-        
-        gtag('event', 'contact_method', {
-          event_category: 'Contact',
-          event_label: method,
-          source: source,
-          value: conversionValue
-        });
-
-        // Track as high-value conversion
-        gtag('event', 'conversion', {
-          event_category: 'Conversions',
-          event_label: conversionType,
-          value: conversionValue,
-          currency: 'USD'
-        });
-      }
-
-      // Track outbound links
-      function trackOutboundLink(url, linkText) {
-        gtag('event', 'click', {
-          event_category: 'Outbound Links',
-          event_label: url,
-          transport_type: 'beacon',
-          value: 3
-        });
-      }
-
-      // Track time spent on page milestones
-      let timeOnPageMarkers = [30, 60, 120, 300]; // 30s, 1m, 2m, 5m
-      let startTime = Date.now();
-      
-      timeOnPageMarkers.forEach(seconds => {
-        setTimeout(() => {
-          gtag('event', 'time_on_page', {
-            event_category: 'Engagement',
-            event_label: seconds + 's',
-            value: seconds
-          });
-        }, seconds * 1000);
-      });
     </script>
     
     <!-- Structured Data - Local Business -->
@@ -433,6 +308,6 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script src="main.js?v=2026-06-28T21:59:27.457926" defer></script>
+    <script src="main.js?v=2026-06-28T22:11:38.288915" defer></script>
 </body>
 </html>

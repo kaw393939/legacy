@@ -1,1165 +1,781 @@
-﻿/* ===================================
-   Legacy Defenders - Interactive Features
-   =================================== */
+/* Legacy Defenders runtime */
+(function () {
+    'use strict';
 
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ===================================
-    // Enhanced Analytics Setup
-    // ===================================
-    
-    // Track all CTA buttons
-    function initCTATracking() {
-        // Primary CTAs (Book Property Visit, Contact buttons)
-        document.querySelectorAll('[data-cta="primary"], .cta-primary, .btn-primary').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const section = this.getAttribute('data-section') || this.closest('section')?.className.split(' ')[0] || 'unknown';
-                const ctaText = this.textContent.trim();
-                const destination = this.getAttribute('href') || this.getAttribute('data-destination') || 'unknown';
-                
-                trackCTAClick('primary_cta', section, ctaText, destination);
-            });
+    const doc = document;
+    const win = window;
+    const root = doc.documentElement;
+    const analyticsEnabled = Boolean(win.ldAnalyticsEnabled && typeof win.gtag === 'function');
+    const conversionValues = win.CONVERSION_VALUES || {};
+
+    const $ = (selector, scope = doc) => scope.querySelector(selector);
+    const $$ = (selector, scope = doc) => Array.from(scope.querySelectorAll(selector));
+    const on = (target, event, handler, options) => {
+        if (target) target.addEventListener(event, handler, options);
+    };
+    const closest = (target, selector) => {
+        if (!target) return null;
+        if (target.nodeType === 1) return target.closest(selector);
+        return target.parentElement ? target.parentElement.closest(selector) : null;
+    };
+
+    function ready(fn) {
+        if (doc.readyState === 'loading') {
+            doc.addEventListener('DOMContentLoaded', fn, { once: true });
+        } else {
+            fn();
+        }
+    }
+
+    function valueFor(key, fallback = 1) {
+        const value = Number(conversionValues[key]);
+        return Number.isFinite(value) ? value : fallback;
+    }
+
+    function track(eventName, payload) {
+        if (!analyticsEnabled) return;
+        win.gtag('event', eventName, payload || {});
+    }
+
+    function trackConversion(label, value) {
+        track('conversion', {
+            event_category: 'Conversions',
+            event_label: label,
+            value,
+            currency: 'USD'
+        });
+    }
+
+    function textOf(element) {
+        return (element && element.textContent ? element.textContent : '').replace(/\s+/g, ' ').trim();
+    }
+
+    function sectionFor(element) {
+        const explicit = element && element.getAttribute('data-section');
+        if (explicit) return explicit;
+
+        const section = element ? element.closest('section,[data-section]') : null;
+        if (!section) return 'unknown';
+
+        return section.getAttribute('data-section') ||
+            section.id ||
+            String(section.className || '').split(/\s+/).filter(Boolean)[0] ||
+            'unknown';
+    }
+
+    function normalizePath(pathname) {
+        return pathname.replace(/\/index\.html$/, '/').replace(/\/$/, '/');
+    }
+
+    function samePage(url) {
+        return url.origin === win.location.origin &&
+            normalizePath(url.pathname) === normalizePath(win.location.pathname);
+    }
+
+    function getHashTarget(hash) {
+        if (!hash || hash === '#') return null;
+        try {
+            return doc.getElementById(decodeURIComponent(hash.slice(1)));
+        } catch (error) {
+            return null;
+        }
+    }
+
+    function ctaTypeFor(element) {
+        const raw = element.getAttribute('data-cta');
+        if (raw === 'primary') return 'primary_cta';
+        if (raw === 'secondary') return 'secondary_cta';
+        if (raw === 'service') return 'service_inquiry';
+        if (raw === 'package') return 'package_cta';
+        if (raw) return raw;
+        if (element.classList.contains('btn-primary')) return 'primary_cta';
+        if (element.classList.contains('btn-outline') || element.classList.contains('btn-secondary')) return 'secondary_cta';
+        return null;
+    }
+
+    function serviceNameFor(element, card) {
+        return element.getAttribute('data-service') ||
+            (card && card.getAttribute('data-service')) ||
+            textOf($('.service-title, h3, h4', card || doc)) ||
+            'unknown';
+    }
+
+    function packageNameFor(element, card) {
+        return element.getAttribute('data-package') ||
+            (card && card.getAttribute('data-package')) ||
+            textOf($('.service-title, h3, h4', card || doc)) ||
+            'unknown';
+    }
+
+    function trackCta(element) {
+        const type = ctaTypeFor(element);
+        if (!type || type === 'navigation' || type === 'social') return;
+
+        const destination = element.getAttribute('href') ||
+            element.getAttribute('data-destination') ||
+            'unknown';
+        const amount = valueFor(type, 5);
+
+        track('cta_click', {
+            event_category: 'CTA',
+            event_label: textOf(element),
+            cta_type: type,
+            section_name: sectionFor(element),
+            destination,
+            value: amount
         });
 
-        // Secondary CTAs (View Services, Get Quote)
-        document.querySelectorAll('[data-cta="secondary"], .cta-secondary, .btn-secondary, .btn-outline').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const section = this.getAttribute('data-section') || this.closest('section')?.className.split(' ')[0] || 'unknown';
-                const ctaText = this.textContent.trim();
-                const destination = this.getAttribute('href') || this.getAttribute('data-destination') || 'unknown';
-                
-                trackCTAClick('secondary_cta', section, ctaText, destination);
-            });
-        });
+        if (['primary_cta', 'service_inquiry', 'phone_call', 'whatsapp', 'form_submit'].includes(type)) {
+            trackConversion(type, amount);
+        }
+    }
 
-        // Service-specific CTAs
-        document.querySelectorAll('.service-card .btn, .service-cta, [data-cta="service"]').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const serviceCard = this.closest('.service-card');
-                const serviceName = this.getAttribute('data-service') || 
-                                  serviceCard?.querySelector('.service-title, h3')?.textContent.trim() || 'unknown';
-                const ctaText = this.textContent.trim();
-                const psychology = this.getAttribute('data-psychology') || 
-                                 serviceCard?.getAttribute('data-psychology') || 'none';
-                
-                trackCTAClick('service_inquiry', serviceName, ctaText, this.getAttribute('href') || '#contact');
-                trackServiceInterest(serviceName, 'cta_click', psychology);
-            });
-        });
+    function trackContactLink(element, href) {
+        const isWhatsApp = href.includes('wa.me') || href.toLowerCase().includes('whatsapp');
+        const isPhone = href.startsWith('tel:');
+        const isEmail = href.startsWith('mailto:');
 
-        // Package-specific CTAs with psychological tracking
-        document.querySelectorAll('.package-card .btn, [data-cta="package"]').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const packageCard = this.closest('.package-card');
-                const packageName = this.getAttribute('data-package') || 
-                                  packageCard?.querySelector('.service-title, h4')?.textContent.trim() || 'unknown';
-                const ctaText = this.textContent.trim();
-                const psychology = this.getAttribute('data-psychology') || 
-                                 packageCard?.getAttribute('data-psychology') || 'none';
-                
-                trackCTAClick('package_inquiry', packageName, ctaText, this.getAttribute('href') || '#contact');
-                trackPackageInterest(packageName, 'cta_click', psychology);
-            });
-        });
+        if (!isWhatsApp && !isPhone && !isEmail) return;
 
-        // WhatsApp and phone links
-        document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp"], a[href^="tel:"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const method = this.href.includes('wa.me') || this.href.includes('whatsapp') ? 'WhatsApp' : 'Phone';
-                const source = this.getAttribute('data-section') || 
-                              this.closest('section')?.className.split(' ')[0] || 'navigation';
-                
-                trackContactMethod(method, source);
+        if (isEmail) {
+            track('email_click', {
+                event_category: 'Contact',
+                event_label: 'Email',
+                source: sectionFor(element),
+                value: valueFor('email_click', 15)
             });
-        });
+            return;
+        }
 
-        // Email links
-        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const source = this.getAttribute('data-section') || 
-                              this.closest('section')?.className.split(' ')[0] || 'navigation';
-                
-                gtag('event', 'email_click', {
-                    event_category: 'Contact',
-                    event_label: 'Email',
-                    source: source,
-                    value: 15
-                });
+        const label = isWhatsApp ? 'WhatsApp' : 'Phone';
+        const key = isWhatsApp ? 'whatsapp' : 'phone_call';
+        const amount = valueFor(key, isWhatsApp ? 28 : 30);
+
+        track('contact_method', {
+            event_category: 'Contact',
+            event_label: label,
+            source: sectionFor(element),
+            value: amount
+        });
+        trackConversion(key, amount);
+    }
+
+    function trackServiceCta(element) {
+        const card = element.closest('.service-card,.package-card');
+        if (!card) return;
+
+        const psychology = element.getAttribute('data-psychology') ||
+            card.getAttribute('data-psychology') ||
+            null;
+
+        if (element.getAttribute('data-cta') === 'package' || card.classList.contains('package-card')) {
+            const packageName = packageNameFor(element, card);
+            track('package_interest', {
+                event_category: 'Packages',
+                event_label: packageName,
+                package_name: packageName,
+                interaction_type: 'cta_click',
+                psychological_appeal: psychology,
+                value: valueFor('package_interest', 8)
             });
-        });
+            return;
+        }
 
-        // Social media links
-        document.querySelectorAll('[data-cta="social"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const platform = this.getAttribute('data-platform') || 'unknown';
-                const source = this.getAttribute('data-section') || 'unknown';
-                
-                gtag('event', 'social_click', {
-                    event_category: 'Social Media',
-                    event_label: platform,
-                    source: source,
-                    value: 3
-                });
-            });
+        const serviceName = serviceNameFor(element, card);
+        track('service_interest', {
+            event_category: 'Services',
+            event_label: serviceName,
+            service_name: serviceName,
+            interaction_type: 'cta_click',
+            psychological_appeal: psychology,
+            value: valueFor('service_interest', 5)
         });
+    }
 
-        // Navigation links
-        document.querySelectorAll('[data-cta="navigation"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const destination = this.getAttribute('data-destination') || this.getAttribute('href');
-                
-                gtag('event', 'navigation_click', {
+    function initAnalytics() {
+        if (!analyticsEnabled) return;
+
+        doc.addEventListener('click', (event) => {
+            const element = closest(event.target, 'a,button,[role="button"]');
+            if (!element) return;
+
+            const href = element.getAttribute('href') || '';
+            const ctaType = ctaTypeFor(element);
+
+            trackContactLink(element, href);
+            trackCta(element);
+
+            if (ctaType === 'navigation') {
+                track('navigation_click', {
                     event_category: 'Navigation',
-                    event_label: this.textContent.trim(),
-                    destination: destination,
+                    event_label: textOf(element),
+                    destination: element.getAttribute('data-destination') || href,
                     value: 2
                 });
-            });
-        });
-    }
+            }
 
-    // Track section visibility (for single-page navigation)
-    function initSectionTracking() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const sectionName = entry.target.id || entry.target.className.split(' ')[0] || 'unknown';
-                    trackSectionView(sectionName);
-                }
-            });
-        }, {
-            threshold: 0.5, // Track when 50% of section is visible
-            rootMargin: '0px 0px -10% 0px'
-        });
+            if (element.matches('.service-cta,.service-card .btn,.package-card .btn,[data-cta="service"],[data-cta="package"]')) {
+                trackServiceCta(element);
+            }
 
-        document.querySelectorAll('section, .hero, .services, .testimonials').forEach(section => {
-            observer.observe(section);
-        });
-    }
-
-    // Track scroll depth
-    function initScrollTracking() {
-        let scrollDepthMarkers = [25, 50, 75, 90, 100];
-        let trackedMarkers = new Set();
-
-        window.addEventListener('scroll', function() {
-            const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
-            
-            scrollDepthMarkers.forEach(marker => {
-                if (scrollPercent >= marker && !trackedMarkers.has(marker)) {
-                    trackedMarkers.add(marker);
-                    trackScrollDepth(marker);
-                }
-            });
-        });
-    }
-
-    // Track form interactions
-    function initFormTracking() {
-        document.querySelectorAll('form').forEach(form => {
-            const formType = form.id || form.className || 'contact-form';
-            
-            // Track form start
-            form.addEventListener('focusin', function(e) {
-                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
-                    trackFormInteraction(formType, 'start', e.target.name || e.target.type);
-                }
-            }, { once: true });
-
-            // Track form submission
-            form.addEventListener('submit', function(e) {
-                trackFormInteraction(formType, 'submit', 'complete');
-                
-                // Track as conversion
-                gtag('event', 'conversion', {
-                    event_category: 'Forms',
-                    event_label: formType,
-                    value: 20
-                });
-            });
-
-            // Track field completions
-            form.querySelectorAll('input, textarea, select').forEach(field => {
-                field.addEventListener('blur', function() {
-                    if (this.value.trim() !== '') {
-                        trackFormInteraction(formType, 'field_complete', this.name || this.type);
-                    }
-                });
-            });
-        });
-    }
-
-    // Track service card interactions with journey phases
-    function initServiceTracking() {
-        document.querySelectorAll('.service-card').forEach(card => {
-            const serviceName = card.querySelector('.service-title, h3, h4')?.textContent.trim() || 'unknown';
-            const phase = card.getAttribute('data-phase') || 'unknown';
-            const isPackage = card.hasAttribute('data-package');
-            
-            // Track hover/focus interest with phase context
-            card.addEventListener('mouseenter', function() {
-                if (isPackage) {
-                    trackPackageInterest(serviceName, 'hover');
-                } else {
-                    trackServiceInterest(serviceName, 'hover', phase);
-                }
-            });
-
-            // Track detailed view with phase context
-            card.addEventListener('click', function(e) {
-                // Only track if not clicking a CTA button
-                if (!e.target.closest('.btn, .cta')) {
-                    if (isPackage) {
-                        trackPackageInterest(serviceName, 'card_click');
-                    } else {
-                        trackServiceInterest(serviceName, 'card_click', phase);
-                    }
-                }
-            });
-        });
-
-        // Track journey phase section views
-        document.querySelectorAll('.journey-phase').forEach(phase => {
-            const phaseType = phase.getAttribute('data-phase') || 'unknown';
-            const phaseTitle = phase.querySelector('.phase-title')?.textContent.trim() || phaseType;
-            
-            // Create intersection observer for phase visibility
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        gtag('event', 'journey_phase_view', {
-                            event_category: 'Journey',
-                            event_label: phaseType,
-                            phase_title: phaseTitle,
-                            phase_type: phaseType
-                        });
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            observer.observe(phase);
-        });
-    }
-
-    // Enhanced navigation tracking
-    function initNavigationTracking() {
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                const targetSection = this.getAttribute('href').replace('#', '');
-                
-                gtag('event', 'internal_navigation', {
+            if (href.includes('#')) {
+                const targetSection = href.split('#').pop() || 'top';
+                track('internal_navigation', {
                     event_category: 'Navigation',
                     event_label: targetSection,
                     destination: targetSection
                 });
+            }
+        });
+
+        doc.addEventListener('focusin', (event) => {
+            const field = closest(event.target, 'input,textarea,select');
+            if (!field || field.type === 'hidden') return;
+
+            const form = field.form;
+            if (!form || form.dataset.ldStarted) return;
+
+            form.dataset.ldStarted = 'true';
+            track('form_start', {
+                event_category: 'Forms',
+                event_label: form.id || form.className || 'form',
+                field: field.name || field.type,
+                value: 2
+            });
+        });
+
+        doc.addEventListener('focusout', (event) => {
+            const field = closest(event.target, 'input,textarea,select');
+            if (!field || field.type === 'hidden' || !field.value.trim()) return;
+
+            const form = field.form;
+            track('form_field_complete', {
+                event_category: 'Forms',
+                event_label: form ? (form.id || form.className || 'form') : 'form',
+                field: field.name || field.type,
+                value: 2
+            });
+        });
+
+        doc.addEventListener('submit', (event) => {
+            const form = event.target;
+            if (!(form instanceof HTMLFormElement)) return;
+
+            const formType = form.id || form.className || 'form';
+            const amount = valueFor('form_submit', 35);
+            track('form_submit', {
+                event_category: 'Forms',
+                event_label: formType,
+                value: amount
+            });
+            trackConversion('form_submit', amount);
+        });
+
+        initSectionAnalytics();
+        initServiceCardAnalytics();
+        initTimeOnPageAnalytics();
+
+        track('ab_test_exposure', {
+            event_category: 'A/B Testing',
+            event_label: 'journey_based_services',
+            test_variation: 'estate_math_offer',
+            psychological_principles: 'clarity,trust,time_cost'
+        });
+    }
+
+    function initSectionAnalytics() {
+        if (!('IntersectionObserver' in win)) return;
+
+        const seen = new Set();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting || seen.has(entry.target)) return;
+
+                seen.add(entry.target);
+                const sectionName = entry.target.id ||
+                    String(entry.target.className || '').split(/\s+/).filter(Boolean)[0] ||
+                    'unknown';
+
+                track('page_view', {
+                    page_title: `${sectionName} - Legacy Defenders`,
+                    page_location: `${win.location.href.split('#')[0]}#${sectionName}`,
+                    event_category: 'Navigation',
+                    event_label: sectionName,
+                    section_name: sectionName,
+                    value: valueFor('journey_phase_view', 3)
+                });
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.5, rootMargin: '0px 0px -10% 0px' });
+
+        $$('section[id], .hero').forEach((section) => observer.observe(section));
+    }
+
+    function initServiceCardAnalytics() {
+        doc.addEventListener('mouseover', (event) => {
+            const card = closest(event.target, '.service-card,.package-card');
+            if (!card || card.contains(event.relatedTarget)) return;
+
+            const isPackage = card.classList.contains('package-card') || card.hasAttribute('data-package');
+            const name = isPackage ? packageNameFor(card, card) : serviceNameFor(card, card);
+            track(isPackage ? 'package_interest' : 'service_interest', {
+                event_category: isPackage ? 'Packages' : 'Services',
+                event_label: name,
+                interaction_type: 'hover',
+                value: valueFor(isPackage ? 'package_interest' : 'service_interest', 5)
+            });
+        });
+
+        doc.addEventListener('click', (event) => {
+            const card = closest(event.target, '.service-card,.package-card');
+            if (!card || closest(event.target, '.btn,.cta,.service-cta')) return;
+
+            const isPackage = card.classList.contains('package-card') || card.hasAttribute('data-package');
+            const name = isPackage ? packageNameFor(card, card) : serviceNameFor(card, card);
+            track(isPackage ? 'package_interest' : 'service_interest', {
+                event_category: isPackage ? 'Packages' : 'Services',
+                event_label: name,
+                interaction_type: 'card_click',
+                value: valueFor(isPackage ? 'package_interest' : 'service_interest', 5)
             });
         });
     }
 
-    function initResponsiveTables() {
-        document.querySelectorAll('.content-page table').forEach(table => {
-            if (table.classList.contains('responsive-table-ready')) return;
-
-            const headerCells = Array.from(table.querySelectorAll('thead th'));
-            const headers = headerCells.map(header => header.textContent.trim()).filter(Boolean);
-
-            if (!headers.length) return;
-
-            table.classList.add('responsive-table-ready');
-
-            table.querySelectorAll('tbody tr').forEach(row => {
-                Array.from(row.children).forEach((cell, index) => {
-                    const fallback = index === 0 ? 'Item' : `Detail ${index + 1}`;
-                    cell.setAttribute('data-label', headers[index] || fallback);
-
-                    if (!cell.textContent.trim()) {
-                        cell.classList.add('table-cell-empty');
-                    }
+    function initTimeOnPageAnalytics() {
+        [30, 60, 120, 300].forEach((seconds) => {
+            win.setTimeout(() => {
+                track('time_on_page', {
+                    event_category: 'Engagement',
+                    event_label: `${seconds}s`,
+                    value: seconds
                 });
+            }, seconds * 1000);
+        });
+    }
+
+    function initDeferredFontAwesome() {
+        const href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+
+        function load() {
+            if ($(`link[href="${href}"]`)) return;
+
+            const link = doc.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = href;
+            doc.head.appendChild(link);
+        }
+
+        on(win, 'load', () => {
+            if ('requestIdleCallback' in win) {
+                win.requestIdleCallback(load, { timeout: 1600 });
+            } else {
+                win.setTimeout(load, 800);
+            }
+        }, { once: true });
+    }
+
+    function initMobileMenu() {
+        const toggle = $('.mobile-menu-toggle');
+        const nav = $('.nav');
+        if (!toggle || !nav) return;
+
+        let lastFocus = null;
+
+        function focusableLinks() {
+            return $$('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])', nav);
+        }
+
+        function setOpen(open, restoreFocus = true) {
+            nav.classList.toggle('active', open);
+            toggle.classList.toggle('active', open);
+            doc.body.classList.toggle('nav-open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+
+            if (open) {
+                lastFocus = doc.activeElement;
+                const first = focusableLinks()[0];
+                if (first) first.focus();
+            } else if (restoreFocus && lastFocus && typeof lastFocus.focus === 'function') {
+                lastFocus.focus();
+                lastFocus = null;
+            }
+        }
+
+        on(toggle, 'click', () => {
+            const open = !nav.classList.contains('active');
+            setOpen(open);
+            track('mobile_menu_toggle', {
+                event_category: 'Navigation',
+                event_label: open ? 'open' : 'close'
             });
         });
+
+        on(nav, 'click', (event) => {
+            if (closest(event.target, 'a.nav-link')) setOpen(false, false);
+        });
+
+        on(doc, 'click', (event) => {
+            if (!nav.classList.contains('active')) return;
+            if (closest(event.target, '.nav,.mobile-menu-toggle')) return;
+            setOpen(false);
+        });
+
+        on(doc, 'keydown', (event) => {
+            if (!nav.classList.contains('active')) return;
+
+            if (event.key === 'Escape') {
+                setOpen(false);
+                return;
+            }
+
+            if (event.key !== 'Tab') return;
+
+            const nodes = focusableLinks();
+            if (!nodes.length) return;
+
+            const first = nodes[0];
+            const last = nodes[nodes.length - 1];
+
+            if (event.shiftKey && (doc.activeElement === first || doc.activeElement === nav)) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && doc.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        });
+
+        on(win, 'resize', () => {
+            if (nav.classList.contains('active') && win.innerWidth > 968) {
+                setOpen(false, false);
+            }
+        }, { passive: true });
+    }
+
+    function initSmoothScroll() {
+        const header = $('#header') || $('.header');
+
+        function scrollToHash(hash, updateLocation = true, behavior = 'smooth') {
+            const target = getHashTarget(hash);
+            if (!target) return false;
+
+            const headerHeight = header ? header.offsetHeight : 0;
+            const top = Math.max(0, target.getBoundingClientRect().top + win.pageYOffset - headerHeight - 20);
+
+            try {
+                win.scrollTo({ top, behavior });
+            } catch (error) {
+                win.scrollTo(0, top);
+            }
+
+            if (updateLocation && win.history && win.history.pushState) {
+                win.history.pushState(null, '', hash);
+            }
+
+            return true;
+        }
+
+        doc.addEventListener('click', (event) => {
+            const anchor = closest(event.target, 'a[href*="#"]');
+            if (!anchor) return;
+
+            const href = anchor.getAttribute('href');
+            if (!href || href === '#') {
+                event.preventDefault();
+                win.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            let url;
+            try {
+                url = new URL(href, win.location.href);
+            } catch (error) {
+                return;
+            }
+
+            if (!url.hash || !samePage(url)) return;
+
+            event.preventDefault();
+            scrollToHash(url.hash);
+        });
+
+        function retryInitialHash() {
+            if (!win.location.hash) return;
+
+            let attempts = 0;
+            const retry = () => {
+                attempts += 1;
+                const done = scrollToHash(win.location.hash, false, attempts === 1 ? 'auto' : 'smooth');
+                if (!done && attempts < 8) win.setTimeout(retry, 150);
+            };
+
+            retry();
+        }
+
+        retryInitialHash();
+        on(win, 'load', retryInitialHash, { once: true });
+    }
+
+    function initScrollState() {
+        const header = $('#header') || $('.header');
+        const scrollTopButton = $('.scroll-top');
+        const sections = $$('section[id]');
+        const navBySection = new Map();
+        let activeNav = null;
+        let ticking = false;
+        const scrollMarkers = [25, 50, 75, 90, 100];
+        const trackedMarkers = new Set();
+
+        $$('.nav-link[href*="#"]').forEach((link) => {
+            try {
+                const url = new URL(link.getAttribute('href'), win.location.href);
+                if (url.hash && samePage(url)) navBySection.set(url.hash.slice(1), link);
+            } catch (error) {
+                // Ignore malformed hrefs; validator catches local link issues.
+            }
+        });
+
+        function updateActiveNav(y) {
+            if (!sections.length || !navBySection.size) return;
+
+            const position = y + 180;
+            let activeId = null;
+
+            for (const section of sections) {
+                if (position >= section.offsetTop) activeId = section.id;
+            }
+
+            const next = activeId ? navBySection.get(activeId) : null;
+            if (!next || next === activeNav) return;
+
+            if (activeNav) activeNav.classList.remove('active');
+            next.classList.add('active');
+            activeNav = next;
+        }
+
+        function updateScrollDepth(y) {
+            if (!analyticsEnabled) return;
+
+            const max = Math.max(1, root.scrollHeight - win.innerHeight);
+            const percent = Math.min(100, Math.round((y / max) * 100));
+
+            for (const marker of scrollMarkers) {
+                if (percent >= marker && !trackedMarkers.has(marker)) {
+                    trackedMarkers.add(marker);
+                    track('scroll', {
+                        event_category: 'Engagement',
+                        event_label: `${marker}%`,
+                        value: marker
+                    });
+                }
+            }
+        }
+
+        function update() {
+            ticking = false;
+            const y = win.pageYOffset || root.scrollTop || 0;
+
+            if (header) header.classList.toggle('scrolled', y > 100);
+            if (scrollTopButton) scrollTopButton.classList.toggle('visible', y > 500);
+            updateActiveNav(y);
+            updateScrollDepth(y);
+        }
+
+        function requestUpdate() {
+            if (ticking) return;
+            ticking = true;
+            win.requestAnimationFrame(update);
+        }
+
+        on(win, 'scroll', requestUpdate, { passive: true });
+        on(win, 'resize', requestUpdate, { passive: true });
+        on(scrollTopButton, 'click', () => win.scrollTo({ top: 0, behavior: 'smooth' }));
+        update();
     }
 
     function initContactFloatState() {
-        const contactSection = document.getElementById('contact');
-        const whatsappFloat = document.querySelector('.whatsapp-float');
+        const contact = $('#contact');
+        const float = $('.whatsapp-float');
+        if (!contact || !float || !('IntersectionObserver' in win)) return;
 
-        if (!contactSection || !whatsappFloat || !('IntersectionObserver' in window)) return;
-
-        const contactObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                document.body.classList.toggle('contact-in-view', entry.isIntersecting);
-            });
+        const observer = new IntersectionObserver((entries) => {
+            doc.body.classList.toggle('contact-in-view', entries.some((entry) => entry.isIntersecting));
         }, {
             threshold: 0.08,
             rootMargin: '-80px 0px -12% 0px'
         });
 
-        contactObserver.observe(contactSection);
+        observer.observe(contact);
     }
 
-    // Initialize all tracking
-    initCTATracking();
-    initSectionTracking();
-    initScrollTracking();
-    initFormTracking();
-    initServiceTracking();
-    initNavigationTracking();
-    initResponsiveTables();
-    initContactFloatState();
+    function initLazyImages() {
+        const lazyImages = $$('img[data-src]');
+        if (!lazyImages.length || !('IntersectionObserver' in win)) return;
 
-    // ===================================
-    // Mobile Menu Toggle
-    // ===================================
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    if (mobileMenuToggle && nav) {
-        let lastFocus = null;
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
 
-        const setMenuOpen = (open) => {
-            nav.classList.toggle('active', open);
-            mobileMenuToggle.classList.toggle('active', open);
-            document.body.classList.toggle('nav-open', open);
-
-            mobileMenuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-            mobileMenuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-
-            if (open) {
-                lastFocus = document.activeElement;
-            }
-
-            if (open) {
-                // Focus the first link for accessibility
-                const firstLink = nav.querySelector('a.nav-link');
-                if (firstLink) firstLink.focus();
-            } else if (lastFocus && typeof lastFocus.focus === 'function') {
-                // Restore focus (especially important for keyboard users)
-                lastFocus.focus();
-                lastFocus = null;
-            }
-        };
-
-        mobileMenuToggle.addEventListener('click', function() {
-            const isOpen = nav.classList.contains('active');
-            setMenuOpen(!isOpen);
-            
-            // Track mobile menu usage
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'mobile_menu_toggle', {
-                    event_category: 'Navigation',
-                    event_label: nav.classList.contains('active') ? 'open' : 'close'
-                });
-            }
-        });
-        
-        // Close mobile menu when clicking on a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                setMenuOpen(false);
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                observer.unobserve(img);
             });
-        });
+        }, { rootMargin: '200px 0px' });
 
-        // Close when clicking outside nav
-        document.addEventListener('click', function(e) {
-            if (!nav.classList.contains('active')) return;
-            if (e.target.closest('.nav')) return;
-            if (e.target.closest('.mobile-menu-toggle')) return;
-            setMenuOpen(false);
-        });
-
-        // Close on Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key !== 'Escape') return;
-            if (!nav.classList.contains('active')) return;
-            setMenuOpen(false);
-        });
-
-        // Trap focus inside the open mobile nav
-        document.addEventListener('keydown', function(e) {
-            if (!nav.classList.contains('active')) return;
-            if (e.key !== 'Tab') return;
-
-            const focusable = nav.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
-            if (!focusable.length) return;
-
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            const active = document.activeElement;
-
-            if (e.shiftKey) {
-                if (active === first || active === nav) {
-                    e.preventDefault();
-                    last.focus();
-                }
-            } else {
-                if (active === last) {
-                    e.preventDefault();
-                    first.focus();
-                }
-            }
-        });
-
-        // If user rotates / resizes back to desktop, ensure menu is closed
-        window.addEventListener('resize', function() {
-            if (!nav.classList.contains('active')) return;
-            if (window.innerWidth > 968) {
-                setMenuOpen(false);
-            }
-        });
-    }
-    
-    // ===================================
-    // Header Scroll Effect
-    // ===================================
-    const header = document.getElementById('header') || document.querySelector('.header');
-    let lastScroll = 0;
-    
-    if (header) {
-        window.addEventListener('scroll', function() {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
-        });
-    }
-    
-    // ===================================
-    // Smooth Scroll for Anchor Links
-    // ===================================
-    function getHashTarget(hash) {
-        if (!hash || hash === '#') return null;
-        const id = decodeURIComponent(hash.slice(1));
-        return document.getElementById(id);
+        lazyImages.forEach((img) => observer.observe(img));
     }
 
-    function scrollToHashTarget(hash, updateLocation = true, behavior = 'smooth') {
-        const target = getHashTarget(hash);
-        if (!target) return false;
+    function initSkipLink() {
+        const skipLink = $('.skip-link');
+        const main = $('#main-content');
+        if (!skipLink || !main) return;
 
-        const headerHeight = header ? header.offsetHeight : 0;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-        const scrollTop = Math.max(0, targetPosition);
-        const scrollRoot = document.scrollingElement || document.documentElement || document.body;
+        on(skipLink, 'click', (event) => {
+            event.preventDefault();
+            main.setAttribute('tabindex', '-1');
+            main.focus();
+            main.removeAttribute('tabindex');
+        });
+    }
 
-        try {
-            window.scrollTo({
-                top: scrollTop,
-                behavior: behavior
-            });
-        } catch (error) {
-            window.scrollTo(0, scrollTop);
+    function initFAQ() {
+        const items = $$('.faq-item');
+        if (!items.length) return;
+
+        const searchInput = $('#faq-search');
+        const filters = $$('.category-filter');
+        const categories = $$('.faq-category');
+        const itemData = items.map((item) => ({
+            item,
+            category: item.getAttribute('data-category') || '',
+            text: textOf(item).toLowerCase(),
+            question: $('.faq-question', item),
+            answer: $('.faq-answer', item)
+        }));
+
+        let selectedCategory = 'all';
+        let searchTerm = '';
+        let searchTimer = 0;
+
+        function closeItem(data) {
+            data.item.classList.remove('active');
+            if (data.question) data.question.setAttribute('aria-expanded', 'false');
+            if (data.answer) data.answer.style.maxHeight = '0';
         }
 
-        if (scrollRoot && typeof scrollRoot.scrollTo === 'function') {
-            try {
-                scrollRoot.scrollTo({
-                    top: scrollTop,
-                    behavior: behavior
-                });
-            } catch (error) {
-                scrollRoot.scrollTo(0, scrollTop);
-            }
+        function openItem(data) {
+            data.item.classList.add('active');
+            if (data.question) data.question.setAttribute('aria-expanded', 'true');
+            if (data.answer) data.answer.style.maxHeight = `${data.answer.scrollHeight}px`;
         }
 
-        window.setTimeout(() => {
-            const currentTop = scrollRoot ? scrollRoot.scrollTop : window.pageYOffset;
-            const targetStillFar = Math.abs(target.getBoundingClientRect().top - headerHeight - 20) > 120;
-
-            if (Math.abs(currentTop - scrollTop) > 120 && targetStillFar) {
-                try {
-                    if (scrollRoot) scrollRoot.scrollTop = scrollTop;
-                } catch (error) {
-                    // Some embedded browser shells expose a read-only scrollTop.
-                }
-
-                try {
-                    target.scrollIntoView({
-                        block: 'start',
-                        behavior: behavior
-                    });
-                } catch (error) {
-                    target.scrollIntoView(true);
-                }
-            }
-        }, 250);
-
-        if (updateLocation && window.history && window.history.pushState) {
-            window.history.pushState(null, '', hash);
+        function dataForItem(item) {
+            return itemData.find((data) => data.item === item);
         }
 
-        return true;
-    }
+        function applyFilters() {
+            itemData.forEach((data) => {
+                const categoryMatch = selectedCategory === 'all' || data.category === selectedCategory;
+                const searchMatch = !searchTerm || data.text.includes(searchTerm);
+                const visible = categoryMatch && searchMatch;
 
-    document.querySelectorAll('a[href*="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-
-            // Scroll to top if href is just "#"
-            if (href === '#') {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                return;
-            }
-
-            const url = new URL(href, window.location.href);
-            const currentPath = window.location.pathname.replace(/\/$/, '/');
-            const targetPath = url.pathname.replace(/\/$/, '/');
-
-            if (url.origin === window.location.origin && targetPath === currentPath && url.hash) {
-                e.preventDefault();
-                scrollToHashTarget(url.hash);
-            }
-        });
-    });
-
-    function retryInitialHashScroll() {
-        if (!window.location.hash) return;
-
-        let attempts = 0;
-        const maxAttempts = 24;
-
-        const retry = () => {
-            if (!window.location.hash) return;
-
-            attempts += 1;
-            scrollToHashTarget(window.location.hash, false, 'auto');
-
-            if (attempts < maxAttempts) {
-                window.setTimeout(retry, 250);
-            }
-        };
-
-        retry();
-    }
-
-    retryInitialHashScroll();
-    window.addEventListener('load', retryInitialHashScroll);
-    
-    // ===================================
-    // Scroll to Top Button
-    // ===================================
-    const scrollTopBtn = document.querySelector('.scroll-top');
-    
-    if (scrollTopBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 500) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
-        
-        scrollTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+                data.item.classList.toggle('hidden', !visible);
+                if (!visible) closeItem(data);
             });
-        });
-    }
-    
-    // ===================================
-    // Intersection Observer for Animations
-    // ===================================
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation
-    const animatedElements = document.querySelectorAll('.service-showcase-item, .why-card, .testimonial-card, .value-prop-item');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
-    });
-    
-    // ===================================
-    // WhatsApp Click Tracking (for analytics)
-    // ===================================
-    const whatsappButtons = document.querySelectorAll('[href*="wa.me"], [href*="whatsapp"]');
-    whatsappButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Track WhatsApp click (add your analytics code here)
-            console.log('WhatsApp button clicked');
-            
-            // You can add Google Analytics event tracking:
-            // if (typeof gtag !== 'undefined') {
-            //     gtag('event', 'whatsapp_click', {
-            //         'event_category': 'engagement',
-            //         'event_label': 'WhatsApp Contact'
-            //     });
-            // }
-        });
-    });
-    
-    // ===================================
-    // Phone Click Tracking
-    // ===================================
-    const phoneLinks = document.querySelectorAll('[href^="tel:"]');
-    phoneLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            console.log('Phone link clicked');
-            
-            // Add analytics tracking here if needed
-        });
-    });
-    
-    // ===================================
-    // Form Submission Handling (if contact form exists)
-    // ===================================
-    const contactForm = document.querySelector('.contact-form');
-    const formMessage = document.getElementById('formMessage');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Validate required fields
-            const requiredFields = this.querySelectorAll('[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.style.borderColor = '#dc3545';
-                } else {
-                    field.style.borderColor = '';
-                }
-            });
-            
-            if (!isValid) {
-                showFormMessage('Please fill in all required fields.', 'error');
-                return;
-            }
-            
-            // Show loading state
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            
-            // Submit form to Formspree
-            try {
-                const formData = new FormData(this);
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    showFormMessage('Thank you! We\'ll respond within 24 hours.', 'success');
-                    this.reset();
-                    
-                    // Track conversion
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'form_submission', {
-                            'event_category': 'Contact',
-                            'event_label': 'Contact Form'
-                        });
-                    }
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                showFormMessage('Something went wrong. Please try again or call us directly.', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-            }
-        });
-    }
-    
-    function showFormMessage(message, type) {
-        if (formMessage) {
-            formMessage.textContent = message;
-            formMessage.className = 'form-message ' + type;
-            formMessage.style.display = 'block';
-            
-            // Auto-hide success messages after 5 seconds
-            if (type === 'success') {
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 5000);
-            }
-        }
-    }
-    
-    // ===================================
-    // Social Share Functionality
-    // ===================================
-    window.shareOnSocial = function(platform) {
-        const url = window.location.href;
-        const title = document.title;
-        let shareUrl = '';
-        
-        switch(platform) {
-            case 'facebook':
-                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-                break;
-            case 'twitter':
-                shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`;
-                break;
-            case 'linkedin':
-                shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
-                break;
-            case 'whatsapp':
-                shareUrl = `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`;
-                break;
-        }
-        
-        if (shareUrl) {
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
-    };
-    
-    // ===================================
-    // Lazy Loading Images (improve performance)
-    // ===================================
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        });
-        
-        // Observe all images with data-src attribute
-        const lazyImages = document.querySelectorAll('img[data-src]');
-        lazyImages.forEach(img => imageObserver.observe(img));
-    }
-    
-    // ===================================
-    // Active Navigation Link Based on Scroll Position
-    // ===================================
-    const sections = document.querySelectorAll('section[id]');
-    
-    function highlightNavOnScroll() {
-        const scrollPos = window.pageYOffset + 200;
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-            
-            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                    const linkHref = link.getAttribute('href');
-                    if (linkHref === `#${sectionId}` || linkHref === `/#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
-    
-    window.addEventListener('scroll', highlightNavOnScroll);
-    
-    // ===================================
-    // Testimonial Carousel Auto-rotate (if implemented)
-    // ===================================
-    // This is a placeholder for future testimonial carousel functionality
-    
-    // ===================================
-    // Print Page Optimization
-    // ===================================
-    window.addEventListener('beforeprint', function() {
-        // Expand any collapsed sections before printing
-        console.log('Preparing page for printing...');
-    });
-    
-    // ===================================
-    // Accessibility: Skip to Main Content
-    // ===================================
-    const skipLink = document.querySelector('.skip-to-main');
-    if (skipLink) {
-        skipLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            const mainContent = document.getElementById('main-content');
-            if (mainContent) {
-                mainContent.setAttribute('tabindex', '-1');
-                mainContent.focus();
-                mainContent.removeAttribute('tabindex');
-            }
-        });
-    }
-    
-    // ===================================
-    // FAQ Accordion - Fortune 100 Professional Implementation
-    // ===================================
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    if (faqQuestions.length > 0) {
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const faqItem = this.closest('.faq-item');
-                const faqAnswer = faqItem.querySelector('.faq-answer');
-                const isActive = faqItem.classList.contains('active');
-                const wasExpanded = this.getAttribute('aria-expanded') === 'true';
-                
-                // Close all FAQ items
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                    const btn = item.querySelector('.faq-question');
-                    const answer = item.querySelector('.faq-answer');
-                    btn.setAttribute('aria-expanded', 'false');
-                    if (answer) {
-                        answer.style.maxHeight = '0';
-                    }
-                });
-                
-                // Toggle current item (if it wasn't already open)
-                if (!wasExpanded) {
-                    faqItem.classList.add('active');
-                    this.setAttribute('aria-expanded', 'true');
-                    
-                    // Set max-height to the scroll height for smooth animation
-                    if (faqAnswer) {
-                        faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-                    }
-                }
-            });
-            
-            // Keyboard accessibility
-            question.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    this.click();
-                }
-            });
-        });
-        
-        console.log(`FAQ Accordion initialized: ${faqQuestions.length} questions`);
-    }
-    
-    // ===================================
-    // Enhanced FAQ Features (Search & Filtering)
-    // ===================================
-    initEnhancedFAQ();
-    
-    function initEnhancedFAQ() {
-        const searchInput = document.getElementById('faq-search');
-        const categoryFilters = document.querySelectorAll('.category-filter');
-        const faqItems = document.querySelectorAll('.faq-item[data-category]');
-        const faqCategories = document.querySelectorAll('.faq-category');
-        
-        // FAQ Search functionality
-        if (searchInput) {
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase().trim();
-                
-                faqItems.forEach(item => {
-                    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-                    const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
-                    const matches = question.includes(searchTerm) || answer.includes(searchTerm);
-                    
-                    if (searchTerm === '' || matches) {
-                        item.classList.remove('hidden');
-                    } else {
-                        item.classList.add('hidden');
-                        // Close the item if it's open and being hidden
-                        item.classList.remove('active');
-                        const btn = item.querySelector('.faq-question');
-                        const answer = item.querySelector('.faq-answer');
-                        btn.setAttribute('aria-expanded', 'false');
-                        if (answer) {
-                            answer.style.maxHeight = '0';
-                        }
-                    }
-                });
-                
-                // Show/hide category headers based on visible items
-                faqCategories.forEach(category => {
-                    const categoryItems = category.querySelectorAll('.faq-item:not(.hidden)');
-                    if (categoryItems.length === 0) {
-                        category.style.display = 'none';
-                    } else {
-                        category.style.display = 'block';
-                    }
-                });
-                
-                // Track search usage
-                if (searchTerm.length >= 3) {
-                    gtag('event', 'faq_search', {
-                        event_category: 'FAQ',
-                        event_label: searchTerm,
-                        search_term: searchTerm
-                    });
-                }
+
+            categories.forEach((category) => {
+                const hasVisibleItems = Boolean($('.faq-item:not(.hidden)', category));
+                category.style.display = hasVisibleItems ? 'block' : 'none';
             });
         }
-        
-        // FAQ Category filtering
-        if (categoryFilters.length > 0) {
-            categoryFilters.forEach(filter => {
-                filter.addEventListener('click', function() {
-                    const selectedCategory = this.getAttribute('data-category');
-                    
-                    // Update active filter
-                    categoryFilters.forEach(f => f.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Clear search when switching categories
-                    if (searchInput) {
-                        searchInput.value = '';
-                    }
-                    
-                    // Show/hide items and categories based on selection
-                    if (selectedCategory === 'all') {
-                        faqItems.forEach(item => item.classList.remove('hidden'));
-                        faqCategories.forEach(category => category.style.display = 'block');
-                    } else {
-                        faqItems.forEach(item => {
-                            if (item.getAttribute('data-category') === selectedCategory) {
-                                item.classList.remove('hidden');
-                            } else {
-                                item.classList.add('hidden');
-                                // Close the item if it's open and being hidden
-                                item.classList.remove('active');
-                                const btn = item.querySelector('.faq-question');
-                                const answer = item.querySelector('.faq-answer');
-                                btn.setAttribute('aria-expanded', 'false');
-                                if (answer) {
-                                    answer.style.maxHeight = '0';
-                                }
-                            }
-                        });
-                        
-                        faqCategories.forEach(category => {
-                            const categoryKey = category.getAttribute('data-category');
-                            if (categoryKey === selectedCategory) {
-                                category.style.display = 'block';
-                            } else {
-                                category.style.display = 'none';
-                            }
-                        });
-                    }
-                    
-                    // Track category selection
-                    gtag('event', 'faq_category_filter', {
-                        event_category: 'FAQ',
-                        event_label: selectedCategory,
-                        category_selected: selectedCategory
-                    });
-                });
-            });
-        }
-        
-        // Track FAQ engagement
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
+
+        doc.addEventListener('click', (event) => {
+            const question = closest(event.target, '.faq-question');
             if (question) {
-                question.addEventListener('click', function() {
-                    const questionText = this.querySelector('span').textContent;
-                    const category = item.getAttribute('data-category');
-                    
-                    gtag('event', 'faq_question_click', {
-                        event_category: 'FAQ',
-                        event_label: questionText,
-                        question_text: questionText,
-                        faq_category: category
-                    });
+                event.preventDefault();
+
+                const current = dataForItem(question.closest('.faq-item'));
+                if (!current) return;
+
+                const wasOpen = current.item.classList.contains('active');
+                itemData.forEach(closeItem);
+                if (!wasOpen) openItem(current);
+
+                track('faq_question_click', {
+                    event_category: 'FAQ',
+                    event_label: textOf(question),
+                    question_text: textOf(question),
+                    faq_category: current.category
                 });
+                return;
             }
+
+            const filter = closest(event.target, '.category-filter');
+            if (!filter) return;
+
+            selectedCategory = filter.getAttribute('data-category') || 'all';
+            filters.forEach((button) => button.classList.toggle('active', button === filter));
+
+            if (searchInput) searchInput.value = '';
+            searchTerm = '';
+            applyFilters();
+
+            track('faq_category_filter', {
+                event_category: 'FAQ',
+                event_label: selectedCategory,
+                category_selected: selectedCategory
+            });
         });
-        
-        console.log(`Enhanced FAQ initialized: ${faqItems.length} items with search and filtering`);
-    }
-    
-    // ===================================
-    // Service Page Price Calculator (if on services page)
-    // ===================================
-    // This can be expanded for a pricing calculator
-    
-    console.log('Legacy Defenders website loaded successfully!');
-});
 
-// ===================================
-// Utility Functions
-// ===================================
+        doc.addEventListener('keydown', (event) => {
+            const question = closest(event.target, '.faq-question');
+            if (!question || (event.key !== 'Enter' && event.key !== ' ')) return;
 
-// Format phone number for display
-function formatPhoneNumber(phoneNumber) {
-    const cleaned = ('' + phoneNumber).replace(/\D/g, '');
-    const match = cleaned.match(/^1?(\d{3})(\d{3})(\d{4})$/);
-    if (match) {
-        return '(' + match[1] + ') ' + match[2] + '-' + match[3];
-    }
-    return phoneNumber;
-}
+            event.preventDefault();
+            question.click();
+        });
 
-// Check if element is in viewport
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
+        on(searchInput, 'input', () => {
+            searchTerm = searchInput.value.toLowerCase().trim();
+            applyFilters();
 
-// Debounce function for performance
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
+            if (!analyticsEnabled || searchTerm.length < 3) return;
 
-// ===================================
-// Analytics Tracking Helper Functions
-// ===================================
-
-// Track CTA button clicks with enhanced data
-function trackCTAClick(ctaType, section, ctaText, destination) {
-    gtag('event', 'cta_click', {
-        event_category: 'CTA',
-        event_label: ctaType,
-        cta_type: ctaType,
-        section: section,
-        cta_text: ctaText,
-        destination: destination,
-        value: CONVERSION_VALUES[ctaType] || 1
-    });
-}
-
-// Track service interest with psychological context
-function trackServiceInterest(serviceName, interactionType, psychology = null) {
-    gtag('event', 'service_interest', {
-        event_category: 'Services',
-        event_label: serviceName,
-        service_name: serviceName,
-        interaction_type: interactionType,
-        psychological_appeal: psychology,
-        value: CONVERSION_VALUES.service_interest || 1
-    });
-    
-    // Track psychological optimization effectiveness
-    if (psychology) {
-        gtag('event', 'psychological_element_interaction', {
-            event_category: 'Psychology',
-            event_label: psychology,
-            element_type: 'service',
-            service_name: serviceName,
-            interaction_type: interactionType
+            win.clearTimeout(searchTimer);
+            searchTimer = win.setTimeout(() => {
+                track('faq_search', {
+                    event_category: 'FAQ',
+                    event_label: searchTerm,
+                    search_term: searchTerm
+                });
+            }, 300);
         });
     }
-}
 
-// Track package interest with psychological context
-function trackPackageInterest(packageName, interactionType, psychology = null) {
-    gtag('event', 'package_interest', {
-        event_category: 'Packages',
-        event_label: packageName,
-        package_name: packageName,
-        interaction_type: interactionType,
-        psychological_appeal: psychology,
-        value: CONVERSION_VALUES.package_interest || 3
-    });
-    
-    // Track psychological optimization effectiveness
-    if (psychology) {
-        gtag('event', 'psychological_element_interaction', {
-            event_category: 'Psychology',
-            event_label: psychology,
-            element_type: 'package',
-            package_name: packageName,
-            interaction_type: interactionType
+    function initPrintPrep() {
+        on(win, 'beforeprint', () => {
+            $$('.faq-item').forEach((item) => {
+                const answer = $('.faq-answer', item);
+                const question = $('.faq-question', item);
+                item.classList.add('active');
+                if (question) question.setAttribute('aria-expanded', 'true');
+                if (answer) answer.style.maxHeight = 'none';
+            });
         });
     }
-    
-    // Track choice architecture effectiveness
-    trackChoiceArchitecture(packageName, psychology);
-}
 
-// Track journey progression through phases
-function trackJourneyProgression(fromPhase, toPhase) {
-    gtag('event', 'journey_progression', {
-        event_category: 'Journey',
-        event_label: `${fromPhase}_to_${toPhase}`,
-        from_phase: fromPhase,
-        to_phase: toPhase,
-        value: CONVERSION_VALUES.journey_progression || 2
+    ready(() => {
+        initDeferredFontAwesome();
+        initAnalytics();
+        initMobileMenu();
+        initSmoothScroll();
+        initScrollState();
+        initContactFloatState();
+        initLazyImages();
+        initSkipLink();
+        initFAQ();
+        initPrintPrep();
     });
-}
-
-// Track choice architecture effectiveness (Rule of 3, Goldilocks Effect, Decoy Effect)
-function trackChoiceArchitecture(choice, psychology) {
-    const architectureType = getArchitectureType(choice, psychology);
-    
-    gtag('event', 'choice_architecture', {
-        event_category: 'Psychology',
-        event_label: architectureType,
-        choice_made: choice,
-        psychological_appeal: psychology,
-        architecture_type: architectureType
-    });
-}
-
-// Determine which psychological principle was triggered
-function getArchitectureType(choice, psychology) {
-    if (psychology && psychology.includes('Most Popular')) {
-        return 'goldilocks_effect';
-    } else if (psychology && psychology.includes('Decoy')) {
-        return 'decoy_effect';
-    } else if (psychology && psychology.includes('Entry')) {
-        return 'entry_point';
-    }
-    return 'rule_of_three';
-}
-
-// Track A/B test performance for psychological optimization
-function trackPsychologicalOptimization() {
-    gtag('event', 'ab_test_exposure', {
-        event_category: 'A/B Testing',
-        event_label: 'journey_based_3_services',
-        test_variation: 'psychological_3_services',
-        service_count: 3,
-        package_count: 3,
-        psychological_principles: 'rule_of_three,goldilocks_effect,decoy_effect'
-    });
-}
-
-// Initialize psychological optimization tracking on page load
-document.addEventListener('DOMContentLoaded', function() {
-    trackPsychologicalOptimization();
-});
-
+})();
