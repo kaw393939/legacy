@@ -8,8 +8,8 @@ from urllib.parse import urlparse
 from tools.site_framework import (
     CONTENT_DIR,
     PAGES_DIR,
-    STATIC_DIR,
-    TEMPLATES_DIR,
+    configured_static_dir,
+    configured_templates_dir,
     load_yaml,
     output_name,
     page_sources,
@@ -55,7 +55,7 @@ def check_image(errors: list[str], source: str, hero: dict | None) -> None:
 
     if not image:
         errors.append(f"{source}: hero.image is required")
-    elif not image.startswith(("http://", "https://")) and not (STATIC_DIR / image).exists():
+    elif not image.startswith(("http://", "https://")) and not (configured_static_dir() / image).exists():
         errors.append(f"{source}: hero.image does not exist in static/: {image}")
 
     if alt is None:
@@ -121,7 +121,7 @@ def check_page_id(errors: list[str], source: str, page: dict, seen_page_ids: dic
 
 def check_layout(errors: list[str], source: str, page: dict) -> None:
     layout = str(page.get("layout", ""))
-    if layout and not (TEMPLATES_DIR / f"{layout}.html").exists():
+    if layout and not (configured_templates_dir() / f"{layout}.html").exists():
         errors.append(f"{source}: layout template does not exist: templates/{layout}.html")
 
 

@@ -120,10 +120,10 @@ Run the full gate, including Lighthouse. This command starts its own temporary l
 .\.venv\Scripts\python.exe site.py check --lighthouse
 ```
 
-Serve the generated `docs/` site locally:
+Serve the generated site locally:
 
 ```powershell
-.\.venv\Scripts\python.exe -m http.server 8000 --directory docs
+.\.venv\Scripts\python.exe site.py serve
 ```
 
 Then open [http://localhost:8000/](http://localhost:8000/).
@@ -401,8 +401,8 @@ Use `.env.example` as a reference if working with optional tooling. Do not commi
 
 ## Important Operational Notes
 
-- `content/config.yaml` is the current site config used by `build.py`.
-- `site.config.yaml` is used by the convenience `site.py` CLI.
+- `content/config.yaml` is the current site config and owns public site metadata plus build directories.
+- `site.config.yaml` is used by the convenience `site.py` CLI for local behavior such as logging, server port, and quality budgets.
 - `docs/` is generated output. Commit it when you want the repository to include the current built site, but edit source files first.
 - GitHub Actions rebuilds `docs/` before deploying, so source files must stay valid even if committed output appears correct.
 - The founder plan is intentionally linked from the footer, not the main user path.

@@ -12,7 +12,7 @@ import cssutils
 import html5lib
 from bs4 import BeautifulSoup
 
-from tools.site_framework import DOCS_DIR, load_yaml
+from tools.site_framework import configured_output_dir, load_content_config, project_path
 
 
 MAX_META_DESCRIPTION_LENGTH = 160
@@ -31,15 +31,15 @@ class ValidationResult:
 class SiteValidator:
     """Validate the generated static output directory."""
 
-    def __init__(self, output_dir: Path | str = DOCS_DIR):
-        self.output_dir = Path(output_dir)
+    def __init__(self, output_dir: Path | str | None = None):
+        self.output_dir = project_path(output_dir) if output_dir else configured_output_dir()
         self.site_url = self._load_site_url()
         self.site_base_path = self._site_base_path()
         cssutils.log.setLevel("FATAL")
 
     @staticmethod
     def _load_site_url() -> str:
-        config = load_yaml("content/config.yaml")
+        config = load_content_config()
         return str((config.get("site") or {}).get("url") or "")
 
     def _site_base_path(self) -> str:

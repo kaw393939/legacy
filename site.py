@@ -14,7 +14,7 @@ import urllib.error
 import urllib.request
 from typing import Sequence
 
-from tools.site_framework import ROOT, load_yaml
+from tools.site_framework import ROOT, configured_output_dir, load_yaml
 
 
 PYTHON_SYNTAX_FILES = ("build.py", "site.py", "validator.py")
@@ -28,7 +28,7 @@ class SiteManager:
     def __init__(self, config_file: str = "site.config.yaml") -> None:
         self.root = ROOT
         self.config = self.load_config(config_file)
-        self.output_dir = self.root / self.config.get("build", {}).get("output_dir", "docs")
+        self.output_dir = configured_output_dir()
         self._setup_logging()
 
     def load_config(self, config_file: str) -> dict:
@@ -36,7 +36,6 @@ class SiteManager:
         if not path.exists():
             return {
                 "project": {"name": "Legacy Defenders"},
-                "build": {"output_dir": "docs"},
                 "performance": {"minify_css": True, "lighthouse_min_score": 90},
             }
         return load_yaml(path)
@@ -194,9 +193,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Manage the Legacy Defenders static site")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    subparsers.add_parser("build", help="Build docs/")
-    subparsers.add_parser("serve", help="Serve docs/ locally")
-    subparsers.add_parser("dev", help="Run checks and serve docs/")
+    subparsers.add_parser("build", help="Build the generated site")
+    subparsers.add_parser("serve", help="Serve the generated site locally")
+    subparsers.add_parser("dev", help="Run checks and serve the generated site")
     subparsers.add_parser("validate", help="Run source, output, and JS checks")
 
     check_parser = subparsers.add_parser("check", help="Run the full local quality gate")

@@ -11,14 +11,14 @@ from validator import SiteValidator
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate generated static site output")
-    parser.add_argument("output_dir", nargs="?", default="docs")
+    parser.add_argument("output_dir", nargs="?")
     parser.add_argument("--report", help="Optional path for a JSON validation report")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    validator = SiteValidator(Path(args.output_dir))
+    validator = SiteValidator(args.output_dir)
     results = validator.validate_all()
     report = validator.generate_report(results)
     print(report, end="")
@@ -29,7 +29,7 @@ def main() -> int:
     if total_errors:
         return 1
 
-    html_count = len(list(Path(args.output_dir).glob("*.html")))
+    html_count = len(list(validator.output_dir.glob("*.html")))
     print(f"OK generated site integrity passed: {html_count} pages")
     return 0
 

@@ -20,6 +20,9 @@ from tools.site_framework import (
     DATA_DIR,
     MARKDOWN_EXTENSIONS,
     ROOT,
+    configured_output_dir,
+    configured_static_dir,
+    configured_templates_dir,
     load_yaml,
     page_sources,
 )
@@ -84,9 +87,9 @@ class SiteBuilder:
         self.project_root = ROOT
         self.config = load_yaml(config_path)
         self.content_dir = self.project_root / "content"
-        self.template_dir = self.project_root / self.config["build"]["template_dir"]
-        self.static_dir = self.project_root / self.config["build"]["static_dir"]
-        self.output_dir = self.project_root / self.config["build"]["output_dir"]
+        self.template_dir = configured_templates_dir(self.config)
+        self.static_dir = configured_static_dir(self.config)
+        self.output_dir = configured_output_dir(self.config)
         self.asset_version = self.compute_asset_version()
         self.jinja_env = self.create_jinja_environment()
 

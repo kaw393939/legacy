@@ -8,13 +8,6 @@ project:
   version: "1.0.0"
   description: "Static site for inherited-home estate transition support"
 
-site:
-  url: "https://kaw393939.github.io/legacy"
-  github_pages_url: "https://kaw393939.github.io/legacy/"
-
-build:
-  output_dir: "docs"
-
 development:
   server:
     host: "localhost"

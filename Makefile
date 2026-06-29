@@ -11,8 +11,8 @@ help:
 	@echo "  make install       Install Python dependencies"
 	@echo ""
 	@echo "Build and preview:"
-	@echo "  make build         Build docs/ with minified CSS and validation"
-	@echo "  make serve         Serve docs/ at http://localhost:8000"
+	@echo "  make build         Build the generated site"
+	@echo "  make serve         Serve the generated site at http://localhost:8000"
 	@echo "  make dev           Build, validate, and serve"
 	@echo ""
 	@echo "Quality:"
@@ -24,7 +24,7 @@ help:
 	@echo "  make new-page      Show the page generator help"
 	@echo ""
 	@echo "Maintenance:"
-	@echo "  make clean         Remove generated docs/"
+	@echo "  make clean         Remove generated output"
 	@echo "  make status        Show project status"
 
 install:
