@@ -1,758 +1,432 @@
-# Legs on the Ground
+# Legacy Defenders Website
 
-<!-- portfolio-curation -->
-## Portfolio Overview
-Production bilingual property concierge website for mainland owners with services in Puerto Rico.
+Static website for Legacy Defenders, a care-led estate transition service for families, executors, and out-of-state decision makers handling inherited homes, belongings, local providers, costs, documentation, and urgent property work.
 
-**Live site:** https://legsontheground.com/
+Live GitHub Pages site: [https://kaw393939.github.io/legacy/](https://kaw393939.github.io/legacy/)
 
-## What This Demonstrates
-- Client work
-- service design
-- production website delivery
-
-## Stack
-CSS, static web
-
-## Portfolio Status
-This repository is part of Keith Williams' curated public portfolio. The README has been updated to explain the project purpose, technical focus, and why the work is worth reviewing.
-<!-- /portfolio-curation -->
-
----
-
-## Original Notes
-
-# Legs on the Ground - Property Concierge Services
-
-Professional bilingual property concierge services for mainland owners in Puerto Rico.
-
-## 🚀 Quick Start
+Repository remote:
 
 ```bash
-# Development (easiest)
-make dev          # Build + serve with live preview
-
-# Or using Python directly
-python site.py dev
-
-# Or manually
-python site.py build
-python site.py serve
+git@github.com:kaw393939/legacy.git
 ```
 
-Visit http://localhost:8000 to see your site!
+## What This Project Is
 
-## 📦 Installation
+This is a content-driven static site. Source content lives in Markdown and YAML, templates are rendered with Jinja2, and the generated site is written to `docs/` for GitHub Pages.
 
-```bash
-# Install dependencies
-make install
-# or
-pip install -r requirements.txt
+The current public site is branded as Legacy Defenders. Some older helper files still use the original "Legs on the Ground" project name; treat that as legacy naming in tooling, not current site positioning.
 
-# Setup git hooks (optional)
-python site.py init-hooks
-```
+## Tech Stack
 
-## 🎯 Common Commands
-
-### Using Make (Recommended)
-```bash
-make build        # Build the site
-make serve        # Start server
-make dev          # Build + serve (most common)
-make validate     # Check for errors
-make cleanup      # Keep project tidy
-make status       # Show project info
-make help         # See all commands
-```
-
-### Using Python CLI
-```bash
-python site.py build      # Build the site
-python site.py serve      # Start development server
-python site.py dev        # Development mode
-python site.py validate   # Validate content
-python site.py backup     # Create backup
-python site.py analyze    # AI visual analysis
-python site.py optimize   # Optimize images
-python site.py cleanup    # Clean up project
-python site.py status     # Show status
-```
-
-## 📁 Project Structure
-
-```
-├── site.py              # 🎯 Unified CLI (use this!)
-├── site.config.yaml     # ⚙️  Configuration
-├── Makefile             # 🔧 Convenient shortcuts
-├── build.py             # 🏗️  Core build system
-├── validator.py         # ✅ Quality checks
-├── cleanup_project.py   # 🧹 Organization
-├── templates/           # 📄 Jinja2 templates
-├── content/             # 📝 YAML content
-├── static/              # 🎨 CSS, JS, images
-├── docs/                # 📦 Built site (auto-generated)
-├── tools/               # 🛠️  AI development tools
-├── reports/             # 📊 Analysis reports
-└── backups/             # 💾 Auto-backups
-```
-
-## 🎨 CSS (DRY Workflow)
-
-- Source CSS is split into ordered parts in `static/css/parts/`.
-- Builds automatically bundle these into `docs/styles.css`.
-- If you edit `static/css/styles.css` directly, your changes may not be picked up when `static/css/parts/` exists.
-
-## 🔧 Configuration
-
-Edit `site.config.yaml` to customize:
-- Build settings
-- Validation rules
-- Backup preferences
-- Tool configurations
-- Development server options
-
-## 🎨 Development Workflow
-
-```bash
-# 1. Make changes to templates/content/static
-# 2. Build and preview
-make dev
-
-# 3. Validate before committing
-make validate
-
-# 4. Keep project clean
-make cleanup
-
-# 5. Check status
-make status
-```
-
-## 🛠️ AI Tools
-
-All tools are in the `tools/` directory:
-
-```bash
-# Visual analysis
-python tools/visual_inspector.py --full --analyze
-
-# Image optimization
-python tools/image_optimizer.py
-
-# Logo generation
-python tools/logo_generator.py
-
-# See all tools
-ls tools/
-```
-
-Or use the CLI:
-```bash
-python site.py analyze    # Visual analysis
-python site.py optimize   # Image optimization
-```
-
-## ✅ Quality Assurance
-
-```bash
-# Validate everything
-make validate
-
-# Run visual analysis
-make analyze
-
-# Optimize images
-make optimize
-```
-
-## 💾 Backups
-
-Automatic backups are created before each build (configurable in `site.config.yaml`):
-
-```bash
-# Manual backup
-make backup
-# or
-python site.py backup
-```
-
-Backups are stored in `backups/` directory (keeps last 5 by default).
-
-## 🧹 Keeping It Clean
-
-```bash
-# Regular cleanup
-make cleanup
-
-# Aggressive cleanup (removes more old files)
-python site.py cleanup --aggressive
-
-# Clean build artifacts
-make clean
-```
-
-## 📊 Project Status
-
-```bash
-make status
-# Shows:
-# - File counts
-# - Last build info
-# - Backup status
-# - Configuration
-```
-
-## 🔗 Git Integration
-
-```bash
-# Setup automatic validation before commits
-python site.py init-hooks
-
-# This will:
-# - Run validation before each commit
-# - Run cleanup before each commit
-# - Prevent commits if validation fails
-```
-
-## 📖 Documentation
-
-- **This File:** Quick start and commands
-- **Launch Checklist:** `LAUNCH-CHECKLIST.md`
-- **Tool Documentation:** `tools/README.md`
-- **Reports Index:** `reports/INDEX.md`
-- **Configuration:** `site.config.yaml`
-
-## 🚢 Deployment
-
-```bash
-# Validate and build
-make deploy
-
-# Push to GitHub (auto-deploys via Pages)
-git add .
-git commit -m "Update site"
-git push
-```
-
-## 🐛 Troubleshooting
-
-**Build fails?**
-```bash
-python site.py validate  # Check for errors
-python site.py clean     # Clean and rebuild
-```
-
-**Project messy?**
-```bash
-make cleanup             # Organize files
-```
-
-**Need to rollback?**
-```bash
-ls backups/              # Find backup
-# Restore manually from backups/
-```
-
-## 📈 Performance
-
-Build metrics are automatically tracked in `build_metrics.log`:
-- Build time
-- File sizes
-- Timestamps
-
-## 🎯 Pro Tips
-
-1. **Use `make` for common tasks** - Easier to remember
-2. **Run `make cleanup` after analysis** - Keeps project tidy
-3. **Use `make dev` for development** - Build + serve in one command
-4. **Check `make status` often** - Know your project state
-5. **Commit often** - Git hooks ensure quality
-
-## 📞 Support
-
-- **Live Site:** https://kaw393939.github.io/legsontheground.com/
-- **Build System:** Python 3.12 + Jinja2
-- **Deployment:** GitHub Pages (automatic)
-
----
-
-**Made with ❤️ using AI-powered development tools**
-
-## 🎯 Overview
-
-This is a modern, maintainable static site built with:
-- **Python 3.12** - Build system
-- **Jinja2** - Template engine
-- **Markdown + YAML** - Content management
-- **No CMS required** - Git-based workflow
-
-**Key Features:**
-- ✅ Content managed in YAML (easy for non-technical users)
-- ✅ Template-based HTML generation (DRY principle)
-- ✅ Single-command build process
-- ✅ AI-powered image analysis (OpenAI Vision API)
-- ✅ Automated quality validation (HTML/CSS/Accessibility)
-- ✅ GitHub Pages deployment ready
-- 🚧 CI/CD with GitHub Actions (Phase 4)
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Python 3.12+
-- Git
-
-### Setup & Build
-
-```bash
-# Clone the repository
-git clone <your-repo-url>
-cd legsontheground.com
-
-# Build the site (creates venv automatically)
-./build.sh
-
-# Preview locally
-cd docs && python3 -m http.server 8000
-# Open http://localhost:8000
-```
-
-## 📁 Project Structure
-
-```
-legsontheground.com/
-├── content/                 # Content (edit here!)
-│   ├── config.yaml         # Site-wide configuration
-│   ├── pages/              # Page content (Markdown)
-│   │   └── home.md
-│   └── data/               # Structured data (YAML)
-│       ├── services.yaml
-│       ├── testimonials.yaml
-│       ├── value-props.yaml
-│       ├── why-choose.yaml
-│       └── navigation.yaml
-│
-├── templates/              # Jinja2 templates (HTML structure)
-│   ├── base.html          # Master template
-│   ├── home.html          # Homepage layout
-│   ├── components/        # Reusable components
-│   │   ├── header.html
-│   │   ├── footer.html
-│   │   └── top-bar.html
-│   └── sections/          # Page sections
-│       ├── hero.html
-│       ├── services.html
-│       ├── testimonials.html
-│       └── ...
-│
-├── static/                 # Static assets (images, CSS, JS)
-│   ├── css/
-│   ├── js/
-│   └── images/
-│
-├── docs/                   # Generated output (GitHub Pages)
-│   └── index.html         # Built HTML
-│
-├── build.py               # Build script
-├── build.sh               # Convenience wrapper
-└── requirements.txt       # Python dependencies
-```
-
-## 🛠️ Development Workflow
-
-### 1. Edit Content
-
-**For Non-Technical Users:** See [CONTENT-GUIDE.md](CONTENT-GUIDE.md)
-
-**For Developers:**
-- Edit `content/pages/*.md` for page content
-- Edit `content/data/*.yaml` for structured data
-- Edit `content/config.yaml` for site-wide settings
-
-### 2. Build Site
-
-```bash
-./build.sh          # Full build
-./build.sh --validate  # Build with validation (coming soon)
-```
-
-Or use Python directly:
-```bash
-./venv/bin/python build.py
-```
-
-### 3. Test Locally
-
-```bash
-cd docs
-python3 -m http.server 8000
-```
-
-### 4. Deploy
-
-Push to GitHub and GitHub Actions will auto-deploy (Phase 4).
-
-For manual deployment:
-```bash
-git add .
-git commit -m "Update content"
-git push origin master
-```
-
-## 📝 Content Management
-
-### YAML Files
-
-All data is in `content/data/*.yaml`:
-
-```yaml
-# services.yaml
-services:
-  - id: property-visits
-    title: "Property Check-Ins"
-    price: "$100"
-    description: "Detailed property inspections"
-    features:
-      - "Photo documentation"
-      - "Issue alerts"
-```
-
-### Markdown Pages
-
-Pages use YAML frontmatter + Markdown:
-
-```markdown
----
-title: "Page Title"
-layout: "home"
-hero:
-  title: "Hero Title"
-  subtitle: "Hero Subtitle"
----
-
-# Page Content
-
-Your markdown content here...
-```
-
-## 🎨 Template System
-
-### Template Hierarchy
-
-```
-base.html                   # Master template
-└── home.html              # Page layout
-    ├── sections/hero.html
-    ├── sections/services.html
-    └── sections/cta.html
-```
-
-### Available Variables
-
-In templates, you have access to:
-- `{{ site.* }}` - Site configuration (phone, email, etc.)
-- `{{ page.* }}` - Current page frontmatter
-- `{{ services }}` - Services data
-- `{{ testimonials }}` - Testimonials data
-- `{{ navigation }}` - Menu structure
-- `{{ features }}` - Feature flags
-- `{{ current_year }}` - Current year (for copyright)
-
-## 🔧 Build System
-
-### build.py
-
-The core build script:
-
-```python
-from build import SiteBuilder
-
-builder = SiteBuilder()
-builder.build()
-```
-
-**What it does:**
-1. Loads all YAML data from `content/data/`
-2. Parses Markdown pages with frontmatter
-3. Renders Jinja2 templates with data
-4. Copies static assets (CSS, JS, images)
-5. Outputs to `docs/` directory
-
-### Build Options
-
-```bash
-# Clean build
-./venv/bin/python build.py
-
-# Keep existing files
-./venv/bin/python build.py --no-clean
-
-# With validation
-./venv/bin/python build.py --validate
-```
-
-## 🧪 Testing & Validation
-
-### Build with Validation
-```bash
-# Full build with quality gates
-python build.py --validate
-
-# Standalone validation
-python validator.py
-
-# Save detailed report
-python validator.py --save-report report.json
-```
-
-### What Gets Validated ✓
-- **HTML**: Structure, meta tags, accessibility, SEO
-- **CSS**: Syntax, best practices, performance
-- **Images**: Alt text, dimensions
-- **Links**: Valid hrefs, security attributes
-- **Headings**: Proper hierarchy
-
-See [QUALITY-GATES.md](QUALITY-GATES.md) for details.
-
-## 🚀 Deployment
-
-### GitHub Pages (Recommended)
-
-1. Push to GitHub
-2. Enable Pages in repo settings
-3. Set source to `/docs` folder on `master` branch
-4. Site auto-updates on push
-
-### Manual Deploy
-
-Build locally and upload `docs/` folder to any static host.
-
-## 🤖 AI Features (Phase 2) ✨
-
-**NOW AVAILABLE!**
-- ✅ AI image analysis (OpenAI Vision API)
-- ✅ Auto-generated alt text
-- ✅ Detailed image descriptions
-- ✅ Accessibility recommendations
-- ✅ SEO-optimized metadata
-
-See [AI-IMAGE-MANAGER.md](AI-IMAGE-MANAGER.md) for setup and usage.
-
-## 📦 Dependencies
-
-```txt
-jinja2>=3.1.0       # Template engine
-pyyaml>=6.0.0       # YAML parser
-markdown>=3.5.0     # Markdown processor
-```
-
-Install:
-```bash
-pip install -r requirements.txt
-```
-
-## 🐛 Troubleshooting
-
-### Build Fails
-
-**Check YAML syntax:**
-```bash
-./venv/bin/python -c "import yaml; yaml.safe_load(open('content/config.yaml'))"
-```
-
-**Check Python version:**
-```bash
-python3 --version  # Should be 3.12+
-```
-
-### Missing Content
-
-If sections are empty, check:
-1. YAML file structure matches template expectations
-2. Data keys are correct (use underscores, not hyphens)
-3. Build script loaded the data (check console output)
-
-### JavaScript Errors
-
-Check browser console. Common issues:
-- Missing element IDs (add to templates)
-- Font Awesome not loading (check CDN)
-
-## 📚 Additional Documentation
-
-- [CONTENT-GUIDE.md](CONTENT-GUIDE.md) - For content editors
-- [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md) - Pre-launch checklist
-- [docs/](docs/) - Technical documentation
-
-## 🗺️ Roadmap
-
-- [x] Phase 1: Foundation (Content + Templates)
-- [x] Phase 2: AI Image Manager (OpenAI Vision API)
-- [x] Phase 3: Quality Gates (HTML/CSS/Accessibility)
-- [x] Phase 4: GitHub Actions CI/CD ✨ NEW!
-- [ ] Phase 5: Final Testing & Launch
-
-## 📄 License
-
-Proprietary - Legs on the Ground © 2025
-
-## 👥 Contributing
-
-1. Create feature branch
-2. Make changes
-3. Test locally
-4. Submit pull request
-
-## 🆘 Support
-
-For technical issues, contact your developer or file an issue in the repository.
+- Python 3.12
+- Jinja2 templates
+- Markdown pages with YAML frontmatter
+- YAML structured content
+- Plain CSS split into ordered parts
+- Plain JavaScript
+- GitHub Actions
+- GitHub Pages
 
 ## Project Structure
 
+```text
+.
+|-- content/
+|   |-- config.yaml              # Current site config: title, contact info, URLs, feature flags
+|   |-- pages/                   # Markdown page content with frontmatter
+|   `-- data/                    # Reusable YAML data used by templates
+|-- templates/
+|   |-- base.html                # Main HTML shell
+|   |-- home.html                # Homepage layout
+|   |-- page.html                # General content page layout
+|   |-- services.html            # Services page layout
+|   |-- situation.html           # Situation guide page layout
+|   |-- components/              # Header, footer, top bar
+|   |-- sections/                # Homepage and reusable page sections
+|   `-- macros/                  # Reusable Jinja UI helpers
+|-- static/
+|   |-- css/
+|   |   |-- parts/               # Ordered source CSS files
+|   |   `-- styles.css           # Legacy/reference stylesheet; build uses parts when present
+|   |-- js/main.js               # Source JavaScript
+|   |-- images/                  # Source images copied to docs/images
+|   |-- robots.txt
+|   |-- sitemap.xml
+|   `-- .nojekyll
+|-- docs/                        # Generated site output for GitHub Pages
+|-- build.py                     # Core static site generator
+|-- validator.py                 # Output validation and quality checks
+|-- site.py                      # Convenience CLI wrapper around build/serve/validate tasks
+|-- requirements.txt             # Python dependencies
+|-- .github/workflows/deploy.yml # GitHub Pages deployment workflow
+`-- .github/workflows/preview.yml
 ```
-legsontheground.com/
-├── src/                          # Website files
-│   ├── index.html               # Main website (SEO optimized)
-│   ├── styles.css               # Professional styling
-│   ├── robots.txt               # Search engine crawler rules
-│   └── sitemap.xml              # Site structure for search engines
-│
-└── docs/                         # Essential documentation
-    ├── brand-basics.md          # Core brand identity & messaging
-    ├── design-system.md         # Colors, typography, spacing
-    ├── content-guide.md         # How to write & communicate
-    ├── business-reality.md      # Services, pricing, goals
-    └── README.md                # Documentation guide
+
+## Live Pages
+
+The build currently generates these public pages:
+
+- `index.html`
+- `services.html`
+- `pricing.html`
+- `free-guide.html`
+- `diy-vs-us.html`
+- `keith-story.html`
+- `pa-probate.html`
+- `single-decision-maker.html`
+- `out-of-state-executor.html`
+- `house-full-of-belongings.html`
+- `urgent-bills-property-risk.html`
+- `prearranged.html`
+- `professional-referral-partners.html`
+- `founder-plan.html`
+- `thank-you.html`
+
+## Local Setup
+
+From the project root:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install --upgrade pip
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-## SEO Optimization Features
+If the virtual environment already exists, only install dependencies when `requirements.txt` changes.
 
-### ✅ Traditional SEO:
-- Comprehensive meta tags (title, description, keywords)
-- Open Graph tags for social sharing
-- Twitter Card meta tags
-- Structured data (Schema.org) for Local Business
-- Structured data for Services and Pricing
-- Structured data for FAQs
-- Semantic HTML5 with proper ARIA labels
-- Geographic metadata for Puerto Rico/San Juan
-- XML sitemap
-- Robots.txt with AI agent rules
-- Canonical URLs
-- Mobile-responsive design
+## Common Commands
 
-### ✅ AI Agent Optimization:
-- Detailed service descriptions with pricing
-- Natural language Q&A format
-- Structured data that AI can parse
-- Clear business context and location
-- Bilingual service emphasis
-- FAQ schema for common questions
-- Specific geographic service areas
-- Contact information in multiple formats
+Build the site:
 
-### ✅ Key SEO Keywords Targeted:
-- Puerto Rico property management
-- Bilingual property services Puerto Rico
-- San Juan property concierge
-- Mainland property owners Puerto Rico
-- Act 60 property services
-- Puerto Rico translation services
-- Property check-ins Puerto Rico
-- Absentee property management
+```powershell
+.\.venv\Scripts\python.exe build.py
+```
 
-## Quick Reference for Nilsa
+Build, minify bundled CSS, and validate output:
 
-### Day-to-Day Questions:
-1. **What to charge?** → `docs/business-reality.md`
-2. **How to talk to customers?** → `docs/content-guide.md`
-3. **What makes us different?** → `docs/brand-basics.md`
-4. **Design/color questions?** → `docs/design-system.md`
+```powershell
+.\.venv\Scripts\python.exe build.py --minify-css --validate
+```
 
-### Website Updates:
-1. Edit: `src/index.html`
-2. Check tone: `docs/content-guide.md`
-3. Check colors: `docs/design-system.md`
+Serve the generated `docs/` site locally:
 
-## Next Steps Before Launch
+```powershell
+.\.venv\Scripts\python.exe -m http.server 8000 --directory docs
+```
 
-### Setup (Do First):
-- [ ] Get business email (contact@legsontheground.com)
-- [ ] Set up form handler (Formspree - free tier)
-- [ ] Get business phone (Google Voice - free)
-- [ ] Purchase domain name
-- [ ] Get liability insurance
-- [ ] Update robots.txt with actual domain
-- [ ] Update sitemap.xml with actual URLs
-- [ ] Update Formspree form ID in index.html
-- [ ] Create og-image.jpg (1200x630px) for social sharing
-- [ ] Create twitter-image.jpg (1200x600px) for Twitter
+Then open [http://localhost:8000/](http://localhost:8000/).
 
-### SEO & Discovery:
-- [ ] Submit sitemap to Google Search Console
-- [ ] Submit sitemap to Bing Webmaster Tools
-- [ ] Set up Google Business Profile
-- [ ] Create Facebook Business Page
-- [ ] Set up LinkedIn Company Page
-- [ ] Join Facebook groups for Puerto Rico property owners
-- [ ] Test with WAVE accessibility tool
-- [ ] Test with axe DevTools
-- [ ] Validate HTML with W3C Validator
-- [ ] Test with Lighthouse (aim for 90+ scores)
+Run the JavaScript syntax check:
 
-### Launch:
-- [ ] Deploy website with proper domain
-- [ ] Test all structured data with Google Rich Results Test
-- [ ] Verify mobile-friendliness with Google Mobile-Friendly Test
-- [ ] Test with multiple screen readers
-- [ ] Test keyboard navigation
-- [ ] Test with browser zoom up to 200%
-- [ ] Set up Google Analytics
-- [ ] Monitor search console for indexing
-- [ ] Test form submissions
-- [ ] Verify all links work
+```powershell
+node --check static\js\main.js
+```
 
-## Accessibility Testing Checklist
+Run a Lighthouse check against the local site:
 
-### Keyboard Navigation:
-- [ ] All interactive elements accessible via Tab key
-- [ ] Logical tab order throughout page
-- [ ] Skip-to-content link functional
-- [ ] Escape key closes mobile menu
-- [ ] Enter/Space activates buttons and links
+```powershell
+npx --yes lighthouse@latest http://localhost:8000/index.html --quiet --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,accessibility,best-practices,seo
+```
 
-### Screen Reader Testing:
-- [ ] All images have alt text
-- [ ] Form labels properly associated
-- [ ] ARIA labels present where needed
-- [ ] Heading hierarchy makes sense
-- [ ] Lists properly marked up
+Convenience commands also exist through `site.py` and `Makefile`, but `build.py --minify-css --validate` is the deployment source of truth.
 
-### Visual Testing:
-- [ ] Text readable at 200% zoom
-- [ ] Color contrast meets standards
-- [ ] Focus indicators visible
-- [ ] Works in high contrast mode
-- [ ] No content only conveyed by color
+## How The Build Works
 
-## Important Reminders
+`build.py` performs the static site build:
 
-**Safety First:**
-- Never use personal name publicly
-- Business contact info only
-- Professional boundaries always
+1. Loads `content/config.yaml`.
+2. Loads all YAML files in `content/data/`.
+3. Parses each Markdown page in `content/pages/`.
+4. Converts Markdown body content to HTML.
+5. Applies the page layout from frontmatter, such as `home`, `page`, `services`, or `situation`.
+6. Renders Jinja templates with site config, page frontmatter, page HTML, current year, and all YAML data.
+7. Writes generated pages to `docs/`.
+8. Bundles CSS from `static/css/parts/*.css` into `docs/styles.css`.
+9. Copies JavaScript, images, robots.txt, sitemap.xml, and `.nojekyll` into `docs/`.
+10. Optionally validates the generated output when `--validate` is used.
 
-**Keep It Simple:**
-- 5 core services only
-- Clear, honest pricing
-- Personal, reliable service
-- No overpromising
+The build cleans `docs/` by default before regenerating output. Do not edit generated files in `docs/` directly unless you are intentionally debugging output; source edits belong in `content/`, `templates/`, or `static/`.
 
+## Content Editing Guide
+
+Page content lives in `content/pages/*.md`.
+
+Each page starts with YAML frontmatter:
+
+```markdown
+---
+layout: page
+title: "Pricing Examples"
+description: "Plain-language estate support pricing examples."
+page_id: "pricing"
+hero:
+  eyebrow: "Pricing"
+  title: "Know what the estate work may cost before it gets away from you."
 ---
 
-**Website Status:** ✅ SEO Optimized, Fully Accessible & Ready to launch
-**Accessibility Level:** WCAG 2.1 Level AA compliant (AAA for body text)
-**Documentation:** ✅ Complete and simplified
-**Next Action:** Deploy to domain and submit to search engines
+Markdown body content goes here.
+```
 
+Use page frontmatter for:
+
+- SEO title and meta description
+- Layout selection
+- Hero content
+- CTA labels and destinations
+- Situation-page fields such as first actions, mistakes, costs, and how-we-help lists
+
+Structured content that appears across multiple pages lives in `content/data/*.yaml`.
+
+Important data files:
+
+- `navigation.yaml`: header/footer navigation
+- `situations.yaml`: homepage and services-page situation cards
+- `services.yaml`: services content
+- `faq.yaml`: homepage FAQ content
+- `prearranged-plan.yaml`: plan-ahead section content
+- `proof-examples.yaml`: proof/result examples
+- `technology-process.yaml`: process and inventory messaging
+- `testimonials.yaml`, `value-props.yaml`, `why-choose.yaml`: supporting homepage sections
+
+## Templates
+
+Templates are in `templates/`.
+
+Main layouts:
+
+- `base.html`: shared document shell, metadata, header, footer, scripts
+- `home.html`: homepage assembly
+- `page.html`: standard content-page layout
+- `services.html`: services overview layout
+- `situation.html`: reusable guide layout for specific user situations
+
+Reusable pieces:
+
+- `templates/components/header.html`
+- `templates/components/footer.html`
+- `templates/sections/*.html`
+- `templates/macros/*.html`
+
+When adding a new page, prefer an existing layout before creating a new template.
+
+## CSS
+
+Source CSS is split into ordered files in `static/css/parts/`.
+
+During build, files are sorted by filename and bundled into:
+
+```text
+docs/styles.css
+```
+
+The numeric prefixes control cascade order. Add new styles to the narrowest relevant part file instead of appending everything to the redesign file.
+
+Current notable CSS areas:
+
+- `00-1-css-variables.css`: tokens, colors, spacing, shadows
+- `03-3-layout-system.css`: containers and layout primitives
+- `05-5-header-navigation.css`: header and nav
+- `06-6-buttons.css`: button system
+- `11-11-forms.css`: forms
+- `12-12-footer.css`: footer
+- `15-15-media-queries-responsive-design.css`: responsive behavior
+- `18-18-legacy-defenders-redesign.css`: broader redesign/page styles
+- `19-19-situation-pages.css`: specific situation guide styles
+
+For production builds, use `--minify-css` so the bundled output is smaller.
+
+## JavaScript
+
+Source JavaScript lives at:
+
+```text
+static/js/main.js
+```
+
+Build output copies it to:
+
+```text
+docs/main.js
+```
+
+The script handles:
+
+- Mobile navigation
+- Smooth anchor scrolling with fixed-header offset
+- FAQ accordion behavior
+- Contact intent handoff from CTA query parameters
+- Form state helpers
+- Back-to-top behavior
+- WhatsApp floating-button visibility behavior
+- Lightweight analytics/event hooks
+
+Keep JavaScript dependency-free unless there is a strong reason to add a library.
+
+## Images And Assets
+
+Source images live in `static/images/` and are copied to `docs/images/`.
+
+Use optimized web images where possible:
+
+- Prefer `.webp` for page images.
+- Keep meaningful `alt` text in templates/frontmatter.
+- Avoid editing generated copies in `docs/images/`; update `static/images/` instead.
+
+Social and logo assets are also under `static/images/`.
+
+## Validation And QA
+
+Primary validation command:
+
+```powershell
+.\.venv\Scripts\python.exe build.py --minify-css --validate
+```
+
+Additional useful checks:
+
+```powershell
+node --check static\js\main.js
+git diff --check
+```
+
+Internal link and asset scan:
+
+```powershell
+@'
+const fs = require('fs');
+const path = require('path');
+const root = path.resolve('docs');
+const files = fs.readdirSync(root).filter(f => f.endsWith('.html'));
+let failures = [];
+for (const file of files) {
+  const html = fs.readFileSync(path.join(root, file), 'utf8');
+  const attrs = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(m => m[1]);
+  for (const raw of attrs) {
+    if (!raw || raw.startsWith('#') || raw.startsWith('mailto:') || raw.startsWith('tel:') || raw.startsWith('http://') || raw.startsWith('https://') || raw.startsWith('data:') || raw.startsWith('javascript:')) continue;
+    const target = raw.split('#')[0].split('?')[0];
+    if (!target) continue;
+    const resolved = path.resolve(root, target.startsWith('/') ? target.slice(1) : target);
+    if (!resolved.startsWith(root) || !fs.existsSync(resolved)) failures.push(`${file}: missing ${raw}`);
+  }
+}
+if (failures.length) {
+  console.error(failures.join('\n'));
+  process.exit(1);
+}
+console.log(`OK internal links/assets checked: ${files.length} pages`);
+'@ | node -
+```
+
+Visual QA checklist:
+
+- Desktop width around 1366px.
+- Mobile width around 390px.
+- Homepage hero, situation cards, contact form, FAQ, and footer.
+- Each situation page hero, costs, common mistakes, related links, and final CTA.
+- Pricing cards on mobile.
+- Free guide worksheet section.
+- Contact form prefill from links like `index.html?interest=Out-of-state%20executor%20help#contact`.
+- No horizontal scrolling.
+- No broken images.
+- Anchor links land below the sticky header.
+
+## GitHub Pages Deployment
+
+The live site is deployed by `.github/workflows/deploy.yml`.
+
+Deployment trigger:
+
+- Push to `main`
+- Manual `workflow_dispatch`
+
+Deployment workflow:
+
+1. Checkout repo.
+2. Install Python 3.12.
+3. Install `requirements.txt`.
+4. Run `python build.py --validate --minify-css`.
+5. Upload `docs/` as the Pages artifact.
+6. Deploy with `actions/deploy-pages`.
+
+Live URL:
+
+[https://kaw393939.github.io/legacy/](https://kaw393939.github.io/legacy/)
+
+Pull requests run `.github/workflows/preview.yml`, which builds, validates, uploads `validation-report.json`, and uploads the built `docs/` artifact for review.
+
+## Typical Update Workflow
+
+```powershell
+git status --short --branch
+
+# Edit source files in content/, templates/, or static/
+
+.\.venv\Scripts\python.exe build.py --minify-css --validate
+node --check static\js\main.js
+git diff --check
+
+git status --short
+git add -A
+git commit -m "Update site"
+git push origin main
+```
+
+After pushing to `main`, GitHub Actions publishes the site.
+
+## Environment Variables
+
+The static build does not require secrets for normal operation.
+
+Optional AI/image tooling may use:
+
+```text
+OPENAI_API_KEY
+```
+
+Use `.env.example` as a reference if working with optional tooling. Do not commit real secrets.
+
+## Important Operational Notes
+
+- `content/config.yaml` is the current site config used by `build.py`.
+- `site.config.yaml` is used by the convenience `site.py` CLI and still includes older project labels.
+- `docs/` is generated output. Commit it when you want the repository to include the current built site, but edit source files first.
+- GitHub Actions rebuilds `docs/` before deploying, so source files must stay valid even if committed output appears correct.
+- The founder plan is intentionally linked from the footer, not the main user path.
+- `thank-you.html` should remain a utility page, not a primary landing page.
+
+## Troubleshooting
+
+Build fails with YAML errors:
+
+```powershell
+.\.venv\Scripts\python.exe -c "import yaml, pathlib; [yaml.safe_load(p.read_text(encoding='utf-8')) for p in pathlib.Path('content').rglob('*.yaml')]"
+```
+
+Generated page looks wrong:
+
+- Check the page frontmatter in `content/pages/`.
+- Confirm the expected layout exists in `templates/`.
+- Check whether the page relies on a YAML data file in `content/data/`.
+- Rebuild with `--validate`.
+
+CSS change not showing:
+
+- Edit `static/css/parts/*.css`, not `docs/styles.css`.
+- Rebuild the site.
+- Hard refresh the browser if cache-busted URLs did not change.
+
+JavaScript behavior breaks:
+
+- Run `node --check static\js\main.js`.
+- Test locally at `http://localhost:8000/`.
+- Check whether the generated copy in `docs/main.js` was rebuilt.
+
+GitHub Pages does not update:
+
+- Check the Actions tab for the latest `Deploy GitHub Pages` run.
+- Confirm the push went to `main`.
+- Confirm the workflow completed and deployed the `docs` artifact.
+
+## License
+
+Proprietary. All site content, branding, and assets are owned by the project owner unless otherwise noted.
