@@ -14,8 +14,6 @@ git@github.com:kaw393939/legacy.git
 
 This is a content-driven static site. Source content lives in Markdown and YAML, templates are rendered with Jinja2, and the generated site is written to `docs/` for GitHub Pages.
 
-The current public site is branded as Legacy Defenders. Some older helper files still use the original "Legs on the Ground" project name; treat that as legacy naming in tooling, not current site positioning.
-
 ## Tech Stack
 
 - Python 3.12
@@ -57,6 +55,8 @@ The current public site is branded as Legacy Defenders. Some older helper files 
 |-- build.py                     # Core static site generator
 |-- validator.py                 # Output validation and quality checks
 |-- site.py                      # Convenience CLI wrapper around build/serve/validate tasks
+|-- tools/                       # Reusable content, integrity, Lighthouse, and scaffold tools
+|-- project-docs/                # Historical notes and archived project docs
 |-- requirements.txt             # Python dependencies
 |-- .github/workflows/deploy.yml # GitHub Pages deployment workflow
 `-- .github/workflows/preview.yml
@@ -108,6 +108,12 @@ Build, minify bundled CSS, and validate output:
 .\.venv\Scripts\python.exe build.py --minify-css --validate
 ```
 
+Run the full local quality gate:
+
+```powershell
+.\.venv\Scripts\python.exe site.py check
+```
+
 Serve the generated `docs/` site locally:
 
 ```powershell
@@ -122,10 +128,16 @@ Run the JavaScript syntax check:
 node --check static\js\main.js
 ```
 
+Run the generated-site integrity check:
+
+```powershell
+node tools/check_site_integrity.mjs
+```
+
 Run a Lighthouse check against the local site:
 
 ```powershell
-npx --yes lighthouse@latest http://localhost:8000/index.html --quiet --chrome-flags="--headless=new --no-sandbox" --only-categories=performance,accessibility,best-practices,seo
+node tools/run_lighthouse_budget.mjs http://localhost:8000/index.html --min 90
 ```
 
 Convenience commands also exist through `site.py` and `Makefile`, but `build.py --minify-css --validate` is the deployment source of truth.
@@ -143,7 +155,9 @@ Convenience commands also exist through `site.py` and `Makefile`, but `build.py 
 7. Writes generated pages to `docs/`.
 8. Bundles CSS from `static/css/parts/*.css` into `docs/styles.css`.
 9. Copies JavaScript, images, robots.txt, sitemap.xml, and `.nojekyll` into `docs/`.
-10. Optionally validates the generated output when `--validate` is used.
+10. Validates source content contracts and generated output when `--validate` is used.
+
+The build uses a stable hash of source CSS and JavaScript as the asset cache-busting token. Rebuilding the site should not dirty every HTML page unless the actual assets changed.
 
 The build cleans `docs/` by default before regenerating output. Do not edit generated files in `docs/` directly unless you are intentionally debugging output; source edits belong in `content/`, `templates/`, or `static/`.
 
@@ -208,6 +222,18 @@ Reusable pieces:
 - `templates/macros/*.html`
 
 When adding a new page, prefer an existing layout before creating a new template.
+
+Use the page scaffold tool for repeatable structure:
+
+```powershell
+.\.venv\Scripts\python.exe tools\new_page.py --kind page --slug example-guide --title "Example Guide" --description "Short meta description under 160 characters."
+```
+
+For a situation guide:
+
+```powershell
+.\.venv\Scripts\python.exe tools\new_page.py --kind situation --slug new-situation --title "New Situation Help" --description "Describe the situation and the first useful next step."
+```
 
 ## CSS
 
@@ -285,37 +311,13 @@ Primary validation command:
 Additional useful checks:
 
 ```powershell
+.\.venv\Scripts\python.exe tools\check_content_contracts.py
+node tools/check_site_integrity.mjs
 node --check static\js\main.js
 git diff --check
 ```
 
-Internal link and asset scan:
-
-```powershell
-@'
-const fs = require('fs');
-const path = require('path');
-const root = path.resolve('docs');
-const files = fs.readdirSync(root).filter(f => f.endsWith('.html'));
-let failures = [];
-for (const file of files) {
-  const html = fs.readFileSync(path.join(root, file), 'utf8');
-  const attrs = [...html.matchAll(/(?:href|src)=["']([^"']+)["']/gi)].map(m => m[1]);
-  for (const raw of attrs) {
-    if (!raw || raw.startsWith('#') || raw.startsWith('mailto:') || raw.startsWith('tel:') || raw.startsWith('http://') || raw.startsWith('https://') || raw.startsWith('data:') || raw.startsWith('javascript:')) continue;
-    const target = raw.split('#')[0].split('?')[0];
-    if (!target) continue;
-    const resolved = path.resolve(root, target.startsWith('/') ? target.slice(1) : target);
-    if (!resolved.startsWith(root) || !fs.existsSync(resolved)) failures.push(`${file}: missing ${raw}`);
-  }
-}
-if (failures.length) {
-  console.error(failures.join('\n'));
-  process.exit(1);
-}
-console.log(`OK internal links/assets checked: ${files.length} pages`);
-'@ | node -
-```
+`tools/check_content_contracts.py` checks source pages before the build. `tools/check_site_integrity.mjs` checks generated pages, local links, assets, placeholder links, titles, and meta descriptions after the build.
 
 Visual QA checklist:
 
@@ -345,14 +347,17 @@ Deployment workflow:
 2. Install Python 3.12.
 3. Install `requirements.txt`.
 4. Run `python build.py --validate --minify-css`.
-5. Upload `docs/` as the Pages artifact.
-6. Deploy with `actions/deploy-pages`.
+5. Run `node --check static/js/main.js`.
+6. Run `node tools/check_site_integrity.mjs`.
+7. Serve the generated site locally and require Lighthouse scores of 90+.
+8. Upload `docs/` as the Pages artifact.
+9. Deploy with `actions/deploy-pages`.
 
 Live URL:
 
 [https://kaw393939.github.io/legacy/](https://kaw393939.github.io/legacy/)
 
-Pull requests run `.github/workflows/preview.yml`, which builds, validates, uploads `validation-report.json`, and uploads the built `docs/` artifact for review.
+Pull requests run `.github/workflows/preview.yml`, which builds, validates, runs JS/integrity/Lighthouse checks, uploads `validation-report.json`, and uploads the built `docs/` artifact for review.
 
 ## Typical Update Workflow
 
@@ -362,6 +367,7 @@ git status --short --branch
 # Edit source files in content/, templates/, or static/
 
 .\.venv\Scripts\python.exe build.py --minify-css --validate
+node tools/check_site_integrity.mjs
 node --check static\js\main.js
 git diff --check
 
@@ -388,11 +394,12 @@ Use `.env.example` as a reference if working with optional tooling. Do not commi
 ## Important Operational Notes
 
 - `content/config.yaml` is the current site config used by `build.py`.
-- `site.config.yaml` is used by the convenience `site.py` CLI and still includes older project labels.
+- `site.config.yaml` is used by the convenience `site.py` CLI.
 - `docs/` is generated output. Commit it when you want the repository to include the current built site, but edit source files first.
 - GitHub Actions rebuilds `docs/` before deploying, so source files must stay valid even if committed output appears correct.
 - The founder plan is intentionally linked from the footer, not the main user path.
 - `thank-you.html` should remain a utility page, not a primary landing page.
+- Older planning notes are preserved under `project-docs/archive/`; use this README as the current technical source of truth.
 
 ## Troubleshooting
 

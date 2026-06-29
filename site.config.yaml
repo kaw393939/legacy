@@ -1,18 +1,20 @@
-# site.config.yaml
-# Central configuration for Legs on the Ground website
+# Project CLI configuration.
+#
+# The public site reads content/config.yaml during the actual build. This file
+# configures the convenience CLI in site.py and the local development workflow.
 
 project:
-  name: "Legs on the Ground"
+  name: "Legacy Defenders"
   version: "1.0.0"
-  description: "Property concierge services website"
-  
+  description: "Static site for inherited-home estate transition support"
+
 site:
-  url: "https://www.legsontheground.com"
-  title: "Legs on the Ground - Property Concierge Services"
+  url: "https://kaw393939.github.io/legacy"
+  title: "Legacy Defenders"
   language: "en"
   deployment: "github-pages"
-  custom_domain: "www.legsontheground.com"
-  
+  github_pages_url: "https://kaw393939.github.io/legacy/"
+
 build:
   source_dir: "."
   output_dir: "docs"
@@ -20,60 +22,34 @@ build:
   content_dir: "content"
   static_dir: "static"
   clean_before_build: true
-  
+
 validation:
   check_yaml: true
-  check_images: true
-  check_links: true
+  check_content_contracts: true
+  check_generated_site: true
+  check_js: true
   validate_output: true
   fail_on_error: true
-  
+
 backup:
-  enabled: true
+  enabled: false
   location: "backups"
   keep_last: 5
-  auto_backup_before_build: true
-  
-tools:
-  visual_inspector:
-    enabled: true
-    api_key_env: "OPENAI_API_KEY"
-    screenshot_dir: "visual_references/screenshots"
-    report_dir: "visual_references/reports"
-    
-  image_optimizer:
-    enabled: true
-    quality: 85
-    formats: ["webp", "jpg"]
-    max_width: 2000
-    
-  cleanup:
-    auto_run: false
-    keep_screenshots: 5
-    keep_reports: 3
-    
+  auto_backup_before_build: false
+
 development:
   server:
     host: "localhost"
     port: 8000
-    auto_reload: true
     open_browser: false
-    
-  git_hooks:
-    pre_commit:
-      - validate
-      - cleanup
-    pre_push:
-      - build
-      - validate
-      
+
 performance:
   track_build_time: true
   track_file_sizes: true
-  minify_css: false
-  lighthouse_checks: false  # Requires lighthouse-ci
-  
+  minify_css: true
+  lighthouse_checks: true
+  lighthouse_min_score: 90
+
 logging:
-  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
-  file: "build.log"
+  level: "INFO"
   console: true

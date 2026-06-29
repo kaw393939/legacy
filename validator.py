@@ -120,6 +120,11 @@ class SiteValidator:
             for tag_name, attr_name, raw_value in links:
                 value = str(raw_value).strip()
                 if not value:
+                    errors.append(f"{page_name}: empty {tag_name}[{attr_name}] value")
+                    continue
+
+                if attr_name == "href" and value == "#":
+                    errors.append(f"{page_name}: placeholder href '#' should point to a real section or page")
                     continue
 
                 base_url, fragment = urldefrag(value)

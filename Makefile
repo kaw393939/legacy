@@ -1,91 +1,61 @@
-# Makefile for Legs on the Ground website
-# Provides convenient shortcuts for common tasks
+# Convenience commands for the Legacy Defenders static site.
 
-.PHONY: help build serve dev validate clean backup analyze optimize cleanup status install
+.PHONY: help install build serve dev validate check lighthouse clean status new-page
 
-# Default target
+PYTHON ?= python
+PORT ?= 8000
+
 help:
-	@echo "╔════════════════════════════════════════════════════════╗"
-	@echo "║   Legs on the Ground - Development Commands            ║"
-	@echo "╚════════════════════════════════════════════════════════╝"
+	@echo "Legacy Defenders development commands"
 	@echo ""
-	@echo "📦 Setup:"
-	@echo "  make install       Install dependencies"
+	@echo "Setup:"
+	@echo "  make install       Install Python dependencies"
 	@echo ""
-	@echo "🏗️  Build:"
-	@echo "  make build         Build the site"
-	@echo "  make serve         Start server (localhost:8000)"
-	@echo "  make dev           Build + serve"
+	@echo "Build and preview:"
+	@echo "  make build         Build docs/ with minified CSS and validation"
+	@echo "  make serve         Serve docs/ at http://localhost:8000"
+	@echo "  make dev           Build, validate, and serve"
 	@echo ""
-	@echo "✅ Quality:"
-	@echo "  make validate      Validate content/images"
-	@echo "  make analyze       Run AI visual analysis"
-	@echo "  make optimize      Optimize images"
+	@echo "Quality:"
+	@echo "  make validate      Validate content contracts and generated output"
+	@echo "  make check         Run the full local quality gate"
+	@echo "  make lighthouse    Run Lighthouse against the local server"
 	@echo ""
-	@echo "🧹 Maintenance:"
-	@echo "  make cleanup       Clean up project files"
-	@echo "  make clean         Remove build artifacts"
-	@echo "  make backup        Create backup"
+	@echo "Content:"
+	@echo "  make new-page      Show the page generator help"
 	@echo ""
-	@echo "📊 Info:"
+	@echo "Maintenance:"
+	@echo "  make clean         Remove generated docs/"
 	@echo "  make status        Show project status"
-	@echo ""
-	@echo "💡 Examples:"
-	@echo "  make dev           # Start development"
-	@echo "  make build         # Build for production"
-	@echo "  make cleanup       # Keep project tidy"
-	@echo ""
 
-# Installation
 install:
-	@echo "📦 Installing dependencies..."
-	pip install -r requirements.txt
-	@echo "✅ Installation complete"
+	$(PYTHON) -m pip install -r requirements.txt
 
-# Build commands
 build:
-	@python site.py build
+	$(PYTHON) build.py --minify-css --validate
 
 serve:
-	@python site.py serve
+	$(PYTHON) -m http.server $(PORT) --directory docs
 
-dev:
-	@python site.py dev
+dev: build serve
 
-# Quality commands
 validate:
-	@python site.py validate
+	$(PYTHON) tools/check_content_contracts.py
+	$(PYTHON) build.py --minify-css --validate
+	node tools/check_site_integrity.mjs
+	node --check static/js/main.js
 
-analyze:
-	@python site.py analyze
+check:
+	$(PYTHON) site.py check
 
-optimize:
-	@python site.py optimize
-
-# Maintenance commands
-cleanup:
-	@python site.py cleanup
+lighthouse:
+	node tools/run_lighthouse_budget.mjs http://localhost:$(PORT)/index.html --min 90
 
 clean:
-	@python site.py clean
+	$(PYTHON) site.py clean
 
-backup:
-	@python site.py backup
-
-# Info commands
 status:
-	@python site.py status
+	$(PYTHON) site.py status
 
-# Git setup
-init-hooks:
-	@python site.py init-hooks
-
-# Combined workflows
-deploy: validate build
-	@echo "✅ Ready for deployment"
-
-full-clean: clean cleanup
-	@echo "✅ Deep clean complete"
-
-quick: build serve
-	@echo "🚀 Quick preview"
+new-page:
+	$(PYTHON) tools/new_page.py --help

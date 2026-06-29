@@ -40,6 +40,23 @@ jobs:
           PYTHONIOENCODING: utf-8
           PYTHONUNBUFFERED: "1"
 
+      - name: Check JavaScript syntax
+        run: node --check static/js/main.js
+
+      - name: Check generated site integrity
+        run: node tools/check_site_integrity.mjs
+
+      - name: Check Lighthouse budgets
+        run: |
+          python -m http.server 8000 --directory docs > /tmp/legacy-defenders-http.log 2>&1 &
+          SERVER_PID=$!
+          trap "kill $SERVER_PID" EXIT
+          for i in {1..20}; do
+            curl -fsS http://127.0.0.1:8000/index.html > /dev/null && break
+            sleep 1
+          done
+          node tools/run_lighthouse_budget.mjs http://127.0.0.1:8000/index.html --min 90
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

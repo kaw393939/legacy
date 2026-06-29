@@ -1,202 +1,25 @@
-# ============================================================================# Build Output
-
-# LEGS ON THE GROUND - Professional .gitignoredocs/
-
-# Static site generator with Python build system
-
-# ============================================================================# Generated Analysis Files (keep only latest, auto-cleaned)
-
-visual_references/screenshots/*.png
-
-# ============================================================================visual_references/reports/*.md
-
-# BUILD OUTPUT & GENERATED FILESvisual_references/reports/*.json
-
-# ============================================================================
-
-# Keep directory structure
-
-# Main build output directory (generated HTML/CSS/JS)!visual_references/screenshots/.gitkeep
-
-docs/!visual_references/reports/.gitkeep
-
-
-
-# Backup directories# Temporary CSS fixes
-
-backups/*_fixes.css
-
-docs_archive/*_critical_fix.css
-
-archive/ai_generated_*.css
-
-
-
-# Temporary build artifacts# Python
-
-*.tmp__pycache__/
-
-*.temp*.pyc
-
-.cache/*.pyo
-
-*.pyd
-
-# ============================================================================.Python
-
-# PYTHON*.so
-
-# ============================================================================*.egg-info/
-
-dist/
-
-# Byte-compiled / optimized / DLL filesbuild/
-
-__pycache__/backups
-
-*.py[cod]docs_archive
-
-*$py.class# Virtual Environment
-
-*.so.venv/
-
-venv/
-
-# Distribution / packagingENV/
-
-.Pythonvenv
-
-build/# Environment Variables
-
-develop-eggs/.env
-
-dist/.env.local
-
-downloads/
-
-eggs/# IDEs
-
-.eggs/.vscode/
-
-lib/.idea/
-
-lib64/*.swp
-
-parts/*.swo
-
-sdist/*~
-
-var/
-
-wheels/# OS
-
-pip-wheel-metadata/.DS_Store
-
-share/python-wheels/Thumbs.db
-
-*.egg-info/
-
-.installed.cfg# Logs
-
-*.egg*.log
-
-MANIFEST
-
-# Archive (old files)
-
-# PyInstallerarchive/
-
-*.manifest
-*.spec
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-pytest.ini
-
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# Poetry
-poetry.lock
-
-# Celery
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath
-*.sage.py
-
-# Spyder
-.spyderproject
-.spyproject
-
-# Rope
-.ropeproject
-
-# mkdocs
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
-
-# ============================================================================
-# Local artifacts (explicit)
-# ============================================================================
-
+# Python
 __pycache__/
-backups/
-validation-report.json
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+*.egg-info/
+dist/
+build/
 
-
-# ============================================================================
-# VIRTUAL ENVIRONMENTS
-# ============================================================================
-
-venv/
+# Virtual environments
 .venv/
+venv/
 env/
-.env/
 ENV/
-env.bak/
-venv.bak/
 virtualenv/
 
-# ============================================================================
-# ENVIRONMENT VARIABLES & SECRETS
-# ============================================================================
-
-# Environment files (keep .env.example for reference)
+# Environment and secrets
 .env
-.env.local
-.env.development
-.env.test
-.env.production
-.env.*.local
-
-# Secrets
+.env.*
+!.env.example
 secrets/
 *.key
 *.pem
@@ -204,190 +27,82 @@ secrets/
 *.p12
 *.pfx
 
-# ============================================================================
-# AI/VISUAL ANALYSIS TOOLS
-# ============================================================================
-
-# Visual analysis reports (regenerated frequently)
+# Local build and QA artifacts
+validation-report.json
+.lighthouse/
+lighthouse-report.json
+rendered.html
+qa-screenshots/
 visual_analysis_reports/
 visual_references/screenshots/*.png
 visual_references/reports/*.md
 visual_references/reports/*.json
-
-# Keep directory structure
-!visual_references/screenshots/.gitkeep
-!visual_references/reports/.gitkeep
-
-# Temporary CSS fixes from AI tools
-*_fixes.css
-*_critical_fix.css
-ai_generated_*.css
-*_optimized.css
-
-# Tool outputs
 tools/output/
 tools/temp/
 
-# ============================================================================
-# IDE & EDITORS
-# ============================================================================
+# Logs and caches
+*.log
+*.log.*
+logs/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+htmlcov/
+.coverage
+.coverage.*
 
-# VSCode
+# Node tooling
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+
+# Editor files
 .vscode/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-*.code-workspace
-
-# JetBrains IDEs (PyCharm, IntelliJ, etc.)
 .idea/
 *.iml
 *.iws
 *.ipr
-out/
-
-# Sublime Text
+*.code-workspace
 *.sublime-workspace
 *.sublime-project
-
-# Vim
-[._]*.s[a-v][a-z]
-[._]*.sw[a-p]
-[._]s[a-rt-v][a-z]
-[._]ss[a-gi-z]
-[._]sw[a-p]
-Session.vim
-Sessionx.vim
-.netrwhist
+*.swp
+*.swo
 *~
 
-# Emacs
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
-
-# ============================================================================
-# OPERATING SYSTEMS
-# ============================================================================
-
-# macOS
+# OS files
 .DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-# Windows
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
-*.stackdump
 [Dd]esktop.ini
 $RECYCLE.BIN/
-*.cab
-*.msi
-*.msix
-*.msm
-*.msp
-*.lnk
 
-# Linux
-*~
-.directory
-.Trash-*
-.nfs*
-
-# ============================================================================
-# LOGS & DATABASES
-# ============================================================================
-
-# Logs
-*.log
-*.log.*
-logs/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-pnpm-debug.log*
-
-# Databases
-*.sql
-*.sqlite
-*.sqlite3
-*.db
-
-# ============================================================================
-# NODE/NPM (if using Node tools)
-# ============================================================================
-
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.npm
-.yarn-integrity
-package-lock.json
-yarn.lock
-
-# ============================================================================
-# STATIC ASSETS (OPTIMIZATION OUTPUTS)
-# ============================================================================
-
-# Compressed/optimized versions (regenerated)
-*.min.css
-*.min.js
-*_optimized.*
-*_compressed.*
-
-# Image optimization backups
-*_original.*
-
-# ============================================================================
-# DEPLOYMENT & CI/CD
-# ============================================================================
-
-# Deployment configs (sensitive)
-deploy/
-.deploy/
-.deployment
-
-# CI/CD temp files
-.github/workflows/temp/
-
-# ============================================================================
-# MISCELLANEOUS
-# ============================================================================
-
-# Temporary files
+# Temporary and backup files
+*.tmp
+*.temp
 *.bak
 *.backup
 *.old
 *.orig
 *.rej
-*.swp
-*.swo
-*~.nib
-local.properties
+*_fixes.css
+*_critical_fix.css
+ai_generated_*.css
+*_optimized.*
+*_compressed.*
+*_original.*
 
 # Compressed archives
 *.7z
@@ -398,15 +113,3 @@ local.properties
 *.rar
 *.tar
 *.zip
-
-# Sass
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
-
-# Project-specific temporary files
-NOTES.txt
-TODO.txt
-SCRATCH.md
-qa-screenshots/
