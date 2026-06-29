@@ -5,12 +5,20 @@ from __future__ import annotations
 
 import argparse
 import logging
+import socket
 import shutil
 import subprocess
 import sys
+import time
+import urllib.error
+import urllib.request
 from typing import Sequence
 
 from tools.site_framework import ROOT, load_yaml
+
+
+PYTHON_SYNTAX_FILES = ("build.py", "site.py", "validator.py")
+JAVASCRIPT_SYNTAX_FILES = ("static/js/main.js", "tools/run_lighthouse_budget.mjs")
 
 
 class SiteManager:
@@ -35,12 +43,71 @@ class SiteManager:
     def _setup_logging(self) -> None:
         level_name = self.config.get("logging", {}).get("level", "INFO")
         level = getattr(logging, str(level_name).upper(), logging.INFO)
-        logging.basicConfig(level=level, format="%(levelname)s: %(message)s")
+        logging.basicConfig(level=level, format="%(levelname)s: %(message)s", stream=sys.stdout)
         self.logger = logging.getLogger("legacy-site")
 
     def _run(self, command: Sequence[str], *, label: str) -> None:
         self.logger.info(label)
         subprocess.run(list(command), cwd=self.root, check=True)
+
+    def _python_source_files(self) -> list[str]:
+        tool_files = sorted((self.root / "tools").glob("*.py"))
+        paths = [self.root / filename for filename in PYTHON_SYNTAX_FILES]
+        return [str(path.relative_to(self.root)) for path in [*paths, *tool_files]]
+
+    def _free_port(self) -> int:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            sock.bind(("127.0.0.1", 0))
+            return int(sock.getsockname()[1])
+
+    def _wait_for_url(self, url: str, *, timeout_seconds: float = 20.0) -> None:
+        deadline = time.monotonic() + timeout_seconds
+        last_error: Exception | None = None
+
+        while time.monotonic() < deadline:
+            try:
+                with urllib.request.urlopen(url, timeout=2) as response:
+                    if 200 <= response.status < 400:
+                        return
+            except (OSError, urllib.error.URLError) as exc:
+                last_error = exc
+
+            time.sleep(0.5)
+
+        detail = f": {last_error}" if last_error else ""
+        raise RuntimeError(f"Timed out waiting for local server at {url}{detail}")
+
+    def _run_lighthouse_server(self) -> None:
+        port = self._free_port()
+        url = f"http://127.0.0.1:{port}/index.html"
+        self.logger.info("Starting temporary Lighthouse server at %s", url)
+
+        server = subprocess.Popen(
+            [
+                sys.executable,
+                "-m",
+                "http.server",
+                str(port),
+                "--bind",
+                "127.0.0.1",
+                "--directory",
+                str(self.output_dir),
+            ],
+            cwd=self.root,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+
+        try:
+            self._wait_for_url(url)
+            self.lighthouse(url)
+        finally:
+            server.terminate()
+            try:
+                server.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                server.kill()
+                server.wait(timeout=5)
 
     def build(self) -> None:
         command = [sys.executable, "build.py", "--validate"]
@@ -62,15 +129,26 @@ class SiteManager:
         self.check(include_lighthouse=False)
         self.serve()
 
+    def check_python_syntax(self) -> None:
+        self._run(
+            [sys.executable, "-m", "py_compile", *self._python_source_files()],
+            label="Checking Python syntax",
+        )
+
+    def check_javascript_syntax(self) -> None:
+        for script in JAVASCRIPT_SYNTAX_FILES:
+            self._run(["node", "--check", script], label=f"Checking JavaScript syntax: {script}")
+
     def validate(self) -> None:
+        self.check_python_syntax()
         self.build()
         self._run([sys.executable, "-m", "tools.check_site_integrity"], label="Checking generated site integrity")
-        self._run(["node", "--check", "static/js/main.js"], label="Checking JavaScript syntax")
+        self.check_javascript_syntax()
 
     def lighthouse(self, url: str = "http://localhost:8000/index.html") -> None:
         min_score = str(self.config.get("performance", {}).get("lighthouse_min_score", 90))
         self._run(
-            ["node", "tools/run_lighthouse_budget.mjs", url, "--min", min_score],
+            ["node", "tools/run_lighthouse_budget.mjs", "--url", url, "--min", min_score],
             label=f"Checking Lighthouse budgets for {url}",
         )
 
@@ -78,7 +156,7 @@ class SiteManager:
         self.validate()
         self._run(["git", "diff", "--check"], label="Checking git diff whitespace")
         if include_lighthouse:
-            self.lighthouse()
+            self._run_lighthouse_server()
 
     def clean(self) -> None:
         if self.output_dir.exists():
@@ -101,7 +179,8 @@ class SiteManager:
         subprocess.run(["git", "status", "--short", "--branch"], cwd=self.root, check=False)
 
     def new_page(self, args: Sequence[str]) -> None:
-        self._run([sys.executable, "-m", "tools.new_page", *args], label="Creating page scaffold")
+        forwarded_args = list(args) or ["--help"]
+        self._run([sys.executable, "-m", "tools.new_page", *forwarded_args], label="Creating page scaffold")
 
 
 def main() -> None:
@@ -149,6 +228,8 @@ def main() -> None:
             manager.new_page(args.args)
     except subprocess.CalledProcessError as exc:
         raise SystemExit(exc.returncode) from exc
+    except RuntimeError as exc:
+        raise SystemExit(f"ERROR: {exc}") from exc
 
 
 if __name__ == "__main__":

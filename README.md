@@ -99,19 +99,25 @@ If the virtual environment already exists, only install dependencies when `requi
 Build the site:
 
 ```powershell
-.\.venv\Scripts\python.exe build.py
+.\.venv\Scripts\python.exe site.py build
 ```
 
 Build, minify bundled CSS, and validate output:
 
 ```powershell
-.\.venv\Scripts\python.exe build.py --minify-css --validate
+.\.venv\Scripts\python.exe site.py validate
 ```
 
 Run the full local quality gate:
 
 ```powershell
 .\.venv\Scripts\python.exe site.py check
+```
+
+Run the full gate, including Lighthouse. This command starts its own temporary local server:
+
+```powershell
+.\.venv\Scripts\python.exe site.py check --lighthouse
 ```
 
 Serve the generated `docs/` site locally:
@@ -137,10 +143,10 @@ Run the generated-site integrity check:
 Run a Lighthouse check against the local site:
 
 ```powershell
-node tools/run_lighthouse_budget.mjs http://localhost:8000/index.html --min 90
+node tools/run_lighthouse_budget.mjs --url http://localhost:8000/index.html --min 90
 ```
 
-Convenience commands also exist through `site.py` and `Makefile`, but `build.py --minify-css --validate` is the deployment source of truth.
+Convenience commands also exist through `Makefile`, but `site.py` is the development and deployment source of truth.
 
 ## How The Build Works
 
@@ -313,17 +319,16 @@ Social and logo assets are also under `static/images/`.
 Primary validation command:
 
 ```powershell
-.\.venv\Scripts\python.exe build.py --minify-css --validate
+.\.venv\Scripts\python.exe site.py check
 ```
 
-Additional useful checks:
+Full validation with Lighthouse:
 
 ```powershell
-.\.venv\Scripts\python.exe -m tools.check_content_contracts
-.\.venv\Scripts\python.exe -m tools.check_site_integrity
-node --check static\js\main.js
-git diff --check
+.\.venv\Scripts\python.exe site.py check --lighthouse
 ```
+
+`site.py check` compiles Python files, builds with content validation, checks generated pages, checks JavaScript syntax, and runs `git diff --check`. `site.py check --lighthouse` also starts a temporary local server and requires Lighthouse scores of 90+.
 
 `tools/check_content_contracts.py` checks source pages before the build. `tools/check_site_integrity.py` checks generated pages, local links, assets, placeholder links, titles, and meta descriptions after the build.
 
@@ -354,18 +359,15 @@ Deployment workflow:
 1. Checkout repo.
 2. Install Python 3.12.
 3. Install `requirements.txt`.
-4. Run `python build.py --validate --minify-css`.
-5. Run `node --check static/js/main.js`.
-6. Run `python -m tools.check_site_integrity`.
-7. Serve the generated site locally and require Lighthouse scores of 90+.
-8. Upload `docs/` as the Pages artifact.
-9. Deploy with `actions/deploy-pages`.
+4. Run `python site.py check --lighthouse`.
+5. Upload `docs/` as the Pages artifact.
+6. Deploy with `actions/deploy-pages`.
 
 Live URL:
 
 [https://kaw393939.github.io/legacy/](https://kaw393939.github.io/legacy/)
 
-Pull requests run `.github/workflows/preview.yml`, which builds, validates, runs JS/integrity/Lighthouse checks, uploads `validation-report.json`, and uploads the built `docs/` artifact for review.
+Pull requests run `.github/workflows/preview.yml`, which runs the same full quality gate, uploads `validation-report.json`, and uploads the built `docs/` artifact for review.
 
 ## Typical Update Workflow
 
@@ -374,10 +376,8 @@ git status --short --branch
 
 # Edit source files in content/, templates/, or static/
 
-.\.venv\Scripts\python.exe build.py --minify-css --validate
-.\.venv\Scripts\python.exe -m tools.check_site_integrity
-node --check static\js\main.js
-git diff --check
+.\.venv\Scripts\python.exe site.py check
+.\.venv\Scripts\python.exe site.py check --lighthouse
 
 git status --short
 git add -A

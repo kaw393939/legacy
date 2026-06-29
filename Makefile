@@ -3,7 +3,6 @@
 .PHONY: help install build serve dev validate check lighthouse clean status new-page
 
 PYTHON ?= python
-PORT ?= 8000
 
 help:
 	@echo "Legacy Defenders development commands"
@@ -19,7 +18,7 @@ help:
 	@echo "Quality:"
 	@echo "  make validate      Validate content contracts and generated output"
 	@echo "  make check         Run the full local quality gate"
-	@echo "  make lighthouse    Run Lighthouse against the local server"
+	@echo "  make lighthouse    Run the full quality gate with Lighthouse"
 	@echo ""
 	@echo "Content:"
 	@echo "  make new-page      Show the page generator help"
@@ -32,24 +31,22 @@ install:
 	$(PYTHON) -m pip install -r requirements.txt
 
 build:
-	$(PYTHON) build.py --minify-css --validate
+	$(PYTHON) site.py build
 
 serve:
-	$(PYTHON) -m http.server $(PORT) --directory docs
+	$(PYTHON) site.py serve
 
-dev: build serve
+dev:
+	$(PYTHON) site.py dev
 
 validate:
-	$(PYTHON) -m tools.check_content_contracts
-	$(PYTHON) build.py --minify-css --validate
-	$(PYTHON) -m tools.check_site_integrity
-	node --check static/js/main.js
+	$(PYTHON) site.py validate
 
 check:
 	$(PYTHON) site.py check
 
 lighthouse:
-	node tools/run_lighthouse_budget.mjs http://localhost:$(PORT)/index.html --min 90
+	$(PYTHON) site.py check --lighthouse
 
 clean:
 	$(PYTHON) site.py clean
@@ -58,4 +55,4 @@ status:
 	$(PYTHON) site.py status
 
 new-page:
-	$(PYTHON) -m tools.new_page --help
+	$(PYTHON) site.py new-page
