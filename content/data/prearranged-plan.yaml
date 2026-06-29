@@ -18,7 +18,7 @@ prearranged_plan:
       description: "We identify sentimental items, family distribution wishes, donation preferences, sale priorities, documents, contacts, and the memories you want protected."
     - title: "Build The Activation Plan"
       icon: "fa-clipboard-list"
-      description: "We create a care plan that explains who to call, what happens first, likely services, preferred vendors, estimated phases, and how the family can make decisions."
+      description: "We create an activation plan that explains who to call, what happens first, likely services, preferred providers, estimated phases, possible funding paths, and how the family can make decisions."
     - title: "Prepare Funding Options"
       icon: "fa-file-invoice-dollar"
       description: "We outline possible payment, financing, estate-fund, or sale-proceeds paths so your heirs can review options with the appropriate professionals."

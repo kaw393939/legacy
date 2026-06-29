@@ -20,9 +20,9 @@ seo:
 
 Most families do not realize what they have inherited until the bills, belongings, deadlines, and house problems start arriving at the same time.
 
-The executor may have to protect a vacant home, keep utilities active, avoid code issues, understand mortgage and tax pressure, sort decades of belongings, coordinate family decisions, find vendors they can trust, document expenses, work with an attorney, and decide whether to sell, rent, move in, or renovate.
+The executor may have to protect a vacant home, keep utilities active, avoid code issues, understand mortgage and tax pressure, sort decades of belongings, coordinate family decisions, find service providers they can trust, document expenses, work with an attorney, and decide whether to sell, rent, move in, or renovate.
 
-That is possible to do alone. It is also where many families lose money, time, and emotional energy because they have never done it before.
+That is possible to do alone. It is also where many families lose money, time, and emotional energy because they have never done it before. Many heirs suddenly become property manager, project manager, provider negotiator, inventory clerk, and estate recordkeeper overnight.
 
 <div class="pricing-note">
   <strong>Our role:</strong> Legacy Defenders does not replace your attorney, CPA, tax preparer, realtor, lender, appraiser, or licensed trades. We organize the house side of the estate so those professionals and the executor have better information.
@@ -33,7 +33,7 @@ That is possible to do alone. It is also where many families lose money, time, a
   <h2>Doing it yourself can work. It can also consume your life if you do not have a Mike.</h2>
   <p>Keith called lawyers, tax people, contractors, and cleaning services, then tried to carry the problem himself because too many options felt expensive or exploitative. The house was saved because Mike stepped in. Legacy Defenders turns that lucky break into a repeatable process.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="index.html#contact">Ask What To Do First</a>
+    <a class="btn btn-primary" href="index.html#contact">Book A Free 1-Hour Call</a>
     <a class="btn btn-outline" href="keith-story.html">Read Keith's Story</a>
   </div>
 </div>
@@ -44,7 +44,7 @@ That is possible to do alone. It is also where many families lose money, time, a
   <article class="ld-path-card warning">
     <span>Path 1</span>
     <h2>Doing It Yourself</h2>
-    <p>You keep control, but you also carry the operational burden. You find every vendor, supervise every decision, track every receipt, manage family emotions, and absorb delays when grief or distance makes the work hard.</p>
+    <p>You keep control, but you also carry the operational burden. You find every provider, supervise every decision, track every receipt, manage family emotions, and absorb delays when grief or distance makes the work hard.</p>
     <ul>
       <li>Hard to know what matters first</li>
       <li>Belongings block cleaning and repairs</li>
@@ -56,11 +56,12 @@ That is possible to do alone. It is also where many families lose money, time, a
   <article class="ld-path-card trusted">
     <span>Path 2</span>
     <h2>Using Legacy Defenders</h2>
-    <p>You still make the important decisions, but you do not have to invent the process. A care coordinator turns the home, belongings, records, repairs, storage, and financing questions into a documented plan.</p>
+    <p>You still make the important decisions, but you do not have to invent the process. A care coordinator turns the home, belongings, records, repairs, storage, provider needs, and funding questions into a documented estate management strategy.</p>
     <ul>
-      <li>One phased care plan</li>
+      <li>Free call and $250 Estate Math Home Visit</li>
+      <li>One phased Estate Math Snapshot</li>
       <li>QR inventory and item photos</li>
-      <li>Trusted vendor coordination</li>
+      <li>Trusted local provider coordination</li>
       <li>Property maintenance and bill triage</li>
       <li>Asset-offset and financing paths reviewed</li>
       <li>Transparent scopes and pricing</li>
@@ -73,7 +74,7 @@ That is possible to do alone. It is also where many families lose money, time, a
 
 Some people are in Keith's situation: one heir, one executor, one person who has to make nearly every decision alone. That can be legally and logistically simpler than a disputed family situation, but it can still feel impossible because the emotional and practical workload has nowhere else to go.
 
-When there is one clear authorized decision maker, no active family dispute, and no contested authority issue, Legacy Defenders can usually spend less time managing family coordination. Our example policy is a **10% discount on eligible Legacy Defenders coordination, care planning, QR inventory setup, and project-management fees, capped at $2,500 per project**.
+When there is one clear authorized decision maker, no active family dispute, and no contested authority issue, Legacy Defenders can usually spend less time managing family coordination. Our example policy is a **10% discount on eligible Legacy Defenders coordination, Estate Math Snapshot work, QR inventory setup, and project-management fees, capped at $2,500 per project**.
 
 The discount does not apply to pass-through costs, storage unit charges, disposal fees, materials, licensed trades, attorney/CPA/lender/realtor fees, taxes, filing fees, or financing costs. The point is simple: when the project is simpler to coordinate, we should share that operational savings with the estate.
 
@@ -88,7 +89,7 @@ The discount does not apply to pass-through costs, storage unit charges, disposa
   <div class="ld-comparison-row">
     <p><span>Executor problem</span>The house is full</p>
     <p><span>DIY reality</span>Every repair waits until belongings are moved, sold, donated, stored, or discarded.</p>
-    <p><span>Legacy Defenders support</span>QR tags, photos, decision categories, moving, storage routing, donation/disposal, and sale processing.</p>
+    <p><span>Legacy Defenders support</span>QR tags, photos, decision categories, moving, storage routing, shipping, donation/disposal, and sale support.</p>
   </div>
   <div class="ld-comparison-row">
     <p><span>Executor problem</span>The home is vacant</p>
@@ -102,13 +103,13 @@ The discount does not apply to pass-through costs, storage unit charges, disposa
   </div>
   <div class="ld-comparison-row">
     <p><span>Executor problem</span>The executor is out of state</p>
-    <p><span>DIY reality</span>Vendors, keys, deliveries, storage, and contractors are hard to supervise.</p>
-    <p><span>Legacy Defenders support</span>Local coordination, vendor scheduling, progress updates, photos, and records.</p>
+    <p><span>DIY reality</span>Providers, keys, deliveries, storage, and contractors are hard to supervise.</p>
+    <p><span>Legacy Defenders support</span>Local coordination, provider scheduling, progress updates, photos, and records.</p>
   </div>
   <div class="ld-comparison-row">
     <p><span>Executor problem</span>Trusted help is hard to find fast</p>
-    <p><span>DIY reality</span>The executor has to search for movers, cleaners, storage, contractors, donation options, and emergency help while under pressure.</p>
-    <p><span>Legacy Defenders support</span>We coordinate trusted vendors and preferred partners, then centralize scopes, invoices, photos, and status notes.</p>
+    <p><span>DIY reality</span>The executor has to search for movers, cleaners, storage, contractors, donation options, disposal help, and emergency help while under pressure.</p>
+    <p><span>Legacy Defenders support</span>We coordinate trusted providers and preferred partners, then centralize scopes, invoices, photos, and status notes. Preferred or volume-informed pricing is used where available.</p>
   </div>
   <div class="ld-comparison-row">
     <p><span>Executor problem</span>The house needs work</p>
@@ -134,13 +135,13 @@ Speed does not mean rushing the family. It means reducing the time wasted trying
 <div class="ld-speed-grid">
   <article>
     <span>01</span>
-    <h2>Trusted Vendor Coordination</h2>
-    <p>The family should not have to build a vendor list during grief. We help coordinate movers, cleaners, storage, donation/disposal options, repair help, and licensed professionals when needed.</p>
+    <h2>Trusted Provider Coordination</h2>
+    <p>The family should not have to build a provider list during grief. We help coordinate movers, cleaners, storage, donation/disposal options, repair help, and licensed professionals when needed.</p>
   </article>
   <article>
     <span>02</span>
     <h2>One Central Paper Trail</h2>
-    <p>Scopes, receipts, invoices, photos, item logs, storage records, sale notes, donation records, repair updates, and vendor contacts stay organized for the executor, family, attorney, CPA, lender, or realtor.</p>
+    <p>Scopes, receipts, invoices, photos, item logs, storage records, sale notes, shipping notes, donation records, repair updates, and provider contacts stay organized for the executor, family, attorney, CPA, lender, or realtor.</p>
   </article>
   <article>
     <span>03</span>
@@ -150,7 +151,7 @@ Speed does not mean rushing the family. It means reducing the time wasted trying
   <article>
     <span>04</span>
     <h2>Funding Paths Reviewed Early</h2>
-    <p>When there is estate value but limited cash, we identify possible funding paths early so the executor can review them with the attorney, lender, CPA, or family before pressure creates a bad sale.</p>
+    <p>When there is estate value but limited cash, we identify possible funding paths early, including saleable items, vehicles, staged work, financing, or sale-proceeds structures for attorney, lender, CPA, or family review.</p>
   </article>
 </div>
 
@@ -161,8 +162,8 @@ Most families do not just need advice. They need a system that tells everyone wh
 <div class="ld-practical-grid">
   <article>
     <span><i class="fas fa-scale-balanced" aria-hidden="true"></i></span>
-    <h2>Attorney & CPA Network</h2>
-    <p>Clients may use their own attorney and CPA. When they need introductions, we can connect them with preferred or affiliated professionals who understand inherited-home projects. Because our records are standardized, partner professionals may be able to offer efficient packages or discounted rates where available.</p>
+    <h2>Professional & Provider Network</h2>
+    <p>Clients may use their own attorney, CPA, realtor, lender, contractor, cleaner, mover, or storage provider. When they need introductions, we can connect them with preferred or affiliated professionals and local service providers. Because our scopes and records are standardized, providers may be able to offer clearer pricing, faster scheduling, or preferred rates where available.</p>
   </article>
   <article>
     <span><i class="fas fa-tags" aria-hidden="true"></i></span>
@@ -182,16 +183,16 @@ Most families do not just need advice. They need a system that tells everyone wh
   <article>
     <span><i class="fas fa-truck-ramp-box" aria-hidden="true"></i></span>
     <h2>Distribution Support</h2>
-    <p>When the will, executor, and family instructions are clear, we can help route property to heirs, arrange pickup or delivery, return items to the home, and document what went where.</p>
+    <p>When the will, executor, and family instructions are clear, we can help route property to heirs, arrange pickup, delivery, or shipping, return items to the home, and document what went where.</p>
   </article>
   <article>
     <span><i class="fas fa-shield-halved" aria-hidden="true"></i></span>
     <h2>Insured Handling</h2>
-    <p>We use insured Legacy Defenders workflows, crews, or vendor partners where applicable. Coverage, responsibility, and limits should be documented with each approved scope before work begins.</p>
+    <p>We use insured Legacy Defenders workflows, crews, or provider partners where applicable. Coverage, responsibility, and limits should be documented with each approved scope before work begins.</p>
   </article>
 </div>
 
-Legal and tax advice still comes from the attorney or CPA directly. Legacy Defenders makes their work easier by giving them clean records, photos, inventory exports, receipts, vendor notes, and executor decision history.
+Legal and tax advice still comes from the attorney or CPA directly. Legacy Defenders makes their work easier by giving them clean records, photos, inventory exports, receipts, provider notes, and executor decision history.
 
 ## Designed To Help The Service Pay For Itself
 
@@ -207,13 +208,13 @@ We cannot promise that every project becomes free. What we can do is design the 
     <li>Identify items or vehicles that may convert to cash faster than the home sale</li>
     <li>Use market data and photos so expectations are realistic</li>
     <li>Route saleable items into a controlled processing workflow</li>
-    <li>Keep proceeds, fees, storage, handling, and sale records visible</li>
+    <li>Keep proceeds, fees, storage, shipping, handling, and sale records visible</li>
     <li>Separate must-do stabilization from optional improvements</li>
     <li>Review financing, lien, or sale-proceeds arrangements with the right professionals</li>
   </ul>
 </div>
 
-The goal is affordability through organization: avoid panic discounts, avoid duplicate handling, avoid vendor chaos, recover value where possible, and make sure the executor can see what is happening before costs grow.
+The goal is affordability through organization: avoid panic discounts, avoid duplicate handling, avoid provider chaos, recover value where possible, and make sure the executor can see what is happening before costs grow.
 
 ## Keith's Example: Why Panic Is Expensive
 
@@ -272,7 +273,7 @@ That does not mean every house decision must be rushed. It means the executor ne
   </article>
   <article>
     <strong>First weeks</strong>
-    <p>Create the care plan, stabilize the home, begin inventory, and identify attorney, CPA, lender, realtor, or contractor questions.</p>
+    <p>Create the Estate Math Snapshot, stabilize the home, begin inventory, and identify attorney, CPA, lender, realtor, provider, or contractor questions.</p>
   </article>
   <article>
     <strong>First months</strong>
@@ -295,11 +296,11 @@ What we do is help the executor avoid the common problem of trying to reconstruc
 <div class="ld-record-grid">
   <article>
     <h2>Property records</h2>
-    <p>Before/after photos, maintenance notes, vacant-home checks, utility issues, lawn/code concerns, repair scopes, vendor records, and invoices.</p>
+    <p>Before/after photos, maintenance notes, vacant-home checks, utility issues, lawn/code concerns, repair scopes, provider records, and invoices.</p>
   </article>
   <article>
     <h2>Belongings records</h2>
-    <p>QR inventory, item photos, keep/sell/donate/discard/store decisions, storage logs, sale logs, delivery notes, donation records, and disposal records.</p>
+    <p>QR inventory, item photos, keep/sell/donate/discard/store/ship decisions, storage logs, sale logs, delivery notes, shipping notes, donation records, and disposal records.</p>
   </article>
   <article>
     <h2>Financial records</h2>
@@ -317,6 +318,7 @@ We are not trying to win by buying the house cheap. We are trying to win by help
 - We use technology to make decisions visible: photos, QR tags, item status, market data, sale timing, storage notes, and project records.
 - We help the executor compare choices before spending: sell as-is, stabilize only, clean and paint, modernize, rent, move in, or finance a larger project.
 - We align with the estate by preserving value, reducing panic, documenting work, and making the process easier for the professionals involved.
+- We do not take a hidden percentage of item sales; we charge for handling, prep, storage coordination, shipping support, records, and approved service work.
 
 ## The Better Question
 

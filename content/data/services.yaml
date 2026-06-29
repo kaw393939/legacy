@@ -1,23 +1,24 @@
 ﻿home_scouting_services:
   - id: care-plan
-    title: "Estate Care Plan"
-    price: "Custom scope"
-    icon: "fa-heart"
+    title: "Estate Math Home Visit"
+    price: "$250, credited to approved services"
+    icon: "fa-calculator"
     popular: true
-    psychological_appeal: "Know What To Do First"
-    description: "A guided first step for overwhelmed executors and heirs."
+    psychological_appeal: "Understand The Costs Before Spending Big"
+    description: "A low-friction first paid step for overwhelmed executors and heirs who need someone local to see the home and explain the practical next move."
     journey_phase: home_scouting
-    what_you_get: "A written action plan for urgent property needs, belongings, repairs, storage, financing questions, and next decisions."
+    what_you_get: "An Estate Math Snapshot for urgent property needs, belongings, repairs, storage, provider coordination, funding questions, and next decisions."
     features:
-      - "Care coordinator intake call or visit"
+      - "Free one-hour estate call first"
+      - "Home and belongings walkthrough"
       - "Urgency review: mortgage, taxes, utilities, insurance, lawn, access, smoke, safety"
-      - "Initial photos and situation notes"
-      - "AI-assisted home preview options when useful"
-      - "Priority plan for the first 7, 30, and 90 days"
-      - "Trusted vendor needs mapped so the executor is not starting from zero"
+      - "Initial cost categories and likely provider needs"
+      - "Belongings bottleneck and inventory plan"
+      - "Priority list for the first 7, 30, and 90 days"
+      - "Trusted service-provider needs mapped so the executor is not starting from zero"
       - "Possible asset-offset paths identified, such as saleable belongings or vehicles, when authority is clear"
       - "Single decision-maker discount screening when one authorized person can approve the work"
-      - "Clear next-step recommendations"
+      - "$250 credit toward approved Legacy Defenders services"
       - "Preferred attorney, CPA, realtor, lender, or licensed trade needs identified"
       - "Possible discounted professional packages discussed when available through preferred partners"
 
@@ -41,12 +42,12 @@
       - "Vacant-home maintenance planning"
 
   - id: financing-readiness
-    title: "Financing & Carrying-Cost Readiness"
-    price: "Included in care plan"
+    title: "Funding & Carrying-Cost Readiness"
+    price: "Included in visit/scope or custom"
     icon: "fa-file-invoice-dollar"
     popular: false
-    psychological_appeal: "Use Equity Without Panic"
-    description: "A practical review of whether estate equity or future sale proceeds may support urgent bills, maintenance, cleanout, repairs, or market-ready preparation."
+    psychological_appeal: "Look For Ways The Estate Can Fund The Work"
+    description: "A practical review of whether estate equity, saleable items, vehicles, equipment, estate funds, or future sale proceeds may support urgent bills, maintenance, cleanout, storage, repairs, or market-ready preparation."
     journey_phase: home_scouting
     what_you_get: "A documented scope that can be reviewed by the executor, attorney, lender, or CPA."
     features:
@@ -60,8 +61,8 @@
 
 settling_up_services:
   - id: qr-inventory
-    title: "QR Inventory & Family Decisions"
-    price: "By project size"
+    title: "Inventory, Memories & Family Decisions"
+    price: "$750-$1,750 setup + labor"
     icon: "fa-qrcode"
     popular: true
     psychological_appeal: "Decide Once, Track Everything"
@@ -77,36 +78,37 @@ settling_up_services:
       - "AI-assisted identification and sold-comps research when available"
       - "Estimated resale value and likely sale timing when useful"
       - "Sentimental items protected from rushed decisions"
+      - "Records for attorney, CPA, tax preparer, and executor review"
       - "Executor-ready item records"
 
   - id: storage-routing
-    title: "Storage, Sale & Donation Routing"
-    price: "Monthly storage + handling"
+    title: "Item Routing, Storage, Shipping & Donation"
+    price: "Handling + pass-through costs"
     icon: "fa-boxes-stacked"
     popular: false
     psychological_appeal: "Clear The House Without Losing Control"
-    description: "Move items to the right place so the home can be cleaned, repaired, sold, or used."
+    description: "Move items to the right place so the home can be cleaned, repaired, photographed, sold, rented, or used."
     journey_phase: settling_up
-    what_you_get: "A tracked flow for client storage, sale storage, donation, disposal, and heir pickup or delivery."
+    what_you_get: "A tracked flow for client storage, sale storage, shipping, donation, disposal, and heir pickup or delivery."
     features:
       - "Client-controlled storage for kept items"
       - "Executor key/access options for client storage"
       - "Central sale storage for approved sale items"
       - "Return-to-house routing when items should come back after repairs"
       - "Donation and disposal coordination"
-      - "Pickup and delivery options for heirs"
+      - "Pickup, delivery, and shipping coordination for heirs"
       - "Distribution support according to will, executor, and family instructions when authority is clear"
       - "Asset-sale routing designed to help offset approved estate costs where appropriate"
       - "30/60/90-day review rules for unsold items"
       - "Monthly storage accountability"
 
   - id: item-processing
-    title: "Item Processing & Sale Support"
-    price: "Handling/listing fees"
+    title: "Item Prep, Research & Sale Support"
+    price: "Small/medium/large item pricing"
     icon: "fa-camera"
     popular: false
     psychological_appeal: "Recover Value Without A Bargain-Hunter Estate Sale"
-    description: "Cleaning, photos, research, listing support, and sale records for approved items."
+    description: "Cleaning, photos, research, listing support, packing, shipping coordination, and sale records for approved items."
     journey_phase: settling_up
     what_you_get: "A documented process for saleable items outside the family home."
     features:
@@ -114,9 +116,28 @@ settling_up_services:
       - "Cleaning and photo preparation"
       - "Marketplace/listing support"
       - "Sold-comps, sale timing, and pricing guidance"
-      - "Packing or delivery coordination"
+      - "Small, medium, large, and specialty item handling options"
+      - "Packing, shipping, or delivery coordination"
       - "Sale records for the executor"
+      - "No hidden percentage of item sales"
       - "Donation/return recommendations for slow-moving items"
+
+  - id: provider-coordination
+    title: "Provider Coordination"
+    price: "Project based or managed-cost percentage"
+    icon: "fa-handshake"
+    popular: false
+    psychological_appeal: "Do Not Build A Provider Network While Grieving"
+    description: "Centralized coordination for the local services the executor would otherwise have to find, compare, schedule, and monitor alone."
+    journey_phase: settling_up
+    what_you_get: "Clear scopes, scheduling support, provider communication, photo updates, invoices, and preferred pricing where available."
+    features:
+      - "Moving, cleaning, storage, disposal, donation, lawn, maintenance, and repair coordination"
+      - "Provider scopes compared before work begins"
+      - "Preferred or volume-informed pricing used where available"
+      - "Progress photos and service records"
+      - "Invoices and receipts organized for the executor"
+      - "Licensed trades routed to qualified providers when needed"
 
 support_services:
   - id: market-ready-prep
@@ -169,7 +190,7 @@ support_services:
       - "Sentimental item instructions"
       - "Activation contacts and family communication notes"
       - "Estimated service phases and likely funding paths"
-      - "Preferred contacts and vendors"
+      - "Preferred contacts and providers"
       - "Family meeting support"
       - "Priority activation and possible discounts for pre-arranged families"
 

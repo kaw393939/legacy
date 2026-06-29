@@ -1,28 +1,28 @@
 value_props:
   - id: care-led
-    title: "A Caregiver, Not A Closer"
-    icon: "fa-heart"
+    title: "Estate Math First"
+    icon: "fa-calculator"
     order: 1
     description: |
-      We lead with education, patience, and dignity. A care coordinator helps the family slow down, understand the choices, and make one clear plan.
+      Many heirs have never had to price a house project, carrying costs, cleanout, storage, repairs, and probate records at the same time. We help the executor understand what the estate may cost before larger decisions are made.
 
   - id: documented
-    title: "Records The Estate Can Use"
+    title: "Inventory, Memories & Records"
     icon: "fa-qrcode"
     order: 2
     description: |
-      Color-coded QR tags, photos, item records, storage logs, receipts, utility notes, repair scopes, invoices, and project updates create a record the executor, attorney, CPA, realtor, lender, and family can understand.
+      Color-coded QR tags, photos, item records, storage logs, shipping notes, receipts, utility notes, repair scopes, invoices, and project updates create a record the executor, attorney, CPA, realtor, lender, and family can understand.
 
-  - id: vendor-network
-    title: "Trusted Help, Faster"
+  - id: provider-network
+    title: "Local Service Network"
     icon: "fa-handshake"
     order: 3
     description: |
-      Families should not have to find movers, cleaners, storage, contractors, attorneys, CPAs, donation options, and emergency help from scratch. Our relationships help the estate move faster with people we can document and coordinate.
+      Families should not have to call movers, cleaners, storage, disposal, contractors, donation options, and emergency help from scratch while grieving. Our provider relationships help the estate move faster with clearer scopes and preferred pricing where available.
 
   - id: preserve-value
-    title: "Aligned With The Estate"
+    title: "Time Back For The Executor"
     icon: "fa-chart-line"
     order: 4
     description: |
-      We benefit when the estate gets organized, protected, and prepared. Our work is designed to avoid panic discounts, recover usable value from assets, and preserve more family value.
+      We centralize the work so the executor is not forced to become a project manager, provider negotiator, inventory clerk, and estate recordkeeper overnight. The goal is less friction and better decisions.

@@ -9,8 +9,8 @@ stats:
     label: "Notice and discount windows matter"
   - number: "9 mo."
     label: "Inventory and inheritance tax timing"
-  - number: "1 plan"
-    label: "Home, belongings, records, repairs"
+  - number: "$250"
+    label: "Estate Math Home Visit"
 seo:
   canonical: "/pa-probate.html"
   og_type: "website"
@@ -24,14 +24,14 @@ The executor may still have to handle a house full of belongings, mortgage payme
 
 That is where Legacy Defenders fits.
 
-We are not a law firm, tax preparer, lender, realtor, appraiser, or licensed trade contractor. We are the care-led operations team that helps the executor organize the home, belongings, vendors, records, and next decisions while working with the right professionals.
+We are not a law firm, tax preparer, lender, realtor, appraiser, or licensed trade contractor. We are the care-led operations team that helps the executor organize the home, belongings, local providers, records, and next decisions while working with the right professionals.
 
 <div class="page-action-panel">
   <p class="ld-kicker">What to do today</p>
   <h2>Before probate paperwork turns into property damage or a low offer, stabilize the house side.</h2>
-  <p>Start by identifying authority, urgent bills, vacant-home risks, belongings that may contain records or valuables, and whether the estate has equity but not enough cash. We can help organize that picture before you spend larger money.</p>
+  <p>Start by identifying authority, urgent bills, vacant-home risks, belongings that may contain records or valuables, the local services needed, and whether the estate has equity but not enough cash. We can help organize that picture before you spend larger money.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="index.html#contact">Talk Through The First Step</a>
+    <a class="btn btn-primary" href="index.html#contact">Book A Free 1-Hour Call</a>
     <a class="btn btn-outline" href="free-guide.html">Use The Free Worksheet</a>
   </div>
 </div>
@@ -62,7 +62,7 @@ We are not a law firm, tax preparer, lender, realtor, appraiser, or licensed tra
   <article>
     <span>Step 5</span>
     <h2>Preserve and distribute value</h2>
-    <p>The home has to be maintained, belongings handled, debts reviewed, records preserved, and sale/keep/rent/move-in decisions made.</p>
+    <p>The home has to be maintained, belongings handled, service providers coordinated, debts reviewed, records preserved, and sale/keep/rent/move-in decisions made.</p>
   </article>
 </div>
 
@@ -89,13 +89,13 @@ Most heirs think probate is paperwork. The house makes it an operating problem.
     <h2>Lawn, utilities, insurance, and vacant-home risk</h2>
     <p>Small issues can turn into fines, leaks, theft, pests, frozen pipes, or insurance problems.</p>
     <strong>How we help:</strong>
-    <p>We create a property-stabilization checklist, photo reports, vendor calls, and urgent task plan.</p>
+    <p>We create a property-stabilization checklist, photo reports, provider calls, and urgent task plan.</p>
   </article>
   <article>
     <h2>Belongings block every next step</h2>
     <p>You cannot paint, repair floors, clean deeply, stage, rent, move in, or sell easily while the house is full.</p>
     <strong>How we help:</strong>
-    <p>We use QR tags and photos to classify items once, then route them to storage, sale, donation, disposal, delivery, or return.</p>
+    <p>We use QR tags and photos to classify items once, then route them to storage, sale support, donation, disposal, shipping, delivery, or return.</p>
   </article>
   <article>
     <h2>Family memories make decisions slow</h2>
@@ -107,13 +107,13 @@ Most heirs think probate is paperwork. The house makes it an operating problem.
     <h2>Estate sale bargain-hunters</h2>
     <p>Traditional estate sales may bring strangers into the family home to buy personal items at deep discounts.</p>
     <strong>How we help:</strong>
-    <p>Approved sale items can move to controlled processing/storage where they are cleaned, photographed, listed, tracked, and reviewed.</p>
+    <p>Approved sale items can move to controlled processing/storage where they are cleaned, photographed, listed, tracked, and reviewed without a hidden sale percentage.</p>
   </article>
   <article>
     <h2>Contractor chaos</h2>
     <p>Executors often do not know which repairs matter, who to call, or how to avoid overbuilding.</p>
     <strong>How we help:</strong>
-    <p>Mike's construction judgment focuses on practical, value-conscious work: clean, safe, modern enough, and ready for the next decision.</p>
+    <p>Mike's construction judgment and provider network focus on practical, value-conscious work: clean, safe, modern enough, and ready for the next decision.</p>
   </article>
 </div>
 
@@ -126,23 +126,23 @@ We turn the probate property problem into a documented project.
 | Home must be preserved | Stabilization checklist, urgent task coordination, photo reports |
 | Utilities, mortgage, taxes, insurance, and maintenance keep coming due | Carrying-cost timeline, bill-pressure notes, professional review package |
 | Estate assets need records | QR inventory, item photos, storage and sale logs |
-| Executor needs decisions documented | Keep/sell/donate/discard/store/deliver/return status records |
-| Property must be distributed according to the will | Item routing, heir pickup/delivery notes, storage records, and distribution documentation after authority is clear |
+| Executor needs decisions documented | Keep/sell/donate/discard/store/ship/deliver/return status records |
+| Property must be distributed according to the will | Item routing, heir pickup/delivery/shipping notes, storage records, and distribution documentation after authority is clear |
 | Attorney, CPA, or tax preparer needs organized records | Receipts, invoices, donation records, repair scopes, sale/item reports, maintenance notes |
-| House needs value protected | Cleanout, cleaning, paint, repairs, modernization, vendor coordination |
+| House needs value protected | Cleanout, cleaning, paint, repairs, modernization, provider coordination |
 | Estate has equity but little cash | Financing-readiness scope for attorney and lender review |
-| Family is overwhelmed | Care coordinator, education, phased decisions, less repeated emotional labor |
+| Family is overwhelmed | Free call, $250 Estate Math Home Visit, care coordinator, education, phased decisions, less repeated emotional labor |
 
 ## Records For PA Inheritance Tax And Estate Accounting
 
 PA's resident inheritance tax return is REV-1500. The executor, attorney, CPA, or tax preparer decides what belongs on that return and how estate expenses, reimbursements, deductions, asset values, donations, and sale proceeds should be handled.
 
-Legacy Defenders helps by keeping the house side organized:
+Legacy Defenders helps by keeping the house side organized so the executor has a clearer paper trail for professional review:
 
 - utility, mortgage, insurance, tax, lawn, vacant-home, and maintenance notes
 - repair scopes, invoices, receipts, and before/after photos
-- QR inventory exports, item photos, sale logs, storage logs, donation/disposal records, and distribution notes
-- vendor contact records and project status reports
+- QR inventory exports, item photos, sale logs, storage logs, shipping notes, donation/disposal records, and distribution notes
+- provider contact records and project status reports
 - financing scopes, draw/milestone notes, and questions for attorney/lender review
 
 The point is not to replace professional advice. The point is to give the professionals a clearer record so the executor is not trying to reconstruct the house project from memory months later.
@@ -157,6 +157,7 @@ Legacy Defenders can help the executor prepare a custom stabilization and fundin
 - estimate the work needed to protect the home and unlock value
 - separate must-do stabilization from optional improvements
 - prepare scopes, photos, and budgets for attorney, CPA, family, lender, or sale-proceeds review
+- identify saleable items, vehicles, equipment, or other estate assets that may help fund approved work when authority is clear
 - coordinate payment structures only after the right authority and professional review are in place
 
 The goal is to help the executor and heirs make the best informed decision available: sell, keep, rent, move in, refinance, repair in phases, or use a financing path designed to protect rather than exploit the estate.
@@ -165,7 +166,7 @@ The goal is to help the executor and heirs make the best informed decision avail
 
 You can use your own attorney, CPA, or tax preparer. If you do not have them, we can introduce preferred or affiliated professionals who understand probate, inherited homes, estate records, and property coordination.
 
-Because our process is standardized, those professionals may be able to work more efficiently and may offer discounted or packaged rates where available. Their legal or tax advice, engagement terms, and fees come directly from them.
+Because our process is standardized, those professionals may be able to work more efficiently and may offer discounted or packaged rates where available. The same principle applies to practical service providers: clear scopes and repeat relationships can reduce quote-chasing and improve pricing discipline where preferred rates are available. Their legal, tax, licensed, or professional advice, engagement terms, and fees come directly from them.
 
 We do not replace the attorney or CPA. We make their job easier by organizing the house side of the problem:
 
@@ -174,7 +175,7 @@ We do not replace the attorney or CPA. We make their job easier by organizing th
 - inventory notes
 - color-coded QR item records
 - repair estimates
-- contractor/vendor records
+- contractor/provider records
 - storage and sale logs
 - heir distribution notes
 - donation/disposal records
@@ -191,6 +192,7 @@ Planned video topics:
 
 - "What to do in the first 7 days after inheriting a house in Pennsylvania"
 - "Why the stuff in the house is usually the bottleneck"
+- "How a $250 Estate Math Home Visit helps an executor understand costs"
 - "How PA inheritance tax timing can affect executor decisions"
 - "When to keep, sell, donate, store, or discard inherited belongings"
 - "How to avoid panic offers from investors and flippers"
@@ -207,6 +209,7 @@ We are the team beside the executor, not a pressure buyer across the table.
 We are designed to be aligned with the estate:
 
 - preserve value where possible
+- save executor time
 - document decisions
 - disclose affiliated services
 - charge for real work

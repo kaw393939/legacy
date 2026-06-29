@@ -1,16 +1,16 @@
 ---
 layout: page
 title: "Free Inherited Home Guide & Cost Worksheet"
-description: "A practical guide for Pennsylvania families handling an inherited home: what you can do yourself, what people often miss, common expenses to budget for, and how a free triage call or limited first visit can turn the worksheet into a plan."
+description: "A practical guide for Pennsylvania families handling an inherited home: what you can do yourself, what people often miss, common expenses to budget for, and how a free one-hour call or $250 Estate Math Home Visit can turn the worksheet into a plan."
 page_id: "free-guide"
 eyebrow: "Free guide and worksheet"
 stats:
   - number: "Free"
-    label: "Triage call"
+    label: "1-hour estate call"
+  - number: "$250"
+    label: "Credited home visit"
   - number: "3 mo."
     label: "PA inheritance tax discount window"
-  - number: "1 plan"
-    label: "Home, belongings, costs, next steps"
 seo:
   canonical: "/free-guide.html"
   og_type: "website"
@@ -18,7 +18,7 @@ seo:
 
 ## Start Here: You Can Do A Lot Yourself
 
-If you inherited a home, you may be able to handle much of the work yourself. Many families can secure the property, gather bills, sort belongings, call vendors, and make a plan without hiring a full service team.
+If you inherited a home, you may be able to handle much of the work yourself. Many families can secure the property, gather bills, sort belongings, call service providers, and make a plan without hiring a full service team.
 
 The problem is that most people do not know what they are about to run into. The work is not just "clean out the house." It is a mix of grief, family decisions, property risk, deadlines, carrying costs, repair choices, records, taxes, sale timing, and cash pressure.
 
@@ -27,9 +27,9 @@ This guide helps you see the whole problem before it becomes expensive.
 <div class="page-action-panel">
   <p class="ld-kicker">Before anything irreversible</p>
   <h2>Call before you accept a low offer, pay for cleanout, start repairs, or throw belongings away.</h2>
-  <p>The first conversation does not obligate you to a large project. It can help you avoid the most common early mistakes: missing documents, losing sentimental items, overpaying vendors, underpricing the house, or spending money in the wrong order.</p>
+  <p>The first conversation does not obligate you to a large project. It can help you avoid the most common early mistakes: missing documents, losing sentimental items, overpaying providers, underpricing the house, or spending money in the wrong order.</p>
   <div class="page-action-buttons">
-    <a class="btn btn-primary" href="index.html#contact">Request A Triage Call</a>
+    <a class="btn btn-primary" href="index.html#contact">Book A Free 1-Hour Call</a>
     <a class="btn btn-outline" href="diy-vs-us.html">Compare DIY vs Using Us</a>
   </div>
 </div>
@@ -37,8 +37,8 @@ This guide helps you see the whole problem before it becomes expensive.
 <div class="guide-callout">
   <p class="ld-kicker">Free to keep</p>
   <h2>Use this worksheet yourself, or review it with a care coordinator.</h2>
-  <p>Legacy Defenders starts with a free triage call. When the location, timing, and situation fit, we may offer a limited first visit to identify obvious risks and explain possible next steps. A full written Estate Care Plan is a paid scope.</p>
-  <a class="btn btn-primary" href="index.html#contact">Request a triage call</a>
+  <p>Legacy Defenders starts with a free one-hour estate call. When the location, timing, and situation fit, the next step is a $250 Estate Math Home Visit that turns the worksheet, the house, the belongings, and the provider needs into a practical snapshot. The $250 is credited toward approved Legacy Defenders services.</p>
+  <a class="btn btn-primary" href="index.html#contact">Book a free call</a>
 </div>
 
 ## What To Do In The First Week
@@ -59,7 +59,7 @@ The first week is about preventing small problems from turning into expensive on
   <article>
     <span>3</span>
     <h2>Gather bills</h2>
-    <p>Mortgage, taxes, insurance, utilities, HOA/condo dues, subscriptions, credit cards, medical bills, funeral costs, and vendor invoices.</p>
+    <p>Mortgage, taxes, insurance, utilities, HOA/condo dues, subscriptions, credit cards, medical bills, funeral costs, and provider invoices.</p>
   </article>
   <article>
     <span>4</span>
@@ -136,7 +136,7 @@ Official Pennsylvania timing note: the PA Department of Revenue says inheritance
 
 ## The Inherited Home Cost Worksheet
 
-Print this page, copy the tables into a spreadsheet, or bring it to the triage call or first planning conversation. The goal is not to know every exact number immediately. The goal is to stop missing entire categories.
+Print this page, copy the tables into a spreadsheet, or bring it to the free one-hour call or $250 Estate Math Home Visit. The goal is not to know every exact number immediately. The goal is to stop missing entire categories.
 
 ### 1. Probate, Tax, And Professional Costs
 
@@ -173,6 +173,7 @@ Print this page, copy the tables into a spreadsheet, or bring it to the triage c
 | Sorting labor | Family time, helper time, care coordinator, organizer | $ | |
 | Inventory / photos / QR tags | Priority items, family decisions, records | $ | |
 | Moving labor | Internal move, family delivery, storage move, donation pickup | $ | |
+| Item prep and handling | Cleaning, photos, packing, sale support, shipping prep | $ | |
 | Dumpster or disposal | Weight limits, prohibited items, municipal rules | $ | |
 | Donation pickup | Availability, receipts, item restrictions | $ | |
 | Estate sale / auction / item sale | Commission, setup, cleanup, unsold items | $ | |
@@ -228,14 +229,14 @@ Use this summary to see whether the estate has a cash problem, a time problem, o
 | Possible sale proceeds or financing source | $ |
 | **Gap to solve** | **$** |
 
-## What The First Conversation Covers
+## What The Free Call And $250 Home Visit Cover
 
-The first call is not a sales ambush. It is a practical triage conversation. If a limited first visit makes sense, we will explain what is included before scheduling it.
+The first call is not a sales ambush. It is a practical one-hour estate conversation. If the estate needs more than a conversation, we will explain the $250 Estate Math Home Visit before scheduling it.
 
 <div class="guide-visit-grid" aria-label="First care coordinator conversation">
   <article>
     <h2>Home walkthrough</h2>
-    <p>We look at access, utilities, safety, belongings, likely cleanout complexity, and obvious repair concerns.</p>
+    <p>We look at access, utilities, safety, belongings, likely cleanout complexity, provider needs, and obvious repair concerns.</p>
   </article>
   <article>
     <h2>Expense worksheet</h2>
@@ -246,23 +247,24 @@ The first call is not a sales ambush. It is a practical triage conversation. If 
     <p>We identify who decides, what items need family input, and where conflict or delay may affect the plan.</p>
   </article>
   <article>
-    <h2>Scope and financing path</h2>
-    <p>If the estate needs help, the worksheet becomes the basis for a written scope, project budget, and financing-readiness packet.</p>
+    <h2>Scope and funding path</h2>
+    <p>If the estate needs help, the worksheet becomes the basis for a written scope, project budget, provider plan, and funding-readiness packet.</p>
   </article>
 </div>
 
-After the first conversation or limited visit, you should understand:
+After the free call or $250 visit, you should understand:
 
 - the first action list
 - the cost categories to review
+- the local services likely needed
 - the questions to ask your attorney, CPA, realtor, lender, or contractor
 - the option to request a written Legacy Defenders scope if you want help
 
 <div class="guide-callout guide-callout-dark">
-  <p class="ld-kicker">Free triage call</p>
+  <p class="ld-kicker">Free 1-hour estate call</p>
   <h2>Get the house, belongings, costs, and timeline onto one page.</h2>
-  <p>If you want to do it yourself, this gives you a clearer path. If you want help, this becomes the starting point for a paid Estate Care Plan, scope, pricing, and financing review.</p>
-  <a class="btn btn-white" href="index.html#contact">Schedule the triage call</a>
+  <p>If you want to do it yourself, this gives you a clearer path. If you want help, this becomes the starting point for a $250 credited Estate Math Home Visit, approved services, scope, pricing, and funding review.</p>
+  <a class="btn btn-white" href="index.html#contact">Schedule the free call</a>
 </div>
 
 ## Official References

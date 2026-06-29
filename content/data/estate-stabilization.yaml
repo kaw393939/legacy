@@ -1,7 +1,7 @@
 estate_stabilization:
   section_title: "Stabilize The House, Bills & Paper Trail"
-  section_subtitle: "An inherited home can keep creating expenses before the estate has cash. We help the executor understand the carrying costs, protect the property, document the work, and explore funding paths when there is equity but no liquidity."
-  note: "Legacy Defenders is not a law firm, tax preparer, lender, realtor, appraiser, or licensed trade contractor. We organize records, coordinate practical work, and help families prepare questions and scopes for the right professionals."
+  section_subtitle: "An inherited home can keep creating expenses before the estate has cash. We help the executor understand carrying costs, protect the property, coordinate local services, document the work, and explore funding paths when there is equity but no liquidity."
+  note: "Legacy Defenders is not a law firm, tax preparer, lender, realtor, appraiser, or licensed trade contractor. We organize records, coordinate practical work, and help families prepare questions and scopes for the right professionals and providers."
   cards:
     - id: property-maintenance
       title: "Property Maintenance"
@@ -26,8 +26,8 @@ estate_stabilization:
       icon: "fa-folder-open"
       description: "We help organize the house-side records that professionals may need for PA inheritance tax, estate accounting, sale prep, and reimbursement review."
       bullets:
-        - "Receipts, invoices, scopes, photos, and vendor records"
-        - "Inventory, storage, donation, sale, and disposal logs"
+        - "Receipts, invoices, scopes, photos, and provider records"
+        - "Inventory, storage, shipping, donation, sale, and disposal logs"
         - "Clear package for attorney, CPA, tax preparer, or executor review"
 
     - id: equity-solutions

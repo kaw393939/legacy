@@ -6,7 +6,11 @@ faqs:
       - question: Who is Legacy Defenders for?
         answer: "<p>Legacy Defenders is for heirs, executors, and families who inherited a home and are overwhelmed by belongings, repairs, deadlines, mortgage or tax pressure, family decisions, distance, or grief.</p>"
       - question: What is the first step?
-        answer: "<p>The first step is a care plan. We learn what happened, where the home is, who has authority, what is urgent, what is inside the house, and what decision the family is trying to make: sell, keep, rent, move in, or prepare for probate next steps.</p>"
+        answer: "<p>The first step is a free one-hour estate call. We learn what happened, where the home is, who has authority, what is urgent, what is inside the house, and what decision the family is trying to make: sell, keep, rent, move in, finance, or prepare for probate next steps.</p>"
+      - question: What is the $250 Estate Math Home Visit?
+        answer: "<p>The $250 visit is a low-friction first paid step. We walk the home, review belongings, identify obvious risks, estimate cost categories, map provider needs, and create an Estate Math Snapshot. If you hire Legacy Defenders for approved services on that property, the $250 is credited toward the project under the terms confirmed before scheduling.</p>"
+      - question: What does the Estate Math Snapshot include?
+        answer: "<p>It is not legal or tax advice. It is a practical house-side plan: urgent issues, carrying-cost categories, belongings routes, likely local service providers, records to gather, possible funding paths, and next decisions to review with the executor, family, attorney, CPA, realtor, lender, or contractor.</p>"
       - question: Do I have to know what I want to do with the house?
         answer: "<p>No. Many families call because they do not know yet. Our job is to organize the facts, stabilize the property, document the options, and help you make informed decisions without panic.</p>"
       - question: Can we arrange this before someone dies or becomes unable to manage the home?
@@ -24,6 +28,10 @@ faqs:
         answer: "<p>Items the family wants to keep can go to client-controlled storage, where the executor can have key or access options. Items approved for sale can go to central sale storage where they can be cleaned, photographed, listed, reviewed, and tracked without turning the family home into a public estate sale.</p>"
       - question: Do you run estate sales inside the house?
         answer: "<p>Our preferred model is to avoid turning the family home into a bargain-hunter event. Saleable items can be moved to a controlled processing/storage workflow where they can be cleaned, photographed, listed, tracked, and reviewed.</p>"
+      - question: Do you take a percentage of item sales?
+        answer: "<p>Our preferred model is not to take a hidden percentage of item sales. Sale proceeds belong to the estate after approved fees, marketplace costs, shipping, storage, or handling. Legacy Defenders charges for real work such as inventory, cleaning, photos, prep, packing, shipping coordination, storage coordination, listing support, records, and project management.</p>"
+      - question: How do item prep, shipping, and storage fees work?
+        answer: "<p>Item work can be priced by small, medium, large, specialty, batch, or hourly handling depending on the item and scope. Shipping, insurance, freight, boxes, supplies, storage-unit charges, marketplace fees, and carrier fees are usually pass-through costs. Handling, packing, coordination, photos, records, and delivery time are billed by the approved scope.</p>"
       - question: What if items do not sell?
         answer: "<p>We use review points, usually around 30, 60, and 90 days, so the executor can decide whether to lower price, bundle, donate, retrieve, continue storage, or dispose of items. Storage should be an informed choice, not an endless hidden cost.</p>"
 
@@ -32,17 +40,21 @@ faqs:
     icon: fa-file-invoice-dollar
     questions:
       - question: How much does this cost?
-        answer: "<p>Every estate is different. A smaller clear-and-organize project may be much less than a full market-ready preparation. A typical single-family inherited-home project involving inventory, cleanout, storage routing, cleaning, paint, and basic fixes may fall around $20,000-$28,000, but this is only an example and not a quote.</p>"
+        answer: "<p>The first call is free. The Estate Math Home Visit is $250 and can be credited toward approved Legacy Defenders services for that property. Every larger estate is different. A clear-and-organize project may be around $8,500-$12,000, while a typical single-family inherited-home project involving inventory, cleanout, storage routing, cleaning, paint, and basic fixes may fall around $20,000-$28,000. These are examples, not quotes.</p>"
       - question: Do single heirs or sole executors get a discount?
-        answer: "<p>They may. If one authorized executor, administrator, or heir is the clear decision maker and there is no active family dispute or contested authority issue, Legacy Defenders may be able to offer a Single Decision-Maker Discount: 10% off eligible Legacy Defenders coordination, care planning, QR inventory setup, and project-management fees, capped at $2,500 per project. It does not apply to pass-through costs, storage unit charges, disposal fees, materials, licensed trades, attorney/CPA/lender/realtor fees, taxes, filing fees, or financing costs.</p>"
+        answer: "<p>They may. If one authorized executor, administrator, or heir is the clear decision maker and there is no active family dispute or contested authority issue, Legacy Defenders may be able to offer a Single Decision-Maker Discount: 10% off eligible Legacy Defenders coordination, Estate Math Snapshot work, QR inventory setup, and project-management fees, capped at $2,500 per project. It does not apply to pass-through costs, storage unit charges, disposal fees, materials, licensed trades, attorney/CPA/lender/realtor fees, taxes, filing fees, shipping, financing costs, or marketplace fees.</p>"
       - question: Can the estate pay for the work?
         answer: "<p>Many property-preservation, administration, repair, sale-preparation, and documentation costs may be reviewed by the executor, attorney, CPA, or tax preparer as estate-related expenses. We do not give tax or legal advice. We provide records so the right professional can decide how items should be handled.</p>"
       - question: Do you offer financing?
         answer: "<p>We can help explore financing options when a home has equity but the estate does not have cash available. Any loan, lien, repayment agreement, or sale-proceeds arrangement should be reviewed by the executor's attorney and the appropriate lender or financial professional.</p>"
       - question: Can saleable estate assets help pay for the work?
         answer: "<p>Sometimes. If the executor has authority and the attorney, CPA, lender, or family decision process supports it, faster-converting assets such as vehicles, equipment, or saleable personal belongings may help fund urgent maintenance, cleanout, storage, repairs, documentation, or market-ready preparation. We help identify and document those options; the estate and its professionals decide what is appropriate.</p>"
+      - question: How do preferred provider rates work?
+        answer: "<p>Because Legacy Defenders coordinates repeat work and standardizes scopes, some local providers may offer preferred, negotiated, or volume-informed pricing where available. We do not promise the lowest possible price in every case. We help reduce quote-chasing, compare scopes, coordinate scheduling, and keep provider records organized.</p>"
+      - question: How do you help the executor with fiduciary responsibilities?
+        answer: "<p>We do not give legal advice or replace the executor. We support the executor's house-side responsibilities by organizing inventory, photos, provider scopes, receipts, storage logs, sale/donation/disposal records, repair notes, carrying-cost notes, and project summaries so the executor and professionals have a clearer record.</p>"
       - question: Can you help if the mortgage, utilities, taxes, or maintenance bills are becoming urgent?
-        answer: "<p>Yes. We can help the executor identify the carrying-cost pressure, stabilize the property, organize bills and vendor needs, and prepare a practical scope for family, attorney, CPA, lender, or sale-proceeds review. We cannot make legal or lending decisions, but we can help organize the problem so better decisions can be made.</p>"
+        answer: "<p>Yes. We can help the executor identify the carrying-cost pressure, stabilize the property, organize bills and provider needs, and prepare a practical scope for family, attorney, CPA, lender, or sale-proceeds review. We cannot make legal or lending decisions, but we can help organize the problem so better decisions can be made.</p>"
       - question: Can you help document costs for the PA inheritance tax return or estate accounting?
         answer: "<p>We can organize house-side records such as photos, invoices, repair scopes, utility notes, storage logs, sale records, donation/disposal records, and project reports. The executor's attorney, CPA, or tax preparer should decide how those records apply to the PA inheritance tax return, REV-1500, estate accounting, deductions, reimbursements, or tax filings.</p>"
 
@@ -57,7 +69,7 @@ faqs:
       - question: Do you work with affiliated companies?
         answer: "<p>Some cleaning, modernization, inventory, moving, storage, or repair services may be performed by affiliated companies or preferred partners. We believe those relationships should be disclosed clearly before work is approved.</p>"
       - question: Are items insured while you handle them?
-        answer: "<p>We use insured Legacy Defenders workflows, crews, or vendor partners where applicable, but coverage depends on the service, item type, vendor, storage location, and approved scope. Insurance responsibility and limits should be documented before work begins.</p>"
+        answer: "<p>We use insured Legacy Defenders workflows, crews, or provider partners where applicable, but coverage depends on the service, item type, provider, storage location, and approved scope. Insurance responsibility and limits should be documented before work begins.</p>"
       - question: What makes this different from a flipper or cleanout company?
         answer: "<p>Our goal is not to pressure the family into the fastest discount sale. We help the executor understand the house, the belongings, the costs, and the options so the estate can make the best informed decision possible.</p>"
 
