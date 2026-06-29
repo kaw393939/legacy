@@ -1,6 +1,6 @@
 ---
 title: "Inherited Home Help & Estate Transition Support | Legacy Defenders"
-description: "Legacy Defenders helps families protect inherited homes, sort belongings, coordinate repairs, document decisions, and move through probate property decisions with care."
+description: "Legacy Defenders helps families protect inherited homes, sort belongings, coordinate trusted providers, document decisions, and move with care."
 layout: "home"
 page_id: "home"
 

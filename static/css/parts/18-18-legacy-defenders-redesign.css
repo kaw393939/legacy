@@ -159,10 +159,11 @@
     margin-top: var(--space-2xl);
 }
 
-.situation-card {
+.situation-card,
+.services-situation-card {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    min-width: 0;
     min-height: 100%;
     padding: var(--space-lg);
     border: 1px solid var(--gray-200);
@@ -174,8 +175,14 @@
     transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
+.situation-card {
+    align-items: flex-start;
+}
+
 .situation-card:hover,
-.situation-card:focus-visible {
+.situation-card:focus-visible,
+.services-situation-card:hover,
+.services-situation-card:focus-visible {
     transform: translateY(-3px);
     border-color: var(--teal-300);
     color: var(--gray-700);
@@ -202,10 +209,14 @@
     margin: 0 0 var(--space-sm);
 }
 
-.situation-card p {
+.situation-card p,
+.services-situation-card p {
     margin: 0;
     color: var(--gray-700);
     line-height: 1.55;
+}
+
+.situation-card p {
     font-size: 0.95rem;
 }
 
@@ -2430,28 +2441,6 @@
     gap: var(--space-lg);
 }
 
-.services-situation-card {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    min-height: 100%;
-    padding: var(--space-lg);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    background: var(--white);
-    color: var(--gray-700);
-    text-decoration: none;
-    box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.services-situation-card:hover,
-.services-situation-card:focus-visible {
-    transform: translateY(-3px);
-    border-color: var(--teal-300);
-    box-shadow: var(--shadow-md);
-}
-
 .services-situation-card span {
     display: inline-flex;
     align-items: center;
@@ -2469,12 +2458,6 @@
     color: var(--navy-900);
     font-size: var(--font-size-lg);
     line-height: 1.25;
-}
-
-.services-situation-card p {
-    margin: 0;
-    color: var(--gray-700);
-    line-height: 1.55;
 }
 
 .service-path-grid {
@@ -2558,30 +2541,6 @@
 
 .content-details > :last-child {
     margin-bottom: var(--space-lg);
-}
-
-.situation-help-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: var(--space-sm);
-    margin: var(--space-lg) 0;
-}
-
-.situation-help-list p {
-    display: flex;
-    gap: var(--space-sm);
-    margin: 0;
-    padding: var(--space-md);
-    border: 1px solid var(--gray-200);
-    border-radius: var(--radius-md);
-    background: var(--white);
-    color: var(--gray-700);
-    line-height: 1.55;
-}
-
-.situation-help-list i {
-    margin-top: 0.2rem;
-    color: var(--teal-700);
 }
 
 .guide-step-grid p,
@@ -2772,10 +2731,6 @@
     }
 
     .process-flow {
-        grid-template-columns: 1fr;
-    }
-
-    .situation-help-list {
         grid-template-columns: 1fr;
     }
 

@@ -81,6 +81,14 @@
         }
     }
 
+    function preferredScrollBehavior() {
+        return win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+    }
+
+    function scrollToTop(behavior = preferredScrollBehavior()) {
+        win.scrollTo({ top: 0, behavior });
+    }
+
     function ctaTypeFor(element) {
         const raw = element.getAttribute('data-cta');
         if (raw === 'primary') return 'primary_cta';
@@ -455,32 +463,26 @@
 
     function initSmoothScroll() {
         const header = $('#header') || $('.header');
-        const reduceMotion = win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        const smoothBehavior = reduceMotion ? 'auto' : 'smooth';
+        const scrollOffset = () => (header ? header.offsetHeight : 0) + 16;
 
-        function scrollToHash(hash, updateLocation = true, behavior = 'smooth') {
+        function updateHash(hash) {
+            if (!win.history || !win.history.pushState || win.location.hash === hash) return;
+            win.history.pushState(null, '', hash);
+        }
+
+        function scrollToHash(hash, updateLocation = true, behavior = preferredScrollBehavior()) {
             if (hash === '#header' || hash === '#top') {
-                win.scrollTo({ top: 0, behavior });
-                if (updateLocation && win.history && win.history.pushState) {
-                    win.history.pushState(null, '', hash);
-                }
+                scrollToTop(behavior);
+                if (updateLocation) updateHash(hash);
                 return true;
             }
 
             const target = getHashTarget(hash);
             if (!target) return false;
 
-            try {
-                target.scrollIntoView({ behavior, block: 'start' });
-            } catch (error) {
-                const headerHeight = header ? header.offsetHeight : 0;
-                const top = Math.max(0, target.getBoundingClientRect().top + win.pageYOffset - headerHeight - 20);
-                win.scrollTo(0, top);
-            }
-
-            if (updateLocation && win.history && win.history.pushState) {
-                win.history.pushState(null, '', hash);
-            }
+            const top = Math.max(0, target.getBoundingClientRect().top + win.pageYOffset - scrollOffset());
+            win.scrollTo({ top, behavior });
+            if (updateLocation) updateHash(hash);
 
             return true;
         }
@@ -492,7 +494,7 @@
             const href = anchor.getAttribute('href');
             if (!href || href === '#') {
                 event.preventDefault();
-                win.scrollTo({ top: 0, behavior: smoothBehavior });
+                scrollToTop();
                 return;
             }
 
@@ -506,14 +508,14 @@
             if (!url.hash || !samePage(url)) return;
 
             event.preventDefault();
-            scrollToHash(url.hash, true, smoothBehavior);
+            scrollToHash(url.hash);
         });
 
         on(win, 'popstate', () => {
             if (win.location.hash) {
                 scrollToHash(win.location.hash, false, 'auto');
             } else {
-                win.scrollTo({ top: 0, behavior: 'auto' });
+                scrollToTop('auto');
             }
         });
     }
@@ -591,7 +593,7 @@
 
         on(win, 'scroll', requestUpdate, { passive: true });
         on(win, 'resize', requestUpdate, { passive: true });
-        on(scrollTopButton, 'click', () => win.scrollTo({ top: 0, behavior: 'smooth' }));
+        on(scrollTopButton, 'click', () => scrollToTop());
         update();
     }
 

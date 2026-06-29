@@ -92,3 +92,15 @@ seo:
 Estate planning tells people who has authority and who receives property. It usually does not tell your children where the shutoffs are, which items matter, who to call, what the house may cost to carry, how to clear belongings, or which local providers can be trusted.
 
 The Prearranged Legacy Readiness path gives your family the practical plan they will wish they had when every decision suddenly feels urgent.
+
+## Keith's lesson as an only child
+
+Keith's father loved him. That love was real. But he was also stubborn, and he did not help Keith understand what to do with the house, belongings, repairs, records, bills, memories, or first decisions.
+
+As an only child, Keith was left carrying the whole situation at once. There was no sibling to divide the work with, no practical operating plan, and no clear map for what mattered first. That missing plan nearly caused him to lose the entire estate, and it created enormous problems in his life at the exact moment he was grieving.
+
+That is why this page exists. Planning ahead is not only about legal documents. It is about sparing your child from having to guess their way through the home, the belongings, the costs, the family history, and the urgent decisions after you are gone.
+
+<aside class="situation-boundary">
+  <strong>A loving parent can still leave a hard mess.</strong> The goal is not to make every decision today. The goal is to leave enough information that your child is not alone with every decision later.
+</aside>

@@ -1,7 +1,7 @@
 ---
 layout: situation
 title: "Out-Of-State Executor Help"
-description: "If you cannot be at the house often, we provide local eyes, photos, provider coordination, and clear records."
+description: "Reliable local eyes, property coordination, belongings support, provider management, photos, and records when you cannot be at the house."
 page_id: "out-of-state-executor"
 eyebrow: "Situation guide"
 contact_interest: "Out-of-state executor help"
@@ -25,15 +25,17 @@ first_actions:
     text: "Move provider scopes, invoices, photos, item decisions, and status updates into one record stream."
 common_mistakes:
   - "Trying to manage movers, cleaners, repairs, lawn, storage, and donation pickups from another state by phone."
+  - "Expecting friends or relatives to carry a full-house project that really needs scopes, insurance, records, scheduling, and accountability."
   - "Letting providers into the home without a written scope, photo record, or access plan."
   - "Paying for repeated trips because the first visit did not produce a clear task list."
   - "Missing vacant-home risks such as heat, leaks, lawn, mail, insurance, pests, or code notices."
 how_we_help:
   - "Perform a local walkthrough and provide photos, risks, room notes, and priority next steps."
-  - "Coordinate trusted local providers for cleaning, moving, storage, disposal, lawn, repairs, and specialty work."
-  - "Track belongings, storage, shipping, pickup, donation, disposal, and sale-support decisions."
+  - "Coordinate trusted local providers for cleaning, moving, storage, disposal, lawn, repairs, and specialty work with written scopes and clear records."
+  - "Track belongings, storage, shipping, pickup, donation, disposal, and sale-support decisions so asset disposition does not become scattered."
+  - "Help preserve time and estate resources by sequencing work, reducing repeated trips, and avoiding unmanaged favors that can drain the estate."
   - "Send executor-ready records so the attorney, CPA, realtor, lender, and family can see what happened."
-cost_intro: "Out-of-state support is about reducing repeated trips, missed appointments, provider confusion, and unmanaged property risk."
+cost_intro: "Out-of-state support is about reducing repeated trips, missed appointments, provider confusion, unmanaged property risk, and the hidden cost of asking friends or family to carry work that needs a reliable local operator."
 costs:
   - category: "Free estate call"
     range: "$0"
@@ -95,3 +97,17 @@ seo:
 Out-of-state executors often lose time because every decision requires another call, another quote, another photo, or another trip. The goal is to make the local work visible and organized so you can make decisions without being physically present for every task.
 
 Legacy Defenders acts as a practical local coordination layer for the home, belongings, provider work, and records. You keep control of the decisions; we help make the work legible.
+
+## Keith's out-of-state lesson
+
+Keith was out of state when he inherited the house. He still had to work, grieve, make financial decisions, answer estate questions, and somehow figure out what was happening inside a home he could not be at every day.
+
+Without Mike's local help, the situation would have been almost impossible to handle. The house needed judgment, access, repairs, cleaning, belongings decisions, provider coordination, photos, and steady follow-through. That is more than a favor. It is a real project.
+
+Keith also learned that relying on informal help can become costly. A well-meaning friend may not have the time, skill, insurance, accountability, or process to manage a whole house. In Keith's case, informal help drained resources and created new problems instead of making the estate easier to handle.
+
+That is why out-of-state support has to be reliable and documented. A typical single-family house can require many coordinated decisions: access, utilities, lawn, mail, belongings, disposal, donation, item prep, shipping, cleaning, repairs, records, and provider scheduling. Doing all of that while grieving and living somewhere else is overwhelming.
+
+<aside class="situation-boundary">
+  <strong>The goal is not to burden friends and family.</strong> The goal is to manage time, money, belongings, and property work as efficiently and reliably as possible, with clear scopes, photos, records, and properly insured providers where needed.
+</aside>

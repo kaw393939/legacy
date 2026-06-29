@@ -180,6 +180,30 @@
   margin-bottom: 0;
 }
 
+.situation-help-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+  margin: var(--space-lg) 0;
+}
+
+.situation-help-list p {
+  display: flex;
+  gap: var(--space-sm);
+  margin: 0;
+  padding: var(--space-md);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--gray-700);
+  line-height: 1.55;
+}
+
+.situation-help-list i {
+  margin-top: 0.2rem;
+  color: var(--teal-700);
+}
+
 .situation-cost-note,
 .situation-boundary {
   margin-top: var(--space-lg);
@@ -284,6 +308,7 @@
 
   .situation-stats,
   .situation-step-grid,
+  .situation-help-list,
   .situation-timeline,
   .situation-record-grid,
   .situation-related-grid {

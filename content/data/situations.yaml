@@ -10,7 +10,7 @@ situations:
       title: "I live out of state or cannot be there"
       icon: "fa-map-location-dot"
       url: "out-of-state-executor.html"
-      description: "You need local eyes, photos, providers, and clear updates."
+      description: "You need reliable local management so the estate does not depend on favors, scattered texts, and repeated trips."
 
     - id: "house-full-of-belongings"
       title: "The house is full of belongings"
@@ -28,7 +28,7 @@ situations:
       title: "I want to plan ahead for my children"
       icon: "fa-folder-tree"
       url: "prearranged.html"
-      description: "Make the house, belongings, wishes, and contacts easier for heirs later."
+      description: "Do not leave an only child or future executor guessing through the house, belongings, bills, and first decisions."
 
     - id: "professional-referral-partners"
       title: "I am an attorney, CPA, realtor, or referral partner"
