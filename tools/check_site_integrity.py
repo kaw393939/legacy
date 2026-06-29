@@ -12,6 +12,7 @@ from validator import SiteValidator
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Validate generated static site output")
     parser.add_argument("output_dir", nargs="?", default="docs")
+    parser.add_argument("--report", help="Optional path for a JSON validation report")
     return parser.parse_args()
 
 
@@ -21,6 +22,8 @@ def main() -> int:
     results = validator.validate_all()
     report = validator.generate_report(results)
     print(report, end="")
+    if args.report:
+        validator.save_report(Path(args.report), results)
 
     total_errors = sum(len(result.errors) for result in results)
     if total_errors:

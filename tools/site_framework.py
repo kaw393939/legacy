@@ -58,17 +58,23 @@ def load_yaml(path: str | Path) -> Any:
 
 def parse_frontmatter(path: str | Path) -> PageSource:
     path = project_path(path)
-    raw = path.read_text(encoding=TEXT_ENCODING)
+    raw = read_text(path)
+    normalized = raw.replace("\r\n", "\n").replace("\r", "\n")
 
-    if not raw.startswith("---"):
+    if not normalized.startswith("---\n"):
         return PageSource(path=path, frontmatter={}, body=raw)
 
-    parts = raw.split("---", 2)
-    if len(parts) < 3:
-        return PageSource(path=path, frontmatter={}, body=raw)
+    lines = normalized.split("\n")
+    for index, line in enumerate(lines[1:], start=1):
+        if line.strip() != "---":
+            continue
 
-    frontmatter = yaml.safe_load(parts[1]) or {}
-    return PageSource(path=path, frontmatter=frontmatter, body=parts[2].strip())
+        loaded = yaml.safe_load("\n".join(lines[1:index])) or {}
+        frontmatter = loaded if isinstance(loaded, dict) else {}
+        body = "\n".join(lines[index + 1 :]).strip()
+        return PageSource(path=path, frontmatter=frontmatter, body=body)
+
+    return PageSource(path=path, frontmatter={}, body=raw)
 
 
 def output_name(path: str | Path) -> str:

@@ -233,7 +233,7 @@ Active framework tools:
 
 - `tools/site_framework.py`: shared paths, YAML loading, frontmatter parsing, output naming, and slugging
 - `tools/check_content_contracts.py`: source content contract validation
-- `tools/check_site_integrity.py`: generated-site validation through `validator.py`
+- `tools/check_site_integrity.py`: generated-site validation and optional JSON reporting through `validator.py`
 - `tools/new_page.py`: page and situation-page scaffolding
 - `tools/run_lighthouse_budget.mjs`: Lighthouse budget runner
 
@@ -328,7 +328,7 @@ Full validation with Lighthouse:
 .\.venv\Scripts\python.exe site.py check --lighthouse
 ```
 
-`site.py check` compiles Python files, builds with content validation, checks generated pages, checks JavaScript syntax, and runs `git diff --check`. `site.py check --lighthouse` also starts a temporary local server and requires Lighthouse scores of 90+.
+`site.py check` compiles Python files, checks source content contracts, builds once, checks generated pages, checks JavaScript syntax, writes `validation-report.json`, and runs `git diff --check`. `site.py check --lighthouse` also starts a temporary local server and requires Lighthouse scores of 90+.
 
 `tools/check_content_contracts.py` checks source pages before the build. `tools/check_site_integrity.py` checks generated pages, local links, assets, placeholder links, titles, and meta descriptions after the build.
 

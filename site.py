@@ -19,6 +19,7 @@ from tools.site_framework import ROOT, load_yaml
 
 PYTHON_SYNTAX_FILES = ("build.py", "site.py", "validator.py")
 JAVASCRIPT_SYNTAX_FILES = ("static/js/main.js", "tools/run_lighthouse_budget.mjs")
+VALIDATION_REPORT = "validation-report.json"
 
 
 class SiteManager:
@@ -109,10 +110,12 @@ class SiteManager:
                 server.kill()
                 server.wait(timeout=5)
 
-    def build(self) -> None:
-        command = [sys.executable, "build.py", "--validate"]
+    def build(self, *, validate: bool = False) -> None:
+        command = [sys.executable, "build.py"]
         if self.config.get("performance", {}).get("minify_css", True):
             command.append("--minify-css")
+        if validate:
+            command.append("--validate")
         self._run(command, label="Building generated site")
 
     def serve(self) -> None:
@@ -141,8 +144,12 @@ class SiteManager:
 
     def validate(self) -> None:
         self.check_python_syntax()
+        self._run([sys.executable, "-m", "tools.check_content_contracts"], label="Checking source content contracts")
         self.build()
-        self._run([sys.executable, "-m", "tools.check_site_integrity"], label="Checking generated site integrity")
+        self._run(
+            [sys.executable, "-m", "tools.check_site_integrity", "--report", VALIDATION_REPORT],
+            label="Checking generated site integrity",
+        )
         self.check_javascript_syntax()
 
     def lighthouse(self, url: str = "http://localhost:8000/index.html") -> None:
@@ -187,7 +194,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Manage the Legacy Defenders static site")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
-    subparsers.add_parser("build", help="Build docs/ with validation")
+    subparsers.add_parser("build", help="Build docs/")
     subparsers.add_parser("serve", help="Serve docs/ locally")
     subparsers.add_parser("dev", help="Run checks and serve docs/")
     subparsers.add_parser("validate", help="Run source, output, and JS checks")
