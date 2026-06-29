@@ -140,6 +140,11 @@ img {
     height: auto;
     display: block
     }
+.fas, .far, .fab {
+    display: inline-block;
+    width: 1em;
+    text-align: center
+    }
 figure {
     margin: var(--space-3xl) 0
     }

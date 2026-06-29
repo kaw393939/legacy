@@ -6,7 +6,7 @@
     right: 25px;
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    background: linear-gradient(135deg, var(--whatsapp-500) 0%, var(--whatsapp-700) 100%);
     color: var(--white);
     border-radius: var(--radius-full);
     font-size: 1.8rem;

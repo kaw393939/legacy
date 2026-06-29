@@ -54,6 +54,13 @@
     --gray-700: #52606D;     /* Headings */
     --gray-800: #3E4C59;
     --gray-900: #323F4B;     /* Darkest text */
+
+    /* Semantic state and platform colors */
+    --danger-500: #dc3545;
+    --danger-600: #c82333;
+    --warning-500: #F59E0B;
+    --whatsapp-500: #25D366;
+    --whatsapp-700: #128C7E;
     /* Spacing Scale - 8pt Grid System (Fortune 100 Standard) */
     --space-0: 0;
     --space-xs: 0.25rem;     /* 4px */

@@ -7,6 +7,46 @@
     const root = doc.documentElement;
     const analyticsEnabled = Boolean(win.ldAnalyticsEnabled && typeof win.gtag === 'function');
     const conversionValues = win.CONVERSION_VALUES || {};
+    const contactIntentOptions = [
+        {
+            terms: ['single decision', 'only heir', 'sole heir'],
+            situation: 'Single decision-maker inherited home',
+            role: 'Sole heir or single decision maker',
+            urgent: 'Preparing to sell, rent, move in, or renovate'
+        },
+        {
+            terms: ['out-of-state', 'out of state', 'local coordination', 'cannot be there'],
+            situation: 'Out-of-state executor or local coordination',
+            role: 'Executor or administrator',
+            urgent: 'I need local provider coordination from out of town'
+        },
+        {
+            terms: ['belongings', 'inventory', 'item', 'storage', 'shipping', 'donation'],
+            situation: 'House full of belongings',
+            urgent: 'The house is full of belongings'
+        },
+        {
+            terms: ['urgent bills', 'property risk', 'carrying', 'mortgage', 'tax', 'utility', 'utilities', 'insurance', 'stabilization', 'vacant'],
+            situation: 'Urgent bills or property risk',
+            urgent: 'Mortgage, taxes, utilities, or insurance'
+        },
+        {
+            terms: ['prearranged', 'plan ahead', 'readiness', 'children'],
+            situation: 'Prearranged legacy readiness planning',
+            role: 'Parent or homeowner planning ahead',
+            urgent: 'Planning before heirs are overwhelmed',
+            authority: 'Planning ahead before a death or crisis'
+        },
+        {
+            terms: ['professional', 'referral', 'attorney', 'cpa', 'realtor', 'lender', 'records support'],
+            situation: 'Professional referral or records support',
+            role: 'Professional referral source'
+        },
+        {
+            terms: ['pricing', 'services', 'estate math', 'free guide', 'worksheet', 'probate'],
+            situation: 'Pricing, services, or general estate math'
+        }
+    ];
 
     const $ = (selector, scope = doc) => scope.querySelector(selector);
     const $$ = (selector, scope = doc) => Array.from(scope.querySelectorAll(selector));
@@ -44,6 +84,14 @@
             value,
             currency: 'USD'
         });
+    }
+
+    function selectByText(select, text) {
+        if (!select || !text || select.value) return false;
+        const option = Array.from(select.options).find((item) => item.text === text);
+        if (!option) return false;
+        select.value = option.text;
+        return true;
     }
 
     function textOf(element) {
@@ -631,58 +679,9 @@
         const hidden = form.querySelector('input[name="Requested interest"]');
         if (hidden) hidden.value = interest;
 
-        function selectByText(select, text) {
-            if (!select || !text || select.value) return false;
-            const option = Array.from(select.options).find((item) => item.text === text);
-            if (!option) return false;
-            select.value = option.text;
-            return true;
-        }
-
         function intentFor(value) {
             const normalized = value.toLowerCase();
-            const options = [
-                {
-                    terms: ['single decision', 'only heir', 'sole heir'],
-                    situation: 'Single decision-maker inherited home',
-                    role: 'Sole heir or single decision maker',
-                    urgent: 'Preparing to sell, rent, move in, or renovate'
-                },
-                {
-                    terms: ['out-of-state', 'out of state', 'local coordination', 'cannot be there'],
-                    situation: 'Out-of-state executor or local coordination',
-                    role: 'Executor or administrator',
-                    urgent: 'I need local provider coordination from out of town'
-                },
-                {
-                    terms: ['belongings', 'inventory', 'item', 'storage', 'shipping', 'donation'],
-                    situation: 'House full of belongings',
-                    urgent: 'The house is full of belongings'
-                },
-                {
-                    terms: ['urgent bills', 'property risk', 'carrying', 'mortgage', 'tax', 'utility', 'utilities', 'insurance', 'stabilization', 'vacant'],
-                    situation: 'Urgent bills or property risk',
-                    urgent: 'Mortgage, taxes, utilities, or insurance'
-                },
-                {
-                    terms: ['prearranged', 'plan ahead', 'readiness', 'children'],
-                    situation: 'Prearranged legacy readiness planning',
-                    role: 'Parent or homeowner planning ahead',
-                    urgent: 'Planning before heirs are overwhelmed',
-                    authority: 'Planning ahead before a death or crisis'
-                },
-                {
-                    terms: ['professional', 'referral', 'attorney', 'cpa', 'realtor', 'lender', 'records support'],
-                    situation: 'Professional referral or records support',
-                    role: 'Professional referral source'
-                },
-                {
-                    terms: ['pricing', 'services', 'estate math', 'free guide', 'worksheet', 'probate'],
-                    situation: 'Pricing, services, or general estate math'
-                }
-            ];
-
-            return options.find((option) => option.terms.some((term) => normalized.includes(term))) || {
+            return contactIntentOptions.find((option) => option.terms.some((term) => normalized.includes(term))) || {
                 situation: 'I am not sure yet'
             };
         }
