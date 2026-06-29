@@ -6,7 +6,7 @@
 {% from "macros/ui.html" import cta_link %}
 
 {% macro service_card(service) -%}
-<div class="service-card flex flex-col items-center {% if service.popular %}most-popular{% endif %}"
+<div{% if service.id %} id="{{ service.id }}"{% endif %} class="service-card flex flex-col items-center {% if service.popular %}most-popular{% endif %}"
      data-service="{{ service.title }}"
      data-phase="{{ service.journey_phase }}"
      data-psychology="{{ service.psychological_appeal }}">

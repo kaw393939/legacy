@@ -575,7 +575,7 @@
     font-size: clamp(1.125rem, 2.5vw, 1.375rem);
     font-weight: var(--font-weight-bold);
     color: var(--navy-700);
-    margin-bottom: var(--space-xs);
+    margin: 0 0 var(--space-xs);
     text-align: center;
     letter-spacing: -0.01em;
     line-height: 1.3;
@@ -618,7 +618,6 @@
     color: var(--gray-700);
     line-height: 1.5;
     margin-bottom: var(--space-sm);
-    flex-grow: 1;
     text-align: center;
     }
 

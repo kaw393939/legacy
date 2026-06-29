@@ -8,8 +8,8 @@ html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-    scroll-padding-top: var(--scroll-offset)
+    scroll-behavior: auto;
+    scroll-padding-top: 0
     }
 @media (prefers-reduced-motion: reduce) {
     html {
@@ -71,7 +71,12 @@ li {
     }
 
 /* Anchor targets should not hide under sticky header */
-section[id] {
+section[id],
+.journey-phase[id],
+.service-card[id],
+.content-page [id],
+.content [id],
+article [id] {
     scroll-margin-top: var(--scroll-offset)
     }
 li:last-child {

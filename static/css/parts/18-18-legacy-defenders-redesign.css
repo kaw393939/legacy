@@ -160,7 +160,9 @@
 }
 
 .situation-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     min-height: 100%;
     padding: var(--space-lg);
     border: 1px solid var(--gray-200);
@@ -186,7 +188,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     border-radius: var(--radius-full);
     background: var(--navy-50);
     color: var(--teal-700);
@@ -197,7 +199,7 @@
     color: var(--navy-800);
     font-size: var(--font-size-lg);
     line-height: 1.25;
-    margin-bottom: var(--space-sm);
+    margin: 0 0 var(--space-sm);
 }
 
 .situation-card p {

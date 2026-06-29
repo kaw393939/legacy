@@ -455,8 +455,18 @@
 
     function initSmoothScroll() {
         const header = $('#header') || $('.header');
+        const reduceMotion = win.matchMedia && win.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const smoothBehavior = reduceMotion ? 'auto' : 'smooth';
 
         function scrollToHash(hash, updateLocation = true, behavior = 'smooth') {
+            if (hash === '#header' || hash === '#top') {
+                win.scrollTo({ top: 0, behavior });
+                if (updateLocation && win.history && win.history.pushState) {
+                    win.history.pushState(null, '', hash);
+                }
+                return true;
+            }
+
             const target = getHashTarget(hash);
             if (!target) return false;
 
@@ -483,7 +493,7 @@
             const href = anchor.getAttribute('href');
             if (!href || href === '#') {
                 event.preventDefault();
-                win.scrollTo({ top: 0, behavior: 'smooth' });
+                win.scrollTo({ top: 0, behavior: smoothBehavior });
                 return;
             }
 
@@ -497,24 +507,16 @@
             if (!url.hash || !samePage(url)) return;
 
             event.preventDefault();
-            scrollToHash(url.hash);
+            scrollToHash(url.hash, true, smoothBehavior);
         });
 
-        function retryInitialHash() {
-            if (!win.location.hash) return;
-
-            let attempts = 0;
-            const retry = () => {
-                attempts += 1;
-                const done = scrollToHash(win.location.hash, false, attempts === 1 ? 'auto' : 'smooth');
-                if (!done && attempts < 8) win.setTimeout(retry, 150);
-            };
-
-            retry();
-        }
-
-        retryInitialHash();
-        on(win, 'load', retryInitialHash, { once: true });
+        on(win, 'popstate', () => {
+            if (win.location.hash) {
+                scrollToHash(win.location.hash, false, 'auto');
+            } else {
+                win.scrollTo({ top: 0, behavior: 'auto' });
+            }
+        });
     }
 
     function initScrollState() {
