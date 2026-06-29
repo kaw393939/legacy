@@ -2,8 +2,8 @@
 
 /* Hero: human, calm, full-bleed, no card */
 .hero {
-    min-height: clamp(520px, 72vh, 610px);
-    padding: clamp(3rem, 6vh, 4.5rem) var(--space-lg) clamp(2.25rem, 4vh, 3rem);
+    min-height: clamp(440px, 56vh, 500px);
+    padding: clamp(1rem, 2.75vh, 1.5rem) var(--space-lg) clamp(1rem, 2vh, 1.5rem);
     background-position: center right;
     background-attachment: scroll;
     display: flex;
@@ -59,7 +59,7 @@
     max-width: 680px;
     margin-left: 0;
     margin-right: 0;
-    font-size: clamp(2.5rem, 5vw, 4.25rem);
+    font-size: clamp(2.35rem, 4.5vw, 3.85rem);
     line-height: 1.02;
     letter-spacing: 0;
 }
@@ -76,7 +76,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-sm) var(--space-md);
     padding: 0;
-    margin: 0 0 var(--space-lg);
+    margin: 0 0 var(--space-md);
     max-width: 640px;
 }
 
@@ -84,8 +84,8 @@
     display: flex;
     align-items: center;
     gap: var(--space-sm);
-    min-height: 38px;
-    padding: 0.5rem 0.75rem;
+    min-height: 34px;
+    padding: 0.42rem 0.7rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.10);

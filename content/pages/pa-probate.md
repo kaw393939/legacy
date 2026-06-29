@@ -162,13 +162,13 @@ Legacy Defenders can help the executor prepare a custom stabilization and fundin
 
 The goal is to help the executor and heirs make the best informed decision available: sell, keep, rent, move in, refinance, repair in phases, or use a financing path designed to protect rather than exploit the estate.
 
-## Working With Attorneys And CPAs
+## Working With Attorneys, CPAs, Realtors, And Referral Partners
 
-You can use your own attorney, CPA, or tax preparer. If you do not have them, we can introduce preferred or affiliated professionals who understand probate, inherited homes, estate records, and property coordination.
+You can use your own attorney, CPA, tax preparer, realtor, lender, or other trusted advisor. If you do not have them, we can introduce preferred or affiliated professionals who understand probate, inherited homes, estate records, and property coordination.
 
 Because our process is standardized, those professionals may be able to work more efficiently and may offer discounted or packaged rates where available. The same principle applies to practical service providers: clear scopes and repeat relationships can reduce quote-chasing and improve pricing discipline where preferred rates are available. Their legal, tax, licensed, or professional advice, engagement terms, and fees come directly from them.
 
-We do not replace the attorney or CPA. We make their job easier by organizing the house side of the problem:
+We do not replace the attorney, CPA, realtor, lender, or referral partner. We make their job easier by organizing the house side of the problem:
 
 - property status
 - photos
@@ -181,8 +181,9 @@ We do not replace the attorney or CPA. We make their job easier by organizing th
 - donation/disposal records
 - financing scope questions
 - executor decision history
+- updates a professional can review without becoming the property project manager
 
-The executor and attorney should review authority before major decisions such as borrowing against the property, signing lien documents, selling the home, distributing property, or approving large repairs.
+The executor and attorney should review authority before major decisions such as borrowing against the property, signing lien documents, selling the home, distributing property, or approving large repairs. Realtors, lenders, tax professionals, and referral partners can stay focused on their role while Legacy Defenders helps organize the practical property work and records.
 
 ## Learn What Matters Before You Hire Anyone
 

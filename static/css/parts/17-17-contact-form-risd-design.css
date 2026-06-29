@@ -88,6 +88,21 @@
     margin: 0 0 1.5rem;
 }
 
+.contact-context-note {
+    margin: 0 0 var(--space-lg);
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(43, 165, 153, 0.32);
+    border-radius: var(--radius-md);
+    background: var(--teal-50);
+    color: var(--navy-800);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5;
+}
+
+.contact-context-note[hidden] {
+    display: none;
+}
+
 .care-intake-form {
     display: flex;
     flex-direction: column;

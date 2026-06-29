@@ -10,12 +10,14 @@
                 <div class="form-wrapper">
                     <h3>Start with the situation, not a sales pitch.</h3>
                     <p class="care-intake-lede">A few details help us understand the estate math: the home, belongings, executor authority, family decision needs, service-provider needs, and any bills or property risks that cannot wait.</p>
+                    <p class="contact-context-note" data-contact-context hidden></p>
 
                     <form class="care-intake-form" action="https://formsubmit.co/{{ site.email }}" method="post" data-form="care-intake">
                         <input type="hidden" name="_subject" value="New Legacy Defenders care request">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="{{ site.url }}/thank-you.html">
+                        <input type="hidden" name="Requested interest" value="">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contact-name">Name</label>

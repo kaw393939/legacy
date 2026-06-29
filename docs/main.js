@@ -611,6 +611,45 @@
         observer.observe(contact);
     }
 
+    function initContactContext() {
+        const form = $('[data-form="care-intake"]');
+        if (!form || !win.URLSearchParams) return;
+
+        const params = new URLSearchParams(win.location.search || '');
+        const interest = (params.get('interest') || '').replace(/\+/g, ' ').trim();
+        if (!interest) return;
+
+        const hidden = form.querySelector('input[name="Requested interest"]');
+        if (hidden) hidden.value = interest;
+
+        const note = $('[data-contact-context]');
+        if (note) {
+            note.hidden = false;
+            note.textContent = `You clicked about ${interest}. We will use that to focus the free call.`;
+        }
+
+        const urgent = $('#contact-urgent');
+        if (urgent && !urgent.value) {
+            const normalized = interest.toLowerCase();
+            const optionText = normalized.includes('inventory') || normalized.includes('item') || normalized.includes('storage')
+                ? 'The house is full of belongings'
+                : normalized.includes('property') || normalized.includes('stabilization')
+                    ? 'Vacant home, lawn, access, leak, or code risk'
+                    : normalized.includes('funding') || normalized.includes('carrying')
+                        ? 'Mortgage, taxes, utilities, or insurance'
+                        : normalized.includes('market') || normalized.includes('recovery') || normalized.includes('restomod')
+                            ? 'Preparing to sell, rent, move in, or renovate'
+                            : normalized.includes('prearranged')
+                                ? 'Planning before heirs are overwhelmed'
+                                : '';
+
+            if (optionText) {
+                const option = Array.from(urgent.options).find((item) => item.text === optionText);
+                if (option) urgent.value = option.text;
+            }
+        }
+    }
+
     function initLazyImages() {
         const lazyImages = $$('img[data-src]');
         if (!lazyImages.length || !('IntersectionObserver' in win)) return;
@@ -775,6 +814,7 @@
         initSmoothScroll();
         initScrollState();
         initContactFloatState();
+        initContactContext();
         initLazyImages();
         initSkipLink();
         initFAQ();

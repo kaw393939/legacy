@@ -9,20 +9,20 @@
             </a>
             <nav class="nav flex items-center" id="main-nav" aria-label="Main navigation" role="navigation">
                 {% for item in navigation['main_nav'] %}
-                <a href="{{ item.url }}" 
+                <a href="{{ item.url }}"
                    class="nav-link{% if item.id == page.page_id %} active{% endif %}{% if item.highlight %} btn btn-primary{% endif %}{% if item.mobile_only %} nav-mobile-only{% endif %}"
                    {% if item.id == page.page_id %}aria-current="page"{% endif %}
-                   data-cta="{% if item.highlight %}primary{% else %}navigation{% endif %}" 
-                   data-section="header" 
+                   data-cta="{% if item.highlight %}primary{% else %}navigation{% endif %}"
+                   data-section="header"
                    data-destination="{{ item.url }}">
                    {{ item.title }}
                 </a>
                 {% endfor %}
             </nav>
-                <button class="mobile-menu-toggle" 
+                <button class="mobile-menu-toggle"
                     type="button"
-                    aria-label="Open menu" 
-                    aria-expanded="false" 
+                    aria-label="Open menu"
+                    aria-expanded="false"
                     aria-controls="main-nav">
                 <span></span>
                 <span></span>

@@ -3,8 +3,8 @@ main_nav:
     url: "index.html"
     id: "home"
 
-  - title: "Process"
-    url: "index.html#services"
+  - title: "Services"
+    url: "services.html"
     id: "services"
 
   - title: "DIY vs Us"
