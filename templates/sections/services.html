@@ -1,53 +1,53 @@
 {% from "macros/ui.html" import section_header %}
-{% from "macros/sections.html" import journey_phase %}
 
-<section class="services" id="services">
+<section class="services services-simple" id="services">
     <div class="container">
-        {{ section_header('Choose The First Bottleneck To Clear', 'Most families need one practical starting point: stabilize the house, organize belongings, coordinate trusted providers, or prepare the home for the next decision.') }}
+        {{ section_header('Three Ways We Make This Lighter', 'Most families do not need a long service menu first. They need help with the part of the house that is making the next decision hard.') }}
 
-        {{ journey_phase(
-            'stabilize',
-            'stabilize',
-            'fa-shield-heart',
-            'Understand And Stabilize The Situation',
-            'Identify urgent property, money, safety, timing, provider, and funding issues before they become bigger problems.',
-            services.home_scouting_services,
-            'home_scouting'
-        ) }}
+        <div class="service-path-grid" aria-label="Legacy Defenders simplified service path">
+            <article class="service-path-card">
+                <span><i class="fas fa-shield-heart" aria-hidden="true"></i></span>
+                <p class="ld-kicker">First</p>
+                <h3>Stabilize the home</h3>
+                <p>We help notice the urgent home concerns early: bills, access, utilities, insurance, vacancy, damage, and who needs to be called.</p>
+                <ul>
+                    <li>Free call and $250 home visit when useful</li>
+                    <li>Simple cost and risk picture</li>
+                    <li>Clear next-step plan</li>
+                </ul>
+            </article>
 
-        {{ journey_phase(
-            'inventory',
-            'inventory',
-            'fa-qrcode',
-            'Inventory, Route & Protect Belongings',
-            'Use care, photos, QR tags, storage, shipping, sale support, donation, and heir distribution to clear the bottleneck.',
-            services.settling_up_services,
-            'settling_up'
-        ) }}
+            <article class="service-path-card">
+                <span><i class="fas fa-boxes-stacked" aria-hidden="true"></i></span>
+                <p class="ld-kicker">Then</p>
+                <h3>Sort belongings with care</h3>
+                <p>We help protect memories, documents, and useful items while making a clear route for everything else.</p>
+                <ul>
+                    <li>Photos, notes, QR tags when useful</li>
+                    <li>Storage, shipping, donation, and disposal routing</li>
+                    <li>Clear item handling fees</li>
+                </ul>
+            </article>
 
-        {{ journey_phase(
-            'prepare',
-            'prepare',
-            'fa-house-chimney',
-            'Prepare The Home For What Comes Next',
-            'Coordinate trusted local providers to clean, repair, modernize, document, and support the next choice: sell, keep, rent, finance, or move in.',
-            services.support_services,
-            'support'
-        ) }}
+            <article class="service-path-card">
+                <span><i class="fas fa-house-chimney" aria-hidden="true"></i></span>
+                <p class="ld-kicker">When ready</p>
+                <h3>Prepare the next move</h3>
+                <p>Once the house is clearer, we help coordinate the approved work that prepares the next choice.</p>
+                <ul>
+                    <li>Trusted local provider coordination</li>
+                    <li>Cleaning, repairs, maintenance, and records</li>
+                    <li>Records for executor and professional review</li>
+                </ul>
+            </article>
+        </div>
 
-        <div class="services-notes" aria-label="Service notes">
-            <h3 class="section-subtitle">Important Notes</h3>
-
-            <div class="services-callout services-callout-warning" role="note">
-                <strong>Every estate is different:</strong> pricing, financing, taxes, deductions, liens, legal filings, sale decisions, and licensed work should be reviewed by the appropriate professional.
+        <div class="service-path-note">
+            <p class="ld-kicker">Important boundary</p>
+            <p>We do not replace your attorney, CPA, lender, realtor, appraiser, insurance professional, or licensed trades. We organize the house-side work so everyone has clearer information.</p>
+            <div class="page-action-buttons">
+                <a class="btn btn-primary" href="index.html?interest=Legacy%20Defenders%20Services#contact">Start With A Free Call</a>
             </div>
-
-            <ul class="service-features">
-                <li class="flex items-start">Legacy Defenders coordinates services and documentation; it does not replace legal, tax, lending, appraisal, brokerage, insurance, or licensed trade advice.</li>
-                <li class="flex items-start">Some services may be performed by affiliated companies or preferred partners with disclosed scopes and pricing.</li>
-                <li class="flex items-start">Preferred, negotiated, or volume-informed provider pricing is used where available, but every scope still needs review before approval.</li>
-                <li class="flex items-start">Our goal is to help the estate preserve value, save executor time, avoid panic decisions, and make informed choices during a difficult transition.</li>
-            </ul>
         </div>
     </div>
 </section>

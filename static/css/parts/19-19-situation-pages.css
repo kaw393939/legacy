@@ -1,0 +1,302 @@
+.situation-hero {
+  padding: clamp(5.5rem, 9vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+  background:
+    linear-gradient(135deg, rgba(240, 252, 251, 0.96), rgba(255, 255, 255, 0.94) 54%, rgba(255, 245, 245, 0.78)),
+    var(--white);
+}
+
+.situation-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.situation-hero-copy {
+  min-width: 0;
+}
+
+.situation-hero-copy .hero-title {
+  max-width: 12ch;
+  color: var(--navy-900);
+}
+
+.situation-hero .hero-eyebrow {
+  color: var(--teal-800);
+}
+
+.situation-hero-copy .hero-description {
+  max-width: 64ch;
+  color: var(--gray-700);
+}
+
+.situation-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 680px;
+  margin-top: var(--space-xl);
+}
+
+.situation-stats .stat-label {
+  color: var(--gray-600);
+}
+
+.situation-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+.situation-hero-media {
+  position: relative;
+  margin: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--navy-50);
+  box-shadow: var(--shadow-xl);
+}
+
+.situation-hero-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.situation-hero-media figcaption {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  left: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  background: rgba(16, 42, 67, 0.86);
+  color: var(--white);
+  font-size: var(--font-size-sm);
+  line-height: 1.45;
+}
+
+.situation-content {
+  max-width: 1120px;
+}
+
+.situation-narrative {
+  max-width: 78ch;
+  margin-bottom: var(--space-2xl);
+}
+
+.situation-section {
+  margin: var(--space-4xl) 0;
+}
+
+.situation-section > h2,
+.situation-list-panel h2 {
+  max-width: 16ch;
+}
+
+.situation-step-grid,
+.situation-timeline,
+.situation-record-grid,
+.situation-related-grid {
+  display: grid;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.situation-step-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.situation-step-grid article,
+.situation-timeline article,
+.situation-record-grid article {
+  min-width: 0;
+  padding: var(--space-lg);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.situation-step-grid article {
+  border-top: 4px solid var(--teal-500);
+}
+
+.situation-step-grid span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-full);
+  background: var(--teal-600);
+  color: var(--white);
+  font-weight: var(--font-weight-extrabold);
+}
+
+.situation-step-grid h3,
+.situation-record-grid h3 {
+  margin-top: 0;
+  color: var(--navy-800);
+  font-size: var(--font-size-xl);
+}
+
+.situation-step-grid p,
+.situation-timeline p,
+.situation-record-grid p,
+.situation-list-panel li,
+.situation-cost-note {
+  color: var(--gray-700);
+  line-height: 1.6;
+}
+
+.situation-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+}
+
+.situation-list-panel {
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.situation-list-panel.warning {
+  border-top: 4px solid var(--coral-500);
+}
+
+.situation-list-panel.trusted {
+  border-top: 4px solid var(--teal-500);
+}
+
+.situation-list-panel ul {
+  display: grid;
+  gap: var(--space-sm);
+  margin-bottom: 0;
+}
+
+.situation-cost-note,
+.situation-boundary {
+  margin-top: var(--space-lg);
+  padding: var(--space-md) var(--space-lg);
+  border-left: 4px solid var(--teal-500);
+  border-radius: var(--radius-sm);
+  background: var(--teal-50);
+}
+
+.situation-boundary {
+  margin: var(--space-3xl) 0;
+  border-left-color: var(--coral-500);
+  background: var(--coral-50);
+  color: var(--navy-800);
+  line-height: 1.65;
+}
+
+.situation-timeline {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.situation-timeline article {
+  border-top: 4px solid var(--navy-700);
+}
+
+.situation-timeline strong {
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--navy-800);
+  font-size: var(--font-size-lg);
+}
+
+.situation-record-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.situation-record-grid article {
+  border-top: 4px solid var(--teal-500);
+}
+
+.situation-related-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.situation-related-grid a {
+  display: grid;
+  gap: var(--space-xs);
+  min-width: 0;
+  min-height: 7rem;
+  padding: var(--space-lg);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--navy-800);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.situation-related-grid a:hover,
+.situation-related-grid a:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--teal-300);
+  box-shadow: var(--shadow-md);
+}
+
+.situation-related-grid span {
+  color: var(--teal-700);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-extrabold);
+  text-transform: uppercase;
+}
+
+.situation-related-grid strong {
+  font-size: var(--font-size-lg);
+  line-height: 1.25;
+}
+
+.situation-final-cta {
+  margin-bottom: 0;
+}
+
+@media (max-width: 980px) {
+  .situation-hero-grid,
+  .situation-split {
+    grid-template-columns: 1fr;
+  }
+
+  .situation-hero-copy .hero-title {
+    max-width: 14ch;
+  }
+
+  .situation-hero-media {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  .situation-hero {
+    padding: 4.5rem 0 2.25rem;
+  }
+
+  .situation-stats,
+  .situation-step-grid,
+  .situation-timeline,
+  .situation-record-grid,
+  .situation-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .situation-hero-actions .btn {
+    width: 100%;
+  }
+
+  .situation-hero-media figcaption {
+    position: static;
+    border-radius: 0;
+    background: var(--navy-900);
+  }
+}

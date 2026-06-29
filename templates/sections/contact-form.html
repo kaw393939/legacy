@@ -1,15 +1,15 @@
 <section class="contact-form-section" id="contact">
     <div class="container">
         <div class="section-header text-center">
-            <h2 class="section-title">Book A Free 1-Hour Estate Call</h2>
-            <p class="section-subtitle">Tell us what happened, where the home is, and what feels urgent. We will help you decide whether a $250 Estate Math Home Visit makes sense.</p>
+            <h2 class="section-title">Start With A Free Estate Call</h2>
+            <p class="section-subtitle">Tell us what happened and what feels urgent. We will help you decide the next safe step.</p>
         </div>
 
         <div class="contact-layout">
             <div class="form-container">
                 <div class="form-wrapper">
                     <h3>Start with the situation, not a sales pitch.</h3>
-                    <p class="care-intake-lede">A few details help us understand the estate math: the home, belongings, executor authority, family decision needs, service-provider needs, and any bills or property risks that cannot wait.</p>
+                    <p class="care-intake-lede">A few details help us understand the home, belongings, timing, and what is weighing on you most.</p>
                     <p class="contact-context-note" data-contact-context hidden></p>
 
                     <form class="care-intake-form" action="https://formsubmit.co/{{ site.email }}" method="post" data-form="care-intake">
@@ -17,7 +17,7 @@
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="{{ site.url }}/thank-you.html">
-                        <input type="hidden" name="Requested interest" value="">
+                        <input id="contact-interest-hidden" type="hidden" name="Requested interest" value="">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contact-name">Name</label>
@@ -40,10 +40,32 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="contact-situation">What best describes the situation?</label>
+                            <select id="contact-situation" name="Situation type">
+                                <option value="">Select one</option>
+                                <option>Single decision-maker inherited home</option>
+                                <option>Out-of-state executor or local coordination</option>
+                                <option>House full of belongings</option>
+                                <option>Urgent bills or property risk</option>
+                                <option>Prearranged legacy readiness planning</option>
+                                <option>Professional referral or records support</option>
+                                <option>Pricing, services, or general estate math</option>
+                                <option>I am not sure yet</option>
+                            </select>
+                        </div>
+
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="contact-county">County or ZIP</label>
-                                <input id="contact-county" name="County or ZIP" type="text" placeholder="Allegheny County, 152xx, etc.">
+                                <label for="contact-role">Your role</label>
+                                <select id="contact-role" name="Role">
+                                    <option value="">Select one</option>
+                                    <option>Executor or administrator</option>
+                                    <option>Sole heir or single decision maker</option>
+                                    <option>Family member helping the executor</option>
+                                    <option>Parent or homeowner planning ahead</option>
+                                    <option>Professional referral source</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="contact-vacant">Is the home vacant?</label>
@@ -54,36 +76,6 @@
                                     <option>It will be vacant soon</option>
                                     <option>I am not sure</option>
                                 </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="contact-role">Your role</label>
-                            <select id="contact-role" name="Role">
-                                <option value="">Select one</option>
-                                <option>Executor or administrator</option>
-                                <option>Sole heir or single decision maker</option>
-                                <option>Family member helping the executor</option>
-                                <option>Parent or homeowner planning ahead</option>
-                                <option>Professional referral source</option>
-                            </select>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact-authority">Executor authority status</label>
-                                <select id="contact-authority" name="Executor authority status">
-                                    <option value="">Select one</option>
-                                    <option>Letters granted / authority is clear</option>
-                                    <option>Will found, but probate is not complete</option>
-                                    <option>No will or unsure who has authority</option>
-                                    <option>I need attorney guidance first</option>
-                                    <option>Planning ahead before a death or crisis</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="contact-deadline">Urgent deadline</label>
-                                <input id="contact-deadline" name="Urgent deadline" type="text" placeholder="Tax, code, closing date">
                             </div>
                         </div>
 
@@ -101,32 +93,26 @@
                             </select>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact-time">Preferred contact time</label>
-                                <input id="contact-time" name="Preferred contact time" type="text" placeholder="Best time to call">
-                            </div>
-                            <div class="form-group form-check-group">
-                                <input id="contact-text-ok" name="Okay to text" type="checkbox" value="Yes">
-                                <label for="contact-text-ok">It is okay to text me about this request.</label>
-                            </div>
-                        </div>
-
                         <div class="form-group">
                             <label for="contact-message">What happened?</label>
                             <textarea id="contact-message" name="Situation" rows="6" placeholder="Tell us the basics: who is handling the estate, where the home is, what condition it is in, and what you are worried about most."></textarea>
                         </div>
 
+                        <div class="form-group form-check-group">
+                            <input id="contact-text-ok" name="Okay to text" type="checkbox" value="Yes">
+                            <label for="contact-text-ok">It is okay to text me about this request.</label>
+                        </div>
+
                         <div class="form-actions">
                             <button class="btn btn-primary" type="submit">
-                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Request Free Call
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Start With A Free Call
                             </button>
                             <a class="btn btn-outline" href="tel:+1{{ site.phone }}">
                                 <i class="fas fa-phone" aria-hidden="true"></i> Call {{ site.phone_display }}
                             </a>
                         </div>
 
-                        <p class="form-note">This form is for first contact only. The free call helps decide whether a $250 credited home visit, professional review, or immediate property action is the right next step.</p>
+                        <p class="form-note">This is only the first step. The free call helps decide whether a $250 credited home visit, a DIY next step, or another professional should come first.</p>
                     </form>
                 </div>
             </div>

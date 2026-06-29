@@ -2,44 +2,16 @@
 
 <section class="customer-situations section-spacing" id="start-here">
     <div class="container">
-        {{ section_header('Start With Your Situation', 'Pick the closest starting point. Each path takes you to the service or guide that matches the problem you are trying to solve first.') }}
+        {{ section_header('Start With Your Situation', 'Pick the closest one. You do not need the perfect label. The first call helps sort out the rest.') }}
 
         <div class="situation-grid" aria-label="Inherited home customer situations">
-            <a class="situation-card" href="diy-vs-us.html#single-decision-maker-discount">
-                <span><i class="fas fa-user-check" aria-hidden="true"></i></span>
-                <h3>I am the only heir or decision maker</h3>
-                <p>Legally simpler can still be emotionally overwhelming. See how the single decision-maker discount works.</p>
+            {% for situation in situations.featured %}
+            <a class="situation-card" href="{{ situation.url }}" data-situation="{{ situation.id }}">
+                <span><i class="fas {{ situation.icon }}" aria-hidden="true"></i></span>
+                <h3>{{ situation.title }}</h3>
+                <p>{{ situation.description }}</p>
             </a>
-
-            <a class="situation-card" href="services.html#provider-coordination">
-                <span><i class="fas fa-route" aria-hidden="true"></i></span>
-                <h3>I live out of state or cannot be there</h3>
-                <p>See how provider coordination handles access, local scopes, progress photos, belongings, storage, and updates when you cannot supervise everything yourself.</p>
-            </a>
-
-            <a class="situation-card" href="services.html#qr-inventory">
-                <span><i class="fas fa-box-open" aria-hidden="true"></i></span>
-                <h3>The house is full of belongings</h3>
-                <p>Start with inventory, photos, QR tags, family decisions, storage, shipping, sale support, donation, disposal, and heir distribution.</p>
-            </a>
-
-            <a class="situation-card" href="services.html#property-stabilization">
-                <span><i class="fas fa-file-invoice-dollar" aria-hidden="true"></i></span>
-                <h3>Bills or property risks cannot wait</h3>
-                <p>Stabilize locks, access, lawn, utilities, insurance, safety, urgent repairs, and bill pressure before small problems become expensive.</p>
-            </a>
-
-            <a class="situation-card" href="prearranged.html">
-                <span><i class="fas fa-folder-tree" aria-hidden="true"></i></span>
-                <h3>I want to plan ahead for my children</h3>
-                <p>Prearranged planning documents the home, important belongings, wishes, contacts, and activation plan before a crisis.</p>
-            </a>
-
-            <a class="situation-card" href="pa-probate.html#working-with-attorneys-cpas-realtors-and-referral-partners">
-                <span><i class="fas fa-handshake" aria-hidden="true"></i></span>
-                <h3>I am an attorney, CPA, realtor, or referral partner</h3>
-                <p>See how we support executor records, house-side documentation, scopes, photos, provider communication, and professional review.</p>
-            </a>
+            {% endfor %}
         </div>
     </div>
 </section>

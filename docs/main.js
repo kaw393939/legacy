@@ -470,12 +470,11 @@
             const target = getHashTarget(hash);
             if (!target) return false;
 
-            const headerHeight = header ? header.offsetHeight : 0;
-            const top = Math.max(0, target.getBoundingClientRect().top + win.pageYOffset - headerHeight - 20);
-
             try {
-                win.scrollTo({ top, behavior });
+                target.scrollIntoView({ behavior, block: 'start' });
             } catch (error) {
+                const headerHeight = header ? header.offsetHeight : 0;
+                const top = Math.max(0, target.getBoundingClientRect().top + win.pageYOffset - headerHeight - 20);
                 win.scrollTo(0, top);
             }
 
@@ -598,17 +597,25 @@
 
     function initContactFloatState() {
         const contact = $('#contact');
+        const footer = $('.footer');
         const float = $('.whatsapp-float');
-        if (!contact || !float || !('IntersectionObserver' in win)) return;
+        const blockers = [contact, footer].filter(Boolean);
+        if (!blockers.length || !float || !('IntersectionObserver' in win)) return;
+
+        const visibleBlockers = new Map();
 
         const observer = new IntersectionObserver((entries) => {
-            doc.body.classList.toggle('contact-in-view', entries.some((entry) => entry.isIntersecting));
+            entries.forEach((entry) => visibleBlockers.set(entry.target, entry.isIntersecting));
+            doc.body.classList.toggle('contact-in-view', Array.from(visibleBlockers.values()).some(Boolean));
         }, {
             threshold: 0.08,
             rootMargin: '-80px 0px -12% 0px'
         });
 
-        observer.observe(contact);
+        blockers.forEach((blocker) => {
+            visibleBlockers.set(blocker, false);
+            observer.observe(blocker);
+        });
     }
 
     function initContactContext() {
@@ -622,6 +629,67 @@
         const hidden = form.querySelector('input[name="Requested interest"]');
         if (hidden) hidden.value = interest;
 
+        function selectByText(select, text) {
+            if (!select || !text || select.value) return false;
+            const option = Array.from(select.options).find((item) => item.text === text);
+            if (!option) return false;
+            select.value = option.text;
+            return true;
+        }
+
+        function intentFor(value) {
+            const normalized = value.toLowerCase();
+            const options = [
+                {
+                    terms: ['single decision', 'only heir', 'sole heir'],
+                    situation: 'Single decision-maker inherited home',
+                    role: 'Sole heir or single decision maker',
+                    urgent: 'Preparing to sell, rent, move in, or renovate'
+                },
+                {
+                    terms: ['out-of-state', 'out of state', 'local coordination', 'cannot be there'],
+                    situation: 'Out-of-state executor or local coordination',
+                    role: 'Executor or administrator',
+                    urgent: 'I need local provider coordination from out of town'
+                },
+                {
+                    terms: ['belongings', 'inventory', 'item', 'storage', 'shipping', 'donation'],
+                    situation: 'House full of belongings',
+                    urgent: 'The house is full of belongings'
+                },
+                {
+                    terms: ['urgent bills', 'property risk', 'carrying', 'mortgage', 'tax', 'utility', 'utilities', 'insurance', 'stabilization', 'vacant'],
+                    situation: 'Urgent bills or property risk',
+                    urgent: 'Mortgage, taxes, utilities, or insurance'
+                },
+                {
+                    terms: ['prearranged', 'plan ahead', 'readiness', 'children'],
+                    situation: 'Prearranged legacy readiness planning',
+                    role: 'Parent or homeowner planning ahead',
+                    urgent: 'Planning before heirs are overwhelmed',
+                    authority: 'Planning ahead before a death or crisis'
+                },
+                {
+                    terms: ['professional', 'referral', 'attorney', 'cpa', 'realtor', 'lender', 'records support'],
+                    situation: 'Professional referral or records support',
+                    role: 'Professional referral source'
+                },
+                {
+                    terms: ['pricing', 'services', 'estate math', 'free guide', 'worksheet', 'probate'],
+                    situation: 'Pricing, services, or general estate math'
+                }
+            ];
+
+            return options.find((option) => option.terms.some((term) => normalized.includes(term))) || {
+                situation: 'I am not sure yet'
+            };
+        }
+
+        const intent = intentFor(interest);
+        selectByText($('#contact-situation'), intent.situation);
+        selectByText($('#contact-role'), intent.role);
+        selectByText($('#contact-authority'), intent.authority);
+
         const note = $('[data-contact-context]');
         if (note) {
             note.hidden = false;
@@ -629,25 +697,7 @@
         }
 
         const urgent = $('#contact-urgent');
-        if (urgent && !urgent.value) {
-            const normalized = interest.toLowerCase();
-            const optionText = normalized.includes('inventory') || normalized.includes('item') || normalized.includes('storage')
-                ? 'The house is full of belongings'
-                : normalized.includes('property') || normalized.includes('stabilization')
-                    ? 'Vacant home, lawn, access, leak, or code risk'
-                    : normalized.includes('funding') || normalized.includes('carrying')
-                        ? 'Mortgage, taxes, utilities, or insurance'
-                        : normalized.includes('market') || normalized.includes('recovery') || normalized.includes('restomod')
-                            ? 'Preparing to sell, rent, move in, or renovate'
-                            : normalized.includes('prearranged')
-                                ? 'Planning before heirs are overwhelmed'
-                                : '';
-
-            if (optionText) {
-                const option = Array.from(urgent.options).find((item) => item.text === optionText);
-                if (option) urgent.value = option.text;
-            }
-        }
+        selectByText(urgent, intent.urgent);
     }
 
     function initLazyImages() {
@@ -688,6 +738,7 @@
         const searchInput = $('#faq-search');
         const filters = $$('.category-filter');
         const categories = $$('.faq-category');
+        const noResults = $('.faq-no-results');
         const itemData = items.map((item) => ({
             item,
             category: item.getAttribute('data-category') || '',
@@ -712,11 +763,21 @@
             if (data.answer) data.answer.style.maxHeight = `${data.answer.scrollHeight}px`;
         }
 
+        function updateOpenHeights() {
+            itemData.forEach((data) => {
+                if (data.item.classList.contains('active') && data.answer) {
+                    data.answer.style.maxHeight = `${data.answer.scrollHeight}px`;
+                }
+            });
+        }
+
         function dataForItem(item) {
             return itemData.find((data) => data.item === item);
         }
 
         function applyFilters() {
+            let visibleCount = 0;
+
             itemData.forEach((data) => {
                 const categoryMatch = selectedCategory === 'all' || data.category === selectedCategory;
                 const searchMatch = !searchTerm || data.text.includes(searchTerm);
@@ -724,12 +785,15 @@
 
                 data.item.classList.toggle('hidden', !visible);
                 if (!visible) closeItem(data);
+                if (visible) visibleCount += 1;
             });
 
             categories.forEach((category) => {
                 const hasVisibleItems = Boolean($('.faq-item:not(.hidden)', category));
                 category.style.display = hasVisibleItems ? 'block' : 'none';
             });
+
+            if (noResults) noResults.classList.toggle('hidden', visibleCount > 0);
         }
 
         doc.addEventListener('click', (event) => {
@@ -793,6 +857,8 @@
                 });
             }, 300);
         });
+
+        on(win, 'resize', updateOpenHeights, { passive: true });
     }
 
     function initPrintPrep() {
@@ -807,6 +873,16 @@
         });
     }
 
+    function initPrintActions() {
+        doc.addEventListener('click', (event) => {
+            const trigger = closest(event.target, '[data-print-page]');
+            if (!trigger) return;
+
+            event.preventDefault();
+            win.print();
+        });
+    }
+
     ready(() => {
         initDeferredFontAwesome();
         initAnalytics();
@@ -818,6 +894,7 @@
         initLazyImages();
         initSkipLink();
         initFAQ();
+        initPrintActions();
         initPrintPrep();
     });
 })();

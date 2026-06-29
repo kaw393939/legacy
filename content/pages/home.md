@@ -7,22 +7,17 @@ page_id: "home"
 hero:
   eyebrow: "Inherited home support for families and executors"
   title: "Inherited a home and don't know where to start?"
-  subtitle: "Start with a free one-hour call. We help executors understand the estate math, coordinate trusted local services, manage belongings, and move the house forward with less friction while the family is grieving."
+  subtitle: "Start with a calm free call. We help you understand what matters first, what can wait, and whether a $250 home visit would make the next decision easier."
   image: "images/hero/legacy-defenders-care-hero.webp"
   image_alt: "A care coordinator helping an heir organize belongings in an inherited family home"
   proof_points:
     - "Free 1-hour estate call"
     - "$250 credited home visit"
-    - "Inventory and provider coordination"
-    - "Records for professional review"
+    - "Belongings, bills, providers, and records organized"
   cta_primary:
-    text: "Book A Free 1-Hour Call"
+    text: "Start With A Free Call"
     url: "#contact"
     icon: "fa-heart"
-  cta_secondary:
-    text: "See The $250 Visit"
-    url: "#what-happens-first"
-    icon: "fa-clipboard-list"
 
 sections:
   show_value_props: true
@@ -41,11 +36,11 @@ services:
     button_url: "#contact"
 
 cta:
-  title: "Time matters. Confusion is expensive."
-  description: "We help you move quickly without being rushed into the wrong decision. The goal is to protect the home, preserve what matters, use the right local services, and recover as much estate value as practical."
+  title: "You do not have to solve the whole house today."
+  description: "We help you move quickly without being rushed into the wrong decision. The goal is to protect the home, preserve what matters, and make the next step clear."
   background_image: "images/proof/smoke-remediation-before-after.jpg"
   buttons:
-    - text: "Book A Free 1-Hour Call"
+    - text: "Start With A Free Call"
       url: "#contact"
       icon: "fa-clipboard-list"
       style: "primary"
@@ -65,8 +60,8 @@ seo:
   twitter_image: "https://kaw393939.github.io/legacy/images/social/twitter-card.jpg"
 ---
 
-## You deserve time to grieve. We make sure the urgent things still get handled.
+## You deserve time to grieve. We help with the urgent house decisions.
 
-When the last parent dies, families can inherit more than a house. They inherit bills, belongings, repairs, legal deadlines, family decisions, service-provider calls, and pressure from people who want them to sell too fast.
+When a parent dies, the house can become urgent before the family is ready. Bills, belongings, repairs, access, insurance, family questions, and provider calls all arrive at once.
 
-Legacy Defenders was built from lived experience. Keith almost lost most of the value in his inherited home. Mike knew the pain of losing a family home. Rachel understands deep family loss. Together, the team built a care-led process to help executors understand the estate, centralize the work, preserve value, and get the approved work done with less confusion.
+Legacy Defenders was built from lived experience. We help executors and families slow the moment down, understand what matters first, and choose the next safe step.

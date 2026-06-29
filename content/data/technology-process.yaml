@@ -1,6 +1,6 @@
 technology_process:
   section_title: "Care-Led Decisions, Supported by AI"
-  section_subtitle: "Technology should make the inheritance process less overwhelming, not less human. We use AI, photos, color-coded QR tags, storage records, shipping notes, service-provider scopes, and market data to help families see options clearly before they spend money or let things go."
+  section_subtitle: "Technology should make the inheritance process less overwhelming, not less human. We use AI, photos, color-coded QR tags, storage records, shipping notes, provider scopes, and market data to help families see options clearly before they spend money or let things go."
   image: "images/technology/ai-care-planning.jpg"
   image_alt: "A care coordinator using a tablet with an heir to review AI-assisted home planning and tagged belongings"
   kicker: "Human judgment first"
@@ -51,7 +51,7 @@ technology_process:
         - "Executor-visible item status and paper trail"
 
     - id: deferred-maintenance
-      title: "Handle Deferred Maintenance Without Panic"
+      title: "Handle Deferred Maintenance With A Clear Order"
       icon: "fa-house-chimney-crack"
       description: "Many inherited homes have not been fully maintained for years. We stabilize the property first, then separate urgent repairs from improvements that actually help the next decision and coordinate qualified local providers where needed."
       bullets:

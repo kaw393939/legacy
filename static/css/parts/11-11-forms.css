@@ -169,19 +169,38 @@
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    transition: max-height var(--transition-smooth), opacity var(--transition-smooth);
+    padding: 0 1.5rem;
+    transition: max-height var(--transition-smooth), opacity var(--transition-smooth), padding var(--transition-smooth);
     background: var(--gray-50);
     }
 .faq-answer p {
-    padding: 0 1.5rem 1.5rem 1.5rem;
-    margin: 0;
-    color: var(--gray-600);
-    line-height: 1.75;
+    padding: 0;
+    margin: 0 0 0.875rem;
+    color: var(--gray-700);
+    line-height: 1.65;
     font-size: 1rem;
     }
+.faq-answer p:last-child {
+    margin-bottom: 0;
+    }
+.faq-answer ul,
+.faq-answer ol {
+    margin: 0.45rem 0 0.95rem;
+    padding-left: 1.25rem;
+    color: var(--gray-700);
+    }
+.faq-answer li {
+    margin-bottom: 0.45rem;
+    line-height: 1.6;
+    }
+.faq-answer li:last-child {
+    margin-bottom: 0;
+    }
 .faq-item.active .faq-answer {
-    max-height: 800px;
+    max-height: 1200px;
     opacity: 1;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--gray-100);
     }
 
 /* Enhanced FAQ Features */
@@ -289,6 +308,21 @@
     max-height: 0;
     overflow: hidden;
     }
+.faq-no-results {
+    max-width: 720px;
+    margin: var(--space-xl) auto 0;
+    padding: var(--space-lg);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    background: var(--white);
+    color: var(--navy-800);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    line-height: 1.6;
+    }
+.faq-no-results.hidden {
+    display: none;
+    }
 
 .faq-cta {
     background: linear-gradient(135deg, var(--navy-700) 0%, var(--navy-800) 100%);
@@ -331,17 +365,21 @@
         padding: 0.5rem 0.75rem;
         font-size: 0.8125rem;
         }
-    
+
     .faq-question {
         padding: 1.25rem;
         font-size: 1rem;
         }
-    
+
+    .faq-item.active .faq-answer {
+        padding: 0.875rem 1.25rem 1.25rem;
+        }
+
     .faq-answer p {
-        padding: 0 1.25rem 1.25rem;
+        padding: 0;
         font-size: 0.9375rem;
         }
-    
+
     .category-title {
         font-size: var(--font-size-lg);
         }

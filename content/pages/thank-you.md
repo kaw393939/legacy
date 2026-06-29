@@ -3,10 +3,24 @@ layout: page
 title: "Thank You"
 description: "Your Legacy Defenders care request has been sent."
 page_id: "thank-you"
+active_nav: "contact"
 eyebrow: "Care request received"
+hero:
+  image: "images/hero/legacy-defenders-care-hero.webp"
+  alt: "Legacy Defenders care team reviewing an inherited home plan"
+  caption: "The next step is a practical call, not a pile of decisions."
+hero_actions:
+  - text: "Return Home"
+    url: "index.html"
+    icon: "fa-house"
+    style: "btn-primary"
+  - text: "Use The Worksheet"
+    url: "free-guide.html#the-inherited-home-cost-worksheet"
+    icon: "fa-table-list"
+    style: "btn-outline"
 seo:
   canonical: "/thank-you.html"
-  robots: "index, follow"
+  robots: "noindex, follow"
   og_type: "website"
 ---
 

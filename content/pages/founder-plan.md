@@ -1,9 +1,22 @@
 ---
 layout: internal
 title: "Founder Launch Plan: Legacy Defenders"
-description: "A lean, realistic launch plan for getting Legacy Defenders started in Allegheny County with the least friction: first offer, founder roles, cash compensation, deferred legal work, and first-project budgets."
+description: "Lean public launch plan for Legacy Defenders in Allegheny County: free calls, $250 visits, founder roles, first projects, and deferred legal spend."
 page_id: "founder-plan"
 eyebrow: "Working founder plan"
+hero:
+  image: "images/technology/ai-care-planning_900w.webp"
+  alt: "Founder launch planning dashboard for Legacy Defenders phases, roles, and budgets"
+  caption: "The operating plan is public for transparency, but the first milestone is one completed customer."
+hero_actions:
+  - text: "Read The Summary"
+    url: "founder-plan.html#executive-summary"
+    icon: "fa-list-check"
+    style: "btn-primary"
+  - text: "Go To First Projects"
+    url: "founder-plan.html#first-project-examples"
+    icon: "fa-diagram-project"
+    style: "btn-outline"
 stats:
   - number: "$125"
     label: "PA LLC filing fee"
@@ -13,6 +26,7 @@ stats:
     label: "Days to first paid sprint"
 seo:
   canonical: "/founder-plan.html"
+  robots: "noindex, follow"
   og_type: "website"
 ---
 
@@ -22,7 +36,7 @@ Legacy Defenders should launch as a practical service, not as a complicated comp
 
 The first version of the business has one job: help an executor or heir get control of an inherited home, the belongings inside it, the urgent property issues, and the next financial decision. The company does not need a warehouse, a full crew, custom software, employee payroll, a financing product, or a complex multi-company structure to prove that.
 
-The cheapest responsible path is:
+The leanest responsible path is:
 
 1. File the minimum business setup needed to invoice and separate money.
 2. Use the existing website, free guide, pricing examples, free one-hour call, and $250 Estate Math Home Visit to create the first paid diagnostic.
@@ -33,9 +47,25 @@ The cheapest responsible path is:
 
 This page is public for transparency, but it is a planning document. It is not legal, tax, insurance, employment, lending, or probate advice. Before Legacy Defenders uses customer contracts, founder equity, referral arrangements, financing, storage custody, or affiliated-company arrangements at scale, those details need attorney, CPA, and insurance review.
 
+## Executive Summary
+
+Launch Legacy Defenders as a founder-led service before building the complicated company. The first public offer is a free one-hour estate call, followed by a $250 Estate Math Home Visit when the situation fits. That visit creates a practical Estate Math Snapshot the family can keep and can be credited toward approved Legacy Defenders services for the same property.
+
+The lowest-friction path is:
+
+- publish the public offer, guide, pricing examples, and contact flow
+- prepare the free-call script, $250 visit checklist, item-routing workflow, and first proposal template
+- file only the minimum business setup needed to invoice, separate money, and insure in-home work
+- avoid financing promises, referral programs, heavy legal restructuring, warehouse leases, trucks, employees, or major spend until one customer is finished
+- sell one tightly scoped executor relief sprint that can be completed in 7-14 days
+- pay current project work from customer deposits and approved project revenue
+- use the first completed customer, margin review, photos, records, and lessons learned to fund the legal/accounting/insurance work that should match reality
+
+The founder rule is simple: cash compensation for current work and long-term equity are separate conversations. No one should rely on vague future ownership instead of being paid for actual launch labor, and no one should promise final equity until a real founder agreement is signed after the business has proof.
+
 <div class="ld-mission-panel" aria-label="Lean launch mission">
   <p class="ld-kicker">Lean launch mission</p>
-  <h2 id="lean-launch-mission">Finish one paid customer before building the expensive version</h2>
+  <h2 id="lean-launch-mission">Finish one paid customer before building the full version</h2>
   <p>The first milestone is not a franchise model. It is one completed customer, a useful case study, clean project records, paid founder work, and enough real numbers to decide what legal and operating structure is worth paying for next.</p>
   <div class="ld-mission-metrics">
     <span><strong>7 days</strong> to make the offer sellable</span>
@@ -46,6 +76,10 @@ This page is public for transparency, but it is a planning document. It is not l
 
 ## Plan Map
 
+<details class="content-details founder-full-memo" markdown="1">
+<summary>Open the full founder operating memo</summary>
+
+- [Executive summary](#executive-summary)
 - [Launch rule](#launch-rule)
 - [Allegheny County starting market](#allegheny-county-starting-market)
 - [Minimum setup before customer 1](#minimum-setup-before-customer-1)
@@ -240,7 +274,7 @@ The visit should produce a practical Estate Math Snapshot the customer can keep.
 
 - property condition and urgent risks
 - contents complexity and room-by-room bottlenecks
-- likely local service-provider needs
+- likely local provider needs
 - belongings routes: keep, deliver, ship, store, sell, donate, discard, research, review later
 - obvious records to preserve for executor, attorney, CPA, tax preparer, realtor, or lender
 - possible asset-offset ideas, such as saleable items, vehicles, equipment, or staged work
@@ -471,29 +505,17 @@ The first projects should be small enough to finish, useful enough to sell, and 
 **Best first customer:** one executor, local or out of town but reachable, safe house, full belongings, no active family dispute, light cleaning, basic item routing, local provider needs, and no major renovation.
 
 <div class="ld-proposal-card" aria-label="Executor relief sprint proposal snapshot">
-  <div>
-    <p class="ld-kicker">First customer target</p>
-    <h4>Executor Relief Sprint</h4>
-    <p>A 7-10 day paid sprint that turns a confusing inherited house into photos, item decisions, a cleaner first reset, provider scopes, and a practical next-step plan.</p>
-  </div>
-  <dl>
-    <div>
-      <dt>Customer price</dt>
-      <dd>$10,500 example, including credited $250 visit</dd>
-    </div>
-    <div>
-      <dt>Deposit</dt>
-      <dd>50% before scheduling labor</dd>
-    </div>
-    <div>
-      <dt>Timeline</dt>
-      <dd>7-10 days</dd>
-    </div>
-    <div>
-      <dt>Goal</dt>
-      <dd>Finish cleanly, prove the workflow, earn a testimonial</dd>
-    </div>
-  </dl>
+<div class="ld-proposal-summary">
+<p class="ld-kicker">First customer target</p>
+<h4>Executor Relief Sprint</h4>
+<p>A 7-10 day paid sprint that turns a confusing inherited house into photos, item decisions, a cleaner first reset, provider scopes, and a practical next-step plan.</p>
+</div>
+<div class="ld-proposal-facts">
+<p><span>Customer price</span><strong>$10,500 example, including credited $250 visit</strong></p>
+<p><span>Deposit</span><strong>50% before scheduling labor</strong></p>
+<p><span>Timeline</span><strong>7-10 days</strong></p>
+<p><span>Goal</span><strong>Finish cleanly, prove the workflow, earn a testimonial</strong></p>
+</div>
 </div>
 
 #### Steps
@@ -542,29 +564,17 @@ This project proves whether a real family will pay close to $10,000 for calm, do
 **Second or third customer target:** one clear decision maker, enough home value to justify work, realtor input, moderate contents, provider availability, cosmetic refresh, and no structural surprise.
 
 <div class="ld-proposal-card" aria-label="Market-ready reset proposal snapshot">
-  <div>
-    <p class="ld-kicker">After one clean sprint</p>
-    <h4>Market-Ready Reset</h4>
-    <p>A 3-4 week project that clears the house, handles belongings, coordinates providers, cleaning, and light repairs, and prepares the property for realtor review.</p>
-  </div>
-  <dl>
-    <div>
-      <dt>Customer price</dt>
-      <dd>$24,800 example</dd>
-    </div>
-    <div>
-      <dt>Deposit</dt>
-      <dd>40% start, staged draws</dd>
-    </div>
-    <div>
-      <dt>Timeline</dt>
-      <dd>3-4 weeks</dd>
-    </div>
-    <div>
-      <dt>Goal</dt>
-      <dd>Show preserved value without a major renovation</dd>
-    </div>
-  </dl>
+<div class="ld-proposal-summary">
+<p class="ld-kicker">After one clean sprint</p>
+<h4>Market-Ready Reset</h4>
+<p>A 3-4 week project that clears the house, handles belongings, coordinates providers, cleaning, and light repairs, and prepares the property for realtor review.</p>
+</div>
+<div class="ld-proposal-facts">
+<p><span>Customer price</span><strong>$24,800 example</strong></p>
+<p><span>Deposit</span><strong>40% start, staged draws</strong></p>
+<p><span>Timeline</span><strong>3-4 weeks</strong></p>
+<p><span>Goal</span><strong>Show preserved value without a major renovation</strong></p>
+</div>
 </div>
 
 #### Steps
@@ -596,7 +606,7 @@ This project should not be sold until the team has completed at least one sprint
 
 ### Project 3: Heavy Recovery Later
 
-A $35,000-$60,000 recovery project may become real later. It is not the cheapest path to launch.
+A $35,000-$60,000 recovery project may become real later. It is not the right path for launch.
 
 Do not accept heavy recovery until:
 
@@ -636,3 +646,5 @@ Do not accept heavy recovery until:
 The mission is the moat:
 
 **Families should not lose their legacy because they were overwhelmed at the wrong moment.**
+
+</details>

@@ -1,277 +1,160 @@
 ---
 layout: page
 title: "Free Inherited Home Guide & Cost Worksheet"
-description: "A practical guide for Pennsylvania families handling an inherited home: what you can do yourself, what people often miss, common expenses to budget for, and how a free one-hour call or $250 Estate Math Home Visit can turn the worksheet into a plan."
+description: "Free Pennsylvania inherited-home guide with a cost worksheet, first-week checklist, common expenses, and a $250 home-visit planning path."
 page_id: "free-guide"
 eyebrow: "Free guide and worksheet"
+hero:
+  image: "images/technology/ai-care-planning_900w.webp"
+  alt: "Estate cost worksheet and planning dashboard for inherited home expenses"
+  caption: "Use the worksheet yourself or bring it to the free call and $250 Estate Math Home Visit."
+hero_actions:
+  - text: "Use The Worksheet"
+    url: "free-guide.html#the-inherited-home-cost-worksheet"
+    icon: "fa-table-list"
+    style: "btn-primary"
 stats:
   - number: "Free"
     label: "1-hour estate call"
   - number: "$250"
     label: "Credited home visit"
   - number: "3 mo."
-    label: "PA inheritance tax discount window"
+    label: "PA tax discount window"
 seo:
   canonical: "/free-guide.html"
   og_type: "website"
 ---
 
-## Start Here: You Can Do A Lot Yourself
+## Use This Before You Spend Money
 
-If you inherited a home, you may be able to handle much of the work yourself. Many families can secure the property, gather bills, sort belongings, call service providers, and make a plan without hiring a full service team.
+You can do many inherited-home tasks yourself. The hard part is knowing what to do first while the family is grieving and the house is still creating bills, risks, and decisions.
 
-The problem is that most people do not know what they are about to run into. The work is not just "clean out the house." It is a mix of grief, family decisions, property risk, deadlines, carrying costs, repair choices, records, taxes, sale timing, and cash pressure.
-
-This guide helps you see the whole problem before it becomes expensive.
-
-<div class="page-action-panel">
-  <p class="ld-kicker">Before anything irreversible</p>
-  <h2>Call Before You Spend, Sell, Or Throw Things Away</h2>
-  <p>The first conversation does not obligate you to a large project. It can help before you accept a low offer, pay for cleanout, start repairs, or throw belongings away. The goal is to avoid the most common early mistakes: missing documents, losing sentimental items, overpaying providers, underpricing the house, or spending money in the wrong order.</p>
-  <div class="page-action-buttons">
-    <a class="btn btn-primary" href="index.html?interest=Free%20Guide%20Worksheet#contact">Book A Free 1-Hour Call</a>
-    <a class="btn btn-outline" href="diy-vs-us.html">Compare DIY vs Using Us</a>
-  </div>
-</div>
+This guide helps you make one simple list: what is urgent, what can wait, what may cost money, and what needs professional review.
 
 <div class="guide-callout">
   <p class="ld-kicker">Free to keep</p>
-  <h2>Use this worksheet yourself, or review it with a care coordinator.</h2>
-  <p>Legacy Defenders starts with a free one-hour estate call. When the location, timing, and situation fit, the next step is a $250 Estate Math Home Visit that turns the worksheet, the house, the belongings, and the provider needs into a practical snapshot. The $250 is credited toward approved Legacy Defenders services.</p>
-  <a class="btn btn-primary" href="index.html?interest=Free%20Guide%20Worksheet#contact">Book a free call</a>
+  <h2>Use the worksheet yourself, or review it with a care coordinator.</h2>
+  <p>The free call helps orient the situation. If the estate needs local eyes on the home, the $250 Estate Math Home Visit turns this worksheet into a practical plan for the property, belongings, costs, and next decision.</p>
+  <div class="page-action-buttons">
+    <button class="btn btn-primary" type="button" data-print-page>Print / Save worksheet</button>
+  </div>
 </div>
 
-## What To Do In The First Week
-
-The first week is about preventing small problems from turning into expensive ones.
+## First Week Checklist
 
 <div class="guide-step-grid" aria-label="First week checklist">
   <article>
     <span>1</span>
-    <h2>Confirm authority</h2>
-    <p>Find the will if there is one, identify the executor or likely administrator, and talk with an attorney before making major estate decisions.</p>
+    <h3>Confirm authority</h3>
+    <p>Find the will if there is one, identify the executor or likely administrator, and ask an attorney before major estate decisions.</p>
   </article>
   <article>
     <span>2</span>
-    <h2>Secure the property</h2>
-    <p>Check locks, keys, windows, heat, water, electric, alarms, mail, and signs of leaks, pests, break-ins, or weather damage.</p>
+    <h3>Secure the home</h3>
+    <p>Check locks, keys, heat, water, electric, mail, lawn, windows, leaks, pests, and signs of damage.</p>
   </article>
   <article>
     <span>3</span>
-    <h2>Gather bills</h2>
-    <p>Mortgage, taxes, insurance, utilities, HOA/condo dues, subscriptions, credit cards, medical bills, funeral costs, and provider invoices.</p>
+    <h3>Photograph first</h3>
+    <p>Take room photos before moving items. Photos help family decisions, records, repairs, and insurance questions.</p>
   </article>
   <article>
     <span>4</span>
-    <h2>Pause the cleanout</h2>
-    <p>Do not throw things away too quickly. Documents, photos, titles, military records, passwords, jewelry, cash, and sentimental items are often mixed into ordinary boxes.</p>
+    <h3>Protect priority items</h3>
+    <p>Look for documents, titles, photos, military records, passwords, jewelry, cash, medications, and sentimental items.</p>
   </article>
   <article>
     <span>5</span>
-    <h2>Photograph first</h2>
-    <p>Take room-by-room photos before moving items. Photos help family decisions, insurance questions, repair planning, and estate records.</p>
+    <h3>List monthly costs</h3>
+    <p>Mortgage, taxes, utilities, insurance, HOA/condo dues, lawn, snow, trash, and storage can add up quietly.</p>
   </article>
   <article>
     <span>6</span>
-    <h2>Make the first budget</h2>
-    <p>Use the worksheet below to estimate what the estate may have to carry, clean, repair, store, sell, transfer, or finance.</p>
+    <h3>Choose one next step</h3>
+    <p>Stabilize the property, sort belongings, gather records, call professionals, or schedule a home visit.</p>
   </article>
 </div>
-
-## Things Families Often Miss
-
-Most surprise costs happen because nobody made a complete list early enough.
-
-<div class="guide-risk-grid" aria-label="Common overlooked inherited home issues">
-  <article>
-    <h2>Vacant-home risk</h2>
-    <p>Insurance, heat, pipes, lawn, snow, pests, theft, leaks, code notices, and access problems can matter before the family has made a sale decision.</p>
-  </article>
-  <article>
-    <h2>Belongings slow everything</h2>
-    <p>Repairs, cleaning, photos, appraisals, showings, and contractor work are delayed when the house is full and family decisions are unresolved.</p>
-  </article>
-  <article>
-    <h2>Cash pressure builds quietly</h2>
-    <p>Mortgage, taxes, utilities, insurance, cleanout, storage, attorney, filing, and repair costs can arrive before sale proceeds exist.</p>
-  </article>
-  <article>
-    <h2>Records get scattered</h2>
-    <p>Receipts, invoices, donations, disposal costs, repair photos, and family item decisions are hard to reconstruct months later.</p>
-  </article>
-  <article>
-    <h2>Repairs can overgrow</h2>
-    <p>Some houses need only stabilization and clean paint. Others need licensed trades. Without a scope, costs can expand quickly.</p>
-  </article>
-  <article>
-    <h2>Deadlines still move</h2>
-    <p>In Pennsylvania, inheritance tax timing and estate administration tasks continue even while the family is still deciding what to do with the home.</p>
-  </article>
-</div>
-
-## Why Moving Fast Matters
-
-Moving fast does not mean rushing into a bad sale or spending money blindly. It means getting enough information early to stop the estate from drifting.
-
-<div class="guide-timeline" aria-label="Inherited home action timeline">
-  <article>
-    <strong>Days 1-7</strong>
-    <p>Secure the home, gather bills, photograph rooms, identify authority, and note immediate risks.</p>
-  </article>
-  <article>
-    <strong>Weeks 2-4</strong>
-    <p>Sort priority belongings, estimate costs, decide what professionals are needed, and choose a first path: stabilize, clean, sell as-is, market prep, rent, or keep.</p>
-  </article>
-  <article>
-    <strong>Months 1-3</strong>
-    <p>Finish inventory, route belongings, manage carrying costs, review tax/payment timing, and decide whether repairs or financing make sense.</p>
-  </article>
-  <article>
-    <strong>Months 3-9</strong>
-    <p>Prepare professional records, sale documents, tax information, invoices, and final project decisions before deadlines and carrying costs pile up.</p>
-  </article>
-</div>
-
-Official Pennsylvania timing note: the PA Department of Revenue says inheritance tax payments are due at death, become delinquent after nine months, and may qualify for a 5% discount if paid within three months. The rates depend on the beneficiary relationship.
 
 ## The Inherited Home Cost Worksheet
 
-Print this page, copy the tables into a spreadsheet, or bring it to the free one-hour call or $250 Estate Math Home Visit. The goal is not to know every exact number immediately. The goal is to stop missing entire categories.
+Print this page, save it as a PDF, or copy the rows into a spreadsheet. You do not need exact numbers right away. Start by finding the categories that exist.
 
-### 1. Probate, Tax, And Professional Costs
+### Probate, Tax, And Professional Costs
 
-| Expense | What To Check | Estimate | Due Date / Notes |
-|---|---|---:|---|
-| Probate filing / Register of Wills fees | County fee schedule, estate value, letters needed | $ | |
-| Attorney | Probate, deed, estate authority, heir issues, sale review | $ | |
-| CPA / tax preparer | Final personal return, estate return, inheritance tax support | $ | |
-| Pennsylvania inheritance tax | Relationship to decedent, taxable assets, discount timing | $ | |
-| Executor / administrator expenses | Mileage, postage, records, time, approved reimbursement | $ | |
-| Appraisal or valuation | Real estate, personal property, antiques, vehicles, collections | $ | |
-| Title / deed / recording | Deed review, title issues, transfer documents, liens | $ | |
-| Notices / publication / certified mail | Required notices, mailings, legal publications if applicable | $ | |
+| Expense | Estimate | Notes |
+|---|---:|---|
+| Probate filing / Register of Wills fees | $ | County fee schedule, letters, estate value |
+| Attorney | $ | Probate, deed, authority, sale review, family issues |
+| CPA / tax preparer | $ | Final return, estate return, inheritance tax support |
+| Pennsylvania inheritance tax | $ | Relationship to decedent, asset values, discount timing |
+| Appraisal or valuation | $ | Real estate, vehicles, antiques, collections |
+| Title / deed / recording | $ | Deed review, liens, transfer documents |
 
-### 2. Monthly Carrying Costs
+### Monthly Carrying Costs
 
-| Expense | What To Check | Estimate | Due Date / Notes |
-|---|---|---:|---|
-| Mortgage or home equity loan | Balance, payment, arrears, payoff, insurance escrow | $ | |
-| Property taxes | County, municipal, school, delinquent balance | $ | |
-| Homeowners or vacant-home insurance | Coverage change after death/vacancy, premium, exclusions | $ | |
-| Electric | Active service, past due balance, shutoff risk | $ | |
-| Gas / heat | Winter heat, safety, frozen-pipe prevention | $ | |
-| Water / sewer | Leaks, shutoff, municipal liens | $ | |
-| Trash / municipal services | Pickup, bulk disposal rules, code notices | $ | |
-| HOA / condo fees | Monthly dues, assessments, rules, resale requirements | $ | |
-| Lawn, snow, and exterior maintenance | Mowing, snow removal, gutters, code risk | $ | |
-| Security / lockbox / rekeying | Access control, keys, cameras, alarms | $ | |
+| Expense | Estimate | Notes |
+|---|---:|---|
+| Mortgage or home equity loan | $ | Payment, arrears, payoff, escrow |
+| Property taxes | $ | County, municipal, school, delinquent balances |
+| Insurance | $ | Homeowner or vacant-home coverage questions |
+| Electric, gas, water, sewer | $ | Shutoff risk, winter heat, leaks |
+| Lawn, snow, trash, HOA/condo | $ | Code risk, dues, assessments, local rules |
+| Security / access | $ | Rekeying, lockbox, alarm, cameras |
 
-### 3. Belongings, Cleanout, And Storage
+### Belongings, Cleanout, And Storage
 
-| Expense | What To Check | Estimate | Due Date / Notes |
-|---|---|---:|---|
-| Sorting labor | Family time, helper time, care coordinator, organizer | $ | |
-| Inventory / photos / QR tags | Priority items, family decisions, records | $ | |
-| Moving labor | Internal move, family delivery, storage move, donation pickup | $ | |
-| Item prep and handling | Cleaning, photos, packing, sale support, shipping prep | $ | |
-| Dumpster or disposal | Weight limits, prohibited items, municipal rules | $ | |
-| Donation pickup | Availability, receipts, item restrictions | $ | |
-| Estate sale / auction / item sale | Commission, setup, cleanup, unsold items | $ | |
-| Storage unit | Monthly rate, move-in fee, insurance, who pays | $ | |
-| Shipping to family | Packing, insurance, freight, delivery timing | $ | |
-| Document shredding | Medical, financial, personal records | $ | |
-| Hazardous or special disposal | Paint, chemicals, tires, electronics, medications | $ | |
+| Expense | Estimate | Notes |
+|---|---:|---|
+| Sorting and inventory | $ | Family time, care coordinator, photos, QR tags |
+| Moving labor | $ | Room clearing, storage, donation, disposal |
+| Item prep and handling | $ | Cleaning, photos, packing, sale support, shipping prep |
+| Dumpster or disposal | $ | Weight, prohibited items, local rules |
+| Storage unit | $ | Monthly cost, insurance, access |
+| Shipping or family delivery | $ | Packing, insurance, freight, delivery timing |
 
-### 4. Repairs, Cleaning, And Market Prep
+### Repairs, Cleaning, And Market Prep
 
-| Expense | What To Check | Estimate | Due Date / Notes |
-|---|---|---:|---|
-| Safety repairs | Locks, steps, railings, leaks, electrical hazards | $ | |
-| Plumbing | Leaks, shutoffs, water heater, sewer issues | $ | |
-| Electrical | Panel, outlets, lighting, safety concerns | $ | |
-| HVAC / heat | Furnace, AC, winterization, service call | $ | |
-| Roof / gutters | Active leaks, drainage, insurance concerns | $ | |
-| Paint | Smoke, odor, dated rooms, listing photos | $ | |
-| Flooring | Trip hazards, stains, odor, market-readiness | $ | |
-| Deep cleaning | Kitchen, bath, basement, garage, smoke/pet odor | $ | |
-| Pest treatment | Rodents, insects, wildlife, sanitation | $ | |
-| Mold / water remediation | Source of moisture, professional review | $ | |
-| Contractor or project management | Scope, scheduling, quality control, change orders | $ | |
-| Materials | Paint, hardware, supplies, fixtures, safety items | $ | |
+| Expense | Estimate | Notes |
+|---|---:|---|
+| Safety repairs | $ | Locks, steps, rails, leaks, hazards |
+| Plumbing, electrical, HVAC | $ | Licensed trades where needed |
+| Deep cleaning | $ | Kitchen, bath, basement, smoke, pets |
+| Paint / flooring / minor fixes | $ | Listing photos, move-in, sale prep |
+| Lawn / exterior / gutters | $ | First impression and code concerns |
+| Project coordination | $ | Scope, scheduling, photos, records |
 
-### 5. Sale, Financing, And Closing Costs
+### Sale, Financing, And Closing Costs
 
-| Expense | What To Check | Estimate | Due Date / Notes |
-|---|---|---:|---|
-| Realtor commission | Listing agreement, rate, services included | $ | |
-| Seller concessions | Inspection credits, buyer requests, repair credits | $ | |
-| Transfer tax | State/local rate, municipality, exemptions | $ | |
-| Title / settlement / closing fees | Settlement statement, payoff, liens, recording | $ | |
-| Mortgage payoff / liens | Payoff letters, municipal claims, judgments | $ | |
-| Bridge, estate, or hard-money financing | Rate, term, draws, attorney/lender approval | $ | |
-| Appraisal / inspection | Sale, refinance, family buyout, lender review | $ | |
-| Final clean / staging / photos | Listing readiness and buyer perception | $ | |
-| Capital improvements record | Receipts and project documentation for professional review | $ | |
+| Expense | Estimate | Notes |
+|---|---:|---|
+| Realtor / sale costs | $ | Commission, photos, staging, seller concessions |
+| Transfer tax / title / settlement | $ | State/local rates and closing fees |
+| Mortgage payoff / liens | $ | Payoff letters, municipal claims, judgments |
+| Financing or staged work | $ | Attorney/lender review before agreements |
+| Asset-sale offsets | $ | Vehicles, equipment, saleable belongings, approved items |
 
-## Worksheet Summary
+## When To Ask For Help
 
-Use this summary to see whether the estate has a cash problem, a time problem, or a scope problem.
+Ask for help if:
 
-| Category | Estimated Total |
-|---|---:|
-| Probate, tax, and professional costs | $ |
-| Monthly carrying costs | $ |
-| Belongings, cleanout, and storage | $ |
-| Repairs, cleaning, and market prep | $ |
-| Sale, financing, and closing costs | $ |
-| **Total known / estimated costs** | **$** |
-| Available cash now | $ |
-| Possible sale proceeds or financing source | $ |
-| **Gap to solve** | **$** |
-
-## What The Free Call And $250 Home Visit Cover
-
-The first call is not a sales ambush. It is a practical one-hour estate conversation. If the estate needs more than a conversation, we will explain the $250 Estate Math Home Visit before scheduling it.
-
-<div class="guide-visit-grid" aria-label="First care coordinator conversation">
-  <article>
-    <h2>Home walkthrough</h2>
-    <p>We look at access, utilities, safety, belongings, likely cleanout complexity, provider needs, and obvious repair concerns.</p>
-  </article>
-  <article>
-    <h2>Expense worksheet</h2>
-    <p>We walk through the cost categories and help identify what is known, unknown, urgent, optional, or professional-only.</p>
-  </article>
-  <article>
-    <h2>Family decision map</h2>
-    <p>We identify who decides, what items need family input, and where conflict or delay may affect the plan.</p>
-  </article>
-  <article>
-    <h2>Scope and funding path</h2>
-    <p>If the estate needs help, the worksheet becomes the basis for a written scope, project budget, provider plan, and funding-readiness packet.</p>
-  </article>
-</div>
-
-After the free call or $250 visit, you should understand:
-
-- the first action list
-- the cost categories to review
-- the local services likely needed
-- the questions to ask your attorney, CPA, realtor, lender, or contractor
-- the option to request a written Legacy Defenders scope if you want help
+- the home is vacant or at risk
+- the executor is out of town
+- belongings are blocking cleaning, repairs, or sale decisions
+- family decisions are slowing everything down
+- the estate has home equity but not enough cash
+- you feel pushed to decide before the situation is clear
 
 <div class="guide-callout guide-callout-dark">
   <p class="ld-kicker">Free 1-hour estate call</p>
-  <h2>Get the house, belongings, costs, and timeline onto one page.</h2>
-  <p>If you want to do it yourself, this gives you a clearer path. If you want help, this becomes the starting point for a $250 credited Estate Math Home Visit, approved services, scope, pricing, and funding review.</p>
-  <a class="btn btn-white" href="index.html?interest=Free%20Guide%20Worksheet#contact">Schedule the free call</a>
+  <h2>Bring this worksheet to the call.</h2>
+  <p>We will help you identify what is known, what is missing, and whether a $250 credited Estate Math Home Visit would make the next decision easier.</p>
+  <a class="btn btn-white" href="index.html?interest=Free%20Guide%20Worksheet#contact">Start With A Free Call</a>
 </div>
 
 ## Official References
 
-- Pennsylvania inheritance tax is imposed based on the value transferred and the beneficiary's relationship to the decedent. The PA Department of Revenue lists rates of 0% for surviving spouse transfers, 4.5% for direct descendants and lineal heirs, 12% for siblings, and 15% for other heirs, with certain exemptions. See [PA Department of Revenue: Inheritance Tax](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/inheritance-tax).
-- Allegheny County's inheritance tax page notes a 5% discount if the tax is paid within three months after death. See [Allegheny County: Inheritance Tax](https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Inheritance-Tax).
-- Allegheny County publishes probate and administration fee schedules through the Register of Wills / Orphans' Court resources. See [Allegheny County: Probate Fees](https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Probating-Wills/Probate-Fees).
-- Pennsylvania realty transfer tax is 1% at the state level, and Allegheny County notes local realty transfer tax can bring the combined rate to 2%-5% depending on municipality and school district. See [PA Department of Revenue: Realty Transfer Tax](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/realty-transfer-tax) and [Allegheny County: Realty Transfer Taxes](https://www.alleghenycounty.us/Services/Property-Assessments-and-Real-Estate/Realty-Transfer-Taxes).
+- [PA Department of Revenue: Inheritance Tax](https://www.pa.gov/agencies/revenue/resources/tax-types-and-information/inheritance-tax)
+- [Allegheny County: Inheritance Tax](https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Inheritance-Tax)
+- [Allegheny County: Probate Fees](https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Probating-Wills/Probate-Fees)
 
-This guide is educational. Legacy Defenders is not a law firm, CPA firm, tax preparer, lender, appraiser, realtor, insurance agency, or licensed trade contractor. Use the worksheet to organize better questions and work with the appropriate professionals.
+This guide is educational. Legacy Defenders is not a law firm, CPA firm, tax preparer, lender, appraiser, realtor, insurance agency, or licensed trade contractor.

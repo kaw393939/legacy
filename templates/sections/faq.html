@@ -15,9 +15,9 @@
         
         {% if faq.component_settings.show_categories %}
         <div class="faq-categories">
-            <button class="category-filter active" data-category="all">All Questions</button>
+            <button class="category-filter active" type="button" data-category="all">All Questions</button>
             {% for category_key, category_data in faq.faqs.items() %}
-            <button class="category-filter" data-category="{{ category_key }}">
+            <button class="category-filter" type="button" data-category="{{ category_key }}">
                 <i class="fas {{ category_data.icon }}"></i>
                 {{ category_data.category }}
             </button>
@@ -32,16 +32,20 @@
                     <i class="fas {{ category_data.icon }}"></i>
                     {{ category_data.category }}
                 </h3>
-                
+
                 {% for question_data in category_data.questions %}
+                {% set item_id = category_key ~ '-' ~ loop.index %}
                 <div class="faq-item" data-category="{{ category_key }}">
                     <button class="faq-question flex items-center justify-between"
+                            type="button"
                             aria-expanded="false"
+                            aria-controls="faq-answer-{{ item_id }}"
+                            id="faq-question-{{ item_id }}"
                             data-question="{{ question_data.question }}">
                         <span>{{ question_data.question }}</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
-                    <div class="faq-answer">
+                    <div class="faq-answer" id="faq-answer-{{ item_id }}" role="region" aria-labelledby="faq-question-{{ item_id }}">
                         {{ question_data.answer | safe }}
                     </div>
                 </div>
@@ -49,7 +53,11 @@
             </div>
             {% endfor %}
         </div>
-        
+
+        <div class="faq-no-results hidden" role="status" aria-live="polite">
+            No FAQ matches that search yet. Try a broader term, choose another category, or book the free call so we can answer it directly.
+        </div>
+
         {% if faq.component_settings.contact_cta.show %}
         <div class="faq-cta">
             {{ cta_content(

@@ -1,9 +1,22 @@
 ---
 layout: page
 title: "Keith's Inherited Home Story"
-description: "The original Legacy Defenders case: how an overwhelmed only heir avoided a panic sale, preserved value, and turned a smoke-damaged family home into a livable modern house."
+description: "The original Legacy Defenders case: how an only heir found a steadier path and made a smoke-damaged inherited home livable."
 page_id: "keith-story"
 eyebrow: "Original Legacy Defenders case"
+hero:
+  image: "images/proof/smoke-remediation-before-after_600w.webp"
+  alt: "Representative smoke remediation before and after showing an inherited home becoming livable"
+  caption: "Keith's experience showed why a house can have value but still feel impossible to manage alone."
+hero_actions:
+  - text: "Start With A Free Call"
+    url: "index.html?interest=Keith%27s%20Inherited%20Home%20Story#contact"
+    icon: "fa-phone"
+    style: "btn-primary"
+  - text: "See Pricing Examples"
+    url: "pricing.html"
+    icon: "fa-file-invoice-dollar"
+    style: "btn-outline"
 stats:
   - number: "$80K"
     label: "Early as-is offers"
@@ -22,11 +35,11 @@ Keith inherited a family home while living out of state. On paper, the house had
 
 He was the only heir and executor, which made the legal and family decision structure simpler. It did not make the work easy. Every decision, bill, repair, provider call, and mistake landed on one person.
 
-## The Panic-Sale Path
+## The Disconnected Path
 
 Keith called lawyers, tax people, contractors, and cleaning services. He was not looking for a miracle. He was looking for someone who could explain what mattered first, what was fair, and how to avoid making a mistake while grieving.
 
-Instead, too many answers felt expensive, incomplete, confusing, or designed around someone else's fee first. Some professionals wanted large retainers or percentages. Some service providers could solve only one piece. Some buyers wanted the whole situation to feel hopeless so a low offer would seem like relief.
+Instead, too many answers felt incomplete, confusing, or disconnected from the whole situation. Some professionals could solve only one piece, and Keith still needed someone steady in the middle.
 
 Keith received early offers around **$80,000**. A cleanout alone could have cost around **$12,000**, and that would not have solved smoke remediation, repairs, paperwork, utility issues, belongings decisions, or the emotional problem of what to keep.
 
@@ -45,7 +58,7 @@ This is not a promise about any other house. It is the lived experience that cre
 
 Mike told Keith his own story of losing a family home. That shared experience changed the relationship from "service provider and customer" into something more honest: two people trying to preserve value without pretending the grief was simple.
 
-Mike brought construction judgment, practical labor, and steady presence. Instead of selling the house cheap, the work moved toward making the home livable and modern without overbuilding.
+Mike brought construction judgment, practical labor, and steady presence. The work moved toward making the home livable and modern without overbuilding.
 
 The project included smoke reset, updated electrical, lighting improvements, a new bathroom, a kitchen refresh, practical repairs, cleaning, and decisions about what memories should remain and what needed to move on.
 
@@ -55,10 +68,10 @@ The goal was not to erase the family history. The goal was to stop the house fro
 
 Keith's story showed that inherited-home work is not one service. It is a coordinated process:
 
-- stabilize the house before small problems become expensive
+- stabilize the house before small problems grow
 - sort belongings without throwing away memories too fast
 - use photos, tags, and records so decisions are visible
-- avoid contractor chaos and panic pricing
+- avoid scattered provider calls and rushed decisions
 - spend money only where it protects the next decision
 - document the work for the executor, attorney, CPA, lender, realtor, and family
 - help a grieving person make fewer decisions, not more
@@ -79,5 +92,5 @@ Our process is built from the painful lesson Keith learned: calling random peopl
 
 You do not need to decide today whether to renovate, sell, rent, keep, donate, ship items, store belongings, or finance the project. The first step is getting the situation onto one page.
 
-<a class="btn btn-primary" href="index.html?interest=Keith%27s%20Inherited%20Home%20Story#contact">Book A Free 1-Hour Call</a>
+<a class="btn btn-primary" href="index.html?interest=Keith%27s%20Inherited%20Home%20Story#contact">Start With A Free Call</a>
 <a class="btn btn-outline" href="pricing.html">See Pricing Examples</a>

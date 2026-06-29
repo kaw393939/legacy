@@ -46,7 +46,7 @@
     {{ cta_link(
         ('index.html?interest=' ~ (service.title | urlencode) ~ '#contact'),
         ('btn btn-primary service-cta' if service.popular else 'btn btn-outline service-cta'),
-        ('Book Free Call' if service.popular else 'Ask About This'),
+        ('Book Free Call' if service.popular else 'Scope This Service'),
         data_cta='service',
         data_section='services',
         data_service=service.title,

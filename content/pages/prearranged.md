@@ -1,77 +1,94 @@
 ---
-layout: page
-title: "Prearranged Legacy Readiness"
-description: "Plan ahead so heirs know what to do with the home, belongings, documents, contacts, service providers, costs, and wishes before they are overwhelmed."
+layout: situation
+title: "Plan Ahead For Your Children"
+description: "Create a practical home, belongings, wishes, contacts, and activation plan before your heirs are under pressure."
 page_id: "prearranged"
-eyebrow: "Plan ahead for your family"
+eyebrow: "Situation guide"
+contact_interest: "Prearranged legacy readiness plan"
+hero:
+  image: "images/technology/ai-care-planning_900w.webp"
+  alt: "Digital legacy readiness plan organizing home, belongings, contacts, wishes, and activation steps"
+  caption: "Planning ahead gives heirs an operating plan, not another pile of decisions."
 stats:
-  - number: "$1.5K+"
-    label: "Planning examples"
+  - number: "$500+"
+    label: "Planning starts"
   - number: "1 plan"
-    label: "Home, wishes, contacts, activation"
+    label: "Home, wishes, contacts"
   - number: "Priority"
     label: "Activation options"
+first_actions:
+  - title: "Document the home"
+    text: "Record access, utilities, maintenance notes, recurring bills, providers, insurance questions, likely repairs, and known risks."
+  - title: "Name the belongings that matter"
+    text: "List sentimental items, family instructions, donation wishes, possible sale items, storage needs, shipping needs, and items that should not be discarded."
+  - title: "Create an activation path"
+    text: "Decide who calls, what happens first, which records are shared, and which services may be needed when heirs ask for help."
+common_mistakes:
+  - "Assuming a will or trust tells heirs how to handle the house, belongings, providers, storage, and cleanout."
+  - "Leaving children to guess which items have meaning, value, family promises, or donation wishes."
+  - "Waiting until a health crisis or death before gathering contacts, bills, providers, access notes, and home risks."
+  - "Creating a plan once but never updating it as the home, belongings, or family situation changes."
+how_we_help:
+  - "Build a practical readiness file for the home, belongings, important contacts, likely service needs, and activation instructions."
+  - "Identify what your children can do themselves and where local help would save time or reduce confusion."
+  - "Create a likely budget and phase map so heirs are not guessing during the first week."
+  - "Prepare priority activation options and possible future service credits or discounts based on the final plan terms."
+cost_intro: "Prearranged work is paid planning, not estate legal work. The more detailed the home, belongings, contacts, and activation plan, the more useful it is to your heirs."
+costs:
+  - category: "Readiness conversation"
+    range: "$500-$1,500"
+    notes: "First planning level for a family that wants a practical checklist, home notes, belongings priorities, and activation outline."
+  - category: "Home and belongings walkthrough"
+    range: "$1,500-$3,500"
+    notes: "Walkthrough of the home, likely service needs, sentimental items, contacts, provider notes, and item-route planning."
+  - category: "Full Legacy Readiness Plan"
+    range: "$3,500-$5,000+"
+    notes: "More complete planning for larger homes, multiple heirs, complex belongings, funding questions, or priority activation planning."
+  - category: "Annual or major-life update"
+    range: "$250-$750+"
+    notes: "Refresh contacts, providers, belongings notes, access information, family instructions, and activation details."
+  - category: "Future activation credit"
+    range: "Custom"
+    notes: "Families who complete a readiness plan may qualify for priority activation, future service credit, or a discount depending on plan terms and update schedule."
+timeline:
+  - period: "Now"
+    text: "Gather home notes, provider contacts, bill categories, important item notes, family decision makers, and professional contacts."
+  - period: "Planning visit"
+    text: "Walk the home, document belongings priorities, identify service needs, and create a practical activation plan."
+  - period: "Annual review"
+    text: "Update contacts, access, items, providers, repairs, family instructions, and any major changes to the home or family."
+records:
+  - title: "Home readiness file"
+    text: "Access, utilities, maintenance notes, recurring bills, providers, insurance questions, and known home risks."
+  - title: "Belongings and wishes map"
+    text: "Sentimental items, donation wishes, sale possibilities, storage instructions, shipping notes, and do-not-discard items."
+  - title: "Activation instructions"
+    text: "Who calls, what happens first, preferred contacts, likely service phases, and the first questions heirs should ask."
+boundary: "A readiness plan does not replace a will, trust, power of attorney, estate attorney, CPA, financial advisor, insurance professional, healthcare directive, realtor, lender, or licensed trade professional."
+official_references:
+  - title: "Allegheny County Real Estate Portal"
+    url: "https://www2.alleghenycounty.us/RealEstate/"
+    note: "Useful public property reference when documenting the home."
+  - title: "Allegheny County Probate Fees"
+    url: "https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Probating-Wills/Probate-Fees"
+    note: "A reference point for future estate administration cost planning."
+related_links:
+  - label: "Worksheet"
+    title: "Free Inherited Home Guide"
+    url: "free-guide.html"
+  - label: "Services"
+    title: "Prearranged Legacy Readiness"
+    url: "services.html"
+  - label: "Costs"
+    title: "Pricing Examples"
+    url: "pricing.html"
 seo:
   canonical: "/prearranged.html"
   og_type: "website"
 ---
 
-## Make Help Automatic Before The Crisis
+## The best gift is a practical operating plan
 
-Some parents know their children will be overwhelmed by the house, belongings, bills, repairs, and family decisions after a death or health crisis. A Prearranged Legacy Readiness Plan gives the family a calmer path before everything is urgent.
+Estate planning tells people who has authority and who receives property. It usually does not tell your children where the shutoffs are, which items matter, who to call, what the house may cost to carry, how to clear belongings, or which local providers can be trusted.
 
-This is not estate planning and it does not replace an attorney, CPA, financial advisor, insurance professional, or healthcare planning. It is the practical home-and-belongings plan, provider map, and estate-management strategy that heirs often wish existed.
-
-## What We Document
-
-<div class="ld-practical-grid">
-  <article>
-    <span><i class="fas fa-home" aria-hidden="true"></i></span>
-    <h2>The Home</h2>
-    <p>Access, utilities, maintenance notes, insurance concerns, providers, recurring bills, likely repairs, and immediate stabilization steps.</p>
-  </article>
-  <article>
-    <span><i class="fas fa-boxes-stacked" aria-hidden="true"></i></span>
-    <h2>Belongings</h2>
-    <p>Sentimental items, likely donations, possible sale items, family distribution wishes, storage needs, shipping needs, and items that should not be discarded.</p>
-  </article>
-  <article>
-    <span><i class="fas fa-address-book" aria-hidden="true"></i></span>
-    <h2>Contacts</h2>
-    <p>Family decision makers, attorney, CPA, realtor, lender, insurance agent, contractors, cleaners, movers, storage, neighbors, helpers, and preferred providers.</p>
-  </article>
-  <article>
-    <span><i class="fas fa-clipboard-list" aria-hidden="true"></i></span>
-    <h2>Activation Plan</h2>
-    <p>Who calls Legacy Defenders, what happens first, what the family should gather, and which services may be needed.</p>
-  </article>
-</div>
-
-## Example Planning Levels
-
-| Plan | Example Range | Best For |
-|---|---:|---|
-| Readiness Conversation | $500-$1,500 | A family that wants the first home/belongings checklist and activation notes |
-| Home & Belongings Walkthrough | $1,500-$3,500 | A parent or family who wants the house, contacts, provider needs, sentimental priorities, and item routes documented |
-| Full Legacy Readiness Plan | $3,500-$5,000+ | Larger homes, multiple heirs, complex belongings, funding questions, or priority activation planning |
-
-Families who complete a readiness plan may qualify for priority activation and a future service credit or discount. The exact terms depend on the plan level, update schedule, and final project scope.
-
-## Why Families Do This
-
-- children live out of state
-- the home has decades of belongings
-- there are items with emotional or family meaning
-- the parent wants donations, sale, storage, or distribution handled a certain way
-- items may need future shipping, pickup, delivery, sale support, or donation records
-- the home has maintenance or repair issues heirs may not understand
-- the family wants preferred local providers identified before urgent decisions
-- the family wants to reduce panic, arguments, and rushed decisions
-- there may be equity but limited cash available at the moment help is needed
-
-## The Goal
-
-The goal is not to make the family think about death all the time. The goal is to give heirs a prepared, caring process when they are least able to invent one.
-
-<a class="btn btn-primary" href="index.html?interest=Prearranged%20Legacy%20Readiness#contact">Talk About A Prearranged Plan</a>
-<a class="btn btn-outline" href="free-guide.html">Use The Free Worksheet First</a>
+The Prearranged Legacy Readiness path gives your family the practical plan they will wish they had when every decision suddenly feels urgent.

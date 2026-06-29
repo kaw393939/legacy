@@ -17,21 +17,22 @@
     .nav {
         position: fixed;
         top: 60px;
-        left: -100%;
+        left: 0;
         width: 100%;
         min-height: calc(100vh - 60px);
         height: calc(100dvh - 60px);
         background: var(--white);
         flex-direction: column;
         padding: var(--space-xl) var(--space-xl) calc(var(--space-2xl) + env(safe-area-inset-bottom));
-        transition: left var(--transition-base);
+        transform: translateX(-100%);
+        transition: transform var(--transition-base);
         box-shadow: var(--shadow-lg);
         z-index: var(--z-fixed);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch
         }
     .nav.active {
-        left: 0
+        transform: translateX(0)
         }
 
     .nav {
@@ -79,7 +80,8 @@
         min-height: 44px
         }
     .hero-title {
-        font-size: var(--font-size-4xl)
+        font-size: var(--font-size-4xl);
+        line-height: 1.08
         }
     .card-service {
         grid-template-columns: 1fr

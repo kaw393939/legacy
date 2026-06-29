@@ -1,8 +1,22 @@
 ---
 layout: services
 title: "Legacy Defenders Services"
-description: "Executor operations support for inherited homes: estate math, property stabilization, QR inventory, item handling, shipping, storage, service-provider coordination, repairs, documentation, and financing-readiness support."
+description: "Care-led inherited-home services for estate math, inventory, provider coordination, repairs, records, storage, and market-ready prep."
 page_id: "services"
+eyebrow: "Services by situation, then scope"
+hero:
+  image: "images/proof/estate-cleanout-before-after_600w.webp"
+  alt: "Representative inherited home room cleared, organized, and ready for next-step decisions"
+  caption: "The service catalog works best after the estate's first bottleneck is clear."
+hero_actions:
+  - text: "Start With Your Situation"
+    url: "services.html#services-situation-router-title"
+    icon: "fa-route"
+    style: "btn-primary"
+  - text: "Start With A Free Call"
+    url: "index.html?interest=Legacy%20Defenders%20Services#contact"
+    icon: "fa-phone"
+    style: "btn-outline"
 seo:
   canonical: "/services.html"
   title: "Inherited Home Services | Legacy Defenders"
@@ -15,7 +29,7 @@ cta:
   description: "We help families turn urgent inherited-home problems into a documented estate management strategy for belongings, providers, repairs, storage, sale, move-in, or continued probate decisions."
   background_image: "images/proof/estate-cleanout-before-after.jpg"
   buttons:
-    - text: "Book A Free 1-Hour Call"
+    - text: "Start With A Free Call"
       url: "index.html?interest=Legacy%20Defenders%20Services#contact"
       icon: "fa-clipboard-list"
       style: "primary"
@@ -32,7 +46,7 @@ cta:
 
 An inherited home can have real value, but that value is often locked behind grief, belongings, repairs, mortgage payments, taxes, utilities, storage decisions, family questions, probate timing, disconnected service providers, and years of deferred maintenance.
 
-Legacy Defenders coordinates the practical house-side work so the executor and family can make informed decisions without being forced into a panic sale or forced to become a full-time project manager overnight.
+Legacy Defenders coordinates the practical house-side work so the executor and family can make informed decisions without having to become full-time project managers overnight.
 
 ## Our Core Process
 

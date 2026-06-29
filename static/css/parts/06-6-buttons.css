@@ -118,6 +118,7 @@
 /* Dark Context Buttons - Premium treatment for hero sections */
 section.dark-context .btn-outline,
 .hero .btn-outline,
+.page-hero .btn-outline,
 .dark-context .btn-outline {
     background: rgba(255, 255, 255, 0.08);  /* Subtle bg for better visibility */
     color: white;
@@ -129,6 +130,7 @@ section.dark-context .btn-outline,
 
 section.dark-context .btn-outline:hover,
 .hero .btn-outline:hover,
+.page-hero .btn-outline:hover,
 .dark-context .btn-outline:hover {
     background: rgba(255, 255, 255, 0.95);
     color: var(--navy-700);

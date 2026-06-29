@@ -1,34 +1,55 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="page-hero">
+<section class="page-hero public-page-hero">
     <div class="container">
-        <div class="hero-content">
-            {% if page.eyebrow %}
-            <p class="hero-eyebrow">{{ page.eyebrow }}</p>
-            {% endif %}
-            <h1 class="hero-title">{{ page.title }}</h1>
-            <p class="hero-description">{{ page.description }}</p>
-            {% if page.stats %}
-            <div class="hero-stats">
-                {% for stat in page.stats %}
-                <div class="stat">
-                    <span class="stat-number">{{ stat.number }}</span>
-                    <span class="stat-label">{{ stat.label }}</span>
+        <div class="public-hero-grid{% if not page.hero or not page.hero.image %} public-hero-grid-centered{% endif %}">
+            <div class="hero-content">
+                {% if page.eyebrow %}
+                <p class="hero-eyebrow">{{ page.eyebrow }}</p>
+                {% endif %}
+                <h1 class="hero-title">{{ page.title }}</h1>
+                <p class="hero-description">{{ page.description }}</p>
+                {% if page.hero_actions %}
+                <div class="hero-actions">
+                    {% for action in page.hero_actions %}
+                    <a class="btn {{ action.style | default('btn-primary') }}" href="{{ action.url }}">
+                        {% if action.icon %}<i class="fas {{ action.icon }}" aria-hidden="true"></i>{% endif %}
+                        {{ action.text }}
+                    </a>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                {% endif %}
+                {% if page.stats %}
+                <div class="hero-stats">
+                    {% for stat in page.stats %}
+                    <div class="stat">
+                        <span class="stat-number">{{ stat.number }}</span>
+                        <span class="stat-label">{{ stat.label }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">0-90</span>
+                        <span class="stat-label">Days To Prove</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Completed Customer</span>
+                    </div>
+                </div>
+                {% endif %}
             </div>
-            {% else %}
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">0-90</span>
-                    <span class="stat-label">Days To Prove</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">1</span>
-                    <span class="stat-label">Completed Customer</span>
-                </div>
-            </div>
+
+            {% if page.hero and page.hero.image %}
+            <figure class="public-hero-media">
+                <img src="{{ page.hero.image }}" alt="{{ page.hero.alt }}" loading="eager" decoding="async">
+                {% if page.hero.caption %}
+                <figcaption>{{ page.hero.caption }}</figcaption>
+                {% endif %}
+            </figure>
             {% endif %}
         </div>
     </div>

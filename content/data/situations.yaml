@@ -1,0 +1,37 @@
+situations:
+  featured:
+    - id: "single-decision-maker"
+      title: "I am the only heir or decision maker"
+      icon: "fa-user-check"
+      url: "single-decision-maker.html"
+      description: "You can decide, but the work still feels heavy."
+
+    - id: "out-of-state-executor"
+      title: "I live out of state or cannot be there"
+      icon: "fa-map-location-dot"
+      url: "out-of-state-executor.html"
+      description: "You need local eyes, photos, providers, and clear updates."
+
+    - id: "house-full-of-belongings"
+      title: "The house is full of belongings"
+      icon: "fa-boxes-stacked"
+      url: "house-full-of-belongings.html"
+      description: "Memories, documents, storage, donation, sale, and cleanout are tangled together."
+
+    - id: "urgent-bills-property-risk"
+      title: "Bills or property risks cannot wait"
+      icon: "fa-shield-heart"
+      url: "urgent-bills-property-risk.html"
+      description: "Utilities, insurance, taxes, lawn, leaks, or access need attention now."
+
+    - id: "prearranged"
+      title: "I want to plan ahead for my children"
+      icon: "fa-folder-tree"
+      url: "prearranged.html"
+      description: "Make the house, belongings, wishes, and contacts easier for heirs later."
+
+    - id: "professional-referral-partners"
+      title: "I am an attorney, CPA, realtor, or referral partner"
+      icon: "fa-handshake"
+      url: "professional-referral-partners.html"
+      description: "Get house-side scopes, photos, records, and provider coordination."

@@ -7,10 +7,6 @@ main_nav:
     url: "services.html"
     id: "services"
 
-  - title: "DIY vs Us"
-    url: "diy-vs-us.html"
-    id: "diy-vs-us"
-
   - title: "Free Guide"
     url: "free-guide.html"
     id: "free-guide"
@@ -28,14 +24,6 @@ main_nav:
     url: "pricing.html"
     id: "pricing"
 
-  - title: "PA Probate"
-    url: "pa-probate.html"
-    id: "pa-probate"
-
-  - title: "FAQ"
-    url: "index.html#faq"
-    id: "faq"
-
   - title: "Contact"
     url: "index.html#contact"
     id: "contact"
@@ -51,8 +39,8 @@ footer_nav:
   services:
     title: "Start Here"
     links:
-      - title: "Our Process"
-        url: "index.html#services"
+      - title: "Choose Your Situation"
+        url: "index.html#start-here"
       - title: "All Services"
         url: "services.html"
       - title: "Free Cost Worksheet"
@@ -64,11 +52,27 @@ footer_nav:
       - title: "PA Probate Help"
         url: "pa-probate.html"
 
+  situations:
+    title: "Situations"
+    links:
+      - title: "Only Decision Maker"
+        url: "single-decision-maker.html"
+      - title: "Out Of State Executor"
+        url: "out-of-state-executor.html"
+      - title: "House Full Of Belongings"
+        url: "house-full-of-belongings.html"
+      - title: "Urgent Bills Or Property Risk"
+        url: "urgent-bills-property-risk.html"
+      - title: "Plan Ahead For Children"
+        url: "prearranged.html"
+      - title: "Professional Partners"
+        url: "professional-referral-partners.html"
+
   company:
     title: "Trust"
     links:
       - title: "Why Legacy Defenders"
-        url: "index.html#why-choose"
+        url: "index.html#keith-proof"
       - title: "Keith's Story"
         url: "keith-story.html"
       - title: "DIY vs Us"
