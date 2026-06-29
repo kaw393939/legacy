@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 from urllib.parse import quote
 
-from tools.site_framework import PAGES_DIR, ROOT, slugify
+from tools.site_framework import PAGES_DIR, ROOT, TEXT_ENCODING, slugify
 
 
 DEFAULT_HERO_IMAGE = "images/hero/legacy-defenders-care-hero.webp"
@@ -160,7 +160,7 @@ def main() -> int:
         print(f"Refusing to overwrite existing page: {target}")
         return 1
 
-    target.write_text(render_template(args.kind, slug, args.title, args.description), encoding="utf-8")
+    target.write_text(render_template(args.kind, slug, args.title, args.description), encoding=TEXT_ENCODING)
     print(f"Created {target.relative_to(ROOT)}")
     print("Next steps:")
     print("- Replace empty hero alt/caption values with specific copy.")

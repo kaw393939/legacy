@@ -14,12 +14,17 @@ import urllib.error
 import urllib.request
 from typing import Sequence
 
-from tools.site_framework import ROOT, configured_output_dir, load_yaml
+from tools.site_framework import (
+    ROOT,
+    VALIDATION_REPORT,
+    VALIDATION_REPORT_PATH,
+    configured_output_dir,
+    load_yaml,
+)
 
 
 PYTHON_SYNTAX_FILES = ("build.py", "site.py", "validator.py")
 JAVASCRIPT_SYNTAX_FILES = ("static/js/main.js", "tools/run_lighthouse_budget.mjs")
-VALIDATION_REPORT = "validation-report.json"
 
 
 class SiteManager:
@@ -168,10 +173,9 @@ class SiteManager:
         if self.output_dir.exists():
             shutil.rmtree(self.output_dir)
             self.logger.info("Removed %s", self.output_dir)
-        report = self.root / "validation-report.json"
-        if report.exists():
-            report.unlink()
-            self.logger.info("Removed %s", report)
+        if VALIDATION_REPORT_PATH.exists():
+            VALIDATION_REPORT_PATH.unlink()
+            self.logger.info("Removed %s", VALIDATION_REPORT_PATH)
 
     def status(self) -> None:
         project = self.config.get("project", {})

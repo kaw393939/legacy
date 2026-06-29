@@ -21,6 +21,10 @@ CONTENT_CONFIG = CONTENT_DIR / "config.yaml"
 
 HOME_SOURCE = "home.md"
 HOME_OUTPUT = "index.html"
+OUTPUT_STYLESHEET = "styles.css"
+CRITICAL_OUTPUT_FILES = (HOME_OUTPUT, OUTPUT_STYLESHEET)
+VALIDATION_REPORT = "validation-report.json"
+VALIDATION_REPORT_PATH = ROOT / VALIDATION_REPORT
 MARKDOWN_EXTENSIONS = ["meta", "extra", "codehilite", "toc"]
 TEXT_ENCODING = "utf-8"
 

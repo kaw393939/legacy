@@ -12,11 +12,17 @@ import cssutils
 import html5lib
 from bs4 import BeautifulSoup
 
-from tools.site_framework import configured_output_dir, load_content_config, project_path
+from tools.site_framework import (
+    CRITICAL_OUTPUT_FILES,
+    OUTPUT_STYLESHEET,
+    TEXT_ENCODING,
+    configured_output_dir,
+    load_content_config,
+    project_path,
+)
 
 
 MAX_META_DESCRIPTION_LENGTH = 160
-CRITICAL_OUTPUT_FILES = ("index.html", "styles.css")
 LOCAL_PROTOCOLS = {"", None}
 SKIPPED_PROTOCOLS = {"mailto", "tel", "javascript", "data"}
 
@@ -79,7 +85,7 @@ class SiteValidator:
             return ValidationResult("html", errors, warnings)
 
         for html_path in html_files:
-            raw = html_path.read_text(encoding="utf-8", errors="replace")
+            raw = html_path.read_text(encoding=TEXT_ENCODING, errors="replace")
 
             try:
                 document = html5lib.parse(raw, treebuilder="etree")
@@ -132,7 +138,7 @@ class SiteValidator:
 
         for html_path in html_files:
             page_name = html_path.relative_to(self.output_dir).as_posix()
-            soup = BeautifulSoup(html_path.read_text(encoding="utf-8", errors="replace"), "html.parser")
+            soup = BeautifulSoup(html_path.read_text(encoding=TEXT_ENCODING, errors="replace"), "html.parser")
 
             for tag_name, attr_name, raw_value in self._iter_asset_references(soup):
                 self._validate_reference(
@@ -159,7 +165,7 @@ class SiteValidator:
 
         for html_path in html_files:
             page_name = html_path.relative_to(self.output_dir).as_posix()
-            soup = BeautifulSoup(html_path.read_text(encoding="utf-8", errors="replace"), "html.parser")
+            soup = BeautifulSoup(html_path.read_text(encoding=TEXT_ENCODING, errors="replace"), "html.parser")
             ids = {
                 value
                 for element in soup.find_all(attrs={"id": True})
@@ -292,15 +298,15 @@ class SiteValidator:
         errors: list[str] = []
         warnings: list[str] = []
 
-        css_path = self.output_dir / "styles.css"
+        css_path = self.output_dir / OUTPUT_STYLESHEET
         if not css_path.exists():
-            errors.append("Missing styles.css in output")
+            errors.append(f"Missing {OUTPUT_STYLESHEET} in output")
             return ValidationResult("css", errors, warnings)
 
         try:
-            cssutils.parseString(css_path.read_text(encoding="utf-8", errors="replace"))
+            cssutils.parseString(css_path.read_text(encoding=TEXT_ENCODING, errors="replace"))
         except Exception as exc:
-            errors.append(f"styles.css: CSS parse error: {exc}")
+            errors.append(f"{OUTPUT_STYLESHEET}: CSS parse error: {exc}")
 
         return ValidationResult("css", errors, warnings)
 
@@ -330,4 +336,4 @@ class SiteValidator:
             ],
         }
 
-        Path(path).write_text(json.dumps(payload, indent=2), encoding="utf-8")
+        Path(path).write_text(json.dumps(payload, indent=2), encoding=TEXT_ENCODING)

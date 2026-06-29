@@ -17,9 +17,13 @@ from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from tools.site_framework import (
+    CRITICAL_OUTPUT_FILES,
     DATA_DIR,
     MARKDOWN_EXTENSIONS,
+    OUTPUT_STYLESHEET,
     ROOT,
+    TEXT_ENCODING,
+    VALIDATION_REPORT_PATH,
     configured_output_dir,
     configured_static_dir,
     configured_templates_dir,
@@ -167,7 +171,7 @@ class SiteBuilder:
         }
 
         html = template.render(**context)
-        (self.output_dir / page.output_name).write_text(html, encoding="utf-8")
+        (self.output_dir / page.output_name).write_text(html, encoding=TEXT_ENCODING)
         print(f"      OK Generated {page.output_name}")
 
     def bundle_css(self, *, minify_css: bool) -> None:
@@ -184,16 +188,16 @@ class SiteBuilder:
                 print(f"   OK Copied {css_file.name}")
             return
 
-        bundled = "\n".join(path.read_text(encoding="utf-8").rstrip() for path in part_files)
+        bundled = "\n".join(path.read_text(encoding=TEXT_ENCODING).rstrip() for path in part_files)
         bundled = bundled.rstrip() + "\n"
         if minify_css:
             bundled = minify_css_conservative(bundled)
 
-        (self.output_dir / "styles.css").write_text(bundled, encoding="utf-8")
-        print(f"   OK Bundled styles.css ({len(part_files)} parts)")
+        (self.output_dir / OUTPUT_STYLESHEET).write_text(bundled, encoding=TEXT_ENCODING)
+        print(f"   OK Bundled {OUTPUT_STYLESHEET} ({len(part_files)} parts)")
 
         for css_file in sorted(css_src.glob("*.css")):
-            if css_file.name == "styles.css":
+            if css_file.name == OUTPUT_STYLESHEET:
                 continue
             shutil.copy2(css_file, self.output_dir / css_file.name)
             print(f"   OK Copied {css_file.name}")
@@ -274,7 +278,7 @@ class SiteBuilder:
 
         print(f"   OK Generated {len(html_files)} HTML files")
 
-        for filename in ("index.html", "styles.css"):
+        for filename in CRITICAL_OUTPUT_FILES:
             if not (self.output_dir / filename).exists():
                 print(f"   ERROR Missing critical file: {filename}")
                 return False
@@ -289,7 +293,7 @@ class SiteBuilder:
         validator = SiteValidator(self.output_dir)
         results = validator.validate_all()
         print(validator.generate_report(results))
-        validator.save_report(self.project_root / "validation-report.json", results)
+        validator.save_report(VALIDATION_REPORT_PATH, results)
 
         total_errors = sum(len(result.errors) for result in results)
         if total_errors > 0:
