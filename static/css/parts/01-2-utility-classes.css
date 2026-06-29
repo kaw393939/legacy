@@ -65,7 +65,7 @@
     box-shadow: var(--shadow-icon-teal)
     }
 .icon-badge-navy {
-    background: linear-gradient(135deg, var(--navy-700) 0%, #1a4570 100%);
+    background: linear-gradient(135deg, var(--navy-700) 0%, var(--navy-800) 100%);
     box-shadow: var(--shadow-icon-navy)
     }
 /* Dark Context Utility */

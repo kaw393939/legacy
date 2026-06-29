@@ -5,12 +5,10 @@
     background-image: var(--bg-image, none);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     min-height: clamp(380px, 45vh, 480px);
-    padding: clamp(2rem, 5vh, 3rem) var(--space-lg) clamp(1.5rem, 4vh, 2.5rem);  /* ULTRA COMPACT padding */
+    padding: clamp(2rem, 5vh, 3rem) var(--space-lg) clamp(1.5rem, 4vh, 2.5rem);
 }
 
-/* Premium gradient overlay - sophisticated depth */
 .hero::before {
     content: '';
     position: absolute;
@@ -28,7 +26,6 @@
     z-index: 1;
 }
 
-/* Memphis-style pattern overlay (playful, island vibe) */
 .hero::after {
     content: '';
     position: absolute;
@@ -86,7 +83,6 @@
     padding-top: clamp(1rem, 3vh, 2rem);
 }
 
-/* Premium Hero Title - Efficient & Impactful */
 .hero-title {
     font-family: var(--font-display);
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -101,7 +97,6 @@
         0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Premium Hero Subtitle - Efficient & Clear */
 .hero-subtitle {
     font-family: var(--font-body);
     font-size: clamp(1.0625rem, 2vw, 1.25rem);
