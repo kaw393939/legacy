@@ -26,4 +26,4 @@ Before the first conversation, it can help to gather:
 - any items that may need storage, shipping, sale support, donation, or family delivery
 - the biggest decision you are trying to make right now
 
-<a class="btn btn-primary" href="/">Return Home</a>
+<a class="btn btn-primary" href="index.html">Return Home</a>
