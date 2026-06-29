@@ -25,3 +25,18 @@
   {{ text }}
 </a>
 {%- endmacro %}
+
+{% macro contact_cta(interest, classes="btn btn-primary", text="Start With A Free Call", icon=None, data_cta=None, data_section=None, data_service=None, data_phase=None, data_package=None, data_psychology=None, extra_attrs="") -%}
+{{ cta_link(
+    ('index.html?interest=' ~ (interest | urlencode) ~ '#contact'),
+    classes,
+    ((('<i class="fas ' ~ icon ~ '" aria-hidden="true"></i> ') if icon else '') ~ text) | safe,
+    data_cta=data_cta,
+    data_section=data_section,
+    data_service=data_service,
+    data_phase=data_phase,
+    data_package=data_package,
+    data_psychology=data_psychology,
+    extra_attrs=extra_attrs
+) }}
+{%- endmacro %}

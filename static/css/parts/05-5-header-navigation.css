@@ -1,13 +1,12 @@
 /* ====================== 5. HEADER & NAVIGATION ====================== */
-/* Top Bar - MAXIMUM EFFICIENCY */
 .top-bar {
-    background: var(--navy-800);  /* Darker for better contrast */
+    background: var(--navy-800);
     color: var(--white);
     padding: 0.25rem 0;
-    font-size: 0.875rem;  /* 14px */
+    font-size: 0.875rem;
     font-weight: 500;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    line-height: 1.2;  /* Tight but readable */
+    line-height: 1.2;
     }
 .top-bar-content {
     flex-wrap: nowrap;
@@ -89,7 +88,6 @@
     display: none !important;
 }
 
-/* Contact button in nav - Navy version */
 .nav-link.btn.btn-primary {
     padding: 0.5rem 1.25rem;
     margin: 0;
@@ -99,7 +97,7 @@
     color: white;
     border: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: var(--transition-button);
 }
 
 .nav-link.btn.btn-primary:hover {

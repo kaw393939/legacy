@@ -271,7 +271,7 @@
     border-radius: var(--radius-lg);
     padding: var(--space-xl);
     position: relative;
-    transition: all var(--transition-base);
+    transition: var(--transition-surface);
     text-align: center;
     }
 

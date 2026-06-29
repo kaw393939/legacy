@@ -216,7 +216,22 @@
     --transition-slowest: 0.4s var(--ease-smooth);
 
     /* Component-Specific Transitions */
-    --transition-button: all 0.2s var(--ease-smooth);
+    --transition-button: background-color 0.2s var(--ease-smooth),
+                         border-color 0.2s var(--ease-smooth),
+                         color 0.2s var(--ease-smooth),
+                         box-shadow 0.2s var(--ease-smooth),
+                         opacity 0.2s var(--ease-smooth),
+                         transform 0.2s var(--ease-smooth);
+    --transition-surface: border-color 0.2s var(--ease-smooth),
+                          box-shadow 0.2s var(--ease-smooth),
+                          opacity 0.2s var(--ease-smooth),
+                          transform 0.2s var(--ease-smooth);
+    --transition-interactive: background-color 0.2s var(--ease-smooth),
+                              color 0.2s var(--ease-smooth),
+                              box-shadow 0.2s var(--ease-smooth),
+                              opacity 0.2s var(--ease-smooth),
+                              transform 0.2s var(--ease-smooth),
+                              visibility 0.2s var(--ease-smooth);
     --transition-dropdown: opacity 0.15s var(--ease-out), transform 0.15s var(--ease-out);
     --transition-modal: opacity 0.25s var(--ease-out);
     --transition-tooltip: opacity 0.15s var(--ease-smooth);

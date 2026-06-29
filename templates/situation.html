@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "macros/ui.html" import contact_cta %}
 
 {% block content %}
 <section class="situation-hero">
@@ -12,9 +13,7 @@
                 <p class="hero-description">{{ page.description }}</p>
 
                 <div class="situation-hero-actions">
-                    <a class="btn btn-primary" href="index.html?interest={{ page.contact_interest | urlencode }}#contact">
-                        <i class="fas fa-heart" aria-hidden="true"></i> Start With A Free Call
-                    </a>
+                    {{ contact_cta(page.contact_interest, icon="fa-heart") }}
                 </div>
             </div>
 
@@ -173,7 +172,7 @@
                 <p class="ld-kicker">First safe step</p>
                 <h2>Get the house, belongings, costs, and next decision onto one page.</h2>
                 <p>The first call helps decide what you can do yourself, what should wait, and whether the $250 credited Estate Math Home Visit makes sense.</p>
-                <a class="btn btn-white" href="index.html?interest={{ page.contact_interest | urlencode }}#contact">Start With A Free Call</a>
+                {{ contact_cta(page.contact_interest, classes="btn btn-white") }}
             </section>
         </div>
     </div>

@@ -120,12 +120,12 @@ section.dark-context .btn-outline,
 .hero .btn-outline,
 .page-hero .btn-outline,
 .dark-context .btn-outline {
-    background: rgba(255, 255, 255, 0.08);  /* Subtle bg for better visibility */
+    background: rgba(255, 255, 255, 0.08);
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.6);  /* THICKER border - increased from 1.5px */
+    border: 2px solid rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(8px);
     box-shadow: var(--shadow-btn-outline);
-    font-weight: 600;  /* Stronger weight for better balance */
+    font-weight: 600;
 }
 
 section.dark-context .btn-outline:hover,

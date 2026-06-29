@@ -1,4 +1,4 @@
-{% from "macros/ui.html" import section_header %}
+{% from "macros/ui.html" import section_header, contact_cta %}
 
 <section class="services services-simple" id="services">
     <div class="container">
@@ -46,7 +46,7 @@
             <p class="ld-kicker">Important boundary</p>
             <p>We do not replace your attorney, CPA, lender, realtor, appraiser, insurance professional, or licensed trades. We organize the house-side work so everyone has clearer information.</p>
             <div class="page-action-buttons">
-                <a class="btn btn-primary" href="index.html?interest=Legacy%20Defenders%20Services#contact">Start With A Free Call</a>
+                {{ contact_cta("Legacy Defenders Services") }}
             </div>
         </div>
     </div>

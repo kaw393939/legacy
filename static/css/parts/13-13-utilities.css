@@ -13,7 +13,7 @@
     box-shadow: var(--shadow-success);
     z-index: 9999;
     text-decoration: none;
-    transition: all var(--transition-base);
+    transition: var(--transition-interactive);
     animation: pulse-whatsapp 2s infinite
     }
 .whatsapp-float:hover {
@@ -38,7 +38,7 @@
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
-    transition: all var(--transition-base);
+    transition: var(--transition-interactive);
     box-shadow: 0 4px 15px rgba(10, 37, 64, 0.3);
     font-size: var(--font-size-xl);
     z-index: 9998
