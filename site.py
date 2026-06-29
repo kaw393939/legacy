@@ -8,30 +8,29 @@ import logging
 import shutil
 import subprocess
 import sys
-from pathlib import Path
 from typing import Sequence
 
-import yaml
+from tools.site_framework import ROOT, load_yaml
 
 
 class SiteManager:
     """Small command runner around the real build and QA scripts."""
 
     def __init__(self, config_file: str = "site.config.yaml") -> None:
-        self.root = Path(__file__).resolve().parent
-        self.config = self._load_config(config_file)
+        self.root = ROOT
+        self.config = self.load_config(config_file)
         self.output_dir = self.root / self.config.get("build", {}).get("output_dir", "docs")
         self._setup_logging()
 
-    def _load_config(self, config_file: str) -> dict:
-        path = Path(__file__).resolve().parent / config_file
+    def load_config(self, config_file: str) -> dict:
+        path = self.root / config_file
         if not path.exists():
             return {
                 "project": {"name": "Legacy Defenders"},
                 "build": {"output_dir": "docs"},
                 "performance": {"minify_css": True, "lighthouse_min_score": 90},
             }
-        return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        return load_yaml(path)
 
     def _setup_logging(self) -> None:
         level_name = self.config.get("logging", {}).get("level", "INFO")
@@ -65,7 +64,7 @@ class SiteManager:
 
     def validate(self) -> None:
         self.build()
-        self._run(["node", "tools/check_site_integrity.mjs"], label="Checking generated links and assets")
+        self._run([sys.executable, "-m", "tools.check_site_integrity"], label="Checking generated site integrity")
         self._run(["node", "--check", "static/js/main.js"], label="Checking JavaScript syntax")
 
     def lighthouse(self, url: str = "http://localhost:8000/index.html") -> None:
@@ -102,7 +101,7 @@ class SiteManager:
         subprocess.run(["git", "status", "--short", "--branch"], cwd=self.root, check=False)
 
     def new_page(self, args: Sequence[str]) -> None:
-        self._run([sys.executable, "tools/new_page.py", *args], label="Creating page scaffold")
+        self._run([sys.executable, "-m", "tools.new_page", *args], label="Creating page scaffold")
 
 
 def main() -> None:

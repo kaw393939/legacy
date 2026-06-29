@@ -40,9 +40,9 @@ serve:
 dev: build serve
 
 validate:
-	$(PYTHON) tools/check_content_contracts.py
+	$(PYTHON) -m tools.check_content_contracts
 	$(PYTHON) build.py --minify-css --validate
-	node tools/check_site_integrity.mjs
+	$(PYTHON) -m tools.check_site_integrity
 	node --check static/js/main.js
 
 check:
@@ -58,4 +58,4 @@ status:
 	$(PYTHON) site.py status
 
 new-page:
-	$(PYTHON) tools/new_page.py --help
+	$(PYTHON) -m tools.new_page --help

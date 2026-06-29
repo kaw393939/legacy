@@ -44,7 +44,7 @@ jobs:
         run: node --check static/js/main.js
 
       - name: Check generated site integrity
-        run: node tools/check_site_integrity.mjs
+        run: python -m tools.check_site_integrity
 
       - name: Check Lighthouse budgets
         run: |

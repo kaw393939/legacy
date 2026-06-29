@@ -55,7 +55,7 @@ This is a content-driven static site. Source content lives in Markdown and YAML,
 |-- build.py                     # Core static site generator
 |-- validator.py                 # Output validation and quality checks
 |-- site.py                      # Convenience CLI wrapper around build/serve/validate tasks
-|-- tools/                       # Reusable content, integrity, Lighthouse, and scaffold tools
+|-- tools/                       # Reusable framework helpers and QA tools
 |-- project-docs/                # Historical notes and archived project docs
 |-- requirements.txt             # Python dependencies
 |-- .github/workflows/deploy.yml # GitHub Pages deployment workflow
@@ -131,7 +131,7 @@ node --check static\js\main.js
 Run the generated-site integrity check:
 
 ```powershell
-node tools/check_site_integrity.mjs
+.\.venv\Scripts\python.exe -m tools.check_site_integrity
 ```
 
 Run a Lighthouse check against the local site:
@@ -223,16 +223,24 @@ Reusable pieces:
 
 When adding a new page, prefer an existing layout before creating a new template.
 
+Active framework tools:
+
+- `tools/site_framework.py`: shared paths, YAML loading, frontmatter parsing, output naming, and slugging
+- `tools/check_content_contracts.py`: source content contract validation
+- `tools/check_site_integrity.py`: generated-site validation through `validator.py`
+- `tools/new_page.py`: page and situation-page scaffolding
+- `tools/run_lighthouse_budget.mjs`: Lighthouse budget runner
+
 Use the page scaffold tool for repeatable structure:
 
 ```powershell
-.\.venv\Scripts\python.exe tools\new_page.py --kind page --slug example-guide --title "Example Guide" --description "Short meta description under 160 characters."
+.\.venv\Scripts\python.exe -m tools.new_page --kind page --slug example-guide --title "Example Guide" --description "Short meta description under 160 characters."
 ```
 
 For a situation guide:
 
 ```powershell
-.\.venv\Scripts\python.exe tools\new_page.py --kind situation --slug new-situation --title "New Situation Help" --description "Describe the situation and the first useful next step."
+.\.venv\Scripts\python.exe -m tools.new_page --kind situation --slug new-situation --title "New Situation Help" --description "Describe the situation and the first useful next step."
 ```
 
 ## CSS
@@ -311,13 +319,13 @@ Primary validation command:
 Additional useful checks:
 
 ```powershell
-.\.venv\Scripts\python.exe tools\check_content_contracts.py
-node tools/check_site_integrity.mjs
+.\.venv\Scripts\python.exe -m tools.check_content_contracts
+.\.venv\Scripts\python.exe -m tools.check_site_integrity
 node --check static\js\main.js
 git diff --check
 ```
 
-`tools/check_content_contracts.py` checks source pages before the build. `tools/check_site_integrity.mjs` checks generated pages, local links, assets, placeholder links, titles, and meta descriptions after the build.
+`tools/check_content_contracts.py` checks source pages before the build. `tools/check_site_integrity.py` checks generated pages, local links, assets, placeholder links, titles, and meta descriptions after the build.
 
 Visual QA checklist:
 
@@ -348,7 +356,7 @@ Deployment workflow:
 3. Install `requirements.txt`.
 4. Run `python build.py --validate --minify-css`.
 5. Run `node --check static/js/main.js`.
-6. Run `node tools/check_site_integrity.mjs`.
+6. Run `python -m tools.check_site_integrity`.
 7. Serve the generated site locally and require Lighthouse scores of 90+.
 8. Upload `docs/` as the Pages artifact.
 9. Deploy with `actions/deploy-pages`.
@@ -367,7 +375,7 @@ git status --short --branch
 # Edit source files in content/, templates/, or static/
 
 .\.venv\Scripts\python.exe build.py --minify-css --validate
-node tools/check_site_integrity.mjs
+.\.venv\Scripts\python.exe -m tools.check_site_integrity
 node --check static\js\main.js
 git diff --check
 

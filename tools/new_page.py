@@ -4,35 +4,37 @@
 from __future__ import annotations
 
 import argparse
-import re
-from pathlib import Path
+from urllib.parse import quote
+
+from tools.site_framework import PAGES_DIR, ROOT, slugify
 
 
-ROOT = Path(__file__).resolve().parents[1]
-PAGES_DIR = ROOT / "content" / "pages"
+DEFAULT_HERO_IMAGE = "images/hero/legacy-defenders-care-hero.webp"
 
 
-def slugify(value: str) -> str:
-    value = value.strip().lower()
-    value = re.sub(r"[^a-z0-9]+", "-", value)
-    return value.strip("-")
+def yaml_quote(value: str) -> str:
+    return '"' + value.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def contact_interest(slug: str) -> str:
+    return quote(slug.replace("-", " ").title())
 
 
 def page_template(slug: str, title: str, description: str) -> str:
     page_id = slug.replace("-", "_")
     return f"""---
 layout: page
-title: "{title}"
-description: "{description}"
-page_id: "{page_id}"
+title: {yaml_quote(title)}
+description: {yaml_quote(description)}
+page_id: {yaml_quote(page_id)}
 eyebrow: "Guide"
 hero:
-  image: "images/hero/legacy-defenders-care-hero.webp"
+  image: "{DEFAULT_HERO_IMAGE}"
   alt: ""
   caption: ""
 hero_actions:
   - text: "Start With A Free Call"
-    url: "index.html?interest={slug.replace('-', '%20').title()}#contact"
+    url: "index.html?interest={contact_interest(slug)}#contact"
     icon: "fa-phone"
     style: "btn-primary"
 seo:
@@ -48,16 +50,15 @@ Write the page around one clear reader problem, the first useful step, and the n
 
 def situation_template(slug: str, title: str, description: str) -> str:
     page_id = slug.replace("-", "_")
-    contact_interest = title
     return f"""---
 layout: situation
-title: "{title}"
-description: "{description}"
-page_id: "{page_id}"
+title: {yaml_quote(title)}
+description: {yaml_quote(description)}
+page_id: {yaml_quote(page_id)}
 eyebrow: "Situation guide"
-contact_interest: "{contact_interest}"
+contact_interest: {yaml_quote(title)}
 hero:
-  image: "images/hero/legacy-defenders-care-hero.webp"
+  image: "{DEFAULT_HERO_IMAGE}"
   alt: ""
   caption: ""
 stats:
@@ -128,31 +129,38 @@ Describe what the reader is facing in plain language before listing services. Ke
 """
 
 
-def main() -> int:
-    parser = argparse.ArgumentParser(description="Create a Legacy Defenders page scaffold")
+def render_template(kind: str, slug: str, title: str, description: str) -> str:
+    if kind == "situation":
+        return situation_template(slug, title, description)
+    return page_template(slug, title, description)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        prog="python -m tools.new_page",
+        description="Create a Legacy Defenders page scaffold",
+    )
     parser.add_argument("--kind", choices=["page", "situation"], default="page")
     parser.add_argument("--slug", help="URL slug, for example out-of-state-executor")
     parser.add_argument("--title", required=True)
     parser.add_argument("--description", required=True)
     parser.add_argument("--force", action="store_true", help="Overwrite an existing page")
-    args = parser.parse_args()
+    return parser.parse_args()
 
+
+def main() -> int:
+    args = parse_args()
     slug = slugify(args.slug or args.title)
+
     if not slug:
-        parser.error("Could not create a slug from the provided input")
+        raise SystemExit("Could not create a slug from the provided input")
 
     target = PAGES_DIR / f"{slug}.md"
     if target.exists() and not args.force:
         print(f"Refusing to overwrite existing page: {target}")
         return 1
 
-    content = (
-        situation_template(slug, args.title, args.description)
-        if args.kind == "situation"
-        else page_template(slug, args.title, args.description)
-    )
-
-    target.write_text(content, encoding="utf-8")
+    target.write_text(render_template(args.kind, slug, args.title, args.description), encoding="utf-8")
     print(f"Created {target.relative_to(ROOT)}")
     print("Next steps:")
     print("- Replace empty hero alt/caption values with specific copy.")

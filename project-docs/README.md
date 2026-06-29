@@ -2,7 +2,7 @@
 
 The main technical source of truth is the root `README.md`.
 
-Older planning notes and historical launch documents live in `project-docs/archive/`. They are preserved for context, but they may describe previous positioning, older deployment notes, or superseded marketing ideas.
+Older planning notes, historical launch documents, and one-time migration scripts live in `project-docs/archive/`. They are preserved for context, but they may describe previous positioning, older deployment notes, or superseded marketing ideas.
 
 Use current source files for active work:
 

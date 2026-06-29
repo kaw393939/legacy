@@ -3,44 +3,37 @@
 
 from __future__ import annotations
 
-import sys
-from pathlib import Path
 from urllib.parse import urlparse
 
-import yaml
+from tools.site_framework import (
+    CONTENT_DIR,
+    PAGES_DIR,
+    STATIC_DIR,
+    TEMPLATES_DIR,
+    load_yaml,
+    output_name,
+    page_sources,
+)
 
-
-ROOT = Path(__file__).resolve().parents[1]
-CONTENT_DIR = ROOT / "content"
-PAGES_DIR = CONTENT_DIR / "pages"
-TEMPLATES_DIR = ROOT / "templates"
-STATIC_DIR = ROOT / "static"
 
 MAX_TITLE_LENGTH = 75
 MAX_DESCRIPTION_LENGTH = 160
+PAGE_REQUIRED_FIELDS = ("layout", "title", "description", "page_id")
+SITE_REQUIRED_FIELDS = ("title", "description", "url", "email", "phone_display")
+BUILD_REQUIRED_FIELDS = ("output_dir", "static_dir", "template_dir")
+SITUATION_REQUIRED_FIELDS = ("contact_interest", "eyebrow", "boundary")
+SITUATION_REQUIRED_LISTS = {
+    "first_actions": 3,
+    "common_mistakes": 3,
+    "how_we_help": 3,
+    "costs": 3,
+    "timeline": 3,
+    "records": 2,
+    "related_links": 2,
+}
 
 
-def load_yaml(path: Path):
-    return yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-
-
-def parse_frontmatter(path: Path) -> tuple[dict, str]:
-    raw = path.read_text(encoding="utf-8")
-    if not raw.startswith("---"):
-        return {}, raw
-
-    parts = raw.split("---", 2)
-    if len(parts) < 3:
-        return {}, raw
-
-    return yaml.safe_load(parts[1]) or {}, parts[2].strip()
-
-
-def output_name(path: Path) -> str:
-    return "index.html" if path.name == "home.md" else f"{path.stem}.html"
-
-
-def check_required(errors: list[str], source: str, data: dict, keys: list[str]) -> None:
+def check_required(errors: list[str], source: str, data: dict, keys: tuple[str, ...]) -> None:
     for key in keys:
         if key not in data or data[key] in ("", None):
             errors.append(f"{source}: missing required field {key!r}")
@@ -62,12 +55,8 @@ def check_image(errors: list[str], source: str, hero: dict | None) -> None:
 
     if not image:
         errors.append(f"{source}: hero.image is required")
-    elif image.startswith(("http://", "https://")):
-        return
-    else:
-        candidate = STATIC_DIR / image
-        if not candidate.exists():
-            errors.append(f"{source}: hero.image does not exist in static/: {image}")
+    elif not image.startswith(("http://", "https://")) and not (STATIC_DIR / image).exists():
+        errors.append(f"{source}: hero.image does not exist in static/: {image}")
 
     if alt is None:
         errors.append(f"{source}: hero.alt is required; use an empty string only for decorative images")
@@ -83,67 +72,85 @@ def validate_config(errors: list[str]) -> None:
     site = config.get("site", {})
     build = config.get("build", {})
 
-    check_required(errors, "content/config.yaml site", site, ["title", "description", "url", "email", "phone_display"])
+    check_required(errors, "content/config.yaml site", site, SITE_REQUIRED_FIELDS)
+    check_required(errors, "content/config.yaml build", build, BUILD_REQUIRED_FIELDS)
 
     parsed = urlparse(site.get("url", ""))
     if parsed.scheme != "https" or not parsed.netloc:
         errors.append("content/config.yaml: site.url must be an absolute https URL")
 
-    for key in ("output_dir", "static_dir", "template_dir"):
-        if not build.get(key):
-            errors.append(f"content/config.yaml build: missing {key!r}")
-
 
 def validate_pages(errors: list[str], warnings: list[str]) -> None:
-    page_ids: dict[str, str] = {}
+    seen_page_ids: dict[str, str] = {}
 
-    for path in sorted(PAGES_DIR.glob("*.md")):
-        page, body = parse_frontmatter(path)
-        source = f"content/pages/{path.name}"
+    for page in page_sources():
+        source = page.source_label
+        frontmatter = page.frontmatter
 
-        check_required(errors, source, page, ["layout", "title", "description", "page_id"])
+        check_required(errors, source, frontmatter, PAGE_REQUIRED_FIELDS)
+        check_title_length(warnings, source, frontmatter)
+        check_description_length(errors, source, frontmatter)
+        check_page_id(errors, source, frontmatter, seen_page_ids)
+        check_layout(errors, source, frontmatter)
+        check_body(warnings, source, page.body)
+        check_layout_contracts(errors, page)
+        check_canonical(errors, page)
 
-        title = str(page.get("title", ""))
-        description = str(page.get("description", ""))
-        layout = str(page.get("layout", ""))
-        page_id = str(page.get("page_id", ""))
 
-        if len(title) > MAX_TITLE_LENGTH:
-            warnings.append(f"{source}: title is {len(title)} chars; consider keeping it under {MAX_TITLE_LENGTH}")
+def check_title_length(warnings: list[str], source: str, page: dict) -> None:
+    title = str(page.get("title", ""))
+    if len(title) > MAX_TITLE_LENGTH:
+        warnings.append(f"{source}: title is {len(title)} chars; consider keeping it under {MAX_TITLE_LENGTH}")
 
-        if len(description) > MAX_DESCRIPTION_LENGTH:
-            errors.append(f"{source}: description is {len(description)} chars; keep it under {MAX_DESCRIPTION_LENGTH}")
 
-        if page_id:
-            if page_id in page_ids:
-                errors.append(f"{source}: duplicate page_id {page_id!r}; also used by {page_ids[page_id]}")
-            page_ids[page_id] = source
+def check_description_length(errors: list[str], source: str, page: dict) -> None:
+    description = str(page.get("description", ""))
+    if len(description) > MAX_DESCRIPTION_LENGTH:
+        errors.append(f"{source}: description is {len(description)} chars; keep it under {MAX_DESCRIPTION_LENGTH}")
 
-        if layout and not (TEMPLATES_DIR / f"{layout}.html").exists():
-            errors.append(f"{source}: layout template does not exist: templates/{layout}.html")
 
-        if not body:
-            warnings.append(f"{source}: body content is empty")
+def check_page_id(errors: list[str], source: str, page: dict, seen_page_ids: dict[str, str]) -> None:
+    page_id = str(page.get("page_id", ""))
+    if not page_id:
+        return
 
-        if layout in {"page", "situation"}:
-            check_image(errors, source, page.get("hero"))
+    if page_id in seen_page_ids:
+        errors.append(f"{source}: duplicate page_id {page_id!r}; also used by {seen_page_ids[page_id]}")
+    seen_page_ids[page_id] = source
 
-        if layout == "page":
-            check_list_min(errors, source, page, "hero_actions", 1)
 
-        if layout == "situation":
-            check_required(errors, source, page, ["contact_interest", "eyebrow", "boundary"])
-            check_list_min(errors, source, page, "first_actions", 3)
-            check_list_min(errors, source, page, "common_mistakes", 3)
-            check_list_min(errors, source, page, "how_we_help", 3)
-            check_list_min(errors, source, page, "costs", 3)
-            check_list_min(errors, source, page, "timeline", 3)
-            check_list_min(errors, source, page, "records", 2)
-            check_list_min(errors, source, page, "related_links", 2)
+def check_layout(errors: list[str], source: str, page: dict) -> None:
+    layout = str(page.get("layout", ""))
+    if layout and not (TEMPLATES_DIR / f"{layout}.html").exists():
+        errors.append(f"{source}: layout template does not exist: templates/{layout}.html")
 
-        canonical = (page.get("seo") or {}).get("canonical")
-        if canonical and canonical != f"/{output_name(path)}" and path.name != "home.md":
-            errors.append(f"{source}: seo.canonical should be /{output_name(path)}")
+
+def check_body(warnings: list[str], source: str, body: str) -> None:
+    if not body:
+        warnings.append(f"{source}: body content is empty")
+
+
+def check_layout_contracts(errors: list[str], page) -> None:
+    layout = str(page.frontmatter.get("layout", ""))
+
+    if layout in {"page", "situation"}:
+        check_image(errors, page.source_label, page.frontmatter.get("hero"))
+
+    if layout == "page":
+        check_list_min(errors, page.source_label, page.frontmatter, "hero_actions", 1)
+
+    if layout == "situation":
+        check_required(errors, page.source_label, page.frontmatter, SITUATION_REQUIRED_FIELDS)
+        for key, minimum in SITUATION_REQUIRED_LISTS.items():
+            check_list_min(errors, page.source_label, page.frontmatter, key, minimum)
+
+
+def check_canonical(errors: list[str], page) -> None:
+    canonical = (page.frontmatter.get("seo") or {}).get("canonical")
+    expected = f"/{page.output_name}"
+
+    if canonical and canonical != expected and page.path.name != "home.md":
+        errors.append(f"{page.source_label}: seo.canonical should be {expected}")
 
 
 def validate_data(errors: list[str]) -> None:
@@ -161,7 +168,8 @@ def validate_data(errors: list[str]) -> None:
 
     for index, card in enumerate(cards, start=1):
         source = f"content/data/situations.yaml card {index}"
-        check_required(errors, source, card, ["id", "title", "url", "description"])
+        check_required(errors, source, card, ("id", "title", "url", "description"))
+
         url = str(card.get("url", "")).split("#", 1)[0].split("?", 1)[0]
         if url and url not in page_files:
             errors.append(f"{source}: url does not match a source page output: {url}")
