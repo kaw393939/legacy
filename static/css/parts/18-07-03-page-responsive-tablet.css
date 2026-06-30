@@ -1,0 +1,53 @@
+@media (max-width: 1100px) {
+    .process-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .proof-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .situation-grid,
+    .offer-ladder-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .trust-badge-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .offer-ladder-note {
+        grid-template-columns: 1fr;
+    }
+
+    .keith-proof-layout,
+    .first-48-layout,
+    .anti-flipper-panel,
+    .page-action-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .prearranged-layout,
+    .prearranged-outcomes {
+        grid-template-columns: 1fr;
+    }
+
+    .stabilization-grid,
+    .public-hero-grid,
+    .service-path-grid,
+    .ld-speed-grid,
+    .ld-practical-grid,
+    .services-situation-grid,
+    .guide-step-grid,
+    .guide-risk-grid,
+    .guide-timeline,
+    .guide-visit-grid,
+    .ld-time-grid,
+    .ld-record-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

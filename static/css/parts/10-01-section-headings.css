@@ -1,0 +1,27 @@
+/* ====================== 10. SECTIONS ====================== */
+/* Shared section heading treatment (Memphis accent underline) */
+.section-header {
+    text-align: center;
+    position: relative;
+    margin-bottom: var(--space-2xl);
+}
+
+.section-header .section-title {
+    margin-bottom: var(--space-md);
+}
+
+.section-header::after {
+    content: "";
+    display: block;
+    height: 10px;
+    width: min(140px, 45vw);
+    margin: 0.75rem auto 0;
+    border-radius: var(--radius-full);
+    background: repeating-linear-gradient(
+        90deg,
+        var(--coral-500) 0 14px,
+        var(--teal-300) 14px 28px,
+        var(--navy-200) 28px 42px
+    );
+    opacity: 0.95;
+}

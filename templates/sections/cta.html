@@ -1,6 +1,9 @@
-{% from "macros/ui.html" import cta_link %}
+{% from "macros/ui.html" import cta_link, icon %}
 
-<section class="cta" id="cta" {% if page.cta and page.cta.background_image %}style="--bg-image: url('{{ page.cta.background_image }}');"{% endif %}>
+<section class="cta" id="cta">
+    {% if page.cta and page.cta.background_image %}
+    <img class="cta-bg-image" src="{{ page.cta.background_image }}" alt="" loading="lazy" decoding="async" aria-hidden="true">
+    {% endif %}
     <div class="container">
         <div class="cta-content">
             <h2 class="cta-title">{{ page.cta.title if page.cta else 'Get in Touch' }}</h2>
@@ -21,7 +24,7 @@
             </div>
             {% if page.cta and page.cta.guarantee %}
             <p class="cta-guarantee">
-                <i class="fas {{ page.cta.guarantee.icon }}"></i> {{ page.cta.guarantee.text }}
+                {{ icon(page.cta.guarantee.icon) }} {{ page.cta.guarantee.text }}
             </p>
             {% endif %}
         </div>

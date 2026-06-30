@@ -77,6 +77,7 @@
         journey_progression: 12,
         journey_phase_view: 3
       };
+      window.CONTACT_INTENT_OPTIONS = {{ contact_intake.intent_options | default([]) | tojson }};
       {% if features.enable_analytics %}
       window.dataLayer = window.dataLayer || [];
       function gtag(){window.dataLayer.push(arguments);}

@@ -1,45 +1,6 @@
 import { $, doc, win } from './dom.js';
 
-const contactIntentOptions = [
-    {
-        terms: ['single decision', 'only heir', 'sole heir'],
-        situation: 'Single decision-maker inherited home',
-        role: 'Sole heir or single decision maker',
-        urgent: 'Preparing to sell, rent, move in, or renovate'
-    },
-    {
-        terms: ['out-of-state', 'out of state', 'local coordination', 'cannot be there'],
-        situation: 'Out-of-state executor or local coordination',
-        role: 'Executor or administrator',
-        urgent: 'I need local provider coordination from out of town'
-    },
-    {
-        terms: ['belongings', 'inventory', 'item', 'storage', 'shipping', 'donation'],
-        situation: 'House full of belongings',
-        urgent: 'The house is full of belongings'
-    },
-    {
-        terms: ['urgent bills', 'property risk', 'carrying', 'mortgage', 'tax', 'utility', 'utilities', 'insurance', 'stabilization', 'vacant'],
-        situation: 'Urgent bills or property risk',
-        urgent: 'Mortgage, taxes, utilities, or insurance'
-    },
-    {
-        terms: ['prearranged', 'plan ahead', 'readiness', 'children'],
-        situation: 'Prearranged legacy readiness planning',
-        role: 'Parent or homeowner planning ahead',
-        urgent: 'Planning before heirs are overwhelmed',
-        authority: 'Planning ahead before a death or crisis'
-    },
-    {
-        terms: ['professional', 'referral', 'attorney', 'cpa', 'realtor', 'lender', 'records support'],
-        situation: 'Professional referral or records support',
-        role: 'Professional referral source'
-    },
-    {
-        terms: ['pricing', 'services', 'estate math', 'free guide', 'worksheet', 'probate'],
-        situation: 'Pricing, services, or general estate math'
-    }
-];
+const contactIntentOptions = Array.isArray(win.CONTACT_INTENT_OPTIONS) ? win.CONTACT_INTENT_OPTIONS : [];
 
 function selectByText(select, text) {
     if (!select || !text || select.value) return false;

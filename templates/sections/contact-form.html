@@ -44,14 +44,9 @@
                             <label for="contact-situation">What best describes the situation?</label>
                             <select id="contact-situation" name="Situation type">
                                 <option value="">Select one</option>
-                                <option>Single decision-maker inherited home</option>
-                                <option>Out-of-state executor or local coordination</option>
-                                <option>House full of belongings</option>
-                                <option>Urgent bills or property risk</option>
-                                <option>Prearranged legacy readiness planning</option>
-                                <option>Professional referral or records support</option>
-                                <option>Pricing, services, or general estate math</option>
-                                <option>I am not sure yet</option>
+                                {% for option in contact_intake.situations %}
+                                <option>{{ option }}</option>
+                                {% endfor %}
                             </select>
                         </div>
 
@@ -60,21 +55,18 @@
                                 <label for="contact-role">Your role</label>
                                 <select id="contact-role" name="Role">
                                     <option value="">Select one</option>
-                                    <option>Executor or administrator</option>
-                                    <option>Sole heir or single decision maker</option>
-                                    <option>Family member helping the executor</option>
-                                    <option>Parent or homeowner planning ahead</option>
-                                    <option>Professional referral source</option>
+                                    {% for option in contact_intake.roles %}
+                                    <option>{{ option }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="contact-vacant">Is the home vacant?</label>
                                 <select id="contact-vacant" name="Home vacancy status">
                                     <option value="">Select one</option>
-                                    <option>Yes, vacant now</option>
-                                    <option>No, someone is living there</option>
-                                    <option>It will be vacant soon</option>
-                                    <option>I am not sure</option>
+                                    {% for option in contact_intake.vacancy_statuses %}
+                                    <option>{{ option }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                         </div>
@@ -83,13 +75,9 @@
                             <label for="contact-urgent">What feels urgent?</label>
                             <select id="contact-urgent" name="Urgent issue">
                                 <option value="">Select one</option>
-                                <option>The house is full of belongings</option>
-                                <option>Mortgage, taxes, utilities, or insurance</option>
-                                <option>Vacant home, lawn, access, leak, or code risk</option>
-                                <option>Smoke, odor, cleaning, or repair problems</option>
-                                <option>I need local provider coordination from out of town</option>
-                                <option>Preparing to sell, rent, move in, or renovate</option>
-                                <option>Planning before heirs are overwhelmed</option>
+                                {% for option in contact_intake.urgent_issues %}
+                                <option>{{ option }}</option>
+                                {% endfor %}
                             </select>
                         </div>
 

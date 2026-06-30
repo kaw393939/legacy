@@ -25,6 +25,36 @@
 {% endif %}
 {%- endmacro %}
 
+{% macro public_hero(page, stats=None, content_class="public-content") -%}
+<section class="page-hero public-page-hero">
+    <div class="container">
+        <div class="public-hero-grid{% if not page.hero or not page.hero.image %} public-hero-grid-centered{% endif %}">
+            <div class="hero-content">
+                {% if page.eyebrow %}
+                <p class="hero-eyebrow">{{ page.eyebrow }}</p>
+                {% endif %}
+                <h1 class="hero-title">{{ page.title }}</h1>
+                <p class="hero-description">{{ page.description }}</p>
+                {{ action_buttons(page.hero_actions) }}
+                {% set hero_stats = stats if stats is not none else page.stats %}
+                {% if hero_stats %}
+                <div class="hero-stats">
+                    {% for stat in hero_stats %}
+                    <div class="stat">
+                        <span class="stat-number">{{ stat.number }}</span>
+                        <span class="stat-label">{{ stat.label }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+
+            {{ hero_media(page.hero, "public-hero-media") }}
+        </div>
+    </div>
+</section>
+{%- endmacro %}
+
 {% macro cta_content(title, body, href, button_text, button_class, data_cta=None, data_section=None, extra_attrs="") -%}
 <div class="cta-content">
     <h3>{{ title }}</h3>

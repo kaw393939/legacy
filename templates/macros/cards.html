@@ -3,7 +3,7 @@
   Goal: keep rendered markup equivalent while reducing repetition.
 #}
 
-{% from "macros/ui.html" import cta_link, contact_cta %}
+{% from "macros/ui.html" import cta_link, contact_cta, icon %}
 
 {% macro service_card(service) -%}
 <div{% if service.id %} id="{{ service.id }}"{% endif %} class="service-card flex flex-col items-center {% if service.popular %}most-popular{% endif %}"
@@ -18,7 +18,7 @@
     {% endif %}
     <div class="service-icon flex items-center justify-center">
         {% if service.icon and service.icon.startswith('fa-') %}
-        <i class="fas {{ service.icon }}" aria-hidden="true"></i>
+        {{ icon(service.icon) }}
         {% else %}
         <span class="service-emoji">{{ service.icon }}</span>
         {% endif %}
@@ -67,7 +67,7 @@
     {% endif %}
     <div class="service-icon flex items-center justify-center">
         {% if package.icon and package.icon.startswith('fa-') %}
-        <i class="fas {{ package.icon }}" aria-hidden="true"></i>
+        {{ icon(package.icon) }}
         {% else %}
         <span class="service-emoji">{{ package.icon }}</span>
         {% endif %}
@@ -110,7 +110,7 @@
     </div>
     <div class="service-icon flex items-center justify-center">
         {% if emoji and emoji.startswith('fa-') %}
-        <i class="fas {{ emoji }}" aria-hidden="true"></i>
+        {{ icon(emoji) }}
         {% else %}
         <span class="service-emoji">{{ emoji }}</span>
         {% endif %}

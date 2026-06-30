@@ -4,11 +4,12 @@
 #}
 
 {% from "macros/cards.html" import service_card, package_card %}
+{% from "macros/ui.html" import icon %}
 
 {% macro phase_header(icon_class, title, subtitle) -%}
 <div class="phase-header">
     <div class="phase-icon">
-        <i class="fas {{ icon_class }}"></i>
+        {{ icon(icon_class) }}
     </div>
     <div class="phase-info">
         <h3 class="phase-title">{{ title }}</h3>

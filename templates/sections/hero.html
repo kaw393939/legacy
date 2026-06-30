@@ -1,4 +1,11 @@
-<section class="hero dark-context flex items-start justify-center" {% if page.hero and page.hero.image %}style="--bg-image: url('{{ page.hero.image }}');"{% endif %}>
+{% from "macros/ui.html" import icon %}
+
+<section class="hero dark-context flex items-start justify-center">
+    {% if page.hero and page.hero.image %}
+    <div class="hero-image-wrapper" aria-hidden="true">
+        <img class="hero-image" src="{{ page.hero.image }}" alt="" loading="eager" decoding="async">
+    </div>
+    {% endif %}
     <div class="container">
         <div class="hero-content">
             {% if page.hero.eyebrow %}
@@ -9,19 +16,19 @@
             {% if page.hero.proof_points %}
             <ul class="hero-proof-points" aria-label="Legacy Defenders proof points">
                 {% for item in page.hero.proof_points %}
-                <li><i class="fas fa-check" aria-hidden="true"></i>{{ item }}</li>
+                <li>{{ icon("fa-check") }}{{ item }}</li>
                 {% endfor %}
             </ul>
             {% endif %}
             <div class="hero-buttons flex justify-center items-center flex-wrap">
                 {% if page.hero.cta_primary %}
                 <a href="{{ page.hero.cta_primary.url }}" class="btn btn-primary" data-cta="primary" data-section="hero" data-destination="{{ page.hero.cta_primary.url }}">
-                    {% if page.hero.cta_primary.icon %}<i class="fas {{ page.hero.cta_primary.icon }}"></i> {% endif %}{{ page.hero.cta_primary.text }}
+                    {% if page.hero.cta_primary.icon %}{{ icon(page.hero.cta_primary.icon) }} {% endif %}{{ page.hero.cta_primary.text }}
                 </a>
                 {% endif %}
                 {% if page.hero.cta_secondary %}
                 <a href="{{ page.hero.cta_secondary.url }}" class="btn btn-outline" data-cta="secondary" data-section="hero" data-destination="{{ page.hero.cta_secondary.url }}">
-                    {% if page.hero.cta_secondary.icon %}<i class="fas {{ page.hero.cta_secondary.icon }}"></i> {% endif %}{{ page.hero.cta_secondary.text }}
+                    {% if page.hero.cta_secondary.icon %}{{ icon(page.hero.cta_secondary.icon) }} {% endif %}{{ page.hero.cta_secondary.text }}
                 </a>
                 {% endif %}
             </div>

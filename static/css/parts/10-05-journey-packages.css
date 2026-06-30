@@ -1,0 +1,302 @@
+/* Journey-Based Service Organization */
+.journey-phase {
+    margin-bottom: var(--space-3xl);
+    }
+
+.journey-phase:last-child {
+    margin-bottom: 0;
+    }
+
+/* Psychological Packages Layout */
+.psychological-packages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xl);
+    align-items: stretch;
+    }
+
+@media (min-width: 768px) {
+    .psychological-packages {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+        }
+    }
+
+.package-card {
+    position: relative;
+    }
+
+.package-card .included-services {
+    background: var(--teal-50);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    }
+
+.package-card .included-services strong {
+    color: var(--navy-700);
+    display: block;
+    margin-bottom: 0.5rem;
+    }
+
+.package-card .included-services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+
+.package-card .included-services li {
+    padding: 0.25rem 0;
+    color: var(--teal-700);
+    font-weight: var(--font-weight-semibold);
+    font-size: 0.875rem;
+    }
+
+.journey-coverage {
+    background: var(--gray-50);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-sm);
+    font-size: 0.875rem;
+    }
+
+.journey-coverage strong {
+    color: var(--navy-700);
+    display: block;
+    margin-bottom: 0.25rem;
+    }
+
+.upgrade-path {
+    font-size: 0.875rem;
+    color: var(--gray-600);
+    font-style: italic;
+    text-align: center;
+    margin-bottom: var(--space-sm);
+    }
+
+/* Psychology Notice Section */
+.psychology-notice {
+    background: linear-gradient(135deg, var(--navy-50) 0%, var(--teal-50) 100%);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-top: var(--space-3xl);
+    text-align: center;
+    border: 1px solid var(--teal-200);
+    }
+
+.psychology-notice h4 {
+    color: var(--navy-700);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-sm);
+    }
+
+.psychology-notice p {
+    color: var(--gray-700);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    max-width: 600px;
+    margin: 0 auto;
+    }
+
+.phase-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--teal-500);
+    }
+
+.phase-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--teal-500) 0%, var(--teal-600) 100%);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-lg);
+    }
+
+.phase-info {
+    flex: 1;
+    }
+
+.phase-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--navy-700);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.02em;
+    }
+
+.phase-subtitle {
+    font-size: var(--font-size-base);
+    color: var(--gray-600);
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+    }
+
+/* Service Pricing Enhanced */
+.service-pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: var(--space-sm);
+    }
+
+.service-period {
+    font-size: var(--font-size-sm);
+    color: var(--gray-500);
+    font-weight: var(--font-weight-medium);
+    }
+
+/* Service Badges by Phase */
+.service-badge.badge-pre-arrival {
+    background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
+    }
+
+.service-badge.badge-arrival-setup {
+    background: linear-gradient(135deg, var(--teal-500) 0%, var(--teal-600) 100%);
+    }
+
+.service-badge.badge-ongoing-support {
+    background: linear-gradient(135deg, var(--coral-500) 0%, var(--coral-600) 100%);
+    }
+
+.service-badge.badge-package {
+    background: linear-gradient(135deg, var(--navy-600) 0%, var(--navy-700) 100%);
+    }
+
+/* Service Icon Colors */
+.service-icon.icon-primary {
+    background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-500) 100%);
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+    }
+
+.service-icon.icon-teal {
+    background: linear-gradient(135deg, var(--teal-400) 0%, var(--teal-500) 100%);
+    box-shadow: 0 4px 14px rgba(20, 184, 166, 0.25);
+    }
+
+.service-icon.icon-navy {
+    background: linear-gradient(135deg, var(--navy-500) 0%, var(--navy-600) 100%);
+    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.25);
+    }
+
+.service-icon.icon-coral {
+    background: linear-gradient(135deg, var(--coral-400) 0%, var(--coral-500) 100%);
+    box-shadow: 0 4px 14px rgba(251, 113, 133, 0.25);
+    }
+
+.service-icon.icon-green {
+    background: linear-gradient(135deg, var(--green-400) 0%, var(--green-500) 100%);
+    box-shadow: 0 4px 14px rgba(34, 197, 94, 0.25);
+    }
+
+.service-icon.icon-orange {
+    background: linear-gradient(135deg, var(--orange-400) 0%, var(--orange-500) 100%);
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.25);
+    }
+
+.service-icon.icon-package {
+    background: linear-gradient(135deg, var(--navy-500) 0%, var(--navy-600) 100%);
+    box-shadow: 0 4px 14px rgba(30, 58, 138, 0.3);
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+    }
+
+/* Package Cards Enhanced */
+.package-card {
+    border: 2px solid var(--navy-200);
+    background: linear-gradient(135deg, var(--white) 0%, var(--gray-25) 100%);
+    }
+
+.package-card:hover {
+    border-color: var(--navy-400);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15);
+    }
+
+.package-tagline {
+    font-size: var(--font-size-sm);
+    color: var(--gray-600);
+    font-style: italic;
+    margin-bottom: var(--space-sm);
+    text-align: center;
+    }
+
+.service-savings {
+    display: inline-block;
+    background: var(--green-100);
+    color: var(--green-700);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    margin-left: var(--space-sm);
+    }
+
+.package-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--gray-200);
+    width: 100%;
+    }
+
+.package-duration,
+.package-ideal {
+    font-size: var(--font-size-xs);
+    color: var(--gray-600);
+    text-align: center;
+    }
+
+.package-duration {
+    font-weight: var(--font-weight-medium);
+    }
+
+/* Journey Packages Section */
+.journey-packages {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-3xl);
+    border-top: 2px solid var(--gray-100);
+    }
+
+.packages-grid {
+    gap: var(--space-xl);
+    }
+
+/* Responsive adjustments for journey layout */
+@media (max-width: 768px) {
+    .phase-header {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-md);
+        }
+    
+    .phase-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+        }
+    
+    .journey-phase {
+        margin-bottom: var(--space-2xl);
+        }
+    
+    .packages-grid {
+        gap: var(--space-lg);
+        }
+    }

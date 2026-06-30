@@ -7,18 +7,25 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
-from tools.site_framework import ROOT, TEXT_ENCODING
+from tools.site_framework import ROOT, TEXT_ENCODING, load_yaml
 
 
-MAX_CSS_PART_LINES = 1_800
+MAX_CSS_PART_LINES = 700
 MAX_JS_MODULE_LINES = 350
 REMOVED_FILES = (
+    "static/css/parts/10-10-sections.css",
     "static/css/parts/18-18-legacy-defenders-redesign.css",
+    "static/css/parts/18-07-diy-free-guide-pages.css",
+    "static/css/styles.css",
 )
 REQUIRED_FILES = (
     "static/js/main.js",
     "static/js/modules/dom.js",
     "static/js/modules/analytics.js",
+    "static/js/modules/analytics/core.js",
+    "static/js/modules/analytics/cta.js",
+    "static/js/modules/analytics/engagement.js",
+    "static/js/modules/analytics/forms.js",
     "static/js/modules/assets.js",
     "static/js/modules/contact.js",
     "static/js/modules/faq.js",
@@ -27,6 +34,7 @@ REQUIRED_FILES = (
 )
 DISALLOWED_PATTERNS = (
     ("inline event handler", re.compile(r"\bon[a-z]+\s*=", re.I)),
+    ("inline style attribute", re.compile(r"(?<!\.)\bstyle\s*=", re.I)),
     ("inline style block", re.compile(r"<style\b", re.I)),
     ("transition all", re.compile(r"transition\s*:\s*all\b", re.I)),
 )
@@ -108,6 +116,32 @@ def check_module_entry(errors: list[str]) -> None:
         errors.append("static/js/main.js: expected a small ES module entry point")
 
 
+def check_contact_intake_contract(errors: list[str]) -> None:
+    data_path = ROOT / "content" / "data" / "contact-intake.yaml"
+    form_path = ROOT / "templates" / "sections" / "contact-form.html"
+    contact_js_path = ROOT / "static" / "js" / "modules" / "contact.js"
+    base_path = ROOT / "templates" / "base.html"
+
+    data = load_yaml(data_path).get("contact_intake", {})
+    required_lists = ("situations", "roles", "vacancy_statuses", "urgent_issues", "intent_options")
+    for key in required_lists:
+        if not isinstance(data.get(key), list) or not data[key]:
+            errors.append(f"content/data/contact-intake.yaml: contact_intake.{key} must be a non-empty list")
+
+    form = form_path.read_text(encoding=TEXT_ENCODING)
+    for key in ("situations", "roles", "vacancy_statuses", "urgent_issues"):
+        if f"contact_intake.{key}" not in form:
+            errors.append(f"templates/sections/contact-form.html: {key} should be generated from contact_intake data")
+
+    contact_js = contact_js_path.read_text(encoding=TEXT_ENCODING)
+    if "win.CONTACT_INTENT_OPTIONS" not in contact_js or "const contactIntentOptions = [" in contact_js:
+        errors.append("static/js/modules/contact.js: contact intent options should come from window.CONTACT_INTENT_OPTIONS")
+
+    base = base_path.read_text(encoding=TEXT_ENCODING)
+    if "window.CONTACT_INTENT_OPTIONS" not in base or "contact_intake.intent_options" not in base:
+        errors.append("templates/base.html: contact intent options should be exported from contact_intake data")
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -116,6 +150,7 @@ def main() -> int:
     check_js_module_size(errors)
     check_disallowed_patterns(errors)
     check_module_entry(errors)
+    check_contact_intake_contract(errors)
 
     if errors:
         print("Frontend architecture check failed:")

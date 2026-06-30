@@ -1,0 +1,202 @@
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 4rem var(--space-base) 2rem;
+        background-position: 62% center;
+    }
+
+    .hero::before {
+        background: linear-gradient(90deg, rgba(16, 42, 67, 0.95), rgba(16, 42, 67, 0.72));
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+        line-height: 1.1;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-buttons {
+        order: 4;
+        margin-bottom: 0;
+    }
+
+    .hero-proof-points {
+        display: none;
+    }
+
+    .hero-proof-points,
+    .situation-grid,
+    .offer-ladder-grid,
+    .keith-proof-panel,
+    .first-48-grid,
+    .trust-badge-row,
+    .process-outcome,
+    .tech-layout,
+    .pricing-grid,
+    .probate-timeline,
+    .problem-solution-grid,
+    .stabilization-grid,
+    .proof-grid,
+    .ld-path-grid,
+    .ld-speed-grid,
+    .ld-practical-grid,
+    .ld-time-grid,
+    .ld-record-grid,
+    .guide-step-grid,
+    .guide-risk-grid,
+    .guide-timeline,
+    .guide-visit-grid,
+    .ld-chart-grid,
+    .ld-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 100%;
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .pricing-figure {
+        font-size: clamp(1.6rem, 8vw, 2.35rem);
+        line-height: 1.12;
+    }
+
+    .public-hero-grid,
+    .public-hero-grid:not(.public-hero-grid-centered) {
+        grid-template-columns: 1fr;
+    }
+
+    .public-hero-grid:not(.public-hero-grid-centered) .hero-content,
+    .public-hero-grid:not(.public-hero-grid-centered) .public-hero-media figcaption {
+        text-align: center;
+    }
+
+    .public-hero-grid:not(.public-hero-grid-centered) .hero-eyebrow,
+    .public-hero-grid:not(.public-hero-grid-centered) .hero-actions {
+        justify-content: center;
+    }
+
+    .public-hero-media img {
+        aspect-ratio: 16 / 10;
+    }
+
+    .page-pricing .content-page,
+    .page-pricing .public-content {
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+    }
+
+    .page-pricing .content-page table {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .process-flow {
+        grid-template-columns: 1fr;
+    }
+
+    .content-details summary {
+        padding: var(--space-md);
+    }
+
+    .content-details > :not(summary) {
+        margin-left: var(--space-md);
+        margin-right: var(--space-md);
+    }
+
+    .process-step {
+        min-height: auto;
+    }
+
+    .tech-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-caption {
+        position: static;
+        border-radius: 0;
+    }
+
+    .prearranged-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .prearranged-step,
+    .prearranged-discount {
+        grid-template-columns: 1fr;
+    }
+
+    .page-action-buttons {
+        flex-direction: column;
+    }
+
+    .page-action-buttons .btn {
+        width: 100%;
+    }
+
+    .whatsapp-float {
+        right: 12px;
+        bottom: 12px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+
+    body:not(.page-home) .whatsapp-float {
+        display: none;
+    }
+
+    .ld-bar {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .ld-example-panel,
+    .ld-offset-panel,
+    .ld-example-panel dl {
+        grid-template-columns: 1fr;
+    }
+
+    .ld-comparison-list {
+        display: grid;
+        gap: var(--space-md);
+        border: 0;
+        overflow: visible;
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .ld-comparison-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+        padding: var(--space-lg);
+        border: 1px solid var(--gray-200);
+        border-top: 4px solid var(--teal-500);
+        border-radius: var(--radius-md);
+        background: var(--white);
+        box-shadow: var(--shadow-sm);
+    }
+
+    .ld-comparison-row:first-child {
+        display: none;
+    }
+
+    .ld-comparison-row p:first-child {
+        font-size: var(--font-size-lg);
+    }
+
+    .ld-comparison-row span {
+        display: block;
+        margin-bottom: 0.15rem;
+        color: var(--teal-700);
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-extrabold);
+        text-transform: uppercase;
+    }
+}
