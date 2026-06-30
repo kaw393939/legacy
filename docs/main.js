@@ -1,7 +1,8 @@
-/* Legacy Defenders runtime */
+/* Site runtime */
 import { ready } from './modules/dom.js';
 import { initDeferredFontAwesome, initLazyImages, initSkipLink } from './modules/assets.js';
 import { initAnalytics } from './modules/analytics.js';
+import { initCookieConsent } from './modules/cookies.js';
 import { initContactContext, initContactFloatState } from './modules/contact.js';
 import { initFAQ } from './modules/faq.js';
 import { initMobileMenu, initScrollState, initSmoothScroll } from './modules/navigation.js';
@@ -9,6 +10,7 @@ import { initPrintActions, initPrintPrep } from './modules/print.js';
 
 ready(() => {
     initDeferredFontAwesome();
+    initCookieConsent();
     initAnalytics();
     initMobileMenu();
     initSmoothScroll();

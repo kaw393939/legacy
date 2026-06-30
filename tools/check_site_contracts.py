@@ -19,6 +19,17 @@ PAGE_REQUIRED_CTA_LAYOUTS = {"internal", "page", "services"}
 MAX_LONG_PAGE_LINES = 180
 LONG_PAGE_ALLOWLIST = {"founder-plan.md"}
 PROFILE_REQUIRED_FIELDS = ("id", "page_eyebrow", "situation_eyebrow", "default_hero_image", "situation_boundary")
+COMPLIANCE_PAGES = (
+    "privacy.html",
+    "terms.html",
+    "cookie-policy.html",
+    "accessibility.html",
+    "service-boundaries.html",
+    "refund-cancellation.html",
+    "provider-notice.html",
+)
+COMPLIANCE_SOURCE_FILES = {page_name.replace(".html", ".md") for page_name in COMPLIANCE_PAGES}
+COMPLIANCE_REQUIRED_FIELDS = ("effective_date", "business_name", "service_area")
 
 
 def check_required(errors: list[str], source: str, data: dict, keys: tuple[str, ...]) -> None:
@@ -52,6 +63,9 @@ def check_required_page_ctas(errors: list[str]) -> None:
 def check_hero_image_uniqueness(errors: list[str]) -> None:
     seen: dict[str, str] = {}
     for page in page_sources():
+        if page.path.name in COMPLIANCE_SOURCE_FILES:
+            continue
+
         image = ((page.frontmatter.get("hero") or {}).get("image") or "").strip()
         if not image:
             continue
@@ -149,6 +163,91 @@ def check_site_profile(errors: list[str]) -> None:
         check_required(errors, "content/site-profile.yaml profile.references.probate", probate, ("title", "url"))
 
 
+def compliance_data(errors: list[str]) -> dict:
+    path = CONTENT_DIR / "compliance.yaml"
+    if not path.exists():
+        errors.append("content/compliance.yaml is missing")
+        return {}
+
+    compliance = load_yaml(path).get("compliance", {})
+    if not isinstance(compliance, dict):
+        errors.append("content/compliance.yaml: compliance must be a mapping")
+        return {}
+
+    check_required(errors, "content/compliance.yaml compliance", compliance, COMPLIANCE_REQUIRED_FIELDS)
+    for key in ("contact", "data", "cookies", "terms", "visit_credit", "provider_notice", "accessibility"):
+        if not isinstance(compliance.get(key), dict):
+            errors.append(f"content/compliance.yaml: compliance.{key} must be a mapping")
+
+    return compliance
+
+
+def check_compliance_pages(errors: list[str]) -> None:
+    outputs = {page.output_name for page in page_sources()}
+    for output_name_value in COMPLIANCE_PAGES:
+        if output_name_value not in outputs:
+            errors.append(f"missing required compliance page source for {output_name_value}")
+
+
+def check_footer_compliance_links(errors: list[str]) -> None:
+    navigation = load_yaml(CONTENT_DIR / "data" / "navigation.yaml")
+    footer_nav = navigation.get("footer_nav", {}) if isinstance(navigation, dict) else {}
+    all_links = {
+        str(link.get("url", ""))
+        for section in footer_nav.values()
+        if isinstance(section, dict)
+        for link in section.get("links", [])
+        if isinstance(link, dict)
+    }
+
+    for required_url in COMPLIANCE_PAGES:
+        if required_url not in all_links:
+            errors.append(f"content/data/navigation.yaml: footer missing compliance link {required_url}")
+
+    footer = (ROOT / "templates" / "components" / "footer.html").read_text(encoding=TEXT_ENCODING)
+    if "data-cookie-preferences" not in footer:
+        errors.append("templates/components/footer.html: footer must expose Cookie Preferences")
+
+
+def check_cookie_consent_contract(errors: list[str], compliance: dict) -> None:
+    cookies = compliance.get("cookies") if isinstance(compliance.get("cookies"), dict) else {}
+    base = (ROOT / "templates" / "base.html").read_text(encoding=TEXT_ENCODING)
+    main_js = (ROOT / "static" / "js" / "main.js").read_text(encoding=TEXT_ENCODING)
+    core_js = (ROOT / "static" / "js" / "modules" / "analytics" / "core.js").read_text(encoding=TEXT_ENCODING)
+    consent_js_path = ROOT / "static" / "js" / "modules" / "cookies.js"
+
+    if not consent_js_path.exists():
+        errors.append("static/js/modules/cookies.js is required for cookie consent")
+        return
+
+    if "googletagmanager.com/gtag/js" in base:
+        errors.append("templates/base.html: Google tag should not load directly before consent")
+
+    if "components/cookie-consent.html" not in base:
+        errors.append("templates/base.html: cookie consent component must be included")
+
+    if "initCookieConsent" not in main_js:
+        errors.append("static/js/main.js: cookie consent module must initialize")
+
+    if "analyticsConsentGranted" not in core_js or "loadGtagScript" not in core_js:
+        errors.append("static/js/modules/analytics/core.js: analytics must be consent-aware")
+
+    if cookies.get("consent_required") and cookies.get("policy_url") != "cookie-policy.html":
+        errors.append("content/compliance.yaml: cookies.policy_url should be cookie-policy.html")
+
+
+def check_visit_credit_terms(errors: list[str]) -> None:
+    has_visit_credit = False
+    for page in page_sources():
+        text = f"{page.body}\n{page.frontmatter}"
+        if "$250" in text and "credit" in text.lower():
+            has_visit_credit = True
+            break
+
+    if has_visit_credit and not (PAGES_DIR / "refund-cancellation.md").exists():
+        errors.append("$250 visit-credit language exists but refund-cancellation.md is missing")
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -159,6 +258,11 @@ def main() -> int:
     check_contact_intake_contract(errors)
     check_page_size(errors)
     check_site_profile(errors)
+    compliance = compliance_data(errors)
+    check_compliance_pages(errors)
+    check_footer_compliance_links(errors)
+    check_cookie_consent_contract(errors, compliance)
+    check_visit_credit_terms(errors)
 
     if errors:
         print("Site profile contract check failed:")

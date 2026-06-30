@@ -188,7 +188,7 @@
 }
 
 /* Public process */
-.legacy-process {
+.site-process {
     background: linear-gradient(180deg, var(--white) 0%, var(--gray-50) 100%);
     scroll-margin-top: 96px;
     padding-top: clamp(2.25rem, 5vh, 3rem);

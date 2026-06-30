@@ -1,5 +1,8 @@
 export const runtimeConfig = {
     "analyticsEnabled": false,
+    "analytics": {
+        "measurementId": "G-KE98KY192J"
+    },
     "conversionValues": {
         "primary_cta": 25,
         "service_inquiry": 20,
@@ -100,5 +103,26 @@ export const runtimeConfig = {
             ],
             "situation": "Pricing, services, or general estate math"
         }
-    ]
+    ],
+    "cookies": {
+        "consentRequired": true,
+        "policyUrl": "cookie-policy.html",
+        "categories": {
+            "essential": {
+                "title": "Essential",
+                "description": "Required for basic site operation, security, accessibility, form context, and saved consent choices.",
+                "required": true
+            },
+            "analytics": {
+                "title": "Analytics",
+                "description": "Helps us understand which pages and calls to action are useful. Disabled until accepted.",
+                "required": false
+            },
+            "marketing": {
+                "title": "Marketing",
+                "description": "Reserved for future advertising or remarketing tools. Disabled unless later added and accepted.",
+                "required": false
+            }
+        }
+    }
 };

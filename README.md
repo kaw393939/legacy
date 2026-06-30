@@ -45,7 +45,7 @@ This is a content-driven static site. Source content lives in Markdown and YAML,
 |-- static/
 |   |-- css/
 |   |   |-- parts/               # Ordered source CSS files
-|   |   `-- styles.css           # Legacy/reference stylesheet; build uses parts when present
+|   |   `-- styles.css           # Compatibility/reference stylesheet; build uses parts when present
 |   |-- js/main.js               # Source JavaScript
 |   |-- images/                  # Source and optimized images copied to docs/images
 |   |   `-- originals/           # High-resolution source images; never published
@@ -82,6 +82,13 @@ The build currently generates these public pages:
 - `professional-referral-partners.html`
 - `founder-plan.html`
 - `thank-you.html`
+- `privacy.html`
+- `terms.html`
+- `cookie-policy.html`
+- `accessibility.html`
+- `service-boundaries.html`
+- `refund-cancellation.html`
+- `provider-notice.html`
 
 ## Local Setup
 
@@ -222,6 +229,8 @@ Important data files:
 - `technology-process.yaml`: process and inventory messaging
 - `testimonials.yaml`, `value-props.yaml`, `why-choose.yaml`: supporting homepage sections
 
+Compliance content lives in `content/compliance.yaml` and the related policy pages under `content/pages/`. Cookie consent settings are exported into generated runtime config, and analytics must remain consent-gated.
+
 ## Templates
 
 Templates are in `templates/`.
@@ -299,7 +308,7 @@ Current notable CSS areas:
 - `11-11-forms.css`: forms
 - `12-12-footer.css`: footer
 - `15-15-media-queries-responsive-design.css`: responsive behavior
-- `18-18-legacy-defenders-redesign.css`: broader redesign/page styles
+- `18-*`: broader redesign/page styles
 - `19-19-situation-pages.css`: specific situation guide styles
 
 For production builds, use `--minify-css` so the bundled output is smaller.

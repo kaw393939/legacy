@@ -1,8 +1,8 @@
 /* ====================== 8. COMPONENTS - Cards, Badges, Icons ====================== */
 /* Cards - Now using standardized .card class in HTML */
-/* Legacy selectors removed - all HTML updated to use .card + modifiers */
+/* Deprecated selectors removed - all HTML updated to use .card + modifiers */
 /* Icon Badges - Now using standardized .icon-badge class in HTML */
-/* Legacy icon selectors removed - all HTML updated to use .icon-badge + modifiers */
+/* Deprecated icon selectors removed - all HTML updated to use .icon-badge + modifiers */
 /* Badges */
 .service-badge, .service-showcase-badge, .package-badge, .pricing-badge {
     position: absolute;

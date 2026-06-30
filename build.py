@@ -149,6 +149,12 @@ class SiteBuilder:
         data: dict[str, Any] = {}
         print("\nLoading content data...")
 
+        compliance_path = self.content_dir / "compliance.yaml"
+        if compliance_path.exists():
+            compliance = load_yaml(compliance_path)
+            data["compliance"] = compliance.get("compliance", compliance) if isinstance(compliance, dict) else {}
+            print("   OK Loaded compliance")
+
         for yaml_file in sorted(DATA_DIR.glob("*.yaml")):
             key = yaml_file.stem
             key_normalized = key.replace("-", "_")
@@ -232,10 +238,20 @@ class SiteBuilder:
             print(f"   OK Copied {relative_path.as_posix()}")
 
     def write_runtime_config(self, data: dict[str, Any]) -> None:
+        compliance = data.get("compliance") or {}
+        cookies = compliance.get("cookies") if isinstance(compliance.get("cookies"), dict) else {}
         config = {
             "analyticsEnabled": bool(self.config.get("features", {}).get("enable_analytics", False)),
+            "analytics": {
+                "measurementId": self.config.get("features", {}).get("analytics_measurement_id", "G-KE98KY192J"),
+            },
             "conversionValues": CONVERSION_VALUES,
             "contactIntentOptions": (data.get("contact_intake") or {}).get("intent_options", []),
+            "cookies": {
+                "consentRequired": bool(cookies.get("consent_required", False)),
+                "policyUrl": cookies.get("policy_url", "cookie-policy.html"),
+                "categories": cookies.get("categories", {}),
+            },
         }
         payload = json.dumps(config, indent=4, ensure_ascii=True)
         destination = self.output_dir / "modules" / "runtime-config.js"

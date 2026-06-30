@@ -56,4 +56,13 @@ export function initAnalytics() {
     initServiceCardAnalytics();
     initTimeOnPageAnalytics();
     trackExperimentExposure();
+
+    document.addEventListener('cookie-consent-updated', (event) => {
+        if (event.detail && event.detail.analytics) {
+            track('analytics_consent_granted', {
+                event_category: 'Privacy',
+                event_label: 'Analytics consent granted'
+            });
+        }
+    });
 }

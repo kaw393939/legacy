@@ -58,11 +58,6 @@
 
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-    {% if features.enable_analytics %}
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
-    {% endif %}
-
     <!-- Structured Data - Local Business -->
     <script type="application/ld+json">
     {
@@ -111,6 +106,8 @@
     </main>
 
     {% include 'components/footer.html' %}
+
+    {% include 'components/cookie-consent.html' %}
 
     {% if features.show_whatsapp_float %}
     <!-- WhatsApp Floating Button -->

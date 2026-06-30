@@ -44,15 +44,14 @@
     <meta name="googlebot" content="index, follow">
 
     <!-- Resource Hints for Performance -->
-    <link rel="preload" href="styles.css?v=21f731dbeac5" as="style">
+    <link rel="preload" href="styles.css?v=e9a6296c2974" as="style">
     <link rel="preload" href="images/hero/plan-ahead-readiness-binder.webp" as="image">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=21f731dbeac5">
+    <link rel="stylesheet" href="styles.css?v=e9a6296c2974">
 
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
 
     <!-- Structured Data - Local Business -->
     <script type="application/ld+json">
@@ -424,6 +423,18 @@ Start With A Free Call
                     <li><a href="index.html#contact">Contact</a></li>
                 </ul>
             </div>
+            <div class="footer-section">
+                <h4 class="footer-heading">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms Of Use</a></li>
+                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="service-boundaries.html">Service Boundaries</a></li>
+                    <li><a href="refund-cancellation.html">Visit Credit Terms</a></li>
+                    <li><a href="provider-notice.html">Provider Notice</a></li>
+                </ul>
+            </div>
 
             <!-- Social Media -->
         </div>
@@ -431,12 +442,71 @@ Start With A Free Call
         <!-- Copyright -->
         <div class="footer-bottom flex flex-col items-center">
             <p>&copy; 2026 Legacy Defenders. All rights reserved.</p>
+            <p class="footer-legal">
+                <button class="footer-link-button" type="button" data-cookie-preferences>Cookie Preferences</button>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="accessibility.html">Accessibility</a>
+            </p>
             <p class="footer-back-top">
                 <a href="#header" class="back-to-top">Back to Top</a>
             </p>
         </div>
     </div>
 </footer>
+<section class="cookie-consent" data-cookie-consent hidden aria-label="Cookie consent">
+    <div class="cookie-consent-panel">
+        <div>
+            <p class="ld-kicker">Privacy choices</p>
+            <h2>Choose how this site uses cookies.</h2>
+            <p>Essential storage keeps the site working. Analytics stays off unless you accept it. You can change this later from Cookie Preferences in the footer.</p>
+        </div>
+        <div class="cookie-consent-actions">
+            <button class="btn btn-primary" type="button" data-cookie-accept>Accept All</button>
+            <button class="btn btn-outline" type="button" data-cookie-reject>Reject Non-Essential</button>
+            <button class="btn btn-text" type="button" data-cookie-manage>Manage Preferences</button>
+        </div>
+    </div>
+</section>
+
+<div class="cookie-modal" data-cookie-modal hidden role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="cookie-modal-backdrop" data-cookie-close></div>
+    <div class="cookie-modal-panel">
+        <div class="cookie-modal-header">
+            <div>
+                <p class="ld-kicker">Cookie preferences</p>
+                <h2 id="cookie-modal-title">Manage privacy choices</h2>
+            </div>
+            <button class="cookie-modal-close" type="button" data-cookie-close aria-label="Close cookie preferences">&times;</button>
+        </div>
+        <div class="cookie-option">
+            <div>
+                <h3>Essential</h3>
+                <p>Required for basic site operation and saved consent choices.</p>
+            </div>
+            <span class="cookie-required">Always on</span>
+        </div>
+        <label class="cookie-option" for="cookie-analytics-toggle">
+            <div>
+                <h3>Analytics</h3>
+                <p>Helps us understand which pages are useful. Disabled unless accepted.</p>
+            </div>
+            <input id="cookie-analytics-toggle" type="checkbox" data-cookie-analytics-toggle>
+        </label>
+        <label class="cookie-option" for="cookie-marketing-toggle">
+            <div>
+                <h3>Marketing</h3>
+                <p>Reserved for future advertising tools. Disabled unless later added and accepted.</p>
+            </div>
+            <input id="cookie-marketing-toggle" type="checkbox" data-cookie-marketing-toggle disabled>
+        </label>
+        <div class="cookie-modal-actions">
+            <a href="cookie-policy.html">Read Cookie Policy</a>
+            <button class="btn btn-outline" type="button" data-cookie-reject>Reject Non-Essential</button>
+            <button class="btn btn-primary" type="button" data-cookie-save>Save Preferences</button>
+        </div>
+    </div>
+</div>
     <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/19736377079?text=Hi!%20I%20need%20help%20with%20an%20inherited%20home"
        class="whatsapp-float flex items-center justify-center"
@@ -451,6 +521,6 @@ Start With A Free Call
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script type="module" src="main.js?v=21f731dbeac5"></script>
+    <script type="module" src="main.js?v=e9a6296c2974"></script>
 </body>
 </html>

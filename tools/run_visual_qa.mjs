@@ -16,6 +16,13 @@ const PAGES = [
   'single-decision-maker.html',
   'out-of-state-executor.html',
   'founder-plan.html',
+  'privacy.html',
+  'terms.html',
+  'cookie-policy.html',
+  'accessibility.html',
+  'service-boundaries.html',
+  'refund-cancellation.html',
+  'provider-notice.html',
 ];
 const VIEWPORTS = [
   { name: 'desktop', width: 1440, height: 1100, mobile: false },

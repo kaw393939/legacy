@@ -1,0 +1,47 @@
+compliance:
+  effective_date: "June 30, 2026"
+  business_name: "Legacy Defenders"
+  service_area: "Pittsburgh, Allegheny County, and nearby Pennsylvania communities"
+  contact:
+    email: "care@legacydefenders.com"
+    phone: "(973) 637-7079"
+  data:
+    retention: "We keep inquiry records only as long as reasonably needed to respond, provide requested services, keep business records, resolve disputes, and meet legal obligations."
+    form_processor: "Website contact form and email delivery tools"
+    categories:
+      - "Contact details such as name, email, phone number, and home location"
+      - "Information you choose to share about an inherited home, belongings, authority, urgency, and service needs"
+      - "Technical information such as browser, device, approximate location, pages viewed, and referral source when analytics is enabled"
+  cookies:
+    consent_required: true
+    analytics_category: "analytics"
+    policy_url: "cookie-policy.html"
+    preferences_label: "Cookie Preferences"
+    categories:
+      essential:
+        title: "Essential"
+        description: "Required for basic site operation, security, accessibility, form context, and saved consent choices."
+        required: true
+      analytics:
+        title: "Analytics"
+        description: "Helps us understand which pages and calls to action are useful. Disabled until accepted."
+        required: false
+      marketing:
+        title: "Marketing"
+        description: "Reserved for future advertising or remarketing tools. Disabled unless later added and accepted."
+        required: false
+  terms:
+    no_children: "This site is intended for adults and is not directed to children under 13."
+    no_professional_advice: "Legacy Defenders does not provide legal, tax, accounting, lending, insurance, appraisal, real estate brokerage, auction, or licensed trade advice."
+    no_guarantee: "Examples, ranges, checklists, and planning language are informational and do not guarantee results, timelines, sale prices, financing, provider availability, or legal outcomes."
+  visit_credit:
+    price: "$250"
+    summary: "The Estate Math Home Visit is a paid planning visit. If the client approves Legacy Defenders services for the same property, the $250 visit fee may be credited toward that approved scope under the written terms confirmed before scheduling."
+    refund: "Unless otherwise agreed in writing, completed home visits are not refundable because time, travel, review, and planning work have been performed."
+    cancellation: "If a visit must be rescheduled or cancelled, contact us as early as possible. Same-day cancellations, unsafe access, or lack of required authority may affect whether the fee can be credited or rescheduled."
+  provider_notice:
+    summary: "Legacy Defenders may coordinate independent providers, contractors, movers, cleaners, storage providers, licensed trades, real estate professionals, attorneys, CPAs, lenders, insurers, appraisers, or other specialists. Those providers remain responsible for their own licensing, insurance, contracts, pricing, work quality, and legal obligations."
+    contractor_notice: "Pennsylvania home improvement and licensed trade work may require registration, licensing, insurance, written contracts, permits, inspections, or other requirements. Clients should review provider credentials and agreements before authorizing work."
+  accessibility:
+    summary: "Legacy Defenders aims to make this website accessible and readable. If you have trouble using the site, contact us and we will try to provide the information another way."
+  breach_contact: "If you believe information submitted through this site has been misused or exposed, contact care@legacydefenders.com."

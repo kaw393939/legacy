@@ -34,6 +34,7 @@ REQUIRED_FILES = (
     "static/js/modules/analytics/forms.js",
     "static/js/modules/assets.js",
     "static/js/modules/contact.js",
+    "static/js/modules/cookies.js",
     "static/js/modules/faq.js",
     "static/js/modules/navigation.js",
     "static/js/modules/print.js",
@@ -136,7 +137,7 @@ def check_expected_files(errors: list[str]) -> None:
 
     for relative_path in REMOVED_FILES:
         if (ROOT / relative_path).exists():
-            errors.append(f"removed legacy frontend file still exists: {relative_path}")
+            errors.append(f"removed deprecated frontend file still exists: {relative_path}")
 
 
 def check_css_part_size(errors: list[str]) -> None:

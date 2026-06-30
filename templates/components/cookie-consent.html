@@ -1,0 +1,53 @@
+<section class="cookie-consent" data-cookie-consent hidden aria-label="Cookie consent">
+    <div class="cookie-consent-panel">
+        <div>
+            <p class="ld-kicker">Privacy choices</p>
+            <h2>Choose how this site uses cookies.</h2>
+            <p>Essential storage keeps the site working. Analytics stays off unless you accept it. You can change this later from Cookie Preferences in the footer.</p>
+        </div>
+        <div class="cookie-consent-actions">
+            <button class="btn btn-primary" type="button" data-cookie-accept>Accept All</button>
+            <button class="btn btn-outline" type="button" data-cookie-reject>Reject Non-Essential</button>
+            <button class="btn btn-text" type="button" data-cookie-manage>Manage Preferences</button>
+        </div>
+    </div>
+</section>
+
+<div class="cookie-modal" data-cookie-modal hidden role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="cookie-modal-backdrop" data-cookie-close></div>
+    <div class="cookie-modal-panel">
+        <div class="cookie-modal-header">
+            <div>
+                <p class="ld-kicker">Cookie preferences</p>
+                <h2 id="cookie-modal-title">Manage privacy choices</h2>
+            </div>
+            <button class="cookie-modal-close" type="button" data-cookie-close aria-label="Close cookie preferences">&times;</button>
+        </div>
+        <div class="cookie-option">
+            <div>
+                <h3>Essential</h3>
+                <p>Required for basic site operation and saved consent choices.</p>
+            </div>
+            <span class="cookie-required">Always on</span>
+        </div>
+        <label class="cookie-option" for="cookie-analytics-toggle">
+            <div>
+                <h3>Analytics</h3>
+                <p>Helps us understand which pages are useful. Disabled unless accepted.</p>
+            </div>
+            <input id="cookie-analytics-toggle" type="checkbox" data-cookie-analytics-toggle>
+        </label>
+        <label class="cookie-option" for="cookie-marketing-toggle">
+            <div>
+                <h3>Marketing</h3>
+                <p>Reserved for future advertising tools. Disabled unless later added and accepted.</p>
+            </div>
+            <input id="cookie-marketing-toggle" type="checkbox" data-cookie-marketing-toggle disabled>
+        </label>
+        <div class="cookie-modal-actions">
+            <a href="cookie-policy.html">Read Cookie Policy</a>
+            <button class="btn btn-outline" type="button" data-cookie-reject>Reject Non-Essential</button>
+            <button class="btn btn-primary" type="button" data-cookie-save>Save Preferences</button>
+        </div>
+    </div>
+</div>

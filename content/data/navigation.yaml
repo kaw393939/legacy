@@ -83,3 +83,21 @@ footer_nav:
         url: "founder-plan.html"
       - title: "Contact"
         url: "index.html#contact"
+
+  legal:
+    title: "Legal"
+    links:
+      - title: "Privacy Policy"
+        url: "privacy.html"
+      - title: "Terms Of Use"
+        url: "terms.html"
+      - title: "Cookie Policy"
+        url: "cookie-policy.html"
+      - title: "Accessibility"
+        url: "accessibility.html"
+      - title: "Service Boundaries"
+        url: "service-boundaries.html"
+      - title: "Visit Credit Terms"
+        url: "refund-cancellation.html"
+      - title: "Provider Notice"
+        url: "provider-notice.html"
