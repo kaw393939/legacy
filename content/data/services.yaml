@@ -12,15 +12,10 @@
       - "Free one-hour estate call first"
       - "Home and belongings walkthrough"
       - "Urgency review: mortgage, taxes, utilities, insurance, lawn, access, smoke, safety"
-      - "Initial cost categories and likely provider needs"
-      - "Belongings bottleneck and inventory plan"
+      - "Initial cost categories, belongings bottleneck, and likely provider needs"
       - "Priority list for the first 7, 30, and 90 days"
-      - "Trusted provider needs mapped so the executor is not starting from zero"
-      - "Possible asset-offset paths identified, such as saleable belongings or vehicles, when authority is clear"
-      - "Single decision-maker discount screening when one authorized person can approve the work"
+      - "Possible asset-offset paths identified when authority is clear"
       - "$250 credit toward approved Legacy Defenders services"
-      - "Preferred attorney, CPA, realtor, lender, or licensed trade needs identified"
-      - "Possible discounted professional packages discussed when available through preferred partners"
 
   - id: property-stabilization
     title: "Property Maintenance & Stabilization"
@@ -34,12 +29,10 @@
     features:
       - "Lock, access, and key coordination"
       - "Lawn/code issue coordination"
-      - "Utility status and carrying-cost notes"
-      - "Utility and basic condition checks"
+      - "Utility status, basic condition, and carrying-cost notes"
       - "Mortgage, tax, insurance, and bill-pressure questions identified"
       - "Photo reports for executor records"
-      - "Urgent repair triage"
-      - "Vacant-home maintenance planning"
+      - "Urgent repair and vacant-home maintenance triage"
 
   - id: financing-readiness
     title: "Funding & Carrying-Cost Readiness"
@@ -54,10 +47,8 @@
       - "Rough project budget"
       - "Mortgage, utility, tax, insurance, and maintenance pressure timeline"
       - "Equity and lien questions identified"
-      - "Saleable-asset questions identified, including vehicles, belongings, and other assets that may be easier to convert to cash"
-      - "Sale, refinance, estate funds, or third-party financing options discussed"
-      - "Draw/milestone planning for larger projects"
-      - "Attorney and lender review recommended before any financing decision"
+      - "Saleable-asset questions identified, including vehicles or belongings"
+      - "Sale, refinance, estate funds, or third-party financing options framed for professional review"
 
 settling_up_services:
   - id: qr-inventory
@@ -75,11 +66,8 @@ settling_up_services:
       - "Photo record of handled items"
       - "Heir distribution notes"
       - "Executor-visible inventory and status records"
-      - "AI-assisted identification and sold-comps research when available"
-      - "Estimated resale value and likely sale timing when useful"
       - "Sentimental items protected from rushed decisions"
-      - "Records for attorney, CPA, tax preparer, and executor review"
-      - "Executor-ready item records"
+      - "Research, sold-comps, and executor-ready item records when useful"
 
   - id: storage-routing
     title: "Item Routing, Storage, Shipping & Donation"
@@ -92,15 +80,12 @@ settling_up_services:
     what_you_get: "A tracked flow for client storage, sale storage, shipping, donation, disposal, and heir pickup or delivery."
     features:
       - "Client-controlled storage for kept items"
-      - "Executor key/access options for client storage"
       - "Central sale storage for approved sale items"
       - "Return-to-house routing when items should come back after repairs"
       - "Donation and disposal coordination"
       - "Pickup, delivery, and shipping coordination for heirs"
-      - "Distribution support according to will, executor, and family instructions when authority is clear"
       - "Asset-sale routing designed to help offset approved estate costs where appropriate"
-      - "30/60/90-day review rules for unsold items"
-      - "Monthly storage accountability"
+      - "30/60/90-day review rules and monthly storage accountability"
 
   - id: item-processing
     title: "Item Prep, Research & Sale Support"
@@ -118,9 +103,8 @@ settling_up_services:
       - "Sold-comps, sale timing, and pricing guidance"
       - "Small, medium, large, and specialty item handling options"
       - "Packing, shipping, or delivery coordination"
-      - "Sale records for the executor"
       - "No hidden percentage of item sales"
-      - "Donation/return recommendations for slow-moving items"
+      - "Sale, donation, return, and executor records"
 
   - id: provider-coordination
     title: "Provider Coordination"
@@ -172,8 +156,7 @@ support_services:
       - "Kitchen and bath refresh planning"
       - "Electrical/plumbing partner coordination"
       - "Practical upgrades buyers expect"
-      - "Budget discipline to avoid over-renovating"
-      - "Project photos, receipts, and scope records"
+      - "Budget discipline, photos, receipts, and scope records"
 
   - id: pre-need
     title: "Prearranged Legacy Readiness Plan"
@@ -189,8 +172,6 @@ support_services:
       - "Important document/location checklist"
       - "Sentimental item instructions"
       - "Activation contacts and family communication notes"
-      - "Estimated service phases and likely funding paths"
-      - "Preferred contacts and providers"
-      - "Family meeting support"
-      - "Priority activation and possible discounts for pre-arranged families"
+      - "Estimated service phases, likely funding paths, and preferred providers"
+      - "Family meeting support and priority activation options"
 

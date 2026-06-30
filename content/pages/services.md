@@ -44,35 +44,31 @@ cta:
 
 # Legacy Defenders Services
 
-An inherited home can have real value, but that value is often locked behind grief, belongings, repairs, mortgage payments, taxes, utilities, storage decisions, family questions, probate timing, disconnected service providers, and years of deferred maintenance.
+An inherited home can have real value, but the first problem is usually simpler: no one knows what has to happen first.
 
-Legacy Defenders coordinates the practical house-side work so the executor and family can make informed decisions without having to become full-time project managers overnight.
+Legacy Defenders helps the executor or family turn the house-side work into one clear path: understand the situation, document the costs, route the belongings, coordinate trusted local providers, and keep records for the next decision.
 
 ## Our Core Process
 
 ### 1. Understand the estate math
 
-The free one-hour call helps us understand the situation. The $250 Estate Math Home Visit helps identify urgent issues, access, locks, lawn care, utilities, insurance concerns, leaks, code risks, mortgage/tax pressure, smoke or odor concerns, family decision needs, and safety problems. The visit is credited toward approved Legacy Defenders services when the project moves forward.
+The free one-hour call helps us understand the home, authority, deadlines, belongings, and pressure points. If local eyes would help, the $250 Estate Math Home Visit identifies urgent risks, cost categories, provider needs, and the first bottleneck. The visit is credited toward approved Legacy Defenders services for the same property.
 
 ### 2. Create the Estate Math Snapshot
 
-A care coordinator meets with the family or executor, documents the situation, and turns the chaos into a practical snapshot with priorities, cost categories, belongings routes, provider needs, possible funding paths, records to gather, and next decisions. When helpful, we use AI-assisted visuals to show practical market-ready or move-in-ready directions before the estate approves work.
+A care coordinator documents the situation and turns it into a practical snapshot: priorities, cost categories, belongings routes, provider needs, possible funding paths, records to gather, and next decisions.
 
 ### 3. Inventory and tag belongings
 
-Using QR smart tags and photos, we help classify belongings as keep, sell, donate, discard, deliver to heir, store, return to home, or research/appraise. AI can help identify items and organize research, while market pricing data and sold-comps help the executor understand likely value and sale timing.
+Using photos and QR tags where helpful, we classify belongings as keep, sell, donate, discard, deliver, store, return, or research. Sentimental items and important records are protected before the house is cleared.
 
-### 4. Move, store, ship, sell-support, donate, or distribute
+### 4. Route items and coordinate providers
 
-Items are routed to the right place. Keepsakes can go to client-controlled storage. Sale items can move to processing/storage. Family items can be packed, shipped, delivered, or held for pickup. Donation and disposal are documented.
+Items go where they belong, and the house-side provider work is coordinated from a written scope: moving, storage, donation, disposal, cleaning, lawn, maintenance, repairs, and licensed trades when needed.
 
-### 5. Coordinate providers and prepare the home
+### 5. Support the next decision
 
-Once the house is clear, Mike's construction judgment and trusted local providers can help with practical improvements: smoke remediation, deep cleaning, paint, minor fixes, flooring, lighting, dated kitchen/bath refreshes, maintenance, lawn, hauling, and licensed trade coordination where needed. Preferred or volume-informed pricing is used where available.
-
-### 6. Support the next decision
-
-The family may sell, keep, rent, move in, finance, or continue through probate. We provide documentation, receipts, photos, item records, provider scopes, shipping notes, storage logs, and project reporting for the executor, attorney, CPA, realtor, or lender to review.
+The family may sell, keep, rent, move in, finance, or continue through probate. We provide photos, receipts, item records, provider scopes, shipping notes, storage logs, and project reporting for the executor and professional advisors.
 
 Keith's inherited home can be used as an early walk-through example of the end result: a smoke-damaged, emotionally difficult family home transformed into a cleaner, modernized house while preserving the memories worth keeping.
 

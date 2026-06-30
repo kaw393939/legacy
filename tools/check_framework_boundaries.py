@@ -23,6 +23,7 @@ REUSABLE_PATHS = (
     "tools/check_frontend_architecture.py",
     "tools/optimize_images.py",
     "tools/run_lighthouse_budget.mjs",
+    "tools/run_visual_qa.mjs",
     "tools/site_framework.py",
 )
 PROFILE_ALLOWED_PATHS = (

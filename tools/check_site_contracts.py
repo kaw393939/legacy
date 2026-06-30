@@ -18,6 +18,7 @@ SITUATION_REQUIRED_LISTS = {
 PAGE_REQUIRED_CTA_LAYOUTS = {"internal", "page", "services"}
 MAX_LONG_PAGE_LINES = 180
 LONG_PAGE_ALLOWLIST = {"founder-plan.md"}
+PROFILE_REQUIRED_FIELDS = ("id", "page_eyebrow", "situation_eyebrow", "default_hero_image", "situation_boundary")
 
 
 def check_required(errors: list[str], source: str, data: dict, keys: tuple[str, ...]) -> None:
@@ -122,6 +123,32 @@ def check_page_size(errors: list[str]) -> None:
             )
 
 
+def check_site_profile(errors: list[str]) -> None:
+    profile_path = CONTENT_DIR / "site-profile.yaml"
+    if not profile_path.exists():
+        errors.append("content/site-profile.yaml is missing")
+        return
+
+    profile = load_yaml(profile_path).get("profile", {})
+    if not isinstance(profile, dict):
+        errors.append("content/site-profile.yaml: profile must be a mapping")
+        return
+
+    check_required(errors, "content/site-profile.yaml profile", profile, PROFILE_REQUIRED_FIELDS)
+
+    primary_cta = profile.get("primary_cta")
+    if not isinstance(primary_cta, dict):
+        errors.append("content/site-profile.yaml: profile.primary_cta must be a mapping")
+    else:
+        check_required(errors, "content/site-profile.yaml profile.primary_cta", primary_cta, ("text", "icon"))
+
+    probate = ((profile.get("references") or {}).get("probate") or {}) if isinstance(profile.get("references"), dict) else {}
+    if not isinstance(probate, dict) or not probate:
+        errors.append("content/site-profile.yaml: profile.references.probate must be a mapping")
+    else:
+        check_required(errors, "content/site-profile.yaml profile.references.probate", probate, ("title", "url"))
+
+
 def main() -> int:
     errors: list[str] = []
 
@@ -131,6 +158,7 @@ def main() -> int:
     check_situation_cards(errors)
     check_contact_intake_contract(errors)
     check_page_size(errors)
+    check_site_profile(errors)
 
     if errors:
         print("Site profile contract check failed:")

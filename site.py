@@ -24,7 +24,8 @@ from tools.site_framework import (
 
 
 PYTHON_SYNTAX_FILES = ("build.py", "site.py", "validator.py")
-JAVASCRIPT_TOOL_FILES = ("tools/run_lighthouse_budget.mjs",)
+JAVASCRIPT_TOOL_FILES = ("tools/run_lighthouse_budget.mjs", "tools/run_visual_qa.mjs")
+VISUAL_QA_TOOL = "tools/run_visual_qa.mjs"
 
 
 class SiteManager:
@@ -119,6 +120,38 @@ class SiteManager:
                 server.kill()
                 server.wait(timeout=5)
 
+    def _run_temporary_server(self, callback) -> None:
+        port = self._free_port()
+        base_url = f"http://127.0.0.1:{port}/"
+        self.logger.info("Starting temporary server at %s", base_url)
+
+        server = subprocess.Popen(
+            [
+                sys.executable,
+                "-m",
+                "http.server",
+                str(port),
+                "--bind",
+                "127.0.0.1",
+                "--directory",
+                str(self.output_dir),
+            ],
+            cwd=self.root,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+
+        try:
+            self._wait_for_url(f"{base_url}index.html")
+            callback(base_url)
+        finally:
+            server.terminate()
+            try:
+                server.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                server.kill()
+                server.wait(timeout=5)
+
     def build(self, *, validate: bool = False) -> None:
         command = [sys.executable, "build.py"]
         if self.config.get("performance", {}).get("minify_css", True):
@@ -175,6 +208,17 @@ class SiteManager:
             label=f"Checking Lighthouse budgets for {url}",
         )
 
+    def visual_qa(self) -> None:
+        self.build()
+
+        def capture(base_url: str) -> None:
+            self._run(
+                ["node", VISUAL_QA_TOOL, "--base-url", base_url],
+                label=f"Capturing visual QA screenshots for {base_url}",
+            )
+
+        self._run_temporary_server(capture)
+
     def check(self, *, include_lighthouse: bool = False) -> None:
         self.validate()
         self._run(["git", "diff", "--check"], label="Checking git diff whitespace")
@@ -220,6 +264,7 @@ def main() -> None:
     lighthouse_parser = subparsers.add_parser("lighthouse", help="Run Lighthouse budget checks")
     lighthouse_parser.add_argument("url", nargs="?", default="http://localhost:8000/index.html")
 
+    subparsers.add_parser("visual-qa", help="Capture desktop and mobile QA screenshots")
     subparsers.add_parser("clean", help="Remove generated output")
     subparsers.add_parser("status", help="Show project status")
     subparsers.add_parser("optimize-images", help="Optimize static image originals into publishable assets")
@@ -243,6 +288,8 @@ def main() -> None:
             manager.check(include_lighthouse=args.lighthouse)
         elif args.command == "lighthouse":
             manager.lighthouse(args.url)
+        elif args.command == "visual-qa":
+            manager.visual_qa()
         elif args.command == "clean":
             manager.clean()
         elif args.command == "status":

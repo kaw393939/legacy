@@ -153,6 +153,12 @@ Run a Lighthouse check against the local site:
 node tools/run_lighthouse_budget.mjs --url http://localhost:8000/index.html --min 90
 ```
 
+Capture desktop and mobile visual QA screenshots for key pages:
+
+```powershell
+.\.venv\Scripts\python.exe site.py visual-qa
+```
+
 Convenience commands also exist through `Makefile`, but `site.py` is the development and deployment source of truth.
 
 ## How The Build Works
@@ -247,6 +253,7 @@ Active framework tools:
 - `tools/check_site_integrity.py`: generated-site validation and optional JSON reporting through `validator.py`
 - `tools/new_page.py`: page and situation-page scaffolding
 - `tools/run_lighthouse_budget.mjs`: Lighthouse budget runner
+- `tools/run_visual_qa.mjs`: desktop and mobile screenshot capture for key pages
 
 Use the page scaffold tool for repeatable structure:
 

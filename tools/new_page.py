@@ -7,7 +7,7 @@ import argparse
 from dataclasses import dataclass
 from urllib.parse import quote
 
-from tools.site_framework import PAGES_DIR, ROOT, TEXT_ENCODING, slugify
+from tools.site_framework import CONTENT_DIR, PAGES_DIR, ROOT, TEXT_ENCODING, load_yaml, slugify
 
 
 @dataclass(frozen=True)
@@ -23,25 +23,31 @@ class SiteProfile:
     probate_reference_url: str
 
 
-LEGACY_DEFENDERS_PROFILE = SiteProfile(
-    name="legacy_defenders",
-    default_hero_image="images/hero/legacy-defenders-care-hero.webp",
-    page_eyebrow="Guide",
-    situation_eyebrow="Situation guide",
-    primary_cta_text="Start With A Free Call",
-    primary_cta_icon="fa-phone",
-    situation_boundary=(
-        "Legacy Defenders does not provide legal, tax, appraisal, lending, insurance, real estate brokerage, "
-        "or licensed trade advice."
-    ),
-    probate_reference_title="Allegheny County Probate Fees",
-    probate_reference_url=(
-        "https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/"
-        "Probating-Wills/Probate-Fees"
-    ),
-)
-PROFILES = {LEGACY_DEFENDERS_PROFILE.name: LEGACY_DEFENDERS_PROFILE}
-DEFAULT_PROFILE = LEGACY_DEFENDERS_PROFILE.name
+DEFAULT_PROFILE = "legacy_defenders"
+
+
+def profile_from_data(data: dict) -> SiteProfile:
+    profile = data.get("profile") if isinstance(data.get("profile"), dict) else {}
+    primary_cta = profile.get("primary_cta") if isinstance(profile.get("primary_cta"), dict) else {}
+    references = profile.get("references") if isinstance(profile.get("references"), dict) else {}
+    probate = references.get("probate") if isinstance(references.get("probate"), dict) else {}
+
+    return SiteProfile(
+        name=str(profile.get("id") or DEFAULT_PROFILE),
+        default_hero_image=str(profile.get("default_hero_image") or ""),
+        page_eyebrow=str(profile.get("page_eyebrow") or "Guide"),
+        situation_eyebrow=str(profile.get("situation_eyebrow") or "Situation guide"),
+        primary_cta_text=str(primary_cta.get("text") or "Start With A Free Call"),
+        primary_cta_icon=str(primary_cta.get("icon") or "fa-phone"),
+        situation_boundary=str(profile.get("situation_boundary") or ""),
+        probate_reference_title=str(probate.get("title") or "Official probate reference"),
+        probate_reference_url=str(probate.get("url") or ""),
+    )
+
+
+def load_profiles() -> dict[str, SiteProfile]:
+    profile = profile_from_data(load_yaml(CONTENT_DIR / "site-profile.yaml"))
+    return {profile.name: profile}
 
 
 def yaml_quote(value: str) -> str:
@@ -168,12 +174,13 @@ def render_template(profile: SiteProfile, kind: str, slug: str, title: str, desc
 
 
 def parse_args() -> argparse.Namespace:
+    profiles = load_profiles()
     parser = argparse.ArgumentParser(
         prog="python -m tools.new_page",
         description="Create a static-site page scaffold",
     )
     parser.add_argument("--kind", choices=["page", "situation"], default="page")
-    parser.add_argument("--profile", choices=sorted(PROFILES), default=DEFAULT_PROFILE)
+    parser.add_argument("--profile", choices=sorted(profiles), default=DEFAULT_PROFILE)
     parser.add_argument("--slug", help="URL slug, for example out-of-state-executor")
     parser.add_argument("--title", required=True)
     parser.add_argument("--description", required=True)
@@ -183,7 +190,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
-    profile = PROFILES[args.profile]
+    profile = load_profiles()[args.profile]
     slug = slugify(args.slug or args.title)
 
     if not slug:
