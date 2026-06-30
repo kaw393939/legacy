@@ -7,7 +7,15 @@ import argparse
 from dataclasses import dataclass
 from urllib.parse import quote
 
-from tools.site_framework import CONTENT_DIR, PAGES_DIR, ROOT, TEXT_ENCODING, load_yaml, slugify
+from tools.site_framework import (
+    PAGES_DIR,
+    ROOT,
+    TEXT_ENCODING,
+    active_site_profile,
+    load_site_profile_config,
+    load_site_profiles as load_profile_data,
+    slugify,
+)
 
 
 @dataclass(frozen=True)
@@ -23,17 +31,14 @@ class SiteProfile:
     probate_reference_url: str
 
 
-DEFAULT_PROFILE = "legacy_defenders"
-
-
 def profile_from_data(data: dict) -> SiteProfile:
-    profile = data.get("profile") if isinstance(data.get("profile"), dict) else {}
+    profile = data if isinstance(data, dict) else {}
     primary_cta = profile.get("primary_cta") if isinstance(profile.get("primary_cta"), dict) else {}
     references = profile.get("references") if isinstance(profile.get("references"), dict) else {}
     probate = references.get("probate") if isinstance(references.get("probate"), dict) else {}
 
     return SiteProfile(
-        name=str(profile.get("id") or DEFAULT_PROFILE),
+        name=str(profile.get("id") or "default"),
         default_hero_image=str(profile.get("default_hero_image") or ""),
         page_eyebrow=str(profile.get("page_eyebrow") or "Guide"),
         situation_eyebrow=str(profile.get("situation_eyebrow") or "Situation guide"),
@@ -46,8 +51,17 @@ def profile_from_data(data: dict) -> SiteProfile:
 
 
 def load_profiles() -> dict[str, SiteProfile]:
-    profile = profile_from_data(load_yaml(CONTENT_DIR / "site-profile.yaml"))
-    return {profile.name: profile}
+    profiles = {key: profile_from_data(value) for key, value in load_profile_data().items()}
+    if profiles:
+        return profiles
+
+    fallback = profile_from_data(active_site_profile())
+    return {fallback.name: fallback}
+
+
+def active_profile_id(profiles: dict[str, SiteProfile]) -> str:
+    configured = str(load_site_profile_config().get("active_profile") or "")
+    return configured if configured in profiles else next(iter(profiles))
 
 
 def yaml_quote(value: str) -> str:
@@ -180,7 +194,7 @@ def parse_args() -> argparse.Namespace:
         description="Create a static-site page scaffold",
     )
     parser.add_argument("--kind", choices=["page", "situation"], default="page")
-    parser.add_argument("--profile", choices=sorted(profiles), default=DEFAULT_PROFILE)
+    parser.add_argument("--profile", choices=sorted(profiles), default=active_profile_id(profiles))
     parser.add_argument("--slug", help="URL slug, for example out-of-state-executor")
     parser.add_argument("--title", required=True)
     parser.add_argument("--description", required=True)

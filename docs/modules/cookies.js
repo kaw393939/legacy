@@ -34,6 +34,10 @@ function setHidden(element, hidden) {
     element.hidden = hidden;
 }
 
+function setCookieUiState(name, active) {
+    doc.body.classList.toggle(name, Boolean(active));
+}
+
 function syncToggles(value) {
     const analyticsToggle = $('[data-cookie-analytics-toggle]');
     if (analyticsToggle) analyticsToggle.checked = Boolean(value && value.analytics);
@@ -41,15 +45,20 @@ function syncToggles(value) {
 
 function showModal() {
     syncToggles(readConsent());
+    hideBanner();
+    setCookieUiState('cookie-modal-open', true);
     setHidden($('[data-cookie-modal]'), false);
 }
 
 function closeModal() {
     setHidden($('[data-cookie-modal]'), true);
+    setCookieUiState('cookie-modal-open', false);
+    showBannerIfNeeded();
 }
 
 function hideBanner() {
     setHidden($('[data-cookie-consent]'), true);
+    setCookieUiState('cookie-consent-open', false);
 }
 
 function showBannerIfNeeded() {
@@ -57,6 +66,7 @@ function showBannerIfNeeded() {
     const hasNonEssential = Boolean(cookieConfig.consentRequired || runtimeConfig.analyticsEnabled);
     if (!hasNonEssential || readConsent()) return;
     setHidden($('[data-cookie-consent]'), false);
+    setCookieUiState('cookie-consent-open', true);
 }
 
 function saveChoice(analytics) {

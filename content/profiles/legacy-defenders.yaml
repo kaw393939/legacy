@@ -1,0 +1,15 @@
+profile:
+  id: "legacy_defenders"
+  label: "Legacy Defenders"
+  archetype: "bereavement caregiver"
+  page_eyebrow: "Guide"
+  situation_eyebrow: "Situation guide"
+  default_hero_image: "images/hero/legacy-defenders-care-hero.webp"
+  primary_cta:
+    text: "Start With A Free Call"
+    icon: "fa-phone"
+  situation_boundary: "Legacy Defenders does not provide legal, tax, appraisal, lending, insurance, real estate brokerage, or licensed trade advice."
+  references:
+    probate:
+      title: "Allegheny County Probate Fees"
+      url: "https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Probating-Wills/Probate-Fees"

@@ -198,6 +198,16 @@ async function capturePage({ port, url, viewport, outputPath }) {
 
   await client.send('Page.enable');
   await client.send('Runtime.enable');
+  await client.send('Page.addScriptToEvaluateOnNewDocument', {
+    source: `
+      localStorage.setItem('siteCookieConsent', JSON.stringify({
+        essential: true,
+        analytics: false,
+        marketing: false,
+        updatedAt: new Date().toISOString()
+      }));
+    `,
+  });
   await client.send('Emulation.setDeviceMetricsOverride', {
     width: viewport.width,
     height: viewport.height,

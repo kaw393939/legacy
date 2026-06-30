@@ -44,12 +44,12 @@
     <meta name="googlebot" content="index, follow">
 
     <!-- Resource Hints for Performance -->
-    <link rel="preload" href="styles.css?v=e9a6296c2974" as="style">
+    <link rel="preload" href="styles.css?v=ab39cf1a6835" as="style">
     <link rel="preload" href="images/hero/professional-referral-handoff.webp" as="image">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css?v=e9a6296c2974">
+    <link rel="stylesheet" href="styles.css?v=ab39cf1a6835">
 
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
@@ -232,13 +232,27 @@
     <div class="container">
         <div class="footer-content">
             <!-- Company Info -->
-            <div class="footer-section">
+            <div class="footer-section footer-brand">
                 <h3 class="footer-title">Legacy Defenders</h3>
                 <p class="footer-text">Inherited Home Estate Management Support</p>
                 <div class="footer-contact">
                     <p><strong>Phone:</strong> <a href="tel:+19736377079">(973) 637-7079</a></p>
                     <p><strong>Email:</strong> <a href="mailto:care@legacydefenders.com">care@legacydefenders.com</a></p>
                     <p><strong>Location:</strong> Pittsburgh, Pennsylvania</p>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-social-heading">Share this resource</h4>
+                    <div class="social-links" aria-label="Share Legacy Defenders">
+                        <a class="social-link" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A//kaw393939.github.io/legacy" aria-label="Share Legacy Defenders on LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a class="social-link" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//kaw393939.github.io/legacy" aria-label="Share Legacy Defenders on Facebook" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a class="social-link" href="https://twitter.com/intent/tweet?url=https%3A//kaw393939.github.io/legacy&text=Legacy%20Defenders" aria-label="Share Legacy Defenders on X" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -289,7 +303,6 @@
                 </ul>
             </div>
 
-            <!-- Social Media -->
         </div>
 
         <!-- Copyright -->
@@ -309,15 +322,15 @@
 </footer>
 <section class="cookie-consent" data-cookie-consent hidden aria-label="Cookie consent">
     <div class="cookie-consent-panel">
-        <div>
+        <div class="cookie-consent-copy">
             <p class="ld-kicker">Privacy choices</p>
-            <h2>Choose how this site uses cookies.</h2>
-            <p>Essential storage keeps the site working. Analytics stays off unless you accept it. You can change this later from Cookie Preferences in the footer.</p>
+            <h2>Choose your cookie settings.</h2>
+            <p>Essential storage keeps the site working. Analytics stays off unless you accept it.</p>
         </div>
         <div class="cookie-consent-actions">
             <button class="btn btn-primary" type="button" data-cookie-accept>Accept All</button>
-            <button class="btn btn-outline" type="button" data-cookie-reject>Reject Non-Essential</button>
-            <button class="btn btn-text" type="button" data-cookie-manage>Manage Preferences</button>
+            <button class="btn btn-outline" type="button" data-cookie-reject>Reject</button>
+            <button class="btn btn-text" type="button" data-cookie-manage>Preferences</button>
         </div>
     </div>
 </section>
@@ -328,34 +341,36 @@
         <div class="cookie-modal-header">
             <div>
                 <p class="ld-kicker">Cookie preferences</p>
-                <h2 id="cookie-modal-title">Manage privacy choices</h2>
+                <h2 id="cookie-modal-title">Manage cookies</h2>
             </div>
             <button class="cookie-modal-close" type="button" data-cookie-close aria-label="Close cookie preferences">&times;</button>
         </div>
-        <div class="cookie-option">
-            <div>
-                <h3>Essential</h3>
-                <p>Required for basic site operation and saved consent choices.</p>
+        <div class="cookie-modal-body">
+            <div class="cookie-option">
+                <div>
+                    <h3>Essential</h3>
+                    <p>Required for basic site operation and saved consent choices.</p>
+                </div>
+                <span class="cookie-required">Always on</span>
             </div>
-            <span class="cookie-required">Always on</span>
+            <label class="cookie-option" for="cookie-analytics-toggle">
+                <div>
+                    <h3>Analytics</h3>
+                    <p>Helps us understand which pages are useful. Disabled unless accepted.</p>
+                </div>
+                <input id="cookie-analytics-toggle" type="checkbox" data-cookie-analytics-toggle>
+            </label>
+            <label class="cookie-option" for="cookie-marketing-toggle">
+                <div>
+                    <h3>Marketing</h3>
+                    <p>Reserved for future advertising tools. Disabled unless later added and accepted.</p>
+                </div>
+                <input id="cookie-marketing-toggle" type="checkbox" data-cookie-marketing-toggle disabled>
+            </label>
         </div>
-        <label class="cookie-option" for="cookie-analytics-toggle">
-            <div>
-                <h3>Analytics</h3>
-                <p>Helps us understand which pages are useful. Disabled unless accepted.</p>
-            </div>
-            <input id="cookie-analytics-toggle" type="checkbox" data-cookie-analytics-toggle>
-        </label>
-        <label class="cookie-option" for="cookie-marketing-toggle">
-            <div>
-                <h3>Marketing</h3>
-                <p>Reserved for future advertising tools. Disabled unless later added and accepted.</p>
-            </div>
-            <input id="cookie-marketing-toggle" type="checkbox" data-cookie-marketing-toggle disabled>
-        </label>
         <div class="cookie-modal-actions">
             <a href="cookie-policy.html">Read Cookie Policy</a>
-            <button class="btn btn-outline" type="button" data-cookie-reject>Reject Non-Essential</button>
+            <button class="btn btn-outline" type="button" data-cookie-reject>Reject</button>
             <button class="btn btn-primary" type="button" data-cookie-save>Save Preferences</button>
         </div>
     </div>
@@ -374,6 +389,6 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <script type="module" src="main.js?v=e9a6296c2974"></script>
+    <script type="module" src="main.js?v=ab39cf1a6835"></script>
 </body>
 </html>

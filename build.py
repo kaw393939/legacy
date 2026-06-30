@@ -29,6 +29,7 @@ from tools.site_framework import (
     configured_output_dir,
     configured_static_dir,
     configured_templates_dir,
+    active_site_profile,
     load_yaml,
     page_sources,
 )
@@ -154,6 +155,11 @@ class SiteBuilder:
             compliance = load_yaml(compliance_path)
             data["compliance"] = compliance.get("compliance", compliance) if isinstance(compliance, dict) else {}
             print("   OK Loaded compliance")
+
+        profile = active_site_profile()
+        if profile:
+            data["site_profile"] = profile
+            print("   OK Loaded active site_profile")
 
         for yaml_file in sorted(DATA_DIR.glob("*.yaml")):
             key = yaml_file.stem

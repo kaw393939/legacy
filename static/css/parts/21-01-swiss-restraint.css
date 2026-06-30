@@ -1,0 +1,493 @@
+/* Swiss restraint pass: quieter hierarchy, clearer grid, fewer ornamental surfaces. */
+:root {
+    --swiss-rule: 1px solid rgba(22, 59, 81, 0.12);
+    --swiss-shadow: 0 1px 2px rgba(16, 42, 67, 0.05);
+}
+
+.section-header {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title,
+.content-page > h2,
+.public-content h2,
+.situation-section > h2,
+.services-situation-router h2,
+.proof-section h2,
+.technology-section h2 {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    line-height: 1.08;
+}
+
+.content-page > h2,
+.public-content h2,
+.situation-section > h2 {
+    margin-top: clamp(2.25rem, 5vw, 3.75rem);
+    margin-bottom: var(--space-md);
+}
+
+.content-page > h3,
+.public-content h3,
+.situation-step-grid h3,
+.situation-record-grid h3,
+.service-path-card h3,
+.pricing-card h3,
+.card h3 {
+    font-size: clamp(1.15rem, 1.8vw, 1.55rem);
+    line-height: 1.2;
+}
+
+.hero-title {
+    font-size: clamp(2.35rem, 4vw, 3.55rem);
+    line-height: 1.06;
+}
+
+.page-hero::before,
+.services-preview::before {
+    display: none;
+}
+
+.section-header::after {
+    height: 2px;
+    width: min(72px, 24vw);
+    border-radius: 0;
+    background: var(--coral-600);
+    opacity: 1;
+}
+
+.services-preview,
+.customer-situations,
+:where(.first-48-hours) {
+    background: var(--white);
+}
+
+.hero-subtitle,
+.hero-description,
+.section-subtitle,
+.content-page p,
+.public-content p {
+    line-height: 1.62;
+}
+
+:where(.content-page, .public-content) {
+    color: var(--gray-700);
+}
+
+:where(.content-page, .public-content) > :where(p, ul, ol) {
+    max-width: 74ch;
+}
+
+:where(.content-page) :where(p, li),
+:where(.public-content) :where(p, li) {
+    font-size: 1rem;
+}
+
+:where(.content-page) :where(p + p) {
+    margin-top: 1rem;
+}
+
+:where(.content-page) :where(li) {
+    margin-bottom: 0.35rem;
+}
+
+.hero-proof-points li,
+.card,
+.situation-card,
+.services-situation-card,
+.situation-step-grid article,
+.situation-timeline article,
+.situation-record-grid article,
+.situation-list-panel,
+.situation-help-list p,
+.service-path-card,
+.guide-step-grid article,
+.guide-risk-grid article,
+.guide-timeline article,
+.guide-visit-grid article,
+.pricing-card,
+.pricing-card.featured,
+.content-details,
+.page-action-panel,
+:where(.anti-flipper-panel) {
+    border-color: rgba(22, 59, 81, 0.12);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--swiss-shadow);
+}
+
+.card:hover,
+.situation-related-grid a:hover,
+.situation-related-grid a:focus-visible,
+.situation-card:hover,
+.situation-card:focus-visible,
+.services-situation-card:hover,
+.services-situation-card:focus-visible,
+.service-card:hover,
+.service-card:focus-visible,
+.service-preview-card:hover {
+    transform: none;
+    box-shadow: 0 4px 14px rgba(16, 42, 67, 0.08);
+}
+
+:where(.card)::before {
+    display: none;
+}
+
+.service-preview-card.most-popular,
+.service-preview-card.most-popular:hover,
+.package-card.featured,
+.pricing-option.featured {
+    transform: none;
+}
+
+.popular-badge,
+.service-badge,
+.service-showcase-badge,
+.package-badge,
+.pricing-badge {
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+}
+
+.icon-badge,
+.services-situation-card span,
+.service-path-card > span,
+.situation-step-grid span,
+.guide-step-grid span {
+    box-shadow: none;
+}
+
+.situation-step-grid article,
+.situation-timeline article,
+.situation-record-grid article,
+.situation-list-panel.warning,
+.situation-list-panel.trusted {
+    border-top-width: 2px;
+}
+
+.situation-help-list p {
+    padding: var(--space-sm) var(--space-md);
+}
+
+.situation-boundary,
+.situation-cost-note {
+    border-left-width: 2px;
+    background: transparent;
+}
+
+:where(.situation-page) {
+    padding-top: clamp(2.75rem, 6vw, 4.25rem);
+}
+
+:where(.situation-section) {
+    margin: clamp(2.75rem, 6vw, 4.5rem) 0;
+}
+
+:where(.situation-narrative) {
+    margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+:where(.situation-step-grid, .situation-timeline, .situation-record-grid, .situation-related-grid) {
+    gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.btn {
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background: var(--coral-700);
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.btn-primary::before {
+    display: none;
+}
+
+.btn-primary:hover,
+.btn-outline:hover {
+    background: var(--navy-800);
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-secondary {
+    background: var(--navy-700);
+    box-shadow: none;
+}
+
+.hero .btn-outline,
+.page-hero .btn-outline,
+.dark-context .btn-outline,
+section.dark-context .btn-outline {
+    border-width: 1px;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+.public-page-hero,
+.situation-hero {
+    background:
+        linear-gradient(180deg, rgba(247, 249, 250, 0.92), rgba(255, 255, 255, 0.98)),
+        var(--white);
+}
+
+.public-page-hero .hero-title,
+.public-page-hero .hero-content .hero-title {
+    color: var(--navy-900);
+    text-shadow: none;
+}
+
+.public-page-hero .hero-description,
+.public-page-hero .hero-content .hero-description {
+    color: var(--gray-700);
+}
+
+.public-page-hero .hero-eyebrow {
+    color: var(--teal-800);
+}
+
+.public-hero-media,
+.situation-hero-media {
+    border-radius: var(--radius-sm);
+    box-shadow: var(--swiss-shadow);
+}
+
+.public-hero-media figcaption,
+.situation-hero-media figcaption {
+    border-radius: 0;
+}
+
+.public-hero-media figcaption {
+    color: var(--gray-700);
+    background: var(--white);
+}
+
+.content-page table {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 0.95rem;
+}
+
+.content-page th {
+    background: var(--gray-50);
+}
+
+:where(.content-page) :where(th, td) {
+    padding: 0.7rem 0.85rem;
+    vertical-align: top;
+}
+
+.footer {
+    border-top-width: 2px;
+}
+
+.page-privacy .public-page-hero,
+.page-terms .public-page-hero,
+.page-cookie-policy .public-page-hero,
+.page-accessibility .public-page-hero,
+.page-service-boundaries .public-page-hero,
+.page-refund-cancellation .public-page-hero,
+.page-provider-notice .public-page-hero,
+.page-thank-you .public-page-hero {
+    padding: 3rem 0 2.5rem;
+}
+
+:where(
+    .page-privacy,
+    .page-terms,
+    .page-cookie-policy,
+    .page-accessibility,
+    .page-service-boundaries,
+    .page-refund-cancellation,
+    .page-provider-notice,
+    .page-thank-you
+) :where(.content-page) {
+    max-width: 820px;
+}
+
+:where(
+    .page-privacy,
+    .page-terms,
+    .page-cookie-policy,
+    .page-accessibility,
+    .page-service-boundaries,
+    .page-refund-cancellation,
+    .page-provider-notice,
+    .page-thank-you
+) :where(.section-spacing) {
+    padding-top: clamp(2rem, 4vw, 3rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+:where(
+    .page-privacy,
+    .page-terms,
+    .page-cookie-policy,
+    .page-accessibility,
+    .page-service-boundaries,
+    .page-refund-cancellation,
+    .page-provider-notice,
+    .page-thank-you
+) :where(.content-page > h2) {
+    font-size: clamp(1.45rem, 2.1vw, 1.9rem);
+    line-height: 1.16;
+    margin-top: clamp(1.45rem, 3vw, 2.1rem);
+    margin-bottom: 0.65rem;
+}
+
+:where(
+    .page-privacy,
+    .page-terms,
+    .page-cookie-policy,
+    .page-accessibility,
+    .page-service-boundaries,
+    .page-refund-cancellation,
+    .page-provider-notice,
+    .page-thank-you
+) :where(.content-page > h3) {
+    font-size: 1.05rem;
+    margin-top: 1.15rem;
+    margin-bottom: 0.45rem;
+}
+
+:where(
+    .page-privacy,
+    .page-terms,
+    .page-cookie-policy,
+    .page-accessibility,
+    .page-service-boundaries,
+    .page-refund-cancellation,
+    .page-provider-notice,
+    .page-thank-you
+) :where(.content-page > p, .content-page > ul, .content-page > ol) {
+    max-width: 68ch;
+}
+
+:where(.page-founder-plan) :where(.content-page) {
+    max-width: 980px;
+}
+
+:where(.page-founder-plan) :where(.content-page > h2) {
+    font-size: clamp(1.8rem, 2.8vw, 2.45rem);
+    margin-top: clamp(2.25rem, 5vw, 3.25rem);
+}
+
+:where(.page-founder-plan) :where(.content-page > h3) {
+    font-size: clamp(1.2rem, 2vw, 1.55rem);
+    margin-top: 1.75rem;
+}
+
+:where(.page-founder-plan) :where(.content-page table) {
+    font-size: 0.9rem;
+}
+
+:where(.page-free-guide, .page-pricing, .page-diy-vs-us, .page-pa-probate, .page-keith-story) :where(.content-page) {
+    max-width: 960px;
+}
+
+:where(.page-free-guide, .page-pricing) :where(.content-page table) {
+    margin: 1rem 0 1.6rem;
+}
+
+:where(.page-home, .page-services) :where(.section-header) {
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+:where(.page-home, .page-services) :where(.situation-grid, .services-situation-grid) {
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+:where(.page-home, .page-services) :where(.situation-card, .services-situation-card) {
+    padding: clamp(1.2rem, 2vw, 1.55rem);
+}
+
+:where(.page-home, .page-services) :where(.situation-card span, .services-situation-card span) {
+    width: 2.35rem;
+    height: 2.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.page-privacy .hero-stats,
+.page-terms .hero-stats,
+.page-cookie-policy .hero-stats,
+.page-accessibility .hero-stats,
+.page-service-boundaries .hero-stats,
+.page-refund-cancellation .hero-stats,
+.page-provider-notice .hero-stats,
+.page-thank-you .hero-stats {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .section-title,
+    .content-page > h2,
+    .public-content h2,
+    .situation-section > h2 {
+        font-size: clamp(1.75rem, 8vw, 2.35rem);
+    }
+
+    .hero-title {
+        font-size: clamp(2.1rem, 10vw, 2.75rem);
+    }
+
+    .section-spacing {
+        padding-top: clamp(2rem, 7vw, 2.8rem);
+        padding-bottom: clamp(2rem, 7vw, 2.8rem);
+    }
+
+    :where(.content-page, .public-content) > :where(p, ul, ol) {
+        max-width: none;
+    }
+
+    :where(.content-page) :where(p, li),
+    :where(.public-content) :where(p, li) {
+        font-size: 0.96rem;
+        line-height: 1.58;
+    }
+
+    :where(.public-page-hero) {
+        padding-top: 3.25rem;
+        padding-bottom: 2.25rem;
+    }
+
+    :where(.situation-hero) {
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+    }
+
+    .card,
+    .situation-step-grid article,
+    .situation-timeline article,
+    .situation-record-grid article,
+    .service-path-card,
+    .pricing-card {
+        padding: var(--space-lg);
+    }
+
+    .hero-proof-points {
+        display: none;
+    }
+
+    .situation-grid,
+    .services-situation-grid,
+    .pricing-grid,
+    .guide-step-grid,
+    .guide-risk-grid,
+    .guide-timeline,
+    .guide-visit-grid {
+        gap: var(--space-md);
+    }
+
+    :where(.page-home, .page-services) :where(.situation-card, .services-situation-card) {
+        min-height: auto;
+    }
+
+    :where(.page-founder-plan) :where(.content-page table:not(.responsive-table-ready)),
+    :where(.page-free-guide, .page-pricing, .page-diy-vs-us, .page-pa-probate, .page-keith-story) :where(.content-page table) {
+        font-size: 0.88rem;
+    }
+}

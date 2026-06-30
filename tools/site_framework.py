@@ -14,6 +14,8 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTENT_DIR = ROOT / "content"
 PAGES_DIR = CONTENT_DIR / "pages"
 DATA_DIR = CONTENT_DIR / "data"
+SITE_PROFILE_CONFIG = CONTENT_DIR / "site-profile.yaml"
+SITE_PROFILES_DIR = CONTENT_DIR / "profiles"
 TEMPLATES_DIR = ROOT / "templates"
 STATIC_DIR = ROOT / "static"
 DOCS_DIR = ROOT / "docs"
@@ -64,6 +66,42 @@ def load_yaml(path: str | Path) -> Any:
 def load_content_config() -> dict[str, Any]:
     config = load_yaml(CONTENT_CONFIG)
     return config if isinstance(config, dict) else {}
+
+
+def load_site_profile_config() -> dict[str, Any]:
+    config = load_yaml(SITE_PROFILE_CONFIG) if SITE_PROFILE_CONFIG.exists() else {}
+    return config if isinstance(config, dict) else {}
+
+
+def load_site_profiles() -> dict[str, dict[str, Any]]:
+    config = load_site_profile_config()
+    profiles: dict[str, dict[str, Any]] = {}
+
+    inline_profile = config.get("profile")
+    if isinstance(inline_profile, dict):
+        profile_id = str(inline_profile.get("id") or "default")
+        profiles[profile_id] = inline_profile
+
+    profiles_dir_value = config.get("profiles_dir", SITE_PROFILES_DIR.relative_to(CONTENT_DIR).as_posix())
+    profiles_dir = CONTENT_DIR / str(profiles_dir_value)
+    if profiles_dir.exists():
+        for path in sorted(profiles_dir.glob("*.yaml")):
+            loaded = load_yaml(path)
+            profile = loaded.get("profile") if isinstance(loaded, dict) else None
+            if not isinstance(profile, dict):
+                continue
+
+            profile_id = str(profile.get("id") or path.stem)
+            profiles[profile_id] = profile
+
+    return profiles
+
+
+def active_site_profile() -> dict[str, Any]:
+    config = load_site_profile_config()
+    profiles = load_site_profiles()
+    active_id = str(config.get("active_profile") or next(iter(profiles), ""))
+    return profiles.get(active_id, {})
 
 
 def build_config(config: dict[str, Any] | None = None) -> dict[str, Any]:

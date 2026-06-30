@@ -1,9 +1,22 @@
 #!/usr/bin/env python3
-"""Validate the Legacy Defenders site profile contracts."""
+"""Validate the active site profile contracts."""
 
 from __future__ import annotations
 
-from tools.site_framework import CONTENT_DIR, PAGES_DIR, ROOT, TEXT_ENCODING, load_yaml, output_name, page_sources
+from tools.site_framework import (
+    CONTENT_DIR,
+    PAGES_DIR,
+    ROOT,
+    SITE_PROFILE_CONFIG,
+    SITE_PROFILES_DIR,
+    TEXT_ENCODING,
+    active_site_profile,
+    load_site_profile_config,
+    load_site_profiles,
+    load_yaml,
+    output_name,
+    page_sources,
+)
 
 
 SITUATION_REQUIRED_LISTS = {
@@ -138,29 +151,48 @@ def check_page_size(errors: list[str]) -> None:
 
 
 def check_site_profile(errors: list[str]) -> None:
-    profile_path = CONTENT_DIR / "site-profile.yaml"
-    if not profile_path.exists():
+    if not SITE_PROFILE_CONFIG.exists():
         errors.append("content/site-profile.yaml is missing")
         return
 
-    profile = load_yaml(profile_path).get("profile", {})
-    if not isinstance(profile, dict):
-        errors.append("content/site-profile.yaml: profile must be a mapping")
+    config = load_site_profile_config()
+    active_id = config.get("active_profile")
+    if not active_id:
+        errors.append("content/site-profile.yaml: active_profile is required")
         return
 
-    check_required(errors, "content/site-profile.yaml profile", profile, PROFILE_REQUIRED_FIELDS)
+    profiles_dir = CONTENT_DIR / str(config.get("profiles_dir", "profiles"))
+    if not profiles_dir.exists():
+        errors.append("content/site-profile.yaml: profiles_dir must point to an existing directory")
+        return
+
+    if profiles_dir != SITE_PROFILES_DIR and not profiles_dir.is_dir():
+        errors.append("content/site-profile.yaml: profiles_dir must be a directory")
+        return
+
+    profiles = load_site_profiles()
+    if active_id not in profiles:
+        errors.append(f"content/site-profile.yaml: active_profile {active_id!r} has no matching profile file")
+        return
+
+    profile = active_site_profile()
+    if not isinstance(profile, dict):
+        errors.append("active site profile must be a mapping")
+        return
+
+    check_required(errors, f"active site profile {active_id}", profile, PROFILE_REQUIRED_FIELDS)
 
     primary_cta = profile.get("primary_cta")
     if not isinstance(primary_cta, dict):
-        errors.append("content/site-profile.yaml: profile.primary_cta must be a mapping")
+        errors.append(f"active site profile {active_id}: primary_cta must be a mapping")
     else:
-        check_required(errors, "content/site-profile.yaml profile.primary_cta", primary_cta, ("text", "icon"))
+        check_required(errors, f"active site profile {active_id} primary_cta", primary_cta, ("text", "icon"))
 
     probate = ((profile.get("references") or {}).get("probate") or {}) if isinstance(profile.get("references"), dict) else {}
     if not isinstance(probate, dict) or not probate:
-        errors.append("content/site-profile.yaml: profile.references.probate must be a mapping")
+        errors.append(f"active site profile {active_id}: references.probate must be a mapping")
     else:
-        check_required(errors, "content/site-profile.yaml profile.references.probate", probate, ("title", "url"))
+        check_required(errors, f"active site profile {active_id} references.probate", probate, ("title", "url"))
 
 
 def compliance_data(errors: list[str]) -> dict:

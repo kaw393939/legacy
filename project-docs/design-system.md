@@ -1,6 +1,6 @@
 # Static Site Design System
 
-This project uses a small, source-controlled design system instead of a CSS framework. The goal is to keep pages calm, fast, readable, and easy to extend without creating one-off styles for every page.
+This project uses a small, source-controlled design system instead of a CSS framework. The goal is to keep pages calm, fast, readable, and easy to extend without creating single-use styles for every page.
 
 ## CSS Organization
 

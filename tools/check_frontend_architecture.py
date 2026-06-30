@@ -20,7 +20,6 @@ REMOVED_FILES = (
     "static/css/parts/17-17-contact-form-risd-design.css",
     "static/css/parts/18-01-hero-overrides.css",
     "static/css/parts/18-05-content-founder.css",
-    "static/css/parts/18-18-legacy-defenders-redesign.css",
     "static/css/parts/18-07-diy-free-guide-pages.css",
     "static/css/styles.css",
 )
@@ -137,7 +136,7 @@ def check_expected_files(errors: list[str]) -> None:
 
     for relative_path in REMOVED_FILES:
         if (ROOT / relative_path).exists():
-            errors.append(f"removed deprecated frontend file still exists: {relative_path}")
+            errors.append(f"retired frontend file still exists: {relative_path}")
 
 
 def check_css_part_size(errors: list[str]) -> None:

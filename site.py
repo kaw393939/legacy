@@ -270,7 +270,12 @@ def main() -> None:
     subparsers.add_parser("optimize-images", help="Optimize static image originals into publishable assets")
 
     new_page_parser = subparsers.add_parser("new-page", help="Create a page or situation scaffold")
-    new_page_parser.add_argument("args", nargs=argparse.REMAINDER)
+    new_page_parser.add_argument("--kind", choices=["page", "situation"], default="page")
+    new_page_parser.add_argument("--profile")
+    new_page_parser.add_argument("--slug")
+    new_page_parser.add_argument("--title", required=True)
+    new_page_parser.add_argument("--description", required=True)
+    new_page_parser.add_argument("--force", action="store_true")
 
     args = parser.parse_args()
     manager = SiteManager()
@@ -297,7 +302,14 @@ def main() -> None:
         elif args.command == "optimize-images":
             manager.optimize_images()
         elif args.command == "new-page":
-            manager.new_page(args.args)
+            forwarded_args = ["--kind", args.kind, "--title", args.title, "--description", args.description]
+            if args.profile:
+                forwarded_args.extend(["--profile", args.profile])
+            if args.slug:
+                forwarded_args.extend(["--slug", args.slug])
+            if args.force:
+                forwarded_args.append("--force")
+            manager.new_page(forwarded_args)
     except subprocess.CalledProcessError as exc:
         raise SystemExit(exc.returncode) from exc
     except RuntimeError as exc:

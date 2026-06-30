@@ -25,6 +25,7 @@ REUSABLE_PATHS = (
     "tools/run_lighthouse_budget.mjs",
     "tools/run_visual_qa.mjs",
     "tools/site_framework.py",
+    "validator.py",
 )
 PROFILE_ALLOWED_PATHS = (
     "tools/check_site_contracts.py",

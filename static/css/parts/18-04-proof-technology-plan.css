@@ -262,7 +262,7 @@
     color: var(--teal-600);
 }
 
-/* Prearranged legacy plan */
+/* Prearranged readiness plan */
 .prearranged-plan {
     padding: clamp(3rem, 6vw, 5rem) 0;
     background: var(--navy-900);

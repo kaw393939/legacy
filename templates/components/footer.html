@@ -5,13 +5,32 @@
     <div class="container">
         <div class="footer-content">
             <!-- Company Info -->
-            <div class="footer-section">
+            <div class="footer-section footer-brand">
                 <h3 class="footer-title">{{ site.title }}</h3>
                 <p class="footer-text">{{ site.tagline }}</p>
                 <div class="footer-contact">
                     <p><strong>Phone:</strong> <a href="tel:+1{{ site.phone }}">{{ site.phone_display }}</a></p>
                     <p><strong>Email:</strong> <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
                     <p><strong>Location:</strong> {{ site.location.city }}, {{ site.location.region }}</p>
+                </div>
+                <div class="footer-social">
+                    <h4 class="footer-social-heading">Share this resource</h4>
+                    <div class="social-links" aria-label="Share Legacy Defenders">
+                        <a class="social-link" href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url | urlencode }}" aria-label="Share Legacy Defenders on LinkedIn" target="_blank" rel="noopener noreferrer">
+                            {{ icon("fa-linkedin-in", "fab") }}
+                        </a>
+                        <a class="social-link" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url | urlencode }}" aria-label="Share Legacy Defenders on Facebook" target="_blank" rel="noopener noreferrer">
+                            {{ icon("fa-facebook-f", "fab") }}
+                        </a>
+                        <a class="social-link" href="https://twitter.com/intent/tweet?url={{ site.url | urlencode }}&text={{ site.title | urlencode }}" aria-label="Share Legacy Defenders on X" target="_blank" rel="noopener noreferrer">
+                            {{ icon("fa-twitter", "fab") }}
+                        </a>
+                        {% if site.social.instagram %}
+                        <a class="social-link" href="{{ site.social.instagram }}" aria-label="Follow Legacy Defenders on Instagram" target="_blank" rel="noopener noreferrer">
+                            {{ icon("fa-instagram", "fab") }}
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
 
@@ -27,46 +46,6 @@
             </div>
             {% endfor %}
 
-            <!-- Social Media -->
-            {% if site.social.facebook or site.social.twitter or site.social.instagram or site.social.linkedin %}
-            <div class="footer-section">
-                <h4 class="footer-heading">Connect With Us</h4>
-                <div class="social-links flex gap-md">
-                    {% if site.social.facebook %}
-                    <a href="{{ site.social.facebook }}"
-                       aria-label="Facebook"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        {{ icon("fa-facebook-f", "fab") }}
-                    </a>
-                    {% endif %}
-                    {% if site.social.twitter %}
-                    <a href="{{ site.social.twitter }}"
-                       aria-label="Twitter"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        {{ icon("fa-twitter", "fab") }}
-                    </a>
-                    {% endif %}
-                    {% if site.social.instagram %}
-                    <a href="{{ site.social.instagram }}"
-                       aria-label="Instagram"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        {{ icon("fa-instagram", "fab") }}
-                    </a>
-                    {% endif %}
-                    {% if site.social.linkedin %}
-                    <a href="{{ site.social.linkedin }}"
-                       aria-label="LinkedIn"
-                       target="_blank"
-                       rel="noopener noreferrer">
-                        {{ icon("fa-linkedin-in", "fab") }}
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-            {% endif %}
         </div>
 
         <!-- Copyright -->

@@ -1,4 +1,4 @@
-"""Generated-site validation for the Legacy Defenders static framework."""
+"""Generated-site validation for the static site framework."""
 
 from __future__ import annotations
 

@@ -1,8 +1,8 @@
-# Legacy Defenders Website
+# Static Site Framework
 
-Static website for Legacy Defenders, a care-led estate transition service for families, executors, and out-of-state decision makers handling inherited homes, belongings, local providers, costs, documentation, and urgent property work.
+Reusable static-site framework with Legacy Defenders as the first active site profile. Legacy Defenders is a care-led estate transition service for families, executors, and out-of-state decision makers handling inherited homes, belongings, local providers, costs, documentation, and urgent property work.
 
-Live GitHub Pages site: [https://kaw393939.github.io/legacy/](https://kaw393939.github.io/legacy/)
+Live site: [https://kaw393939.github.io/legacy/](https://kaw393939.github.io/legacy/)
 
 Repository remote:
 
@@ -10,89 +10,19 @@ Repository remote:
 git@github.com:kaw393939/legacy.git
 ```
 
-## What This Project Is
+## Start Here
 
-This is a content-driven static site. Source content lives in Markdown and YAML, templates are rendered with Jinja2, and the generated site is written to `docs/` for GitHub Pages.
+This repo is a greenfield framework for building content-driven service sites. Legacy Defenders is the first site implemented on top of the framework, not a single-purpose codebase.
 
-## Tech Stack
+- Source content lives in `content/`.
+- Jinja templates live in `templates/`.
+- CSS, JavaScript, and images live in `static/`.
+- Generated GitHub Pages output lives in `docs/`.
+- Local framework and QA tools live in `tools/`.
 
-- Python 3.12
-- Jinja2 templates
-- Markdown pages with YAML frontmatter
-- YAML structured content
-- Plain CSS split into ordered parts
-- Plain JavaScript
-- GitHub Actions
-- GitHub Pages
+Do not edit generated files in `docs/` as the source of truth. Edit `content/`, `templates/`, `static/`, or `tools/`, then rebuild.
 
-## Project Structure
-
-```text
-.
-|-- content/
-|   |-- config.yaml              # Current site config: title, contact info, URLs, feature flags
-|   |-- pages/                   # Markdown page content with frontmatter
-|   `-- data/                    # Reusable YAML data used by templates
-|-- templates/
-|   |-- base.html                # Main HTML shell
-|   |-- home.html                # Homepage layout
-|   |-- page.html                # General content page layout
-|   |-- services.html            # Services page layout
-|   |-- situation.html           # Situation guide page layout
-|   |-- components/              # Header, footer, top bar
-|   |-- sections/                # Homepage and reusable page sections
-|   `-- macros/                  # Reusable Jinja UI helpers
-|-- static/
-|   |-- css/
-|   |   |-- parts/               # Ordered source CSS files
-|   |   `-- styles.css           # Compatibility/reference stylesheet; build uses parts when present
-|   |-- js/main.js               # Source JavaScript
-|   |-- images/                  # Source and optimized images copied to docs/images
-|   |   `-- originals/           # High-resolution source images; never published
-|   |-- robots.txt
-|   |-- sitemap.xml
-|   `-- .nojekyll
-|-- docs/                        # Generated site output for GitHub Pages
-|-- build.py                     # Core static site generator
-|-- validator.py                 # Output validation and quality checks
-|-- site.py                      # Convenience CLI wrapper around build/serve/validate tasks
-|-- tools/                       # Reusable framework helpers and QA tools
-|-- project-docs/                # Historical notes and archived project docs
-|-- requirements.txt             # Python dependencies
-|-- .github/workflows/deploy.yml # GitHub Pages deployment workflow
-`-- .github/workflows/preview.yml
-```
-
-## Live Pages
-
-The build currently generates these public pages:
-
-- `index.html`
-- `services.html`
-- `pricing.html`
-- `free-guide.html`
-- `diy-vs-us.html`
-- `keith-story.html`
-- `pa-probate.html`
-- `single-decision-maker.html`
-- `out-of-state-executor.html`
-- `house-full-of-belongings.html`
-- `urgent-bills-property-risk.html`
-- `prearranged.html`
-- `professional-referral-partners.html`
-- `founder-plan.html`
-- `thank-you.html`
-- `privacy.html`
-- `terms.html`
-- `cookie-policy.html`
-- `accessibility.html`
-- `service-boundaries.html`
-- `refund-cancellation.html`
-- `provider-notice.html`
-
-## Local Setup
-
-From the project root:
+## Quick Setup
 
 ```powershell
 python -m venv .venv
@@ -100,20 +30,10 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-If the virtual environment already exists, only install dependencies when `requirements.txt` changes.
-
-## Common Commands
-
-Build the site:
+Build the generated site:
 
 ```powershell
 .\.venv\Scripts\python.exe site.py build
-```
-
-Build, minify bundled CSS, and validate output:
-
-```powershell
-.\.venv\Scripts\python.exe site.py validate
 ```
 
 Run the full local quality gate:
@@ -122,13 +42,13 @@ Run the full local quality gate:
 .\.venv\Scripts\python.exe site.py check
 ```
 
-Run the full gate, including Lighthouse. This command starts its own temporary local server:
+Run the full gate with Lighthouse:
 
 ```powershell
 .\.venv\Scripts\python.exe site.py check --lighthouse
 ```
 
-Serve the generated site locally:
+Serve locally:
 
 ```powershell
 .\.venv\Scripts\python.exe site.py serve
@@ -136,375 +56,60 @@ Serve the generated site locally:
 
 Then open [http://localhost:8000/](http://localhost:8000/).
 
-Run the JavaScript syntax check:
-
-```powershell
-node --check static\js\main.js
-```
-
-Optimize source images:
-
-```powershell
-.\.venv\Scripts\python.exe site.py optimize-images
-```
-
-Run the generated-site integrity check:
-
-```powershell
-.\.venv\Scripts\python.exe -m tools.check_site_integrity
-```
-
-Run a Lighthouse check against the local site:
-
-```powershell
-node tools/run_lighthouse_budget.mjs --url http://localhost:8000/index.html --min 90
-```
-
-Capture desktop and mobile visual QA screenshots for key pages:
-
-```powershell
-.\.venv\Scripts\python.exe site.py visual-qa
-```
-
-Convenience commands also exist through `Makefile`, but `site.py` is the development and deployment source of truth.
-
-## How The Build Works
-
-`build.py` performs the static site build:
-
-1. Loads `content/config.yaml`.
-2. Optimizes image originals from `static/images/originals/` into publishable derivatives.
-3. Loads all YAML files in `content/data/`.
-4. Parses each Markdown page in `content/pages/`.
-5. Converts Markdown body content to HTML.
-6. Applies the page layout from frontmatter, such as `home`, `page`, `services`, or `situation`.
-7. Renders Jinja templates with site config, page frontmatter, page HTML, current year, and all YAML data.
-8. Writes generated pages to `docs/`.
-9. Bundles CSS from `static/css/parts/*.css` into `docs/styles.css`.
-10. Copies JavaScript, optimized images, robots.txt, sitemap.xml, and `.nojekyll` into `docs/`.
-11. Validates source content contracts and generated output when `--validate` is used.
-
-The build uses a stable hash of source CSS and JavaScript as the asset cache-busting token. Rebuilding the site should not dirty every HTML page unless the actual assets changed.
-
-The build cleans `docs/` by default before regenerating output. Do not edit generated files in `docs/` directly unless you are intentionally debugging output; source edits belong in `content/`, `templates/`, or `static/`.
-
-## Content Editing Guide
-
-Page content lives in `content/pages/*.md`.
-
-Each page starts with YAML frontmatter:
-
-```markdown
----
-layout: page
-title: "Pricing Examples"
-description: "Plain-language estate support pricing examples."
-page_id: "pricing"
-hero:
-  eyebrow: "Pricing"
-  title: "Know what the estate work may cost before it gets away from you."
----
-
-Markdown body content goes here.
-```
-
-Use page frontmatter for:
-
-- SEO title and meta description
-- Layout selection
-- Hero content
-- CTA labels and destinations
-- Situation-page fields such as first actions, mistakes, costs, and how-we-help lists
-
-Structured content that appears across multiple pages lives in `content/data/*.yaml`.
-
-Important data files:
-
-- `navigation.yaml`: header/footer navigation
-- `situations.yaml`: homepage and services-page situation cards
-- `services.yaml`: services content
-- `faq.yaml`: homepage FAQ content
-- `prearranged-plan.yaml`: plan-ahead section content
-- `proof-examples.yaml`: proof/result examples
-- `technology-process.yaml`: process and inventory messaging
-- `testimonials.yaml`, `value-props.yaml`, `why-choose.yaml`: supporting homepage sections
-
-Compliance content lives in `content/compliance.yaml` and the related policy pages under `content/pages/`. Cookie consent settings are exported into generated runtime config, and analytics must remain consent-gated.
-
-## Templates
-
-Templates are in `templates/`.
-
-Main layouts:
-
-- `base.html`: shared document shell, metadata, header, footer, scripts
-- `home.html`: homepage assembly
-- `page.html`: standard content-page layout
-- `services.html`: services overview layout
-- `situation.html`: reusable guide layout for specific user situations
-
-Reusable pieces:
-
-- `templates/components/header.html`
-- `templates/components/footer.html`
-- `templates/sections/*.html`
-- `templates/macros/*.html`
-
-When adding a new page, prefer an existing layout before creating a new template.
-
-Active framework tools:
-
-- `tools/site_framework.py`: shared paths, YAML loading, frontmatter parsing, output naming, and slugging
-- `tools/check_content_contracts.py`: generic source content contract validation
-- `tools/check_site_contracts.py`: Legacy Defenders site-profile contract validation
-- `tools/check_frontend_architecture.py`: template, CSS, and JS architecture guardrails
-- `tools/check_framework_boundaries.py`: reusable framework versus site-profile boundary guardrails
-- `tools/check_site_integrity.py`: generated-site validation and optional JSON reporting through `validator.py`
-- `tools/new_page.py`: page and situation-page scaffolding
-- `tools/run_lighthouse_budget.mjs`: Lighthouse budget runner
-- `tools/run_visual_qa.mjs`: desktop and mobile screenshot capture for key pages
-
-Use the page scaffold tool for repeatable structure:
-
-```powershell
-.\.venv\Scripts\python.exe -m tools.new_page --kind page --slug example-guide --title "Example Guide" --description "Short meta description under 160 characters."
-```
-
-For a situation guide:
-
-```powershell
-.\.venv\Scripts\python.exe -m tools.new_page --kind situation --slug new-situation --title "New Situation Help" --description "Describe the situation and the first useful next step."
-```
-
-## Design System
-
-The visual system is documented in [project-docs/design-system.md](project-docs/design-system.md).
-
-Short version:
-
-- Source CSS lives in `static/css/parts/` and builds into `docs/styles.css`.
-- Reuse component classes and Jinja macros before adding one-off HTML or CSS.
-- Keep business-specific page expectations in site-profile checks, not generic framework checks.
-- Run `site.py check --lighthouse` before publishing meaningful frontend changes.
-
-## CSS
-
-Source CSS is split into ordered files in `static/css/parts/`.
-
-During build, files are sorted by filename and bundled into:
-
-```text
-docs/styles.css
-```
-
-The numeric prefixes control cascade order. Add new styles to the narrowest relevant part file instead of appending everything to the redesign file.
-
-Current notable CSS areas:
-
-- `00-1-css-variables.css`: tokens, colors, spacing, shadows
-- `03-3-layout-system.css`: containers and layout primitives
-- `05-5-header-navigation.css`: header and nav
-- `06-6-buttons.css`: button system
-- `11-11-forms.css`: forms
-- `12-12-footer.css`: footer
-- `15-15-media-queries-responsive-design.css`: responsive behavior
-- `18-*`: broader redesign/page styles
-- `19-19-situation-pages.css`: specific situation guide styles
-
-For production builds, use `--minify-css` so the bundled output is smaller.
-
-## JavaScript
-
-Source JavaScript lives at:
-
-```text
-static/js/main.js
-```
-
-Build output copies it to:
-
-```text
-docs/main.js
-```
-
-The script handles:
-
-- Mobile navigation
-- Smooth anchor scrolling with fixed-header offset
-- FAQ accordion behavior
-- Contact intent handoff from CTA query parameters
-- Form state helpers
-- Back-to-top behavior
-- WhatsApp floating-button visibility behavior
-- Lightweight analytics/event hooks
-
-Keep JavaScript dependency-free unless there is a strong reason to add a library.
-
-## Images And Assets
-
-Optimized source images live in `static/images/` and are copied to `docs/images/`.
-
-High-resolution originals live in:
-
-```text
-static/images/originals/
-```
-
-The optimizer reads originals from that folder and writes publishable derivatives beside the normal site images. For example:
-
-```text
-static/images/originals/hero/free-guide-cost-worksheet.png
-static/images/hero/free-guide-cost-worksheet.webp
-static/images/hero/free-guide-cost-worksheet.jpg
-static/images/hero/free-guide-cost-worksheet_600w.webp
-static/images/hero/free-guide-cost-worksheet_900w.webp
-static/images/hero/free-guide-cost-worksheet_1200w.webp
-```
-
-`static/images/originals/` is excluded from `docs/images/`, so large source images are kept in the repo but are not published to GitHub Pages.
-
-Use optimized web images where possible:
-
-- Prefer `.webp` for page images.
-- Keep meaningful `alt` text in templates/frontmatter.
-- Avoid editing generated copies in `docs/images/`; update `static/images/` instead.
-- Use a unique hero image for each public page. The content contract check fails on duplicate `hero.image` values.
-
-Image optimization runs automatically during `site.py check`, `site.py validate`, and `build.py`. To run it directly:
-
-```powershell
-.\.venv\Scripts\python.exe site.py optimize-images
-```
-
-Social and logo assets are also under `static/images/`.
-
-## Validation And QA
-
-Primary validation command:
-
-```powershell
-.\.venv\Scripts\python.exe site.py check
-```
-
-Full validation with Lighthouse:
-
-```powershell
-.\.venv\Scripts\python.exe site.py check --lighthouse
-```
-
-`site.py check` compiles Python files, checks source content contracts, builds once, checks generated pages, checks JavaScript syntax, writes `validation-report.json`, and runs `git diff --check`. `site.py check --lighthouse` also starts a temporary local server and requires Lighthouse scores of 90+.
-
-`tools/check_content_contracts.py` checks source pages before the build. `tools/check_site_integrity.py` checks generated pages, local links, assets, placeholder links, titles, and meta descriptions after the build.
-
-Visual QA checklist:
-
-- Desktop width around 1366px.
-- Mobile width around 390px.
-- Homepage hero, situation cards, contact form, FAQ, and footer.
-- Each situation page hero, costs, common mistakes, related links, and final CTA.
-- Pricing cards on mobile.
-- Free guide worksheet section.
-- Contact form prefill from links like `index.html?interest=Out-of-state%20executor%20help#contact`.
-- No horizontal scrolling.
-- No broken images.
-- Anchor links land below the sticky header.
-
-## GitHub Pages Deployment
-
-The live site is deployed by `.github/workflows/deploy.yml`.
-
-Deployment trigger:
-
-- Push to `main`
-- Manual `workflow_dispatch`
-
-Deployment workflow:
-
-1. Checkout repo.
-2. Install Python 3.12.
-3. Install `requirements.txt`.
-4. Run `python site.py check --lighthouse`.
-5. Upload `docs/` as the Pages artifact.
-6. Deploy with `actions/deploy-pages`.
-
-Live URL:
-
-[https://kaw393939.github.io/legacy/](https://kaw393939.github.io/legacy/)
-
-Pull requests run `.github/workflows/preview.yml`, which runs the same full quality gate, uploads `validation-report.json`, and uploads the built `docs/` artifact for review.
-
-## Typical Update Workflow
+## Documentation Index
+
+- [Project Docs Index](project-docs/README.md): full documentation map.
+- [System Overview](project-docs/system-overview.md): what the project is, how the framework is separated from the site, and what it can do.
+- [Architecture](project-docs/architecture.md): source directories, build pipeline, templates, CSS, JS, and validation layers.
+- [Commands](project-docs/commands.md): all `site.py`, image, Lighthouse, visual QA, and scaffold commands.
+- [Site Profiles](project-docs/site-profiles.md): active profile selection, profile files, and how to prepare the system for another site.
+- [Content Guide](project-docs/content-guide.md): editing Markdown pages, YAML data, compliance copy, and page frontmatter.
+- [Page Inventory](project-docs/page-inventory.md): generated public pages and their role in the site narrative.
+- [Design System](project-docs/design-system.md): tokens, CSS ordering, component rules, image rules, and visual QA standards.
+- [Assets And Images](project-docs/assets-and-images.md): original images, optimized derivatives, hero image rules, and asset workflow.
+- [Validation And QA](project-docs/validation-and-qa.md): source checks, generated-site integrity, Lighthouse, visual QA, and release checklist.
+- [Deployment](project-docs/deployment.md): GitHub Pages deployment, Actions workflows, and publishing flow.
+- [Troubleshooting](project-docs/troubleshooting.md): common build, CSS, JS, YAML, and GitHub Pages issues.
+
+Historical notes and superseded implementation artifacts are preserved under [project-docs/archive/](project-docs/archive/). Treat the files linked above as the current source of truth.
+
+## Capabilities
+
+The system currently supports:
+
+- Markdown pages with YAML frontmatter.
+- Structured YAML data for reusable content.
+- Jinja layouts, sections, components, and macros.
+- Situation-guide page scaffolding.
+- Public compliance pages and cookie consent controls.
+- Consent-gated analytics runtime configuration.
+- Ordered CSS parts bundled into `docs/styles.css`.
+- Plain JavaScript modules copied to generated output.
+- Automatic image optimization from source originals.
+- Generated-site link, asset, meta, and integrity validation.
+- Content and site-profile contract checks.
+- Active site profile registry for page scaffolding and site-specific defaults.
+- Frontend architecture and framework-boundary checks.
+- Lighthouse budgets of 90+.
+- Desktop and mobile visual QA screenshots.
+- GitHub Pages deployment from `docs/`.
+
+## Common Workflow
 
 ```powershell
 git status --short --branch
 
-# Edit source files in content/, templates/, or static/
+# Edit source files in content/, templates/, static/, or tools/
 
 .\.venv\Scripts\python.exe site.py check
 .\.venv\Scripts\python.exe site.py check --lighthouse
+.\.venv\Scripts\python.exe site.py visual-qa
 
 git status --short
 git add -A
 git commit -m "Update site"
 git push origin main
 ```
-
-After pushing to `main`, GitHub Actions publishes the site.
-
-## Environment Variables
-
-The static build does not require secrets for normal operation.
-
-Optional AI/image tooling may use:
-
-```text
-OPENAI_API_KEY
-```
-
-Use `.env.example` as a reference if working with optional tooling. Do not commit real secrets.
-
-## Important Operational Notes
-
-- `content/config.yaml` is the current site config and owns public site metadata plus build directories.
-- `site.config.yaml` is used by the convenience `site.py` CLI for local behavior such as logging, server port, and quality budgets.
-- `docs/` is generated output. Commit it when you want the repository to include the current built site, but edit source files first.
-- GitHub Actions rebuilds `docs/` before deploying, so source files must stay valid even if committed output appears correct.
-- The founder plan is intentionally linked from the footer, not the main user path.
-- `thank-you.html` should remain a utility page, not a primary landing page.
-- Older planning notes are preserved under `project-docs/archive/`; use this README as the current technical source of truth.
-
-## Troubleshooting
-
-Build fails with YAML errors:
-
-```powershell
-.\.venv\Scripts\python.exe -c "import yaml, pathlib; [yaml.safe_load(p.read_text(encoding='utf-8')) for p in pathlib.Path('content').rglob('*.yaml')]"
-```
-
-Generated page looks wrong:
-
-- Check the page frontmatter in `content/pages/`.
-- Confirm the expected layout exists in `templates/`.
-- Check whether the page relies on a YAML data file in `content/data/`.
-- Rebuild with `--validate`.
-
-CSS change not showing:
-
-- Edit `static/css/parts/*.css`, not `docs/styles.css`.
-- Rebuild the site.
-- Hard refresh the browser if cache-busted URLs did not change.
-
-JavaScript behavior breaks:
-
-- Run `node --check static\js\main.js`.
-- Test locally at `http://localhost:8000/`.
-- Check whether the generated copy in `docs/main.js` was rebuilt.
-
-GitHub Pages does not update:
-
-- Check the Actions tab for the latest `Deploy GitHub Pages` run.
-- Confirm the push went to `main`.
-- Confirm the workflow completed and deployed the `docs` artifact.
 
 ## License
 
