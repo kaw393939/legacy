@@ -32,6 +32,12 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Set up Chrome
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
@@ -40,6 +46,7 @@ jobs:
       - name: Run full quality gate
         run: python site.py check --lighthouse
         env:
+          CHROME_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
           PYTHONIOENCODING: utf-8
           PYTHONUNBUFFERED: "1"
 

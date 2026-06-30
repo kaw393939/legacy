@@ -63,6 +63,7 @@ const { url, minScore } = parseArgs(process.argv.slice(2));
 const reportDir = path.resolve('.lighthouse');
 const reportPath = path.join(reportDir, 'homepage.json');
 const npxCommand = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+const lighthousePackage = process.env.LIGHTHOUSE_PACKAGE || 'lighthouse@13.4.0';
 
 if (!Number.isFinite(minScore) || minScore < 0 || minScore > 100) {
   fail(`Invalid --min score: ${minScore}`);
@@ -74,10 +75,10 @@ const lighthouse = spawnSync(
   npxCommand,
   [
     '--yes',
-    'lighthouse@latest',
+    lighthousePackage,
     url,
     '--quiet',
-    '--chrome-flags=--headless=new --no-sandbox',
+    '--chrome-flags=--headless=new --no-sandbox --disable-dev-shm-usage',
     '--only-categories=performance,accessibility,best-practices,seo',
     '--output=json',
     `--output-path=${reportPath}`,
