@@ -15,6 +15,9 @@ MAX_CSS_PART_LINES = 700
 MAX_JS_MODULE_LINES = 350
 REMOVED_FILES = (
     "static/css/parts/10-10-sections.css",
+    "static/css/parts/07-7-hero-section.css",
+    "static/css/parts/09-9-faq-accordion-components.css",
+    "static/css/parts/17-17-contact-form-risd-design.css",
     "static/css/parts/18-01-hero-overrides.css",
     "static/css/parts/18-05-content-founder.css",
     "static/css/parts/18-18-legacy-defenders-redesign.css",
@@ -34,6 +37,7 @@ REQUIRED_FILES = (
     "static/js/modules/faq.js",
     "static/js/modules/navigation.js",
     "static/js/modules/print.js",
+    "static/js/modules/runtime-config.js",
 )
 DISALLOWED_PATTERNS = (
     ("inline event handler", re.compile(r"\bon[a-z]+\s*=", re.I)),
@@ -209,12 +213,29 @@ def check_module_entry(errors: list[str]) -> None:
         errors.append("static/js/main.js: expected a small ES module entry point")
 
 
+def check_runtime_config_contract(errors: list[str]) -> None:
+    base = (ROOT / "templates" / "base.html").read_text(encoding=TEXT_ENCODING)
+    build = (ROOT / "build.py").read_text(encoding=TEXT_ENCODING)
+    core = (ROOT / "static" / "js" / "modules" / "analytics" / "core.js").read_text(encoding=TEXT_ENCODING)
+    contact = (ROOT / "static" / "js" / "modules" / "contact.js").read_text(encoding=TEXT_ENCODING)
+
+    disallowed_globals = ("window.CONVERSION_VALUES", "window.CONTACT_INTENT_OPTIONS", "window.ldAnalyticsEnabled")
+    for global_name in disallowed_globals:
+        if global_name in base:
+            errors.append(f"templates/base.html: runtime config should not define {global_name} inline")
+
+    if "write_runtime_config" not in build or "modules/runtime-config.js" not in build:
+        errors.append("build.py: should generate modules/runtime-config.js from source data")
+
+    if "runtimeConfig" not in core or "runtimeConfig" not in contact:
+        errors.append("JS runtime modules should consume runtimeConfig instead of window globals")
+
+
 def check_contact_intake_contract(errors: list[str]) -> None:
     data_path = ROOT / "content" / "data" / "contact-intake.yaml"
     form_path = ROOT / "templates" / "sections" / "contact-form.html"
     macro_path = ROOT / "templates" / "macros" / "contact.html"
     contact_js_path = ROOT / "static" / "js" / "modules" / "contact.js"
-    base_path = ROOT / "templates" / "base.html"
 
     data = load_yaml(data_path).get("contact_intake", {})
     required_lists = ("situations", "roles", "vacancy_statuses", "urgent_issues", "intent_options")
@@ -232,12 +253,8 @@ def check_contact_intake_contract(errors: list[str]) -> None:
             errors.append(f"templates/macros/contact.html: {key} should be generated from contact_intake data")
 
     contact_js = contact_js_path.read_text(encoding=TEXT_ENCODING)
-    if "win.CONTACT_INTENT_OPTIONS" not in contact_js or "const contactIntentOptions = [" in contact_js:
-        errors.append("static/js/modules/contact.js: contact intent options should come from window.CONTACT_INTENT_OPTIONS")
-
-    base = base_path.read_text(encoding=TEXT_ENCODING)
-    if "window.CONTACT_INTENT_OPTIONS" not in base or "contact_intake.intent_options" not in base:
-        errors.append("templates/base.html: contact intent options should be exported from contact_intake data")
+    if "runtimeConfig.contactIntentOptions" not in contact_js or "const contactIntentOptions = [" in contact_js:
+        errors.append("static/js/modules/contact.js: contact intent options should come from runtimeConfig.contactIntentOptions")
 
 
 def main() -> int:
@@ -250,6 +267,7 @@ def main() -> int:
     check_raw_icon_markup(errors)
     check_duplicate_selectors(errors)
     check_module_entry(errors)
+    check_runtime_config_contract(errors)
     check_contact_intake_contract(errors)
 
     if errors:

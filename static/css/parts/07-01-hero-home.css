@@ -1,0 +1,138 @@
+/* ====================== 7. HERO SECTION ====================== */
+
+.hero {
+    position: relative;
+    background-image: var(--bg-image, none);
+    background-size: cover;
+    background-position: center;
+    min-height: clamp(380px, 45vh, 480px);
+    padding: clamp(2rem, 5vh, 3rem) var(--space-lg) clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        var(--navy-900) 0%,
+        var(--navy-800) 55%,
+        var(--navy-700) 100%
+    );
+    opacity: 0.92;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle, var(--teal-200) 0 2px, transparent 2px),
+        radial-gradient(circle, var(--coral-200) 0 2px, transparent 2px),
+        repeating-linear-gradient(45deg, var(--navy-50) 0 2px, transparent 2px 14px);
+    background-size: 56px 56px, 72px 72px, auto;
+    background-position: 0 0, 18px 22px, 0 0;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(10, 37, 64, 0.9), rgba(26, 69, 112, 0.8));
+    z-index: 1;
+}
+
+/* Hero content container - Positioned at top for efficiency */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: white;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+    padding-top: clamp(1rem, 3vh, 2rem);
+}
+
+.hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 auto 0.875rem;
+    max-width: 950px;
+    color: white;
+    text-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.1),
+        0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.95);
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Hero buttons - Use utility classes: flex gap-sm justify-center items-center flex-wrap m-0 */
+.hero-buttons {
+    gap: 0.875rem;  /* Custom tight gap */
+    margin: 0;  /* ZERO margins - let subtitle control spacing */
+}
+.hero-trust-badges {
+    display: flex;
+    gap: var(--space-xl);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--space-2xl)
+    }
+.trust-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--white);
+    font-size: var(--font-size-sm)
+    }
+.trust-badge i {
+    font-size: var(--font-size-lg);
+    color: var(--teal-300)
+    }
+.trust-badge-text {
+    color: var(--white);
+    font-weight: var(--font-weight-medium)
+    }

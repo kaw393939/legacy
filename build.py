@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 from datetime import datetime
 import hashlib
+import json
 import re
 import shutil
 import sys
@@ -35,6 +36,20 @@ from tools.site_framework import (
 
 SEO_FILES = ("robots.txt", "sitemap.xml", "CNAME", ".nojekyll")
 ASSET_SUFFIXES = {".css", ".js"}
+CONVERSION_VALUES = {
+    "primary_cta": 25,
+    "service_inquiry": 20,
+    "package_cta": 40,
+    "phone_call": 30,
+    "whatsapp": 28,
+    "form_submit": 35,
+    "email_click": 15,
+    "secondary_cta": 10,
+    "service_interest": 5,
+    "package_interest": 8,
+    "journey_progression": 12,
+    "journey_phase_view": 3,
+}
 
 
 def minify_css_conservative(css: str) -> str:
@@ -215,6 +230,18 @@ class SiteBuilder:
             shutil.copy2(js_file, destination)
             print(f"   OK Copied {relative_path.as_posix()}")
 
+    def write_runtime_config(self, data: dict[str, Any]) -> None:
+        config = {
+            "analyticsEnabled": bool(self.config.get("features", {}).get("enable_analytics", False)),
+            "conversionValues": CONVERSION_VALUES,
+            "contactIntentOptions": (data.get("contact_intake") or {}).get("intent_options", []),
+        }
+        payload = json.dumps(config, indent=4, ensure_ascii=True)
+        destination = self.output_dir / "modules" / "runtime-config.js"
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(f"export const runtimeConfig = {payload};\n", encoding=TEXT_ENCODING)
+        print("   OK Generated modules/runtime-config.js")
+
     def copy_images(self) -> None:
         img_src = self.static_dir / "images"
         img_dest = self.output_dir / "images"
@@ -234,7 +261,7 @@ class SiteBuilder:
                 shutil.copy2(src, self.output_dir / filename)
                 print(f"   OK Copied {filename}")
 
-    def copy_static_files(self, *, minify_css: bool = False) -> None:
+    def copy_static_files(self, data: dict[str, Any], *, minify_css: bool = False) -> None:
         print("\nCopying static assets...")
 
         if not self.static_dir.exists():
@@ -243,6 +270,7 @@ class SiteBuilder:
 
         self.bundle_css(minify_css=minify_css)
         self.copy_js()
+        self.write_runtime_config(data)
         self.copy_images()
         self.copy_seo_files()
 
@@ -273,7 +301,7 @@ class SiteBuilder:
         for page in page_sources():
             self.build_page(page, data)
 
-        self.copy_static_files(minify_css=minify_css)
+        self.copy_static_files(data, minify_css=minify_css)
 
         elapsed = time.perf_counter() - started_at
         print("\n" + "=" * 50)

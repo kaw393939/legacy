@@ -1,6 +1,7 @@
 import { $, doc, win } from './dom.js';
+import { runtimeConfig } from './runtime-config.js';
 
-const contactIntentOptions = Array.isArray(win.CONTACT_INTENT_OPTIONS) ? win.CONTACT_INTENT_OPTIONS : [];
+const contactIntentOptions = Array.isArray(runtimeConfig.contactIntentOptions) ? runtimeConfig.contactIntentOptions : [];
 
 function selectByText(select, text) {
     if (!select || !text || select.value) return false;

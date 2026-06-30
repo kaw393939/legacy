@@ -1,26 +1,8 @@
 {% extends "base.html" %}
-{% from "macros/ui.html" import contact_cta, hero_media, icon %}
+{% from "macros/situation.html" import cost_details, final_cta, first_actions, help_list, reference_details, situation_hero, timeline_records, warning_details %}
 
 {% block content %}
-<section class="situation-hero">
-    <div class="container">
-        <div class="situation-hero-grid">
-            <div class="situation-hero-copy">
-                {% if page.eyebrow %}
-                <p class="hero-eyebrow">{{ page.eyebrow }}</p>
-                {% endif %}
-                <h1 class="hero-title">{{ page.title }}</h1>
-                <p class="hero-description">{{ page.description }}</p>
-
-                <div class="situation-hero-actions">
-                    {{ contact_cta(page.contact_interest, icon="fa-heart") }}
-                </div>
-            </div>
-
-            {{ hero_media(page.hero, "situation-hero-media") }}
-        </div>
-    </div>
-</section>
+{{ situation_hero(page) }}
 
 <section class="section-spacing situation-page">
     <div class="container">
@@ -31,103 +13,11 @@
             </div>
             {% endif %}
 
-            {% if page.first_actions %}
-            <section class="situation-section" aria-labelledby="what-matters-first">
-                <p class="ld-kicker">Start here</p>
-                <h2 id="what-matters-first">The first useful moves</h2>
-                <div class="situation-step-grid">
-                    {% for action in page.first_actions %}
-                    <article>
-                        <span>{{ loop.index }}</span>
-                        <h3>{{ action.title }}</h3>
-                        <p>{{ action.text }}</p>
-                    </article>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-
-            {% if page.how_we_help %}
-            <section class="situation-section" aria-labelledby="what-we-handle">
-                <p class="ld-kicker">How we help</p>
-                <h2 id="what-we-handle">How we make this lighter</h2>
-                <div class="situation-help-list">
-                    {% for item in page.how_we_help %}
-                    <p>{{ icon("fa-check") }}{{ item }}</p>
-                    {% endfor %}
-                </div>
-            </section>
-            {% endif %}
-
-            {% if page.common_mistakes %}
-            <details class="content-details situation-detail">
-                <summary>What to be careful about</summary>
-                <div class="situation-list-panel warning">
-                    <ul>
-                        {% for item in page.common_mistakes %}
-                        <li>{{ item }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </details>
-            {% endif %}
-
-            {% if page.costs %}
-            <details class="content-details situation-detail">
-                <summary>Typical costs and what they cover</summary>
-                {% if page.cost_intro %}
-                <p>{{ page.cost_intro }}</p>
-                {% endif %}
-                <table class="responsive-table-ready">
-                    <thead>
-                        <tr>
-                            <th>Cost category</th>
-                            <th>Planning range</th>
-                            <th>What it covers</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for cost in page.costs %}
-                        <tr>
-                            <td data-label="Cost category">{{ cost.category }}</td>
-                            <td data-label="Planning range">{{ cost.range }}</td>
-                            <td data-label="What it covers">{{ cost.notes }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <p class="situation-cost-note">These are planning ranges, not quotes. Exact pricing depends on condition, access, volume, urgency, provider availability, authority, and approved scope.</p>
-            </details>
-            {% endif %}
-
-            {% if page.timeline or page.records %}
-            <details class="content-details situation-detail">
-                <summary>Timeline and records you can keep</summary>
-                {% if page.timeline %}
-                <h2>A practical timeline</h2>
-                <div class="situation-timeline">
-                    {% for item in page.timeline %}
-                    <article>
-                        <strong>{{ item.period }}</strong>
-                        <p>{{ item.text }}</p>
-                    </article>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                {% if page.records %}
-                <h2>Records you can keep and share</h2>
-                <div class="situation-record-grid">
-                    {% for record in page.records %}
-                    <article>
-                        <h3>{{ record.title }}</h3>
-                        <p>{{ record.text }}</p>
-                    </article>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </details>
-            {% endif %}
+            {{ first_actions(page.first_actions) }}
+            {{ help_list(page.how_we_help) }}
+            {{ warning_details(page.common_mistakes) }}
+            {{ cost_details(page) }}
+            {{ timeline_records(page) }}
 
             {% if page.boundary %}
             <aside class="situation-boundary">
@@ -135,38 +25,8 @@
             </aside>
             {% endif %}
 
-            {% if page.official_references or page.related_links %}
-            <details class="content-details situation-detail">
-                <summary>References and related pages</summary>
-                {% if page.official_references %}
-                <h2>Official references to check</h2>
-                <ul>
-                    {% for ref in page.official_references %}
-                    <li><a href="{{ ref.url }}">{{ ref.title }}</a> - {{ ref.note }}</li>
-                    {% endfor %}
-                </ul>
-                {% endif %}
-
-                {% if page.related_links %}
-                <h2>Useful pages for this situation</h2>
-                <div class="situation-related-grid">
-                    {% for link in page.related_links %}
-                    <a href="{{ link.url }}">
-                        <span>{{ link.label }}</span>
-                        <strong>{{ link.title }}</strong>
-                    </a>
-                    {% endfor %}
-                </div>
-                {% endif %}
-            </details>
-            {% endif %}
-
-            <section class="guide-callout guide-callout-dark situation-final-cta">
-                <p class="ld-kicker">First safe step</p>
-                <h2>Get the house, belongings, costs, and next decision onto one page.</h2>
-                <p>The first call helps decide what you can do yourself, what should wait, and whether the $250 credited Estate Math Home Visit makes sense.</p>
-                {{ contact_cta(page.contact_interest, classes="btn btn-white") }}
-            </section>
+            {{ reference_details(page) }}
+            {{ final_cta(page.contact_interest) }}
         </div>
     </div>
 </section>

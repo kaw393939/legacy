@@ -1,0 +1,77 @@
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-layout {
+        grid-template-columns: minmax(0, 1fr) 340px;
+        gap: 36px;
+    }
+    
+    .form-container {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-form-section {
+        padding: 60px 0;
+    }
+    
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 40px;
+    }
+    
+    .form-container {
+        padding: 24px;
+    }
+    
+    .contact-card {
+        padding: 24px;
+    }
+    
+    .contact-item {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+    
+    .trust-indicator {
+        padding: 20px;
+        gap: 12px;
+    }
+    
+    .trust-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-section {
+        padding: 52px 0;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ====================== END OF STYLESHEET ====================== */
+
+@media (max-width: 768px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+}

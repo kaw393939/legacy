@@ -62,40 +62,6 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE98KY192J"></script>
     {% endif %}
-    <script>
-      window.ldAnalyticsEnabled = {{ 'true' if features.enable_analytics else 'false' }};
-      window.CONVERSION_VALUES = {
-        primary_cta: 25,
-        service_inquiry: 20,
-        package_cta: 40,
-        phone_call: 30,
-        whatsapp: 28,
-        form_submit: 35,
-        email_click: 15,
-        secondary_cta: 10,
-        service_interest: 5,
-        package_interest: 8,
-        journey_progression: 12,
-        journey_phase_view: 3
-      };
-      window.CONTACT_INTENT_OPTIONS = {{ contact_intake.intent_options | default([]) | tojson }};
-      {% if features.enable_analytics %}
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-KE98KY192J', {
-        page_title: '{{ page.title }}',
-        custom_map: {
-          custom_parameter_1: 'cta_type',
-          custom_parameter_2: 'section_name'
-        },
-        enhanced_conversions: true,
-        send_page_view: true,
-        conversion_linker: true
-      });
-      {% endif %}
-    </script>
 
     <!-- Structured Data - Local Business -->
     <script type="application/ld+json">
