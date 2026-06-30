@@ -208,9 +208,12 @@ class SiteBuilder:
         if not js_src.exists():
             return
 
-        for js_file in sorted(js_src.glob("*.js")):
-            shutil.copy2(js_file, self.output_dir / js_file.name)
-            print(f"   OK Copied {js_file.name}")
+        for js_file in sorted(js_src.rglob("*.js")):
+            relative_path = js_file.relative_to(js_src)
+            destination = self.output_dir / relative_path
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(js_file, destination)
+            print(f"   OK Copied {relative_path.as_posix()}")
 
     def copy_images(self) -> None:
         img_src = self.static_dir / "images"

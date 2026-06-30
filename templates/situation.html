@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros/ui.html" import contact_cta %}
+{% from "macros/ui.html" import contact_cta, hero_media %}
 
 {% block content %}
 <section class="situation-hero">
@@ -17,14 +17,7 @@
                 </div>
             </div>
 
-            {% if page.hero and page.hero.image %}
-            <figure class="situation-hero-media">
-                <img src="{{ page.hero.image }}" alt="{{ page.hero.alt }}" loading="eager" decoding="async">
-                {% if page.hero.caption %}
-                <figcaption>{{ page.hero.caption }}</figcaption>
-                {% endif %}
-            </figure>
-            {% endif %}
+            {{ hero_media(page.hero, "situation-hero-media") }}
         </div>
     </div>
 </section>

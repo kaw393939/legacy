@@ -24,7 +24,7 @@ from tools.site_framework import (
 
 
 PYTHON_SYNTAX_FILES = ("build.py", "site.py", "validator.py")
-JAVASCRIPT_SYNTAX_FILES = ("static/js/main.js", "tools/run_lighthouse_budget.mjs")
+JAVASCRIPT_TOOL_FILES = ("tools/run_lighthouse_budget.mjs",)
 
 
 class SiteManager:
@@ -59,6 +59,11 @@ class SiteManager:
         tool_files = sorted((self.root / "tools").glob("*.py"))
         paths = [self.root / filename for filename in PYTHON_SYNTAX_FILES]
         return [str(path.relative_to(self.root)) for path in [*paths, *tool_files]]
+
+    def _javascript_source_files(self) -> list[str]:
+        runtime_files = sorted((self.root / "static" / "js").rglob("*.js"))
+        tool_files = [self.root / filename for filename in JAVASCRIPT_TOOL_FILES]
+        return [str(path.relative_to(self.root)) for path in [*runtime_files, *tool_files]]
 
     def _free_port(self) -> int:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
@@ -143,7 +148,7 @@ class SiteManager:
         )
 
     def check_javascript_syntax(self) -> None:
-        for script in JAVASCRIPT_SYNTAX_FILES:
+        for script in self._javascript_source_files():
             self._run(["node", "--check", script], label=f"Checking JavaScript syntax: {script}")
 
     def optimize_images(self) -> None:
@@ -153,6 +158,7 @@ class SiteManager:
         self.check_python_syntax()
         self.optimize_images()
         self._run([sys.executable, "-m", "tools.check_content_contracts"], label="Checking source content contracts")
+        self._run([sys.executable, "-m", "tools.check_frontend_architecture"], label="Checking frontend architecture")
         self.build()
         self._run(
             [sys.executable, "-m", "tools.check_site_integrity", "--report", VALIDATION_REPORT],

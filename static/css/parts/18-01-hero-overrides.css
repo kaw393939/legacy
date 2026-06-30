@@ -1,0 +1,148 @@
+﻿/* ====================== 18. LEGACY DEFENDERS REDESIGN ====================== */
+
+/* Hero: human, calm, full-bleed, no card */
+.hero {
+    min-height: clamp(440px, 56vh, 500px);
+    padding: clamp(1rem, 2.75vh, 1.5rem) var(--space-lg) clamp(1rem, 2vh, 1.5rem);
+    background-position: center right;
+    background-attachment: scroll;
+    display: flex;
+    align-items: center;
+}
+
+.hero::before {
+    background:
+        linear-gradient(90deg, rgba(16, 42, 67, 0.94) 0%, rgba(16, 42, 67, 0.82) 42%, rgba(16, 42, 67, 0.34) 68%, rgba(16, 42, 67, 0.12) 100%),
+        linear-gradient(180deg, rgba(16, 42, 67, 0.10) 0%, rgba(16, 42, 67, 0.32) 100%);
+    opacity: 1;
+}
+
+.hero::after {
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.08) 0 1px, transparent 1px);
+    background-size: 64px 100%;
+    opacity: 0.12;
+    mix-blend-mode: normal;
+}
+
+.hero .container {
+    width: 100%;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: 0 0 var(--space-md);
+    color: var(--teal-100);
+    font-weight: var(--font-weight-bold);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.hero-eyebrow::before {
+    content: "";
+    width: 34px;
+    height: 3px;
+    border-radius: var(--radius-full);
+    background: var(--teal-300);
+}
+
+.hero-title {
+    max-width: 680px;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: clamp(2.35rem, 4.5vw, 3.85rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+}
+
+.hero-subtitle {
+    max-width: 630px;
+    margin: 0 0 var(--space-md);
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.hero-proof-points {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm) var(--space-md);
+    padding: 0;
+    margin: 0 0 var(--space-md);
+    max-width: 640px;
+}
+
+.hero-proof-points li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    min-height: 34px;
+    padding: 0.42rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.96);
+    font-weight: var(--font-weight-semibold);
+    backdrop-filter: blur(4px);
+}
+
+.hero-proof-points i {
+    color: var(--teal-300);
+}
+
+.hero-buttons {
+    justify-content: flex-start;
+    gap: var(--space-md);
+}
+
+.hero .btn-outline {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.whatsapp-float {
+    right: 12px;
+    bottom: 12px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.45rem;
+}
+
+@media (max-width: 768px) {
+    body.contact-in-view .whatsapp-float,
+    body.nav-open .whatsapp-float {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(10px) scale(0.92);
+        animation: none;
+    }
+}
+
+.scroll-top {
+    display: none !important;
+}
+
+/* Calmer section treatment */
+.section-header::after {
+    height: 4px;
+    width: min(96px, 30vw);
+    background: linear-gradient(90deg, var(--teal-500), var(--coral-500));
+}
+
+.value-prop-icon,
+.service-icon {
+    box-shadow: 0 10px 24px rgba(29, 139, 130, 0.18);
+}
+
+.value-props-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+

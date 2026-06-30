@@ -1,0 +1,190 @@
+﻿/* Public pricing and education pages */
+.public-page-hero .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.public-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(280px, 0.72fr);
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+    align-items: center;
+}
+
+.public-hero-grid-centered {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.public-hero-grid:not(.public-hero-grid-centered) .hero-content {
+    margin: 0;
+    text-align: left;
+}
+
+.public-page-hero .hero-eyebrow {
+    justify-content: center;
+}
+
+.public-hero-grid:not(.public-hero-grid-centered) .hero-eyebrow {
+    justify-content: flex-start;
+}
+
+.public-page-hero .hero-eyebrow::before {
+    display: none;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin: 0 0 var(--space-xl);
+}
+
+.public-hero-grid:not(.public-hero-grid-centered) .hero-actions {
+    justify-content: flex-start;
+}
+
+.hero-actions .btn {
+    white-space: normal;
+}
+
+.public-hero-media {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-lg);
+}
+
+.public-hero-media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.public-hero-media figcaption {
+    margin: 0;
+    padding: var(--space-sm) var(--space-md);
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.85rem;
+    line-height: 1.45;
+    text-align: left;
+}
+
+.public-content {
+    font-size: 1.03rem;
+}
+
+.public-content > p,
+.public-content > ul,
+.public-content > ol {
+    max-width: 78ch;
+}
+
+.pricing-note {
+    margin: var(--space-xl) 0;
+    padding: var(--space-lg);
+    border-left: 4px solid var(--teal-500);
+    border-radius: var(--radius-md);
+    background: var(--teal-50);
+    color: var(--navy-800);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0 var(--space-2xl);
+}
+
+.pricing-card {
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    background: var(--white);
+    box-shadow: var(--shadow-sm);
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.pricing-card.featured {
+    border-color: var(--teal-300);
+    box-shadow: var(--shadow-lg);
+}
+
+.pricing-card h3 {
+    margin: 0 0 var(--space-sm);
+    color: var(--navy-900);
+    font-size: var(--font-size-2xl);
+    line-height: 1.18;
+}
+
+.pricing-kicker {
+    display: inline-block;
+    color: var(--teal-900);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0;
+    margin-bottom: var(--space-sm);
+}
+
+.pricing-figure {
+    color: var(--coral-700);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--font-weight-extrabold);
+    line-height: 1.08;
+    margin: var(--space-md) 0;
+    overflow-wrap: anywhere;
+}
+
+.pricing-card ul {
+    margin-bottom: 0;
+}
+
+.probate-timeline,
+.problem-solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0 var(--space-2xl);
+}
+
+.probate-timeline article,
+.problem-solution-grid article {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.probate-timeline article {
+    border-top: 4px solid var(--teal-500);
+}
+
+.probate-timeline span {
+    color: var(--coral-700);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+}
+
+.problem-solution-grid strong {
+    display: block;
+    color: var(--navy-800);
+    margin-top: var(--space-md);
+}
+
+.probate-timeline h3,
+.problem-solution-grid h3 {
+    margin: 0 0 var(--space-sm);
+    color: var(--navy-900);
+    font-size: var(--font-size-xl);
+    line-height: 1.22;
+}
+

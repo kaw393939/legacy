@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros/ui.html" import action_buttons %}
+{% from "macros/ui.html" import action_buttons, hero_media %}
 
 {% block title %}{{ page.title }} | {{ site.name }}{% endblock %}
 {% block description %}{{ page.description }}{% endblock %}
@@ -34,14 +34,7 @@
                     </div>
                 </div>
 
-                {% if page.hero and page.hero.image %}
-                <figure class="public-hero-media">
-                    <img src="{{ page.hero.image }}" alt="{{ page.hero.alt }}" loading="eager" decoding="async">
-                    {% if page.hero.caption %}
-                    <figcaption>{{ page.hero.caption }}</figcaption>
-                    {% endif %}
-                </figure>
-                {% endif %}
+                {{ hero_media(page.hero, "public-hero-media") }}
             </div>
         </div>
     </section>

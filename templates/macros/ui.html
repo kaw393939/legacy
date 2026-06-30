@@ -10,6 +10,21 @@
 </div>
 {%- endmacro %}
 
+{% macro icon(name, classes="fas", label=None) -%}
+<i class="{{ classes }} {{ name }}"{% if label %} aria-label="{{ label }}"{% else %} aria-hidden="true"{% endif %}></i>
+{%- endmacro %}
+
+{% macro hero_media(hero, figure_class) -%}
+{% if hero and hero.image %}
+<figure class="{{ figure_class }}">
+    <img src="{{ hero.image }}" alt="{{ hero.alt }}" loading="eager" decoding="async">
+    {% if hero.caption %}
+    <figcaption>{{ hero.caption }}</figcaption>
+    {% endif %}
+</figure>
+{% endif %}
+{%- endmacro %}
+
 {% macro cta_content(title, body, href, button_text, button_class, data_cta=None, data_section=None, extra_attrs="") -%}
 <div class="cta-content">
     <h3>{{ title }}</h3>
