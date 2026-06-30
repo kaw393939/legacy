@@ -1,4 +1,4 @@
-{% from "macros/ui.html" import section_header, cta_content %}
+{% from "macros/ui.html" import section_header, cta_content, icon %}
 
 <section class="faq-section" id="faq">
     <div class="container">
@@ -7,7 +7,7 @@
         {% if faq.component_settings.show_search %}
         <div class="faq-search">
             <div class="search-box">
-                <i class="fas fa-search"></i>
+                {{ icon("fa-search") }}
                 <input type="text" id="faq-search" placeholder="Search FAQ..." aria-label="Search frequently asked questions">
             </div>
         </div>
@@ -18,7 +18,7 @@
             <button class="category-filter active" type="button" data-category="all">All Questions</button>
             {% for category_key, category_data in faq.faqs.items() %}
             <button class="category-filter" type="button" data-category="{{ category_key }}">
-                <i class="fas {{ category_data.icon }}"></i>
+                {{ icon(category_data.icon) }}
                 {{ category_data.category }}
             </button>
             {% endfor %}
@@ -29,7 +29,7 @@
             {% for category_key, category_data in faq.faqs.items() %}
             <div class="faq-category" data-category="{{ category_key }}">
                 <h3 class="category-title">
-                    <i class="fas {{ category_data.icon }}"></i>
+                    {{ icon(category_data.icon) }}
                     {{ category_data.category }}
                 </h3>
 
@@ -43,7 +43,7 @@
                             id="faq-question-{{ item_id }}"
                             data-question="{{ question_data.question }}">
                         <span>{{ question_data.question }}</span>
-                        <i class="fas fa-chevron-down"></i>
+                        {{ icon("fa-chevron-down") }}
                     </button>
                     <div class="faq-answer" id="faq-answer-{{ item_id }}" role="region" aria-labelledby="faq-question-{{ item_id }}">
                         {{ question_data.answer | safe }}

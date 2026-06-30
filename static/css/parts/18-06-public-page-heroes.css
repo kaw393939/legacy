@@ -188,3 +188,9 @@
     line-height: 1.22;
 }
 
+@media (max-width: 480px) {
+    .pricing-amount,
+    .price {
+        font-size: var(--font-size-3xl);
+    }
+}

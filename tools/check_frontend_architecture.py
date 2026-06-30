@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 import re
@@ -14,6 +15,8 @@ MAX_CSS_PART_LINES = 700
 MAX_JS_MODULE_LINES = 350
 REMOVED_FILES = (
     "static/css/parts/10-10-sections.css",
+    "static/css/parts/18-01-hero-overrides.css",
+    "static/css/parts/18-05-content-founder.css",
     "static/css/parts/18-18-legacy-defenders-redesign.css",
     "static/css/parts/18-07-diy-free-guide-pages.css",
     "static/css/styles.css",
@@ -37,6 +40,56 @@ DISALLOWED_PATTERNS = (
     ("inline style attribute", re.compile(r"(?<!\.)\bstyle\s*=", re.I)),
     ("inline style block", re.compile(r"<style\b", re.I)),
     ("transition all", re.compile(r"transition\s*:\s*all\b", re.I)),
+)
+RAW_ICON_PATTERN = re.compile(r"<i\s+class=", re.I)
+CSS_SELECTOR_PATTERN = re.compile(r"^\s*([^@{}][^{]+?)\s*\{")
+ALLOWED_DUPLICATE_SELECTOR_PREFIXES = (
+    "*",
+    ":root",
+    "a",
+    "body",
+    "html",
+    "img",
+    ".btn",
+    ".card-",
+    ".category-",
+    ".contact-",
+    ".container",
+    ".content-",
+    ".cta",
+    ".faq-",
+    ".footer",
+    ".form-",
+    ".grid-",
+    ".guide-",
+    ".hero",
+    ".ld-",
+    ".logo",
+    ".mobile-",
+    ".nav",
+    ".offer-",
+    ".package",
+    ".page-",
+    ".phase-",
+    ".prearranged-",
+    ".pricing-",
+    ".process-",
+    ".proof-",
+    ".psychological-",
+    ".public-",
+    ".scroll-",
+    ".section-",
+    ".service-",
+    ".services-",
+    ".situation-",
+    ".stat-",
+    ".tech-",
+    ".testimonial-",
+    ".text-",
+    ".top-bar",
+    ".trust-",
+    ".value-",
+    ".whatsapp-",
 )
 
 
@@ -105,6 +158,46 @@ def check_disallowed_patterns(errors: list[str]) -> None:
                 errors.append(f"{source.label}:{line_number}: avoid {label}")
 
 
+def check_raw_icon_markup(errors: list[str]) -> None:
+    allowed = "templates/macros/ui.html"
+    for source in source_files():
+        if source.path.suffix != ".html" or source.label == allowed:
+            continue
+
+        for match in RAW_ICON_PATTERN.finditer(source.text):
+            line_number = source.text.count("\n", 0, match.start()) + 1
+            errors.append(f"{source.label}:{line_number}: use macros/ui.html icon() instead of raw <i> markup")
+
+
+def duplicate_selector_allowed(selector: str) -> bool:
+    stripped = selector.strip()
+    return stripped.startswith(ALLOWED_DUPLICATE_SELECTOR_PREFIXES)
+
+
+def check_duplicate_selectors(errors: list[str]) -> None:
+    selectors: dict[str, list[tuple[str, int]]] = defaultdict(list)
+
+    for path in sorted((ROOT / "static" / "css" / "parts").glob("*.css")):
+        text = path.read_text(encoding=TEXT_ENCODING)
+        for line_number, line in enumerate(text.splitlines(), start=1):
+            match = CSS_SELECTOR_PATTERN.match(line)
+            if not match:
+                continue
+
+            selector = match.group(1).strip()
+            if selector in {"from", "to"} or selector.endswith("%"):
+                continue
+            selectors[selector].append((path.relative_to(ROOT).as_posix(), line_number))
+
+    for selector, locations in sorted(selectors.items()):
+        files = {filename for filename, _line in locations}
+        if len(locations) < 2 or len(files) < 2 or duplicate_selector_allowed(selector):
+            continue
+
+        detail = ", ".join(f"{filename}:{line}" for filename, line in locations[:4])
+        errors.append(f"duplicate selector without allowlist: {selector} ({detail})")
+
+
 def check_module_entry(errors: list[str]) -> None:
     base = (ROOT / "templates" / "base.html").read_text(encoding=TEXT_ENCODING)
     main = (ROOT / "static" / "js" / "main.js").read_text(encoding=TEXT_ENCODING)
@@ -119,6 +212,7 @@ def check_module_entry(errors: list[str]) -> None:
 def check_contact_intake_contract(errors: list[str]) -> None:
     data_path = ROOT / "content" / "data" / "contact-intake.yaml"
     form_path = ROOT / "templates" / "sections" / "contact-form.html"
+    macro_path = ROOT / "templates" / "macros" / "contact.html"
     contact_js_path = ROOT / "static" / "js" / "modules" / "contact.js"
     base_path = ROOT / "templates" / "base.html"
 
@@ -129,9 +223,13 @@ def check_contact_intake_contract(errors: list[str]) -> None:
             errors.append(f"content/data/contact-intake.yaml: contact_intake.{key} must be a non-empty list")
 
     form = form_path.read_text(encoding=TEXT_ENCODING)
+    macros = macro_path.read_text(encoding=TEXT_ENCODING)
+    if "care_intake_form(site, contact_intake)" not in form or "contact_methods(site)" not in form:
+        errors.append("templates/sections/contact-form.html: contact section should delegate to contact macros")
+
     for key in ("situations", "roles", "vacancy_statuses", "urgent_issues"):
-        if f"contact_intake.{key}" not in form:
-            errors.append(f"templates/sections/contact-form.html: {key} should be generated from contact_intake data")
+        if f"contact_intake.{key}" not in macros:
+            errors.append(f"templates/macros/contact.html: {key} should be generated from contact_intake data")
 
     contact_js = contact_js_path.read_text(encoding=TEXT_ENCODING)
     if "win.CONTACT_INTENT_OPTIONS" not in contact_js or "const contactIntentOptions = [" in contact_js:
@@ -149,6 +247,8 @@ def main() -> int:
     check_css_part_size(errors)
     check_js_module_size(errors)
     check_disallowed_patterns(errors)
+    check_raw_icon_markup(errors)
+    check_duplicate_selectors(errors)
     check_module_entry(errors)
     check_contact_intake_contract(errors)
 

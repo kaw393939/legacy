@@ -346,3 +346,10 @@
 }
 
 /* ====================== END OF STYLESHEET ====================== */
+
+@media (max-width: 768px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+}

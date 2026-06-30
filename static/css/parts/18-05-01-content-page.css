@@ -1,0 +1,151 @@
+﻿/* Founder plan charts */
+.content-page {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.content-page > p,
+.content-page > ul,
+.content-page > ol {
+    max-width: 850px;
+}
+
+.content-page ul,
+.content-page ol {
+    padding-left: 1.25rem;
+}
+
+.content-page ul {
+    list-style: disc;
+}
+
+.content-page ol {
+    list-style: decimal;
+}
+
+.content-page li {
+    margin-bottom: 0.45rem;
+    line-height: 1.65;
+}
+
+.content-page > h2 {
+    margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.content-page > h2:first-child {
+    margin-top: 0;
+}
+
+.content-page > h3 {
+    margin-top: var(--space-2xl);
+}
+
+.content-page a {
+    color: var(--teal-900);
+    font-weight: var(--font-weight-semibold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+}
+
+.content-page a:hover,
+.content-page a:focus {
+    color: var(--navy-800);
+}
+
+.content-page a.btn,
+.content-page a.btn:visited {
+    text-decoration: none;
+}
+
+.content-page a.btn-primary,
+.content-page a.btn-primary:hover,
+.content-page a.btn-primary:focus,
+.content-page a.btn-primary:active,
+.content-page a.btn-primary:visited {
+    color: var(--white);
+}
+
+.content-page a.btn-outline,
+.content-page a.btn-outline:visited {
+    color: var(--navy-700);
+}
+
+.content-page a.btn-outline:hover,
+.content-page a.btn-outline:focus {
+    color: var(--white);
+}
+
+.content-page .page-action-panel a.btn-outline,
+.content-page .page-action-panel a.btn-outline:visited,
+.anti-flipper-panel a.btn-outline,
+.anti-flipper-panel a.btn-outline:visited {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.72);
+}
+
+.content-page .page-action-panel a.btn-outline:hover,
+.content-page .page-action-panel a.btn-outline:focus,
+.anti-flipper-panel a.btn-outline:hover,
+.anti-flipper-panel a.btn-outline:focus {
+    background: var(--white);
+    color: var(--navy-800);
+    border-color: var(--white);
+}
+
+.content-page a.btn-white,
+.content-page a.btn-white:hover,
+.content-page a.btn-white:focus,
+.content-page a.btn-white:active,
+.content-page a.btn-white:visited {
+    color: var(--navy-800);
+}
+
+.content-page h1,
+.content-page h2,
+.content-page h3,
+.content-page h4 {
+    color: var(--navy-800);
+}
+
+.content-page h4 {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-lg);
+}
+
+.ld-kicker {
+    margin: 0 0 var(--space-xs);
+    color: var(--teal-800);
+    font-size: 0.78rem;
+    font-weight: var(--font-weight-extrabold);
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.content-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--space-xl) 0;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.content-page th,
+.content-page td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid var(--gray-200);
+    text-align: left;
+}
+
+.content-page th {
+    background: var(--navy-50);
+    color: var(--navy-800);
+}
+
+.content-page tbody tr:last-child td {
+    border-bottom: 0;
+}

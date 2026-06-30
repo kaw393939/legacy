@@ -25,3 +25,10 @@
     );
     opacity: 0.95;
 }
+
+/* Calmer section treatment */
+.section-header::after {
+    height: 4px;
+    width: min(96px, 30vw);
+    background: linear-gradient(90deg, var(--teal-500), var(--coral-500));
+}

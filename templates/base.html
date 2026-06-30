@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% from "macros/ui.html" import icon %}
 <html lang="{{ site.language }}">
 <head>
     <meta charset="UTF-8">
@@ -152,13 +153,13 @@
        target="_blank"
        rel="noopener noreferrer"
        aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        {{ icon("fa-whatsapp", "fab") }}
     </a>
     {% endif %}
 
     <!-- Scroll to Top Button -->
     <button class="scroll-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        {{ icon("fa-arrow-up") }}
     </button>
 
     <script type="module" src="main.js?v={{ asset_version }}"></script>

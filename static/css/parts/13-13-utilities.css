@@ -51,3 +51,42 @@
     background: var(--coral-500);
     transform: translatey(-3px)
     }
+
+/* Floating controls final placement */
+.whatsapp-float {
+    right: 12px;
+    bottom: 12px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.45rem;
+}
+
+@media (max-width: 768px) {
+    body.contact-in-view .whatsapp-float,
+    body.nav-open .whatsapp-float {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(10px) scale(0.92);
+        animation: none;
+    }
+}
+
+.scroll-top {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+
+    .scroll-top {
+        right: 80px;
+        width: 40px;
+        height: 40px;
+    }
+}

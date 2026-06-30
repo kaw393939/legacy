@@ -1,11 +1,13 @@
 <!-- Value Propositions Section -->
+{% from "macros/ui.html" import icon %}
+
 <section class="value-props section-spacing">
     <div class="container">
         <div class="value-props-grid grid grid-auto-fit-lg gap-lg">
             {% for prop in value_props %}
             <div class="value-prop-card">
                 <div class="value-prop-icon">
-                    <i class="fas {{ prop.icon }}"></i>
+                    {{ icon(prop.icon) }}
                 </div>
                 <h3 class="value-prop-title">{{ prop.title }}</h3>
                 <p class="value-prop-description">{{ prop.description }}</p>

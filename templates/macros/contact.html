@@ -1,0 +1,140 @@
+{% from "macros/ui.html" import icon %}
+
+{% macro care_intake_form(site, contact_intake) -%}
+<div class="form-container">
+    <div class="form-wrapper">
+        <h3>Start with the situation, not a sales pitch.</h3>
+        <p class="care-intake-lede">A few details help us understand the home, belongings, timing, and what is weighing on you most.</p>
+        <p class="contact-context-note" data-contact-context hidden></p>
+
+        <form class="care-intake-form" action="https://formsubmit.co/{{ site.email }}" method="post" data-form="care-intake">
+            <input type="hidden" name="_subject" value="New Legacy Defenders care request">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="{{ site.url }}/thank-you.html">
+            <input id="contact-interest-hidden" type="hidden" name="Requested interest" value="">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact-name">Name</label>
+                    <input id="contact-name" name="Name" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact-phone">Phone</label>
+                    <input id="contact-phone" name="Phone" type="tel" autocomplete="tel" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact-email">Email</label>
+                    <input id="contact-email" name="Email" type="email" autocomplete="email">
+                </div>
+                <div class="form-group">
+                    <label for="contact-location">Home location</label>
+                    <input id="contact-location" name="Home location" type="text" placeholder="City, county, or ZIP">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-situation">What best describes the situation?</label>
+                <select id="contact-situation" name="Situation type">
+                    <option value="">Select one</option>
+                    {% for option in contact_intake.situations %}
+                    <option>{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contact-role">Your role</label>
+                    <select id="contact-role" name="Role">
+                        <option value="">Select one</option>
+                        {% for option in contact_intake.roles %}
+                        <option>{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact-vacant">Is the home vacant?</label>
+                    <select id="contact-vacant" name="Home vacancy status">
+                        <option value="">Select one</option>
+                        {% for option in contact_intake.vacancy_statuses %}
+                        <option>{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-urgent">What feels urgent?</label>
+                <select id="contact-urgent" name="Urgent issue">
+                    <option value="">Select one</option>
+                    {% for option in contact_intake.urgent_issues %}
+                    <option>{{ option }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="contact-message">What happened?</label>
+                <textarea id="contact-message" name="Situation" rows="6" placeholder="Tell us the basics: who is handling the estate, where the home is, what condition it is in, and what you are worried about most."></textarea>
+            </div>
+
+            <div class="form-group form-check-group">
+                <input id="contact-text-ok" name="Okay to text" type="checkbox" value="Yes">
+                <label for="contact-text-ok">It is okay to text me about this request.</label>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit">
+                    {{ icon("fa-paper-plane") }} Start With A Free Call
+                </button>
+                <a class="btn btn-outline" href="tel:+1{{ site.phone }}">
+                    {{ icon("fa-phone") }} Call {{ site.phone_display }}
+                </a>
+            </div>
+
+            <p class="form-note">This is only the first step. The free call helps decide whether a $250 credited home visit, a DIY next step, or another professional should come first.</p>
+        </form>
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro contact_method(icon_name, title, body=None, href=None, link_text=None, icon_classes="fas") -%}
+<div class="contact-item">
+    <div class="contact-icon">
+        {{ icon(icon_name, icon_classes) }}
+    </div>
+    <div class="contact-details">
+        <h4>{{ title }}</h4>
+        {% if href %}
+        <a href="{{ href }}"{% if href.startswith("https://") %} target="_blank" rel="noopener"{% endif %}>{{ link_text }}</a>
+        {% else %}
+        <p>{{ body }}</p>
+        {% endif %}
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro contact_methods(site) -%}
+<div class="contact-info">
+    <div class="contact-card">
+        {{ contact_method("fa-phone", "Call", href=("tel:+1" ~ site.phone), link_text=site.phone_display) }}
+        {{ contact_method("fa-envelope", "Email", href=("mailto:" ~ site.email), link_text=site.email) }}
+        {{ contact_method("fa-whatsapp", "WhatsApp", href=("https://wa.me/" ~ site.whatsapp), link_text="Message us privately", icon_classes="fab") }}
+        {{ contact_method("fa-map-marker-alt", "Initial Area", body=(site.location.city ~ ", " ~ site.location.region ~ " and surrounding counties")) }}
+        {{ contact_method("fa-clock", "Urgent Issues", body="Mortgage, taxes, utilities, lawn fines, leaks, access, full-house contents, and vacant-home risk should be raised right away.") }}
+    </div>
+
+    <div class="trust-indicator">
+        <div class="trust-icon">
+            {{ icon("fa-shield-heart") }}
+        </div>
+        <div class="trust-text">
+            <h5>Confidential & Care-Led</h5>
+            <p>We know this is family property, not just a project. Your story, belongings, provider needs, and estate records are handled with discretion.</p>
+        </div>
+    </div>
+</div>
+{%- endmacro %}

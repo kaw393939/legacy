@@ -114,3 +114,26 @@ h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p {
     max-width: 65ch;
     margin: 0 auto
     }
+
+@media (max-width: 768px) {
+    .section-title,
+    .page-title {
+        font-size: var(--font-size-3xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: var(--font-size-3xl);
+        line-height: 1.2;
+    }
+
+    .page-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .page-title {
+        font-size: var(--font-size-3xl);
+        line-height: 1.15;
+    }
+}

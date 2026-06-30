@@ -1,4 +1,4 @@
-{% from "macros/ui.html" import section_header %}
+{% from "macros/ui.html" import section_header, icon %}
 
 {% if prearranged_plan %}
 <section class="prearranged-plan" id="prearranged">
@@ -10,12 +10,12 @@
                 <p class="prearranged-eyebrow">{{ prearranged_plan.eyebrow }}</p>
                 <p class="prearranged-intro">{{ prearranged_plan.intro }}</p>
                 <div class="prearranged-discount">
-                    <i class="fas fa-shield-heart" aria-hidden="true"></i>
+                    {{ icon("fa-shield-heart") }}
                     <p>{{ prearranged_plan.discount_text }}</p>
                 </div>
                 {% if prearranged_plan.cta %}
                 <a href="{{ prearranged_plan.cta.url }}" class="btn btn-primary btn-lg" data-cta="primary" data-section="prearranged" data-destination="{{ prearranged_plan.cta.url }}">
-                    <i class="fas {{ prearranged_plan.cta.icon }}" aria-hidden="true"></i> {{ prearranged_plan.cta.text }}
+                    {{ icon(prearranged_plan.cta.icon) }} {{ prearranged_plan.cta.text }}
                 </a>
                 {% endif %}
                 <p class="prearranged-boundary">{{ prearranged_plan.boundary_text }}</p>
@@ -25,7 +25,7 @@
             <div class="prearranged-steps">
                 {% for step in prearranged_plan.steps %}
                 <article class="prearranged-step">
-                    <div class="prearranged-step-icon"><i class="fas {{ step.icon }}" aria-hidden="true"></i></div>
+                    <div class="prearranged-step-icon">{{ icon(step.icon) }}</div>
                     <div>
                         <h3>{{ step.title }}</h3>
                         <p>{{ step.description }}</p>
@@ -39,7 +39,7 @@
         {% if prearranged_plan.outcomes %}
         <div class="prearranged-outcomes" aria-label="Prearranged Legacy Readiness outcomes">
             {% for outcome in prearranged_plan.outcomes %}
-            <span><i class="fas fa-check" aria-hidden="true"></i>{{ outcome }}</span>
+            <span>{{ icon("fa-check") }}{{ outcome }}</span>
             {% endfor %}
         </div>
         {% endif %}

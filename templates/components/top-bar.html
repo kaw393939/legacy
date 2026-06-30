@@ -1,17 +1,19 @@
+{% from "macros/ui.html" import icon %}
+
 <!-- Top Bar with Quick Contact -->
 <div class="top-bar">
     <div class="container">
         <div class="top-bar-content flex justify-between items-center">
             <div class="top-bar-left flex gap-lg items-center">
                 <a href="mailto:{{ site.email }}" class="top-bar-link inline-flex items-center" data-cta="contact" data-section="top-bar" data-contact-method="email">
-                    <i class="fas fa-envelope" aria-hidden="true"></i> {{ site.email }}
+                    {{ icon("fa-envelope") }} {{ site.email }}
                 </a>
             </div>
             {% if site.social.facebook or site.social.instagram or site.social.linkedin %}
             <div class="top-bar-right">
-                {% if site.social.facebook %}<a href="{{ site.social.facebook }}" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer" data-cta="social" data-section="top-bar" data-platform="facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>{% endif %}
-                {% if site.social.instagram %}<a href="{{ site.social.instagram }}" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer" data-cta="social" data-section="top-bar" data-platform="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>{% endif %}
-                {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" data-cta="social" data-section="top-bar" data-platform="linkedin"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>{% endif %}
+                {% if site.social.facebook %}<a href="{{ site.social.facebook }}" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer" data-cta="social" data-section="top-bar" data-platform="facebook">{{ icon("fa-facebook-f", "fab") }}</a>{% endif %}
+                {% if site.social.instagram %}<a href="{{ site.social.instagram }}" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer" data-cta="social" data-section="top-bar" data-platform="instagram">{{ icon("fa-instagram", "fab") }}</a>{% endif %}
+                {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}" class="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" data-cta="social" data-section="top-bar" data-platform="linkedin">{{ icon("fa-linkedin-in", "fab") }}</a>{% endif %}
             </div>
             {% endif %}
         </div>

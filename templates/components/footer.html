@@ -1,3 +1,5 @@
+{% from "macros/ui.html" import icon %}
+
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
@@ -35,7 +37,7 @@
                        aria-label="Facebook"
                        target="_blank"
                        rel="noopener noreferrer">
-                        <i class="fab fa-facebook-f"></i>
+                        {{ icon("fa-facebook-f", "fab") }}
                     </a>
                     {% endif %}
                     {% if site.social.twitter %}
@@ -43,7 +45,7 @@
                        aria-label="Twitter"
                        target="_blank"
                        rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
+                        {{ icon("fa-twitter", "fab") }}
                     </a>
                     {% endif %}
                     {% if site.social.instagram %}
@@ -51,7 +53,7 @@
                        aria-label="Instagram"
                        target="_blank"
                        rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
+                        {{ icon("fa-instagram", "fab") }}
                     </a>
                     {% endif %}
                     {% if site.social.linkedin %}
@@ -59,7 +61,7 @@
                        aria-label="LinkedIn"
                        target="_blank"
                        rel="noopener noreferrer">
-                        <i class="fab fa-linkedin-in"></i>
+                        {{ icon("fa-linkedin-in", "fab") }}
                     </a>
                     {% endif %}
                 </div>

@@ -1,4 +1,4 @@
-{% from "macros/ui.html" import section_header, contact_cta %}
+{% from "macros/ui.html" import section_header, contact_cta, icon %}
 
 <section class="services services-simple" id="services">
     <div class="container">
@@ -6,7 +6,7 @@
 
         <div class="service-path-grid" aria-label="Legacy Defenders simplified service path">
             <article class="service-path-card">
-                <span><i class="fas fa-shield-heart" aria-hidden="true"></i></span>
+                <span>{{ icon("fa-shield-heart") }}</span>
                 <p class="ld-kicker">First</p>
                 <h3>Stabilize the home</h3>
                 <p>We help notice the urgent home concerns early: bills, access, utilities, insurance, vacancy, damage, and who needs to be called.</p>
@@ -18,7 +18,7 @@
             </article>
 
             <article class="service-path-card">
-                <span><i class="fas fa-boxes-stacked" aria-hidden="true"></i></span>
+                <span>{{ icon("fa-boxes-stacked") }}</span>
                 <p class="ld-kicker">Then</p>
                 <h3>Sort belongings with care</h3>
                 <p>We help protect memories, documents, and useful items while making a clear route for everything else.</p>
@@ -30,7 +30,7 @@
             </article>
 
             <article class="service-path-card">
-                <span><i class="fas fa-house-chimney" aria-hidden="true"></i></span>
+                <span>{{ icon("fa-house-chimney") }}</span>
                 <p class="ld-kicker">When ready</p>
                 <h3>Prepare the next move</h3>
                 <p>Once the house is clearer, we help coordinate the approved work that prepares the next choice.</p>

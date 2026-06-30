@@ -275,3 +275,37 @@
     padding: 0.625rem 1.25rem;
     font-size: 0.9375rem;
     }
+
+.value-prop-icon,
+.service-icon {
+    box-shadow: 0 10px 24px rgba(29, 139, 130, 0.18);
+}
+
+.value-props-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 968px) {
+    .why-choose-grid,
+    .testimonials-grid,
+    .value-props-grid,
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-auto-fit-lg {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card.most-popular,
+    .service-preview-card.most-popular {
+        transform: none;
+    }
+
+    .service-card.most-popular:hover,
+    .service-preview-card.most-popular:hover {
+        transform: translateY(-4px);
+    }
+}

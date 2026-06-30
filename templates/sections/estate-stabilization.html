@@ -1,4 +1,4 @@
-{% from "macros/ui.html" import section_header %}
+{% from "macros/ui.html" import section_header, icon %}
 
 {% if estate_stabilization %}
 <section class="estate-stabilization" id="stabilization">
@@ -9,7 +9,7 @@
         <div class="stabilization-grid">
             {% for card in estate_stabilization.cards %}
             <article class="stabilization-card">
-                <div class="stabilization-icon"><i class="fas {{ card.icon }}" aria-hidden="true"></i></div>
+                <div class="stabilization-icon">{{ icon(card.icon) }}</div>
                 <h3>{{ card.title }}</h3>
                 <p>{{ card.description }}</p>
                 {% if card.bullets %}

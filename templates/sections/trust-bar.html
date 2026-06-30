@@ -1,16 +1,18 @@
+{% from "macros/ui.html" import icon %}
+
 <section class="trust-bar">
     <div class="container">
         <div class="trust-items flex justify-between items-center flex-wrap">
             <div class="trust-item flex items-center">
-                <i class="fas fa-video"></i>
+                {{ icon("fa-video") }}
                 <span>Detailed Video Tours</span>
             </div>
             <div class="trust-item flex items-center">
-                <i class="fas fa-map-marked-alt"></i>
+                {{ icon("fa-map-marked-alt") }}
                 <span>Neighborhood Intel</span>
             </div>
             <div class="trust-item flex items-center">
-                <i class="fas fa-clipboard-check"></i>
+                {{ icon("fa-clipboard-check") }}
                 <span>Offer-Ready Due Diligence</span>
             </div>
         </div>

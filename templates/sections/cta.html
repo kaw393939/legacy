@@ -14,7 +14,8 @@
                 {{ cta_link(
                     button.url,
                     ('btn btn-' ~ button.style),
-                    ((('<i class="fas ' ~ button.icon ~ '" aria-hidden="true"></i> ') if button.icon else '') ~ button.text) | safe,
+                    button.text,
+                    icon_name=button.icon | default(None),
                     data_cta=('primary' if button.style == 'primary' else 'secondary'),
                     data_section='cta',
                     extra_attrs=('data-destination="' ~ button.url ~ '"')

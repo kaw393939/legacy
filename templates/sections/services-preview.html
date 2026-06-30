@@ -1,4 +1,4 @@
-{% from "macros/ui.html" import section_header, cta_content %}
+{% from "macros/ui.html" import section_header, cta_content, icon %}
 
 <section class="services-preview legacy-process" id="services">
     <div class="container">
@@ -7,21 +7,21 @@
         <div class="process-flow" aria-label="Legacy Defenders process">
             <article class="process-step">
                 <span class="process-number">1</span>
-                <div class="process-icon"><i class="fas fa-calculator" aria-hidden="true"></i></div>
+                <div class="process-icon">{{ icon("fa-calculator") }}</div>
                 <h3>Understand The Estate Math</h3>
                 <p>Identify carrying costs, urgent risks, belongings pressure, service needs, possible funding paths, and what must happen before larger money is spent.</p>
             </article>
 
             <article class="process-step">
                 <span class="process-number">2</span>
-                <div class="process-icon"><i class="fas fa-qrcode" aria-hidden="true"></i></div>
+                <div class="process-icon">{{ icon("fa-qrcode") }}</div>
                 <h3>Inventory & Clear The Bottleneck</h3>
                 <p>Photograph, tag, prep, ship, store, sell-support, donate, discard, deliver, research, or return belongings so cleaning and repairs can start.</p>
             </article>
 
             <article class="process-step">
                 <span class="process-number">3</span>
-                <div class="process-icon"><i class="fas fa-handshake" aria-hidden="true"></i></div>
+                <div class="process-icon">{{ icon("fa-handshake") }}</div>
                 <h3>Coordinate Trusted Services</h3>
                 <p>Use proven local providers and preferred pricing where available for cleaning, moving, storage, disposal, repairs, maintenance, and market-ready work.</p>
             </article>

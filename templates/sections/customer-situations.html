@@ -1,4 +1,4 @@
-{% from "macros/ui.html" import section_header %}
+{% from "macros/ui.html" import section_header, icon %}
 
 <section class="customer-situations section-spacing" id="start-here">
     <div class="container">
@@ -7,7 +7,7 @@
         <div class="situation-grid" aria-label="Inherited home customer situations">
             {% for situation in situations.featured %}
             <a class="situation-card" href="{{ situation.url }}" data-situation="{{ situation.id }}">
-                <span><i class="fas {{ situation.icon }}" aria-hidden="true"></i></span>
+                <span>{{ icon(situation.icon) }}</span>
                 <h3>{{ situation.title }}</h3>
                 <p>{{ situation.description }}</p>
             </a>

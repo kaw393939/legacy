@@ -195,3 +195,25 @@ section.dark-context .btn-outline:hover,
     background: var(--white);
     color: var(--navy-700)
     }
+
+@media (max-width: 768px) {
+    .btn {
+        align-items: center;
+        width: 100%;
+        white-space: normal;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        align-items: center;
+        padding: 12px 24px;
+        font-size: var(--font-size-sm);
+        min-height: 44px;
+    }
+
+    .btn-lg {
+        padding: 1rem 2rem;
+        font-size: var(--font-size-base);
+    }
+}

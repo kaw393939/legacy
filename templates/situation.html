@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros/ui.html" import contact_cta, hero_media %}
+{% from "macros/ui.html" import contact_cta, hero_media, icon %}
 
 {% block content %}
 <section class="situation-hero">
@@ -53,7 +53,7 @@
                 <h2 id="what-we-handle">How we make this lighter</h2>
                 <div class="situation-help-list">
                     {% for item in page.how_we_help %}
-                    <p><i class="fas fa-check" aria-hidden="true"></i>{{ item }}</p>
+                    <p>{{ icon("fa-check") }}{{ item }}</p>
                     {% endfor %}
                 </div>
             </section>

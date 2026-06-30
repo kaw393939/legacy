@@ -65,9 +65,9 @@
 </div>
 {%- endmacro %}
 
-{% macro cta_link(href, classes, text, data_cta=None, data_section=None, data_service=None, data_phase=None, data_package=None, data_psychology=None, extra_attrs="") -%}
+{% macro cta_link(href, classes, text, icon_name=None, icon_classes="fas", data_cta=None, data_section=None, data_service=None, data_phase=None, data_package=None, data_psychology=None, extra_attrs="") -%}
 <a href="{{ href }}" class="{{ classes }}"{% if data_cta %} data-cta="{{ data_cta }}"{% endif %}{% if data_section %} data-section="{{ data_section }}"{% endif %}{% if data_service %} data-service="{{ data_service }}"{% endif %}{% if data_phase %} data-phase="{{ data_phase }}"{% endif %}{% if data_package %} data-package="{{ data_package }}"{% endif %}{% if data_psychology %} data-psychology="{{ data_psychology }}"{% endif %}{% if extra_attrs %} {{ extra_attrs | safe }}{% endif %}>
-  {{ text }}
+  {% if icon_name %}{{ icon(icon_name, icon_classes) }} {% endif %}{{ text }}
 </a>
 {%- endmacro %}
 
@@ -75,7 +75,8 @@
 {{ cta_link(
     ('index.html?interest=' ~ (interest | urlencode) ~ '#contact'),
     classes,
-    ((('<i class="fas ' ~ icon ~ '" aria-hidden="true"></i> ') if icon else '') ~ text) | safe,
+    text,
+    icon_name=icon,
     data_cta=data_cta,
     data_section=data_section,
     data_service=data_service,
@@ -93,7 +94,8 @@
     {{ cta_link(
         action.url,
         ('btn ' ~ (action.style | default('btn-primary'))),
-        ((('<i class="fas ' ~ action.icon ~ '" aria-hidden="true"></i> ') if action.icon else '') ~ action.text) | safe,
+        action.text,
+        icon_name=action.icon | default(None),
         data_cta=action.cta | default(None),
         data_section=data_section,
         extra_attrs=('data-destination="' ~ action.url ~ '"' if data_section else '')
