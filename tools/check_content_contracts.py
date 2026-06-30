@@ -82,6 +82,7 @@ def validate_config(errors: list[str]) -> None:
 
 def validate_pages(errors: list[str], warnings: list[str]) -> None:
     seen_page_ids: dict[str, str] = {}
+    seen_hero_images: dict[str, str] = {}
 
     for page in page_sources():
         source = page.source_label
@@ -94,6 +95,7 @@ def validate_pages(errors: list[str], warnings: list[str]) -> None:
         check_layout(errors, source, frontmatter)
         check_body(warnings, source, page.body)
         check_layout_contracts(errors, page)
+        check_hero_image_uniqueness(errors, source, frontmatter, seen_hero_images)
         check_canonical(errors, page)
 
 
@@ -143,6 +145,23 @@ def check_layout_contracts(errors: list[str], page) -> None:
         check_required(errors, page.source_label, page.frontmatter, SITUATION_REQUIRED_FIELDS)
         for key, minimum in SITUATION_REQUIRED_LISTS.items():
             check_list_min(errors, page.source_label, page.frontmatter, key, minimum)
+
+
+def check_hero_image_uniqueness(
+    errors: list[str],
+    source: str,
+    page: dict,
+    seen_hero_images: dict[str, str],
+) -> None:
+    image = ((page.get("hero") or {}).get("image") or "").strip()
+    if not image:
+        return
+
+    if image in seen_hero_images:
+        errors.append(f"{source}: duplicate hero.image {image!r}; also used by {seen_hero_images[image]}")
+        return
+
+    seen_hero_images[image] = source
 
 
 def check_canonical(errors: list[str], page) -> None:

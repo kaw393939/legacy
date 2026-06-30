@@ -5,8 +5,8 @@ description: "Plain-English PA probate property guide focused on Allegheny Count
 page_id: "pa-probate"
 eyebrow: "Education before pressure"
 hero:
-  image: "images/proof/landscaping-before-after_600w.webp"
-  alt: "Representative inherited property exterior stabilized for probate home planning"
+  image: "images/hero/pa-probate-local-planning.webp"
+  alt: "Pennsylvania inherited-home planning table with blank court-style folder, map, calendar, calculator, and house keys"
   caption: "Probate gives authority, but the property still needs bills, access, belongings, and records managed."
 hero_actions:
   - text: "Start With A Free Call"

@@ -47,7 +47,8 @@ This is a content-driven static site. Source content lives in Markdown and YAML,
 |   |   |-- parts/               # Ordered source CSS files
 |   |   `-- styles.css           # Legacy/reference stylesheet; build uses parts when present
 |   |-- js/main.js               # Source JavaScript
-|   |-- images/                  # Source images copied to docs/images
+|   |-- images/                  # Source and optimized images copied to docs/images
+|   |   `-- originals/           # High-resolution source images; never published
 |   |-- robots.txt
 |   |-- sitemap.xml
 |   `-- .nojekyll
@@ -134,6 +135,12 @@ Run the JavaScript syntax check:
 node --check static\js\main.js
 ```
 
+Optimize source images:
+
+```powershell
+.\.venv\Scripts\python.exe site.py optimize-images
+```
+
 Run the generated-site integrity check:
 
 ```powershell
@@ -153,15 +160,16 @@ Convenience commands also exist through `Makefile`, but `site.py` is the develop
 `build.py` performs the static site build:
 
 1. Loads `content/config.yaml`.
-2. Loads all YAML files in `content/data/`.
-3. Parses each Markdown page in `content/pages/`.
-4. Converts Markdown body content to HTML.
-5. Applies the page layout from frontmatter, such as `home`, `page`, `services`, or `situation`.
-6. Renders Jinja templates with site config, page frontmatter, page HTML, current year, and all YAML data.
-7. Writes generated pages to `docs/`.
-8. Bundles CSS from `static/css/parts/*.css` into `docs/styles.css`.
-9. Copies JavaScript, images, robots.txt, sitemap.xml, and `.nojekyll` into `docs/`.
-10. Validates source content contracts and generated output when `--validate` is used.
+2. Optimizes image originals from `static/images/originals/` into publishable derivatives.
+3. Loads all YAML files in `content/data/`.
+4. Parses each Markdown page in `content/pages/`.
+5. Converts Markdown body content to HTML.
+6. Applies the page layout from frontmatter, such as `home`, `page`, `services`, or `situation`.
+7. Renders Jinja templates with site config, page frontmatter, page HTML, current year, and all YAML data.
+8. Writes generated pages to `docs/`.
+9. Bundles CSS from `static/css/parts/*.css` into `docs/styles.css`.
+10. Copies JavaScript, optimized images, robots.txt, sitemap.xml, and `.nojekyll` into `docs/`.
+11. Validates source content contracts and generated output when `--validate` is used.
 
 The build uses a stable hash of source CSS and JavaScript as the asset cache-busting token. Rebuilding the site should not dirty every HTML page unless the actual assets changed.
 
@@ -304,13 +312,39 @@ Keep JavaScript dependency-free unless there is a strong reason to add a library
 
 ## Images And Assets
 
-Source images live in `static/images/` and are copied to `docs/images/`.
+Optimized source images live in `static/images/` and are copied to `docs/images/`.
+
+High-resolution originals live in:
+
+```text
+static/images/originals/
+```
+
+The optimizer reads originals from that folder and writes publishable derivatives beside the normal site images. For example:
+
+```text
+static/images/originals/hero/free-guide-cost-worksheet.png
+static/images/hero/free-guide-cost-worksheet.webp
+static/images/hero/free-guide-cost-worksheet.jpg
+static/images/hero/free-guide-cost-worksheet_600w.webp
+static/images/hero/free-guide-cost-worksheet_900w.webp
+static/images/hero/free-guide-cost-worksheet_1200w.webp
+```
+
+`static/images/originals/` is excluded from `docs/images/`, so large source images are kept in the repo but are not published to GitHub Pages.
 
 Use optimized web images where possible:
 
 - Prefer `.webp` for page images.
 - Keep meaningful `alt` text in templates/frontmatter.
 - Avoid editing generated copies in `docs/images/`; update `static/images/` instead.
+- Use a unique hero image for each public page. The content contract check fails on duplicate `hero.image` values.
+
+Image optimization runs automatically during `site.py check`, `site.py validate`, and `build.py`. To run it directly:
+
+```powershell
+.\.venv\Scripts\python.exe site.py optimize-images
+```
 
 Social and logo assets are also under `static/images/`.
 

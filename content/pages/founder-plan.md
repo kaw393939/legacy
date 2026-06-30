@@ -5,8 +5,8 @@ description: "Lean public launch plan for Legacy Defenders in Allegheny County: 
 page_id: "founder-plan"
 eyebrow: "Working founder plan"
 hero:
-  image: "images/technology/ai-care-planning_900w.webp"
-  alt: "Founder launch planning dashboard for Legacy Defenders phases, roles, and budgets"
+  image: "images/hero/founder-launch-roadmap.webp"
+  alt: "Founder launch roadmap cards, calculator, laptop, county map, and planning notes on a work table"
   caption: "The operating plan is public for transparency, but the first milestone is one completed customer."
 hero_actions:
   - text: "Read The Summary"

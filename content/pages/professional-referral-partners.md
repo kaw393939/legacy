@@ -6,8 +6,8 @@ page_id: "professional-referral-partners"
 eyebrow: "Situation guide"
 contact_interest: "Professional referral partner support"
 hero:
-  image: "images/proof/smoke-remediation-before-after_600w.webp"
-  alt: "Representative before and after inherited home documentation for professional review"
+  image: "images/hero/professional-referral-handoff.webp"
+  alt: "Professional referral handoff with blank folder, tablet, checklist, house keys, and people reviewing next steps"
   caption: "Professional partners need practical property records, not scattered texts and unexplained invoices."
 stats:
   - number: "Free"

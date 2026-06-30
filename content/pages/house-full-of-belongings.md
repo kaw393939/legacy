@@ -6,8 +6,8 @@ page_id: "house-full-of-belongings"
 eyebrow: "Situation guide"
 contact_interest: "House full of belongings help"
 hero:
-  image: "images/proof/estate-cleanout-before-after_600w.webp"
-  alt: "Inherited home cleanout before and after showing organized estate contents"
+  image: "images/hero/house-belongings-inventory.webp"
+  alt: "Inherited home belongings being carefully sorted with boxes, blank tags, family photos, and a clear walking path"
   caption: "Belongings are often the bottleneck that blocks cleaning, repairs, photos, showings, and family peace."
 stats:
   - number: "$250"

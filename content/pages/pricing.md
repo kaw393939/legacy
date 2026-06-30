@@ -5,8 +5,8 @@ description: "Example pricing for free calls, $250 home visits, inventory, item 
 page_id: "pricing"
 eyebrow: "Clear pricing before hard decisions"
 hero:
-  image: "images/proof/estate-cleanout-before-after_600w.webp"
-  alt: "Representative inherited home cleanout and organization work used to explain project pricing"
+  image: "images/hero/pricing-item-handling-budget.webp"
+  alt: "Estate service pricing worksheet with calculator, item tags, tape measure, boxes, and house keys"
   caption: "Pricing is easier to trust when the estate can see the work, records, and tradeoffs."
 hero_actions:
   - text: "Start With A Free Call"

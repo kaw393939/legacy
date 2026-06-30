@@ -5,8 +5,8 @@ description: "A realistic DIY-vs-help comparison for executors managing an inher
 page_id: "diy-vs-us"
 eyebrow: "Executor decision guide"
 hero:
-  image: "images/technology/ai-care-planning_900w.webp"
-  alt: "Digital estate planning dashboard organizing inherited home costs, tasks, providers, and records"
+  image: "images/hero/diy-vs-us-organized-plan.webp"
+  alt: "Loose inherited-home notes beside an organized binder, folders, calculator, and house keys"
   caption: "DIY can work when the executor has time, local providers, records, and a clear sequence."
 hero_actions:
   - text: "Start With A Free Call"

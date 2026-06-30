@@ -6,8 +6,8 @@ page_id: "out-of-state-executor"
 eyebrow: "Situation guide"
 contact_interest: "Out-of-state executor help"
 hero:
-  image: "images/technology/ai-care-planning_900w.webp"
-  alt: "Digital estate planning dashboard with home records, costs, and tasks for an out-of-state executor"
+  image: "images/hero/out-of-state-remote-coordination.webp"
+  alt: "Remote inherited-home coordination desk with laptop checklist, phone, folder, home photo, and house keys"
   caption: "Local coordination plus clear records keeps the executor from managing the estate by memory and scattered texts."
 stats:
   - number: "Free"

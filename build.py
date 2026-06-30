@@ -16,6 +16,7 @@ import markdown
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from tools.optimize_images import optimize_all
 from tools.site_framework import (
     CRITICAL_OUTPUT_FILES,
     DATA_DIR,
@@ -220,7 +221,7 @@ class SiteBuilder:
 
         if img_dest.exists():
             shutil.rmtree(img_dest)
-        shutil.copytree(img_src, img_dest)
+        shutil.copytree(img_src, img_dest, ignore=shutil.ignore_patterns("originals"))
         print("   OK Copied images/ directory")
 
     def copy_seo_files(self) -> None:
@@ -248,11 +249,20 @@ class SiteBuilder:
             shutil.rmtree(self.output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
+    def optimize_images(self) -> None:
+        results = optimize_all()
+        if results:
+            output_count = sum(len(result.outputs) for result in results)
+            print(f"   OK Optimized {len(results)} image original(s), {output_count} derivative file(s)")
+
     def build(self, *, clean: bool = True, minify_css: bool = False) -> None:
         started_at = time.perf_counter()
 
         if clean:
             self.clean_output()
+
+        print("\nOptimizing image assets...")
+        self.optimize_images()
 
         data = self.load_all_data()
 
@@ -322,6 +332,8 @@ def main() -> None:
     args = parse_args()
 
     try:
+        optimize_all()
+
         if args.validate and not run_content_contracts():
             sys.exit(1)
 

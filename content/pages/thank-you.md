@@ -6,8 +6,8 @@ page_id: "thank-you"
 active_nav: "contact"
 eyebrow: "Care request received"
 hero:
-  image: "images/hero/legacy-defenders-care-hero.webp"
-  alt: "Legacy Defenders care team reviewing an inherited home plan"
+  image: "images/hero/thank-you-next-step.webp"
+  alt: "Calm confirmation table with phone, notebook, house keys, tea, and a blank appointment card"
   caption: "The next step is a practical call, not a pile of decisions."
 hero_actions:
   - text: "Return Home"

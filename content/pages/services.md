@@ -5,8 +5,8 @@ description: "Care-led inherited-home services for estate math, inventory, provi
 page_id: "services"
 eyebrow: "Services by situation, then scope"
 hero:
-  image: "images/proof/estate-cleanout-before-after_600w.webp"
-  alt: "Representative inherited home room cleared, organized, and ready for next-step decisions"
+  image: "images/hero/services-coordination-plan.webp"
+  alt: "Estate service coordination table with folders, checklist, moving tags, phone, clothing, and house keys"
   caption: "The service catalog works best after the estate's first bottleneck is clear."
 hero_actions:
   - text: "Start With Your Situation"

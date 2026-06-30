@@ -6,8 +6,8 @@ page_id: "single-decision-maker"
 eyebrow: "Situation guide"
 contact_interest: "Single decision-maker inherited home help"
 hero:
-  image: "images/hero/legacy-defenders-care-hero.webp"
-  alt: "A care coordinator helping one decision maker review inherited home paperwork and belongings"
+  image: "images/hero/single-decision-maker-plan.webp"
+  alt: "One decision-maker organizing inherited-home notes, family photos, folders, and house keys at a table"
   caption: "A clear decision maker can simplify the work, but the house still needs a plan."
 stats:
   - number: "Free"

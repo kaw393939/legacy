@@ -5,8 +5,8 @@ description: "The original Legacy Defenders case: how an only heir found a stead
 page_id: "keith-story"
 eyebrow: "Original Legacy Defenders case"
 hero:
-  image: "images/proof/smoke-remediation-before-after_600w.webp"
-  alt: "Representative smoke remediation before and after showing an inherited home becoming livable"
+  image: "images/hero/keith-story-recovery-notes.webp"
+  alt: "Worn house key, family photo, notebook, contractor notes, and recovery planning materials on a table"
   caption: "Keith's experience showed why a house can have value but still feel impossible to manage alone."
 hero_actions:
   - text: "Start With A Free Call"

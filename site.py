@@ -146,8 +146,12 @@ class SiteManager:
         for script in JAVASCRIPT_SYNTAX_FILES:
             self._run(["node", "--check", script], label=f"Checking JavaScript syntax: {script}")
 
+    def optimize_images(self) -> None:
+        self._run([sys.executable, "-m", "tools.optimize_images"], label="Optimizing source images")
+
     def validate(self) -> None:
         self.check_python_syntax()
+        self.optimize_images()
         self._run([sys.executable, "-m", "tools.check_content_contracts"], label="Checking source content contracts")
         self.build()
         self._run(
@@ -210,6 +214,7 @@ def main() -> None:
 
     subparsers.add_parser("clean", help="Remove generated output")
     subparsers.add_parser("status", help="Show project status")
+    subparsers.add_parser("optimize-images", help="Optimize static image originals into publishable assets")
 
     new_page_parser = subparsers.add_parser("new-page", help="Create a page or situation scaffold")
     new_page_parser.add_argument("args", nargs=argparse.REMAINDER)
@@ -234,6 +239,8 @@ def main() -> None:
             manager.clean()
         elif args.command == "status":
             manager.status()
+        elif args.command == "optimize-images":
+            manager.optimize_images()
         elif args.command == "new-page":
             manager.new_page(args.args)
     except subprocess.CalledProcessError as exc:

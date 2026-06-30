@@ -5,8 +5,8 @@ description: "Free Pennsylvania inherited-home guide with a cost worksheet, firs
 page_id: "free-guide"
 eyebrow: "Free guide and worksheet"
 hero:
-  image: "images/technology/ai-care-planning_900w.webp"
-  alt: "Estate cost worksheet and planning dashboard for inherited home expenses"
+  image: "images/hero/free-guide-cost-worksheet.webp"
+  alt: "Inherited home cost worksheet, calculator, bills, folders, and house keys on a kitchen table"
   caption: "Use the worksheet yourself or bring it to the free call and $250 Estate Math Home Visit."
 hero_actions:
   - text: "Use The Worksheet"

@@ -6,8 +6,8 @@ page_id: "urgent-bills-property-risk"
 eyebrow: "Situation guide"
 contact_interest: "Urgent bills and property risk help"
 hero:
-  image: "images/proof/landscaping-before-after_600w.webp"
-  alt: "Inherited property exterior before and after maintenance work"
+  image: "images/hero/urgent-bills-property-risk.webp"
+  alt: "Urgent inherited-home bills, insurance folder, phone, notebook, flashlight, exterior home photo, and house keys"
   caption: "Small property issues are easier to handle when someone is assigned to watch the house."
 stats:
   - number: "48h"

@@ -6,8 +6,8 @@ page_id: "prearranged"
 eyebrow: "Situation guide"
 contact_interest: "Prearranged legacy readiness plan"
 hero:
-  image: "images/technology/ai-care-planning_900w.webp"
-  alt: "Digital legacy readiness plan organizing home, belongings, contacts, wishes, and activation steps"
+  image: "images/hero/plan-ahead-readiness-binder.webp"
+  alt: "Parent and adult child reviewing a legacy readiness binder, family photos, notes, and house keys"
   caption: "Planning ahead gives heirs an operating plan, not another pile of decisions."
 stats:
   - number: "$500+"
