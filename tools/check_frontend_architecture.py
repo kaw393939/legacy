@@ -8,7 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
-from tools.site_framework import ROOT, TEXT_ENCODING, load_yaml
+from tools.site_framework import ROOT, TEXT_ENCODING
 
 
 MAX_CSS_PART_LINES = 700
@@ -231,32 +231,6 @@ def check_runtime_config_contract(errors: list[str]) -> None:
         errors.append("JS runtime modules should consume runtimeConfig instead of window globals")
 
 
-def check_contact_intake_contract(errors: list[str]) -> None:
-    data_path = ROOT / "content" / "data" / "contact-intake.yaml"
-    form_path = ROOT / "templates" / "sections" / "contact-form.html"
-    macro_path = ROOT / "templates" / "macros" / "contact.html"
-    contact_js_path = ROOT / "static" / "js" / "modules" / "contact.js"
-
-    data = load_yaml(data_path).get("contact_intake", {})
-    required_lists = ("situations", "roles", "vacancy_statuses", "urgent_issues", "intent_options")
-    for key in required_lists:
-        if not isinstance(data.get(key), list) or not data[key]:
-            errors.append(f"content/data/contact-intake.yaml: contact_intake.{key} must be a non-empty list")
-
-    form = form_path.read_text(encoding=TEXT_ENCODING)
-    macros = macro_path.read_text(encoding=TEXT_ENCODING)
-    if "care_intake_form(site, contact_intake)" not in form or "contact_methods(site)" not in form:
-        errors.append("templates/sections/contact-form.html: contact section should delegate to contact macros")
-
-    for key in ("situations", "roles", "vacancy_statuses", "urgent_issues"):
-        if f"contact_intake.{key}" not in macros:
-            errors.append(f"templates/macros/contact.html: {key} should be generated from contact_intake data")
-
-    contact_js = contact_js_path.read_text(encoding=TEXT_ENCODING)
-    if "runtimeConfig.contactIntentOptions" not in contact_js or "const contactIntentOptions = [" in contact_js:
-        errors.append("static/js/modules/contact.js: contact intent options should come from runtimeConfig.contactIntentOptions")
-
-
 def main() -> int:
     errors: list[str] = []
 
@@ -268,7 +242,6 @@ def main() -> int:
     check_duplicate_selectors(errors)
     check_module_entry(errors)
     check_runtime_config_contract(errors)
-    check_contact_intake_contract(errors)
 
     if errors:
         print("Frontend architecture check failed:")

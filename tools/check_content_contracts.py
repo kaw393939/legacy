@@ -1,19 +1,11 @@
 #!/usr/bin/env python3
-"""Validate source content contracts before the static build runs."""
+"""Validate generic source content contracts before the static build runs."""
 
 from __future__ import annotations
 
 from urllib.parse import urlparse
 
-from tools.site_framework import (
-    CONTENT_DIR,
-    PAGES_DIR,
-    configured_static_dir,
-    configured_templates_dir,
-    load_yaml,
-    output_name,
-    page_sources,
-)
+from tools.site_framework import CONTENT_DIR, configured_static_dir, configured_templates_dir, load_yaml, page_sources
 
 
 MAX_TITLE_LENGTH = 75
@@ -22,27 +14,12 @@ PAGE_REQUIRED_FIELDS = ("layout", "title", "description", "page_id")
 SITE_REQUIRED_FIELDS = ("title", "description", "url", "email", "phone_display")
 BUILD_REQUIRED_FIELDS = ("output_dir", "static_dir", "template_dir")
 SITUATION_REQUIRED_FIELDS = ("contact_interest", "eyebrow", "boundary")
-SITUATION_REQUIRED_LISTS = {
-    "first_actions": 3,
-    "common_mistakes": 3,
-    "how_we_help": 3,
-    "costs": 3,
-    "timeline": 3,
-    "records": 2,
-    "related_links": 2,
-}
 
 
 def check_required(errors: list[str], source: str, data: dict, keys: tuple[str, ...]) -> None:
     for key in keys:
         if key not in data or data[key] in ("", None):
             errors.append(f"{source}: missing required field {key!r}")
-
-
-def check_list_min(errors: list[str], source: str, data: dict, key: str, minimum: int) -> None:
-    value = data.get(key)
-    if not isinstance(value, list) or len(value) < minimum:
-        errors.append(f"{source}: {key!r} must contain at least {minimum} items")
 
 
 def check_image(errors: list[str], source: str, hero: dict | None) -> None:
@@ -82,7 +59,6 @@ def validate_config(errors: list[str]) -> None:
 
 def validate_pages(errors: list[str], warnings: list[str]) -> None:
     seen_page_ids: dict[str, str] = {}
-    seen_hero_images: dict[str, str] = {}
 
     for page in page_sources():
         source = page.source_label
@@ -95,7 +71,6 @@ def validate_pages(errors: list[str], warnings: list[str]) -> None:
         check_layout(errors, source, frontmatter)
         check_body(warnings, source, page.body)
         check_layout_contracts(errors, page)
-        check_hero_image_uniqueness(errors, source, frontmatter, seen_hero_images)
         check_canonical(errors, page)
 
 
@@ -138,30 +113,8 @@ def check_layout_contracts(errors: list[str], page) -> None:
     if layout in {"page", "situation"}:
         check_image(errors, page.source_label, page.frontmatter.get("hero"))
 
-    if layout == "page":
-        check_list_min(errors, page.source_label, page.frontmatter, "hero_actions", 1)
-
     if layout == "situation":
         check_required(errors, page.source_label, page.frontmatter, SITUATION_REQUIRED_FIELDS)
-        for key, minimum in SITUATION_REQUIRED_LISTS.items():
-            check_list_min(errors, page.source_label, page.frontmatter, key, minimum)
-
-
-def check_hero_image_uniqueness(
-    errors: list[str],
-    source: str,
-    page: dict,
-    seen_hero_images: dict[str, str],
-) -> None:
-    image = ((page.get("hero") or {}).get("image") or "").strip()
-    if not image:
-        return
-
-    if image in seen_hero_images:
-        errors.append(f"{source}: duplicate hero.image {image!r}; also used by {seen_hero_images[image]}")
-        return
-
-    seen_hero_images[image] = source
 
 
 def check_canonical(errors: list[str], page) -> None:
@@ -172,35 +125,12 @@ def check_canonical(errors: list[str], page) -> None:
         errors.append(f"{page.source_label}: seo.canonical should be {expected}")
 
 
-def validate_data(errors: list[str]) -> None:
-    situations_path = CONTENT_DIR / "data" / "situations.yaml"
-    if not situations_path.exists():
-        return
-
-    situations = load_yaml(situations_path).get("situations", {})
-    cards = situations.get("featured") or situations.get("cards") or []
-    page_files = {output_name(path) for path in PAGES_DIR.glob("*.md")}
-
-    if not isinstance(cards, list) or not cards:
-        errors.append("content/data/situations.yaml: situations.featured must be a non-empty list")
-        return
-
-    for index, card in enumerate(cards, start=1):
-        source = f"content/data/situations.yaml card {index}"
-        check_required(errors, source, card, ("id", "title", "url", "description"))
-
-        url = str(card.get("url", "")).split("#", 1)[0].split("?", 1)[0]
-        if url and url not in page_files:
-            errors.append(f"{source}: url does not match a source page output: {url}")
-
-
 def main() -> int:
     errors: list[str] = []
     warnings: list[str] = []
 
     validate_config(errors)
     validate_pages(errors, warnings)
-    validate_data(errors)
 
     for warning in warnings:
         print(f"WARNING: {warning}")

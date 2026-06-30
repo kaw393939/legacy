@@ -240,7 +240,10 @@ When adding a new page, prefer an existing layout before creating a new template
 Active framework tools:
 
 - `tools/site_framework.py`: shared paths, YAML loading, frontmatter parsing, output naming, and slugging
-- `tools/check_content_contracts.py`: source content contract validation
+- `tools/check_content_contracts.py`: generic source content contract validation
+- `tools/check_site_contracts.py`: Legacy Defenders site-profile contract validation
+- `tools/check_frontend_architecture.py`: template, CSS, and JS architecture guardrails
+- `tools/check_framework_boundaries.py`: reusable framework versus site-profile boundary guardrails
 - `tools/check_site_integrity.py`: generated-site validation and optional JSON reporting through `validator.py`
 - `tools/new_page.py`: page and situation-page scaffolding
 - `tools/run_lighthouse_budget.mjs`: Lighthouse budget runner
@@ -256,6 +259,17 @@ For a situation guide:
 ```powershell
 .\.venv\Scripts\python.exe -m tools.new_page --kind situation --slug new-situation --title "New Situation Help" --description "Describe the situation and the first useful next step."
 ```
+
+## Design System
+
+The visual system is documented in [project-docs/design-system.md](project-docs/design-system.md).
+
+Short version:
+
+- Source CSS lives in `static/css/parts/` and builds into `docs/styles.css`.
+- Reuse component classes and Jinja macros before adding one-off HTML or CSS.
+- Keep business-specific page expectations in site-profile checks, not generic framework checks.
+- Run `site.py check --lighthouse` before publishing meaningful frontend changes.
 
 ## CSS
 

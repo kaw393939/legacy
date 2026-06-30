@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Convenience CLI for the Legacy Defenders static site."""
+"""Convenience CLI for the static site framework."""
 
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ class SiteManager:
         path = self.root / config_file
         if not path.exists():
             return {
-                "project": {"name": "Legacy Defenders"},
+                "project": {"name": "Static Site"},
                 "performance": {"minify_css": True, "lighthouse_min_score": 90},
             }
         return load_yaml(path)
@@ -49,7 +49,7 @@ class SiteManager:
         level_name = self.config.get("logging", {}).get("level", "INFO")
         level = getattr(logging, str(level_name).upper(), logging.INFO)
         logging.basicConfig(level=level, format="%(levelname)s: %(message)s", stream=sys.stdout)
-        self.logger = logging.getLogger("legacy-site")
+        self.logger = logging.getLogger("static-site")
 
     def _run(self, command: Sequence[str], *, label: str) -> None:
         self.logger.info(label)
@@ -158,7 +158,9 @@ class SiteManager:
         self.check_python_syntax()
         self.optimize_images()
         self._run([sys.executable, "-m", "tools.check_content_contracts"], label="Checking source content contracts")
+        self._run([sys.executable, "-m", "tools.check_site_contracts"], label="Checking site profile contracts")
         self._run([sys.executable, "-m", "tools.check_frontend_architecture"], label="Checking frontend architecture")
+        self._run([sys.executable, "-m", "tools.check_framework_boundaries"], label="Checking framework boundaries")
         self.build()
         self._run(
             [sys.executable, "-m", "tools.check_site_integrity", "--report", VALIDATION_REPORT],
@@ -189,7 +191,7 @@ class SiteManager:
 
     def status(self) -> None:
         project = self.config.get("project", {})
-        print(f"{project.get('name', 'Legacy Defenders')} v{project.get('version', 'unknown')}")
+        print(f"{project.get('name', 'Static Site')} v{project.get('version', 'unknown')}")
         print(f"Root: {self.root}")
         print(f"Output: {self.output_dir}")
         print(f"Output exists: {self.output_dir.exists()}")
@@ -204,7 +206,7 @@ class SiteManager:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Manage the Legacy Defenders static site")
+    parser = argparse.ArgumentParser(description="Manage the static site framework")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     subparsers.add_parser("build", help="Build the generated site")

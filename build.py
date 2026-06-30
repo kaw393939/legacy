@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Legacy Defenders static site."""
+"""Build the content-driven static site."""
 
 from __future__ import annotations
 
@@ -113,7 +113,8 @@ class SiteBuilder:
         self.asset_version = self.compute_asset_version()
         self.jinja_env = self.create_jinja_environment()
 
-        print("Legacy Defenders - Site Builder")
+        site_name = self.config.get("site", {}).get("title", "Static Site")
+        print(f"{site_name} - Site Builder")
         print("=" * 50)
 
     def create_jinja_environment(self) -> Environment:
@@ -345,14 +346,15 @@ class SiteBuilder:
         return True
 
 
-def run_content_contracts() -> bool:
+def run_source_contracts() -> bool:
     from tools.check_content_contracts import main as check_content_contracts
+    from tools.check_site_contracts import main as check_site_contracts
 
-    return check_content_contracts() == 0
+    return check_content_contracts() == 0 and check_site_contracts() == 0
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build the Legacy Defenders website")
+    parser = argparse.ArgumentParser(description="Build the static website")
     parser.add_argument("--no-clean", action="store_true", help="Do not clean output directory")
     parser.add_argument("--validate", action="store_true", help="Run source and output validation")
     parser.add_argument("--minify-css", action="store_true", help="Conservatively minify bundled CSS output")
@@ -365,7 +367,7 @@ def main() -> None:
     try:
         optimize_all()
 
-        if args.validate and not run_content_contracts():
+        if args.validate and not run_source_contracts():
             sys.exit(1)
 
         builder = SiteBuilder()

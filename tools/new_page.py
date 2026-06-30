@@ -4,12 +4,44 @@
 from __future__ import annotations
 
 import argparse
+from dataclasses import dataclass
 from urllib.parse import quote
 
 from tools.site_framework import PAGES_DIR, ROOT, TEXT_ENCODING, slugify
 
 
-DEFAULT_HERO_IMAGE = "images/hero/legacy-defenders-care-hero.webp"
+@dataclass(frozen=True)
+class SiteProfile:
+    name: str
+    default_hero_image: str
+    page_eyebrow: str
+    situation_eyebrow: str
+    primary_cta_text: str
+    primary_cta_icon: str
+    situation_boundary: str
+    probate_reference_title: str
+    probate_reference_url: str
+
+
+LEGACY_DEFENDERS_PROFILE = SiteProfile(
+    name="legacy_defenders",
+    default_hero_image="images/hero/legacy-defenders-care-hero.webp",
+    page_eyebrow="Guide",
+    situation_eyebrow="Situation guide",
+    primary_cta_text="Start With A Free Call",
+    primary_cta_icon="fa-phone",
+    situation_boundary=(
+        "Legacy Defenders does not provide legal, tax, appraisal, lending, insurance, real estate brokerage, "
+        "or licensed trade advice."
+    ),
+    probate_reference_title="Allegheny County Probate Fees",
+    probate_reference_url=(
+        "https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/"
+        "Probating-Wills/Probate-Fees"
+    ),
+)
+PROFILES = {LEGACY_DEFENDERS_PROFILE.name: LEGACY_DEFENDERS_PROFILE}
+DEFAULT_PROFILE = LEGACY_DEFENDERS_PROFILE.name
 
 
 def yaml_quote(value: str) -> str:
@@ -20,22 +52,22 @@ def contact_interest(slug: str) -> str:
     return quote(slug.replace("-", " ").title())
 
 
-def page_template(slug: str, title: str, description: str) -> str:
+def page_template(profile: SiteProfile, slug: str, title: str, description: str) -> str:
     page_id = slug.replace("-", "_")
     return f"""---
 layout: page
 title: {yaml_quote(title)}
 description: {yaml_quote(description)}
 page_id: {yaml_quote(page_id)}
-eyebrow: "Guide"
+eyebrow: {yaml_quote(profile.page_eyebrow)}
 hero:
-  image: "{DEFAULT_HERO_IMAGE}"
+  image: {yaml_quote(profile.default_hero_image)}
   alt: ""
   caption: ""
 hero_actions:
-  - text: "Start With A Free Call"
+  - text: {yaml_quote(profile.primary_cta_text)}
     url: "index.html?interest={contact_interest(slug)}#contact"
-    icon: "fa-phone"
+    icon: {yaml_quote(profile.primary_cta_icon)}
     style: "btn-primary"
 seo:
   canonical: "/{slug}.html"
@@ -48,17 +80,17 @@ Write the page around one clear reader problem, the first useful step, and the n
 """
 
 
-def situation_template(slug: str, title: str, description: str) -> str:
+def situation_template(profile: SiteProfile, slug: str, title: str, description: str) -> str:
     page_id = slug.replace("-", "_")
     return f"""---
 layout: situation
 title: {yaml_quote(title)}
 description: {yaml_quote(description)}
 page_id: {yaml_quote(page_id)}
-eyebrow: "Situation guide"
+eyebrow: {yaml_quote(profile.situation_eyebrow)}
 contact_interest: {yaml_quote(title)}
 hero:
-  image: "{DEFAULT_HERO_IMAGE}"
+  image: {yaml_quote(profile.default_hero_image)}
   alt: ""
   caption: ""
 stats:
@@ -70,46 +102,46 @@ stats:
     label: "First plan"
 first_actions:
   - title: "Confirm authority"
-    text: "Clarify who can approve access, spending, belongings movement, provider work, and next decisions."
-  - title: "Map the house"
-    text: "Document rooms, belongings, urgent risks, bills, access issues, and likely provider needs."
+    text: "Clarify who can approve access, spending, provider work, and next decisions."
+  - title: "Map the situation"
+    text: "Document urgent risks, important assets, access issues, and likely provider needs."
   - title: "Choose the first bottleneck"
-    text: "Decide what must happen first so the estate can move without confusion or waste."
+    text: "Decide what must happen first so the project can move without confusion or waste."
 common_mistakes:
   - "Starting work before authority, access, and records are clear."
-  - "Throwing away belongings before papers, photos, titles, valuables, and memory items are protected."
+  - "Discarding important items before papers, photos, valuables, and memory items are protected."
   - "Hiring providers without a written scope, budget, photo record, and decision log."
 how_we_help:
-  - "Turn the house, belongings, risks, provider needs, and next options into a practical plan."
-  - "Coordinate the local work so the family has fewer separate calls, quotes, and follow-ups."
-  - "Create photos, notes, receipts, scopes, and item records the executor can keep."
+  - "Turn the situation, risks, provider needs, and next options into a practical plan."
+  - "Coordinate local work so the family has fewer separate calls, quotes, and follow-ups."
+  - "Create photos, notes, receipts, scopes, and item records the decision maker can keep."
 cost_intro: "These are planning ranges, not quotes. Exact pricing depends on condition, access, volume, urgency, provider availability, authority, and approved scope."
 costs:
-  - category: "Free estate call"
+  - category: "Free first call"
     range: "$0"
-    notes: "A calm first conversation about the home, authority, belongings, deadlines, and pressure points."
-  - category: "Estate Math Home Visit"
+    notes: "A calm first conversation about the situation, authority, deadlines, and pressure points."
+  - category: "Planning visit"
     range: "$250 credit"
     notes: "Walkthrough of the property, belongings, obvious risks, provider needs, and first budget categories."
   - category: "First coordination sprint"
     range: "$8,500-$12,000 typical"
-    notes: "A scoped first project to clear the first bottleneck and give the executor documented next steps."
+    notes: "A scoped first project to clear the first bottleneck and provide documented next steps."
 timeline:
   - period: "First 48 hours"
-    text: "Protect access, records, utilities, mail, obvious risks, and high-value or sentimental items."
+    text: "Protect access, records, utilities, obvious risks, and high-value or sentimental items."
   - period: "First week"
-    text: "Complete the home visit, document the situation, and choose the first approved scope."
+    text: "Complete the visit, document the situation, and choose the first approved scope."
   - period: "First 30 days"
     text: "Move approved work forward with photos, receipts, provider scopes, and family-ready updates."
 records:
-  - title: "Estate Math Snapshot"
-    text: "A practical view of risks, costs, belongings, provider needs, timing, and next decisions."
-  - title: "Executor-ready packet"
+  - title: "Planning snapshot"
+    text: "A practical view of risks, costs, provider needs, timing, and next decisions."
+  - title: "Decision-ready packet"
     text: "Scopes, receipts, invoices, photos, provider notes, budget categories, and open questions."
-boundary: "Legacy Defenders does not provide legal, tax, appraisal, lending, insurance, real estate brokerage, or licensed trade advice."
+boundary: {yaml_quote(profile.situation_boundary)}
 official_references:
-  - title: "Allegheny County Probate Fees"
-    url: "https://www.alleghenycounty.us/Government/Court-Related/Wills-and-Orphans/Probating-Wills/Probate-Fees"
+  - title: {yaml_quote(profile.probate_reference_title)}
+    url: {yaml_quote(profile.probate_reference_url)}
     note: "Check current filing and administration fee schedules."
 related_links:
   - label: "Costs"
@@ -129,18 +161,19 @@ Describe what the reader is facing in plain language before listing services. Ke
 """
 
 
-def render_template(kind: str, slug: str, title: str, description: str) -> str:
+def render_template(profile: SiteProfile, kind: str, slug: str, title: str, description: str) -> str:
     if kind == "situation":
-        return situation_template(slug, title, description)
-    return page_template(slug, title, description)
+        return situation_template(profile, slug, title, description)
+    return page_template(profile, slug, title, description)
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         prog="python -m tools.new_page",
-        description="Create a Legacy Defenders page scaffold",
+        description="Create a static-site page scaffold",
     )
     parser.add_argument("--kind", choices=["page", "situation"], default="page")
+    parser.add_argument("--profile", choices=sorted(PROFILES), default=DEFAULT_PROFILE)
     parser.add_argument("--slug", help="URL slug, for example out-of-state-executor")
     parser.add_argument("--title", required=True)
     parser.add_argument("--description", required=True)
@@ -150,6 +183,7 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> int:
     args = parse_args()
+    profile = PROFILES[args.profile]
     slug = slugify(args.slug or args.title)
 
     if not slug:
@@ -160,7 +194,7 @@ def main() -> int:
         print(f"Refusing to overwrite existing page: {target}")
         return 1
 
-    target.write_text(render_template(args.kind, slug, args.title, args.description), encoding=TEXT_ENCODING)
+    target.write_text(render_template(profile, args.kind, slug, args.title, args.description), encoding=TEXT_ENCODING)
     print(f"Created {target.relative_to(ROOT)}")
     print("Next steps:")
     print("- Replace empty hero alt/caption values with specific copy.")

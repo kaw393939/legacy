@@ -1,4 +1,4 @@
-"""Shared primitives for the Legacy Defenders static site framework."""
+"""Shared primitives for the static site framework."""
 
 from __future__ import annotations
 
